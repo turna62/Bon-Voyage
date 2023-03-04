@@ -1,25 +1,30 @@
-import logo from './logo.svg';
+import React from "react";
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import { BrowserRouter as Router, Routes, Route, Link} from "react-router-dom";
 
+import SignUp from "./user_creation/signup";
+import LogIn from "./user_creation/login";
+import UserProfile from "./user_creation/userProfile";
+
+import Home from "./Home/home";
+
+function App() {
+
+    const isLoggedIn = window.localStorage.getItem("loggedIn");
+    return (
+        
+        <Router>
+           <Routes>
+           <Home />
+            <Route exact path = "/" element = {isLoggedIn == "true" ? <UserProfile/> : <LogIn/>}/>
+            <Route path = "/sign-in" element={<LogIn/>}/>
+            <Route path = "/sign-up" element={<SignUp/>}/>
+            <Route path = "/userProfile" element={<UserProfile/>}/>
+           </Routes>
+        </Router>
+        
+        
+    );
+}
 export default App;
