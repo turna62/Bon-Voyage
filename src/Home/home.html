@@ -21,16 +21,24 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat:500,700&display=swap&subset=latin-ext" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600&display=swap&subset=latin-ext" rel="stylesheet">
     <link href="HomeCss/bootstrap.css" rel="stylesheet">
+    <link href="HomeCss/bootstrap.min.css" rel="stylesheet">
     <link href="HomeCss/fontawesome-all.css" rel="stylesheet">
     <link href="HomeCss/swiper.css" rel="stylesheet">
 	<link href="HomeCss/magnific-popup.css" rel="stylesheet">
 	<link href="HomeCss/styles.css" rel="stylesheet">
 
-
-	
-	<!-- Favicon  -->
-    <link rel="icon" href="#">
-
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+     <!-- Google Web Fonts -->
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet">
+ 
+     <!-- Icon Font Stylesheet -->
+     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+ 
+    
+   
 </head>
 
 <body data-spy="scroll" data-target=".fixed-top">
@@ -79,13 +87,38 @@
                 end of dropdown menu -->
 
                 <li class="nav-item">
-                    <a class="nav-link" href="user_creation\login.html">Sign Up</a>
+                    <a class="nav-link" href="user_creation\login.html">SIGN UP</a>
+                    
+                </li>
+
+                <li class="nav-item-search">
+                    
+                    <butaton type="button" class="btn text-light ms-3" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fa fa-search"></i></butaton>
                     
                 </li>
             </ul>
                     </div>
     </nav> <!-- end of navbar -->
     <!-- end of navbar -->
+
+    <!-- Full Screen Search Start -->
+    <div class="modal fade" id="searchModal" tabindex="-1">
+        <div class="modal-dialog modal-fullscreen">
+            <div class="modal-content" style="background: rgba(11, 18, 26, 0.781);">
+                <div class="modal-header border-0">
+                    <button type="button" class="btn bg-white btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body d-flex align-items-center justify-content-center">
+                    <div class="input-group" style="max-width: 600px;">
+                        <input type="text" class="form-control bg-transparent border-light p-3" placeholder="Type search keyword">
+                        <button class="btn btn-success px-4 border-light"><i class="bi bi-search"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Full Screen Search End -->
+
 
 
     <!-- Header -->
@@ -108,6 +141,32 @@
 
 
     <!-- Intro -->
+     <!--counter-->
+
+     <div id="about" class="counter">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7 col-xl-6">
+    <div id="counter">
+        <div class="cell">
+            <div class="counter-value number-count" data-count="231">1</div>
+            <div class="counter-info">Happy<br>Users</div>
+        </div>
+        <div class="cell">
+            <div class="counter-value number-count" data-count="121">1</div>
+            <div class="counter-info">Issues<br>Solved</div>
+        </div>
+        <div class="cell">
+            <div class="counter-value number-count" data-count="159">1</div>
+            <div class="counter-info">Good<br>Reviews</div>
+        </div>
+    </div>
+</div> <!-- end of col -->
+</div> <!-- end of row -->
+</div> <!-- end of container -->
+</div> <!-- end of counter -->
+<!-- end of counter -->
+
     <div id="intro" class="basic-1">
         <div class="container">
             <div class="row">
@@ -121,22 +180,24 @@
                 </div> <!-- end of col -->
                 <div class="col-lg-7">
                     <div class="image-container">
-                        <img class="img-fluid" src="images/intro-office.jpg" alt="alternative">
+                        <img class="img-fluid" src="images/details-2-background.jpg" alt="alternative">
                     </div> <!-- end of image-container -->
                 </div> <!-- end of col -->
             </div> <!-- end of row -->
         </div> <!-- end of container -->
     </div> <!-- end of basic-1 -->
     <!-- end of intro -->
-    
    
+    <!--how it works-->
+ 
+    
     <!-- Description -->
     <div id="services" class="basic-2"></div>
     <div class="cards-1">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="section-title">SERVICES</div>
+                    <div class="section-title"><p>SERVICES</p></div>
                     
                     <!-- Card -->
                     <div class="card">
@@ -152,6 +213,7 @@
                     <!-- end of card -->
 
                     <!-- Card -->
+                
                     <div class="card">
                         <span class="fa-stack">
                             <span class="hexagon"></span>
@@ -162,21 +224,24 @@
                             <p>After the destination of the trip is confirmed, suitable routes for that destination will be viewed.</p>
                         </div>
                     </div>
+               
                     <!-- end of card -->
 
 
                     <!-- Card -->
+                
                     <div class="card">
                         <span class="fa-stack">
                             <span class="hexagon"></span>
-                            
-                            <i class="fas fa-list-alt fa-stack-1x"></i>
+                            <i class="fas fa-users fa-stack-1x"></i>
+                          
                         </span>
                         <div class="card-body">
                             <h4 class="card-title">Collaborative Planning</h4>
                             <p>Trip planners can plan collaboratively in a planning slot.</p>
                         </div>
                     </div>
+                
                     <!-- end of card -->
                 </div>
                 </div> <!-- end of col -->
@@ -187,8 +252,91 @@
     <!-- end of description -->
 
 
-        
-    <!-- Footer -->
+   <!-- Testimonial -->
+
+   <div class="section-titles text-center position-relative pb-3 mb-4 mx-auto" style="max-width: 600px;">
+    <h1 class="mb-0">What Our Users Say About Our Services</h1>
+   </div>
+
+   <!-- Testimonials -->
+   <div class="slider">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+
+                <!-- Card Slider -->
+                <div class="slider-container">
+                    <div class="swiper-container card-slider">
+                        <div class="swiper-wrapper">
+                            
+                            <!-- Slide -->
+                            <div class="swiper-slide">
+                                <div class="card">
+                                    <img class="card-image" src="images/testimonial-1.jpg" alt="alternative">
+                                    <div class="card-body">
+                                        <div class="testimonial-text">Great system to plan trip collaboratively.</div>
+                                        <div class="testimonial-author">Turna</div>
+                                    </div>
+                                </div>
+                            </div> <!-- end of swiper-slide -->
+                            <!-- end of slide -->
+    
+                            <!-- Slide -->
+                            <div class="swiper-slide">
+                                <div class="card">
+                                    <img class="card-image" src="images/testimonial-2.jpg" alt="alternative">
+                                    <div class="card-body">
+                                        <div class="testimonial-text">Enjoyed a lot while planning a trip. Nice website. </div>
+                                        <div class="testimonial-author">Shaira</div>
+                                    </div>
+                                </div>        
+                            </div> <!-- end of swiper-slide -->
+                            <!-- end of slide -->
+    
+                            <!-- Slide -->
+                            <div class="swiper-slide">
+                                <div class="card">
+                                    <img class="card-image" src="images/testimonial-3.jpg" alt="alternative">
+                                    <div class="card-body">
+                                        <div class="testimonial-text">Will surely use this site for next trips too.</div>
+                                        <div class="testimonial-author">Tohfa</div>
+                                    </div>
+                                </div>        
+                            </div> <!-- end of swiper-slide -->
+                            <!-- end of slide -->
+    
+                            <!-- Slide -->
+                            <div class="swiper-slide">
+                                <div class="card">
+                                    <img class="card-image" src="images/testimonial-4.jpg" alt="alternative">
+                                    <div class="card-body">
+                                        <div class="testimonial-text">Great approach. Have already recommended to my friends.</div>
+                                        <div class="testimonial-author">Samia</div>
+                                    </div>
+                                </div>
+                            </div> <!-- end of swiper-slide -->
+                            <!-- end of slide -->
+    
+                        
+                        </div> <!-- end of swiper-wrapper -->
+    
+                        <!-- Add Arrows -->
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                        <!-- end of add arrows -->
+    
+                    </div> <!-- end of swiper-container -->
+                </div> <!-- end of sliedr-container -->
+                <!-- end of card slider -->
+
+            </div> <!-- end of col -->
+        </div> <!-- end of row -->
+    </div> <!-- end of container -->
+</div> <!-- end of slider -->
+<!-- end of testimonials -->
+
+
+      <!-- Footer -->
     <div class="footer">
         <div class="container">
             <div class="row">
@@ -237,5 +385,17 @@
     <script src="js/isotope.pkgd.min.js"></script> <!-- Isotope for filter -->
     <script src="js/validator.min.js"></script> <!-- Validator.js - Bootstrap plugin that validates forms -->
     <script src="js/scripts.js"></script> <!-- Custom scripts -->
+
+     <!-- JavaScript Libraries -->
+     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+     <script src="lib/wow/wow.min.js"></script>
+     <script src="lib/easing/easing.min.js"></script>
+     <script src="lib/waypoints/waypoints.min.js"></script>
+     <script src="lib/counterup/counterup.min.js"></script>
+     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+ 
+    
+ 
 </body>
 </html>

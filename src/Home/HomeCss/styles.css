@@ -40,15 +40,17 @@ Colors:
 /******************************/
 /*     01. General Styles     */
 /******************************/
+
+
+
+
+/* Demo purposes only */
+
+
 body,
 html {
     width: 100%;
 	height: 100%;
-}
-
-body, p {
-	color: #787976; 
-	font: 400 1rem/1.5625rem "Open Sans", sans-serif;
 }
 
 .p-large {
@@ -62,6 +64,8 @@ body, p {
 .p-heading {
 	margin-bottom: 3.5rem;
 	text-align: center;
+	font-size: 20px;
+	font-weight: 600;
 }
 
 .li-space-lg li {
@@ -138,7 +142,12 @@ strong {
 	font: 600 0.8125rem/1.125rem "Montserrat", sans-serif;
 	position: relative;
 	bottom: 35px;
-	font-size: 16px;
+	font-size: 20px;
+}
+
+.section-titles {
+	position: relative;
+	top: 30px;
 }
 
 .btn-solid-reg {
@@ -164,16 +173,16 @@ strong {
 	padding: 1.375rem 2.125rem 1.375rem 2.125rem;
 	border: 0.2rem solid #14bf98;
 	border-radius: 0.25rem;
-	background-color: #14bf98;
+	background-color: transparent;
 	color: #fff;
 	font: 700 0.75rem/0 "Montserrat", sans-serif;
 	text-decoration: none;
 	transition: all 0.2s;
-	font-size: 16px;
+	font-size: 18px;
 }
 
 .btn-solid-lg:hover {
-	background-color: transparent;
+	background-color: #14bf9764;
 	color: #fff;
 	text-decoration: none;
 }
@@ -675,7 +684,9 @@ input[type='checkbox'] {
 	color: #fff;
 	text-decoration: none;
 	transition: all 0.2s ease;
-	font-size: 15px;
+	font-size: 17px;
+	left: 1px;
+	letter-spacing: 1px;
 }
 
 .navbar-custom .nav-item .nav-link:hover,
@@ -688,6 +699,11 @@ input[type='checkbox'] {
 	display: block; /* this makes the dropdown menu stay open while hovering it */
 	min-width: auto;
 	animation: fadeDropdown 0.2s; /* required for the fade animation */
+}
+
+.nav-item-search butaton {
+	position: relative;
+	bottom: 5px;
 }
 
 @keyframes fadeDropdown {
@@ -818,6 +834,12 @@ input[type='checkbox'] {
 	margin-bottom: 0.5rem;
 }
 
+.section-title p {
+	
+	position: relative;
+	bottom: 30px;
+}
+
 .basic-1 h2 {
 	margin-bottom: 1.375rem;
 }
@@ -837,8 +859,9 @@ input[type='checkbox'] {
 	border-radius: 0.25rem;
 	transition: all 0.3s;
 	position: relative;
-	left: 250px;
-	height: 350px;
+	left: 120px;
+	height: 330px;
+	top: 20px;
 	}
 
 .basic-1 .image-container:hover img {
@@ -897,80 +920,7 @@ input[type='checkbox'] {
 
 /************************/
 /*     07. Services     */
-/************************/
-.cards-2 {
-	padding-top: 6.625rem;	
-	padding-bottom: 1.25rem;	
-	background-color: #fbfbfb;
-}
 
-.cards-2 .section-title {
-	margin-bottom: 0.5rem;
-	text-align: center;
-}
-
-.cards-2 h2 {
-	margin-bottom: 3.25rem;
-	text-align: center;
-}
-
-.cards-2 .card {
-	margin-bottom: 5.625rem;
-	border: none;
-	background-color: transparent;
-}
-
-.cards-2 .card-image img {
-	border-top-left-radius: 0.375rem;
-	border-top-right-radius: 0.375rem;
-}
-
-.cards-2 .card-body {
-	padding: 2.25rem 2rem 2.125rem 2rem;
-	border: 1px solid #ebe8e8;
-	border-bottom-left-radius: 0.375rem;
-	border-bottom-right-radius: 0.375rem;
-	background-color: #fff;
-}
-
-.cards-2 h3 {
-	margin-bottom: 0.75rem;
-	text-align: center;
-}
-
-.cards-2 .list-unstyled {
-	margin-bottom: 1.5rem;
-}
-
-.cards-2 .list-unstyled .fas {
-	color: #14bf98;
-	font-size: 0.5rem;
-	line-height: 1.375rem;
-}
-
-.cards-2 .list-unstyled .media-body {
-	margin-left: 0.625rem;
-}
-
-.cards-2 .price {
-	margin-bottom: 0.25rem;
-	color: #484a46;
-	font: 700 1rem/1.5rem "Montserrat", sans-serif;
-	text-align: center;
-}
-
-.cards-2 .price span {
-	color: #14bf98;
-}
-
-.cards-2 .button-container {
-	margin-top: -1.375rem;
-	text-align: center;
-}
-
-.cards-2 .btn-solid-reg:hover {
-	background-color: #fff;
-}
 
 
 /*************************/
@@ -1578,8 +1528,8 @@ input[type='checkbox'] {
 /*     15. About     */
 /*********************/
 .counter {
-	padding-top: 6.875rem;
-	padding-bottom: 5.25rem;
+	position: relative;
+	left: 120px;
 }
 
 .counter .image-container {
@@ -1862,9 +1812,10 @@ a:hover.back-to-top {
 
 	/* Navigation */
 	.navbar-custom {
-		padding: 2.125rem 1.5rem 2.125rem 2rem;
-		box-shadow: none;
-        background: transparent;
+
+		padding: 0.375rem 2rem 0.375rem 2rem;
+		box-shadow: 0 0.0625rem 0.375rem 0 rgba(0, 0, 0, 0.1);
+		background-color: #113448;
 	}
 	
 	.navbar-custom .navbar-brand.logo-text {
@@ -1878,6 +1829,8 @@ a:hover.back-to-top {
 
 	.navbar-custom .nav-item .nav-link {
 		padding: 0.25rem 0.75rem 0.25rem 0.75rem;
+		position: relative;
+		top: 5px;
 	}
 	
 	.navbar-custom .nav-item .nav-link:hover,
@@ -1896,6 +1849,8 @@ a:hover.back-to-top {
 	}
 
 	.navbar-custom.top-nav-collapse .nav-item .nav-link {
+		position: relative;
+		top: 5px;
 		color: #fff;
 	}
 	
@@ -1928,6 +1883,15 @@ a:hover.back-to-top {
 
 
 	/* Header */
+
+	.header{
+
+		position: relative;
+		bottom: 80px;
+
+	}
+
+
 	.header .header-content {
 		padding-top: 13rem;
 		padding-bottom: 7.5rem;
@@ -2378,23 +2342,6 @@ a:hover.back-to-top {
 		margin-left: 1.375rem;
 	}
 	/* end of team */
-
-
-	/* About */
-	.counter {
-		padding-bottom: 6.125rem;
-	}
-
-	.counter .image-container {
-		margin-right: 1.5rem;
-	}
-
-	.counter .text-container {
-		margin-top: 0.375rem;
-		margin-right: 2.5rem;
-		margin-left: 2rem;
-	}
-	/* end of about */
 	
 	
 	/* Contact */

@@ -1,9 +1,9 @@
 import React from 'react';
-import '.HomeCss/styles.css';
-import '.HomeCss/swiper.css';
-import '.HomeCss/bootsrap.css';
-import '.HomeCss/magnific-poup.css';
-import '.HomeCss/fontawesome-all.css';
+ import './HomeCss/styles.css';
+ import './HomeCss/swiper.css';
+ import './HomeCss/bootstrap.css';
+ import './HomeCss/magnific-popup.css';
+ import './HomeCss/fontawesome-all.css';
 
 class Home extends React.Component{
     render(){
