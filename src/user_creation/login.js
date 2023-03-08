@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './styles.css';
+import './ucstyles.css';
 
 export default class LogIn extends Component {
     constructor (props){

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './styles.css';
+import './ucstyles.css';
 
 export default class SignUp extends Component {
     // to get values from the form
