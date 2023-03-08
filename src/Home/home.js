@@ -2,6 +2,7 @@ import React from 'react';
  import './HomeCss/styles.css';
  import './HomeCss/swiper.css';
  import './HomeCss/bootstrap.css';
+ import './HomeCss/bootstrap.min.css';
  import './HomeCss/magnific-popup.css';
  import './HomeCss/fontawesome-all.css';
 

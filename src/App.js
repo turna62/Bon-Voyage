@@ -8,6 +8,7 @@ import LogIn from "./user_creation/login";
 import UserProfile from "./user_creation/userProfile";
 
 import Home from "./Home/home";
+import TripPlan from ".Home/PlanATrip";
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
         <Router>
            <Routes>
            <Home />
+           <TripPlan />
             <Route exact path = "/" element = {isLoggedIn == "true" ? <UserProfile/> : <LogIn/>}/>
             <Route path = "/sign-in" element={<LogIn/>}/>
             <Route path = "/sign-up" element={<SignUp/>}/>
