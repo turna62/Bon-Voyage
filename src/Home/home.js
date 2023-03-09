@@ -6,6 +6,7 @@ import React from 'react';
  import './HomeCss/magnific-popup.css';
  import './HomeCss/fontawesome-all.css';
  import './css1/style.css';
+ 
 
 class HomePage extends React.Component{
     render(){
@@ -16,7 +17,7 @@ class HomePage extends React.Component{
             <body data-spy="scroll" data-target=".fixed-top">
     
 
-            {/* <div class="spinner-wrapper">
+             {/* <div class="spinner-wrapper">
                 <div class="spinner">
                     <div class="bounce1"></div>
                     <div class="bounce2"></div>
@@ -55,7 +56,7 @@ class HomePage extends React.Component{
                             </div>
             </nav> 
         
-        
+            
         
             <header id="header" class="header">
                 <div class="header-content">
@@ -97,7 +98,18 @@ class HomePage extends React.Component{
 </div> 
 </div> 
 
-        
+{/* <Card style={{ width: '18rem' }}>
+      <Card.Img variant="top" />
+      <Card.Body>
+        <Card.Title>Card Title</Card.Title>
+        <Card.Text>
+          Some quick example text to build on the card title and make up the
+          bulk of the card's content.
+        </Card.Text>
+        <Button variant="primary">Go somewhere</Button>
+      </Card.Body>
+    </Card>
+         */}
             <div id="intro" class="basic-1">
                 <div class="container">
                     <div class="row">
@@ -225,7 +237,7 @@ class HomePage extends React.Component{
                                 </div>
                             </div>
                     
-        
+                           
                         
                             <div class="card">
                                 <span class="fa-stack">
@@ -294,27 +306,7 @@ class HomePage extends React.Component{
                 </div> 
             </div> 
             
-    <script src="js/jquery.min.js"></script> 
-    <script src="js/popper.min.js"></script> 
-    <script src="js/bootstrap.min.js"></script> 
-    <script src="js/jquery.easing.min.js"></script> 
-    <script src="js/swiper.min.js"></script> 
-    <script src="js/jquery.magnific-popup.js"></script> 
-    <script src="js/morphext.min.js"></script> 
-    <script src="js/isotope.pkgd.min.js"></script> 
-    <script src="js/validator.min.js"></script>
-    <script src="js/scripts.js"></script> 
-
-     
-     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-     <script src="lib/wow/wow.min.js"></script>
-     <script src="lib/easing/easing.min.js"></script>
-     <script src="lib/waypoints/waypoints.min.js"></script>
-     <script src="lib/counterup/counterup.min.js"></script>
-     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
- 
-
+    
         
         </body>
            
