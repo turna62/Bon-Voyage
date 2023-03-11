@@ -68,10 +68,10 @@ class HomePage extends React.Component{
                                     <p class="p-heading p-large">The journey of a thousand miles begins with a single step.</p>
                                     <a class="btn-solid-lg page-scroll" href="http://localhost:3001/planatrip">Plan A Trip</a>
 
-                                    <div class="topnav">
+                                    {/* <div class="topnav">
                          
                                             <input type="text" placeholder="Search.."/>
-                                    </div>
+                                    </div> */}
                                 </div>
                             </div> 
                         </div> 
@@ -188,7 +188,7 @@ class HomePage extends React.Component{
 			</div>
 			<div class="row">
 				<div class="col-md-4 col-sm-6">
-					<div class="feature-center animate-box" data-animate-effect="fadeIn">
+					<div class="feature-center ">
 						<span class="icon">
 							<i>1</i>
 						</span>
@@ -197,7 +197,7 @@ class HomePage extends React.Component{
 					</div>
 				</div>
 				<div class="col-md-4 col-sm-6">
-					<div class="feature-center animate-box" data-animate-effect="fadeIn">
+					<div class="feature-center " >
 						<span class="icon">
 							<i>2</i>
 						</span>
@@ -206,7 +206,7 @@ class HomePage extends React.Component{
 					</div>
 				</div>
 				<div class="col-md-4 col-sm-6">
-					<div class="feature-center animate-box" data-animate-effect="fadeIn">
+					<div class="feature-center " >
 						<span class="icon">
 							<i>3</i>
 						</span>

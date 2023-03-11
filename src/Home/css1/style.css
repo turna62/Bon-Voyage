@@ -80,18 +80,27 @@
   bottom: 30px;
 }
 #gtco-features .feature-center {
+  position: relative;
+  
   color: #fff;
+  
 }
 #gtco-features .feature-center .icon {
   width: 90px;
   height: 90px;
   border: 1px solid rgba(255, 255, 255, 0.8);
   background: #14bf98;
+  position: relative;
+  right: 300px;
 }
 #gtco-features .feature-center .icon i {
   color: #fff;
   font-size: 40px;
   font-style: normal;
+  position: relative;
+  font-size: 60px;
+  position: relative;
+  top: 10px;
 }
 #gtco-features .feature-center h3 {
   font-weight: 400;
@@ -115,6 +124,9 @@
   float: left;
   width: 100%;
   margin-bottom: 40px;
+  position: relative;
+  left: 45px;
+  overflow-y: hidden;
 }
 @media screen and (max-width: 768px) {
   .feature-center {
@@ -139,6 +151,8 @@
   font-size: 40px;
   line-height: 40px;
   color: #cccccc;
+  position: relative;
+  right: 0px;
 }
 .feature-center p, .feature-center h3 {
   margin-bottom: 30px;
@@ -166,6 +180,7 @@
   vertical-align: middle;
   font-size: 40px;
   color: #09C6AB;
+  position: relative;
 }
 .feature-left .feature-copy {
   float: right;
