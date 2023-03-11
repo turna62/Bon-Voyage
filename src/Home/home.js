@@ -64,9 +64,14 @@ class HomePage extends React.Component{
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="text-container">
-                                    <h1>Bon <span id="js-rotating">Voyage, Voyage!, VOYAGE!</span></h1>
+                                    <h1>Bon <span id="js-rotating">VOYAGE!</span></h1>
                                     <p class="p-heading p-large">The journey of a thousand miles begins with a single step.</p>
                                     <a class="btn-solid-lg page-scroll" href="#intro">Plan A Trip</a>
+
+                                    <div class="topnav">
+                         
+                                            <input type="text" placeholder="Search.."/>
+                                    </div>
                                 </div>
                             </div> 
                         </div> 
