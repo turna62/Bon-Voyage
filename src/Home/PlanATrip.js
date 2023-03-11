@@ -1,19 +1,19 @@
 import React from 'react';
- //import './HomeCss/styles.css';
- import './HomeCss/swiper.css';
- import './HomeCss/bootstrap.css';
- import './HomeCss/bootstrap.min.css';
- import './HomeCss/magnific-popup.css';
+ import './HomeCss/styles.css';
+ //import './HomeCss/swiper.css';
+ //import './HomeCss/bootstrap.css';
+ //import './HomeCss/bootstrap.min.css';
+ //import './HomeCss/magnific-popup.css';
  import './HomeCss/fontawesome-all.css';
- import './assets/css/hover-min.css';
+ //import './assets/css/hover-min.css';
  import './assets/css/datepicker.css';
  
- import './assets/css/bootstrap.min.css';
- import './assets/css/bootsnav.css';
+ //import './assets/css/bootstrap.min.css';
+ //import './assets/css/bootsnav.css';
  //import './assets/css/style.css';
- import './assets/css/responsive.css';
- import './assets/css/animate.css';
- import './assets/css/font-awesome.min.css';
+ //import './assets/css/responsive.css';
+ //import './assets/css/animate.css';
+ //import './assets/css/font-awesome.min.css';
 
  class TripPlan extends React.Component{
 
@@ -68,7 +68,12 @@ import React from 'react';
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
-                        
+                    <div class="text-container">
+                                    <h1>Bon <span id="js-rotating">VOYAGE!</span></h1>
+                                    <p class="p-heading p-large">The journey of a thousand miles begins with a single step.</p>
+                                      
+
+                                </div>
                     </div> 
                 </div> 
             </div> 

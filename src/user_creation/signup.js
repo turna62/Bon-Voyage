@@ -48,9 +48,9 @@ export default class SignUp extends Component {
 
    
 	<div class="main-w3layouts wrapper">
-		<h1>Sign Up</h1>
 		<div class="main-agileinfo">
 			<div class="agileits-top">
+            <h1>Sign Up</h1>
 				<form onSubmit = {this.handleSubmit}>
 					<input class="text" type="text" name="Username" placeholder="Username" required="" onInput = {e=>this.setState({username:e.target.value})}/>
 					<input class="text email" type="email" name="email" placeholder="Email" required="" onInput = {e=>this.setState({email:e.target.value})}/>
@@ -59,7 +59,7 @@ export default class SignUp extends Component {
 					<input class="text w3lpass" type="password" name="password" placeholder="Confirm Password" required="" id="cpassword"/>
 					<input type="submit" value="SIGNUP"/>
 				</form>
-				<p>Or Log In <a href="#"><u>Here </u> </a></p>
+				<p>Or Log In <a href="http://localhost:3000/sign-in"><u>Here </u> </a></p>
 			</div>
 		</div>
 		

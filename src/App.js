@@ -8,7 +8,7 @@ import LogIn from "./user_creation/login";
 //  import UserProfile from "./user_creation/userProfile";
 
 import HomePage from "./Home/home";
- //import TripPlan from "./Home/PlanATrip";
+ import TripPlan from "./Home/PlanATrip";
 
 function App() {
 
@@ -26,7 +26,7 @@ function App() {
             <Route path = "/home" element={<HomePage/>}/>
             <Route path = "/sign-up" element={<SignUp/>}/>
             <Route path = "/sign-in" element={<LogIn/>}/>
-            {/* <Route path = "/planatrip" element={<TripPlan/>}/> */}
+            <Route path = "/planatrip" element={<TripPlan/>}/>
 
 
            </Routes>

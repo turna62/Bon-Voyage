@@ -46,16 +46,17 @@ export default class LogIn extends Component {
 
    
 	<div class="main-w3layouts wrapper">
-		<h1>Log In</h1>
+		
 		<div class="main-agileinfo">
 			<div class="agileits-top">
+            <h1>Log In</h1>
 				<form onSubmit = {this.handleSubmit}>
 					<input class="text email" type="email" name="email" placeholder="Email" required="" onInput = {e=>this.setState({email:e.target.value})}/>
 					<input class="text" type="password" name="password" placeholder="Password" required="" id="password" onInput = {e=>this.setState({password:e.target.value})}/>
 					<i class="bi bi-eye-slash" id="togglePassword"></i>
 					<input type="submit" value="LOGIN"/>
 				</form>
-				<p><a href="#">Back</a></p>
+				<p><a href="http://localhost:3000/home">Back</a></p>
 			</div>
 		</div>
 		

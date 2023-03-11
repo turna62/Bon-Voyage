@@ -43,7 +43,7 @@ class HomePage extends React.Component{
                         
         
                         <li class="nav-item">
-                            <a class="nav-link" href="user_creation\login.html">Sign Up</a>
+                            <a class="nav-link" href="http://localhost:3000/sign-up">SIGN UP</a>
                             
                         </li>
 
@@ -68,10 +68,11 @@ class HomePage extends React.Component{
                                     <p class="p-heading p-large">The journey of a thousand miles begins with a single step.</p>
                                     <a class="btn-solid-lg page-scroll" href="http://localhost:3000/planatrip">Plan A Trip</a>
 
-                                    {/* <div class="topnav">
-                         
-                                            <input type="text" placeholder="Search.."/>
-                                    </div> */}
+                                    <form class="search" action="">
+                                      <input class="searchi" type="search" placeholder="Search here..." required/>
+                                      <button class="searchbtn" type="submit">Search</button>
+                                  </form>  
+
                                 </div>
                             </div> 
                         </div> 
@@ -210,7 +211,6 @@ class HomePage extends React.Component{
 </div> 
 </div> 
 </div> 
-<img class="img-fluid" src="images/winter-morning.jpg" alt="alternative"/>
             <div id="services" class="basic-2"></div>
             <div class="cards-1">
                 <div class="container">
@@ -264,7 +264,92 @@ class HomePage extends React.Component{
                 </div> 
             </div> 
         
+    <div class="slider">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2>What users say about us...</h2>
+                </div> 
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+
+                    
+                    <div class="slider-container">
+                        <div class="swiper-container card-slider">
+                            <div class="swiper-wrapper">
+                                
+                                
+                                <div class="swiper-slide">
+                                    <div class="card">
+                                        <img class="card-image" src="images/testimonial-1.jpg" alt="alternative"/>
+                                        <div class="card-body">
+                                            <div class="testimonial-text">Great site to plan trip. Will surely recommend.</div>
+                                            <div class="testimonial-author">Shaira Sadia</div>
+                                        </div>
+                                    </div>
+                                </div> 
+                                <div class="swiper-slide">
+                                    <div class="card">
+                                        <img class="card-image" src="images/testimonial-2.jpg" alt="alternative"/>
+                                        <div class="card-body">
+                                            <div class="testimonial-text">I purchased the Growth Accelerator service pack a few years ago and I renewed the contract each year. </div>
+                                            <div class="testimonial-author">Marsha Singer - Marketer</div>
+                                        </div>
+                                    </div>        
+                                </div> 
+                                <div class="swiper-slide">
+                                    <div class="card">
+                                        <img class="card-image" src="images/testimonial-3.jpg" alt="alternative"/>
+                                        <div class="card-body">
+                                            <div class="testimonial-text">Aria's CEO personally attends client meetings and gives his feedback on business growth strategies.</div>
+                                            <div class="testimonial-author">Roy Smith - Developer</div>
+                                        </div>
+                                    </div>        
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="card">
+                                        <img class="card-image" src="images/testimonial-4.jpg" alt="alternative"/>
+                                        <div class="card-body">
+                                            <div class="testimonial-text">At the beginning I thought the prices are a little high for what they offer but they over deliver each and every time.</div>
+                                            <div class="testimonial-author">Ronald Spice - Owner</div>
+                                        </div>
+                                    </div>
+                                </div> 
+                                <div class="swiper-slide">
+                                    <div class="card">
+                                        <img class="card-image" src="images/testimonial-5.jpg" alt="alternative"/>
+                                        <div class="card-body">
+                                            <div class="testimonial-text">I recommend Aria to every business owner or growth leader that wants to take his company to the next level.</div>
+                                            <div class="testimonial-author">Lindsay Rune - Manager</div>
+                                        </div>
+                                    </div>        
+                                </div> 
+                                <div class="swiper-slide">
+                                    <div class="card">
+                                        <img class="card-image" src="images/testimonial-6.jpg" alt="alternative"/>
+                                        <div class="card-body">
+                                            <div class="testimonial-text">My goals for using Aria's services seemed high when I first set them but they've met them with no problems.</div>
+                                            <div class="testimonial-author">Ann Black - Consultant</div>
+                                        </div>
+                                    </div>        
+                                </div> 
+                            
+                            </div> 
         
+                            
+                            <div class="swiper-button-next"></div>
+                            <div class="swiper-button-prev"></div>
+                            
+        
+                        </div> 
+                    </div>
+                </div> 
+            </div> 
+        </div> 
+    </div> 
+
+
                 
             <div class="footer">
                 <div class="container">
