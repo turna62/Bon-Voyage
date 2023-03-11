@@ -1,5 +1,5 @@
 import React from 'react';
- import './HomeCss/styles.css';
+ //import './HomeCss/styles.css';
  import './HomeCss/swiper.css';
  import './HomeCss/bootstrap.css';
  import './HomeCss/bootstrap.min.css';
@@ -7,29 +7,29 @@ import React from 'react';
  import './HomeCss/fontawesome-all.css';
  import './assets/css/hover-min.css';
  import './assets/css/datepicker.css';
- import './assets/css/owl.carousel.min.css';
- import './assets/css/owl.theme.default.min.css';
- import './assets/css/jquery-ui.min.css';
+ 
  import './assets/css/bootstrap.min.css';
  import './assets/css/bootsnav.css';
- import './assets/css/style.css';
+ //import './assets/css/style.css';
  import './assets/css/responsive.css';
+ import './assets/css/animate.css';
+ import './assets/css/font-awesome.min.css';
 
  class TripPlan extends React.Component{
 
     render(){
 
         return(
-            <body data-spy="scroll" data-target=".fixed-top">
+             <div class="planbody">
     
     
-	<div class="spinner-wrapper">
+	{/* <div class="spinner-wrapper">
         <div class="spinner">
             <div class="bounce1"></div>
             <div class="bounce2"></div>
             <div class="bounce3"></div>
         </div>
-    </div>
+    </div> */}
   
 
    
@@ -62,21 +62,6 @@ import React from 'react';
                     </div>
     </nav>
    
-    <div class="modal fade" id="searchModal" tabindex="-1">
-        <div class="modal-dialog modal-fullscreen">
-            <div class="modal-content" style="background: rgba(11, 18, 26, 0.781);">
-                <div class="modal-header border-0">
-                    <button type="button" class="btn bg-white btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body d-flex align-items-center justify-content-center">
-                    <div class="input-group" style="max-width: 600px;">
-                        <input type="text" class="form-control bg-transparent border-light p-3" placeholder="Type search keyword"/>
-                        <button class="btn btn-success px-4 border-light"><i class="bi bi-search"></i></button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
     
     <header id="header" class="header">
         <div class="header-content">
@@ -252,28 +237,12 @@ import React from 'react';
         </div> 
     </div> 
 
-    <script src="js/jquery.min.js"></script>
-    <script src="js/popper.min.js"></script> 
-    <script src="js/bootstrap.min.js"></script> 
-    <script src="js/jquery.easing.min.js"></script>
-    <script src="js/swiper.min.js"></script> 
-    <script src="js/jquery.magnific-popup.js"></script> 
-    <script src="js/morphext.min.js"></script> 
-    <script src="js/isotope.pkgd.min.js"></script> 
-    <script src="js/validator.min.js"></script> 
-    <script src="js/scripts.js"></script> 
-
-     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-     <script src="lib/wow/wow.min.js"></script>
-     <script src="lib/easing/easing.min.js"></script>
-     <script src="lib/waypoints/waypoints.min.js"></script>
-     <script src="lib/counterup/counterup.min.js"></script>
-     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
- 
+    
     
  
-</body>
+</div>
         )
     }
  }
+
+ export default TripPlan;

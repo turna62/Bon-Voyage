@@ -42,7 +42,7 @@ export default class LogIn extends Component {
 }
   render() {
     return (
-        <body>
+        <body class="signupbody">
 
    
 	<div class="main-w3layouts wrapper">

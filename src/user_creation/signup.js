@@ -44,7 +44,7 @@ export default class SignUp extends Component {
     render(){
         return(
 
-<body>
+<body class="signupbody">
 
    
 	<div class="main-w3layouts wrapper">

@@ -14,7 +14,7 @@ class HomePage extends React.Component{
         return(
 
 
-            <body data-spy="scroll" data-target=".fixed-top">
+            <body class="homebody">
     
 
              {/* <div class="spinner-wrapper">
@@ -66,7 +66,7 @@ class HomePage extends React.Component{
                                 <div class="text-container">
                                     <h1>Bon <span id="js-rotating">VOYAGE!</span></h1>
                                     <p class="p-heading p-large">The journey of a thousand miles begins with a single step.</p>
-                                    <a class="btn-solid-lg page-scroll" href="#intro">Plan A Trip</a>
+                                    <a class="btn-solid-lg page-scroll" href="http://localhost:3001/planatrip">Plan A Trip</a>
 
                                     <div class="topnav">
                          
