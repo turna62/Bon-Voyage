@@ -46,20 +46,11 @@ Colors:
 
 /* Demo purposes only */
 
+.destination{
 
-.topnav {
-	overflow: hidden;
-	
-  }
-
-  .topnav input[type=text] {
-	float:right;
-	padding: 6px;
-	border: none;
-	margin-top: 8px;
-	margin-right: 16px;
-	font-size: 17px;
-  }
+	position: relative;
+	top: 20px;
+}
   .single-travel-boxes {
     margin-top: -125px;
     background: #fff;
@@ -1627,6 +1618,8 @@ input[type='checkbox'] {
 	display: inline-block;
 	width: 9.5rem;
 	margin-bottom: 0.75rem;
+	position: relative;
+	top: 90px;
 }
 
 .counter #counter .counter-value {
@@ -1635,6 +1628,17 @@ input[type='checkbox'] {
 	color: #14bf98;
 	font: 700 2.875rem/3.25rem "Montserrat", sans-serif;
 	vertical-align: middle;
+}
+
+.tillnow{
+	display: inline-block;
+	margin-bottom: 0.125rem;
+	color: #1b1b1bcb;
+	font: 500 2.875rem/3.25rem "Montserrat", sans-serif;
+	vertical-align: middle;
+	position: relative;
+	bottom: 100px;
+	top: 20px;
 }
 
 .counter #counter .counter-info {

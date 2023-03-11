@@ -66,7 +66,7 @@ class HomePage extends React.Component{
                                 <div class="text-container">
                                     <h1>Bon <span id="js-rotating">VOYAGE!</span></h1>
                                     <p class="p-heading p-large">The journey of a thousand miles begins with a single step.</p>
-                                    <a class="btn-solid-lg page-scroll" href="http://localhost:3001/planatrip">Plan A Trip</a>
+                                    <a class="btn-solid-lg page-scroll" href="http://localhost:3000/planatrip">Plan A Trip</a>
 
                                     {/* <div class="topnav">
                          
@@ -80,41 +80,8 @@ class HomePage extends React.Component{
             </header> 
             
         
-            <div id="about" class="counter">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-7 col-xl-6">
-    <div id="counter">
-        <div class="cell">
-            <div class="counter-value number-count" data-count="231">1</div>
-            <div class="counter-info">HappyUsers</div>
-        </div>
-        <div class="cell">
-            <div class="counter-value number-count" data-count="121">1</div>
-            <div class="counter-info">Issues Solved</div>
-        </div> 
-        <div class="cell">
-            <div class="counter-value number-count" data-count="159">1</div>
-            <div class="counter-info">Good Reviews</div>
-        </div>
-    </div>
-</div> 
-</div> 
-</div> 
-</div> 
+            
 
-{/* <Card style={{ width: '18rem' }}>
-      <Card.Img variant="top" />
-      <Card.Body>
-        <Card.Title>Card Title</Card.Title>
-        <Card.Text>
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </Card.Text>
-        <Button variant="primary">Go somewhere</Button>
-      </Card.Body>
-    </Card>
-         */}
             <div id="intro" class="basic-1">
                 <div class="container">
                     <div class="row">
@@ -134,8 +101,9 @@ class HomePage extends React.Component{
                     </div> 
                 </div> 
             </div> 
-            
-            <div class="container-fluid py-5">
+
+  <div class="destination">        
+    <div class="container-fluid py-5">
         <div class="container pt-5 pb-3">
             <div class="text-center mb-3 pb-3">
                 <h1>Explore Top Destination</h1>
@@ -171,13 +139,8 @@ class HomePage extends React.Component{
             </div>
         </div>
     </div>
-  
+</div>
 
-
-
-   
-    
- 
     <div id="gtco-features">
 		<div class="gtco-container">
 			<div class="row">
@@ -221,8 +184,33 @@ class HomePage extends React.Component{
 	</div>
  
 
-           
-            
+    <div id="about" class="counter">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7 col-xl-6">
+
+                    <p class="tillnow"> Till now... </p>
+    <div id="counter">
+        <div class="cell">
+            <div class="counter-value number-count" data-count="231">1</div>
+            <div class="counter-info">Happy Users</div>
+        </div>
+        <div class="cell">
+            <div class="counter-value number-count" data-count="121">1</div>
+            <div class="counter-info">Trips</div>
+        </div> 
+        <div class="cell">
+            <div class="counter-value number-count" data-count="159">1</div>
+            <div class="counter-info">Good Reviews</div>
+        </div>
+        
+    </div>
+    
+</div> 
+</div> 
+</div> 
+</div> 
+<img class="img-fluid" src="images/winter-morning.jpg" alt="alternative"/>
             <div id="services" class="basic-2"></div>
             <div class="cards-1">
                 <div class="container">
