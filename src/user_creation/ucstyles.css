@@ -198,7 +198,7 @@ html, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, 
     transform: translateY(-30px);
     visibility: visible !important;
     position: relative;
-    top: 25px;
+    top: 30px;
   }
   
   ::-webkit-input-placeholder {
