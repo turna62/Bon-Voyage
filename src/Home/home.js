@@ -56,10 +56,6 @@ class HomePage extends React.Component{
                                     <p class="p-heading p-large">The journey of a thousand miles begins with a single step.</p>
                                     <a class="btn-solid-lg page-scroll" href="http://localhost:3000/planatrip">Plan A Trip</a>
 
-                                    <form class="search" action="">
-                                      <input class="searchi" type="search" placeholder="Search here..." required/>
-                                      <button class="searchbtn" type="submit">Search</button>
-                                  </form>  
 
                                 </div>
                             </div> 
