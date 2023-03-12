@@ -10,7 +10,7 @@
 .ins{
     position: relative;
     top: 150px;
-    left: 240px;
+    left: 242px;
     overflow: hidden;
 }
 .logo{
@@ -22,5 +22,18 @@
     top: 5px;
     overflow-y: hidden;
 }
-.mytrip{
+
+
+.img-fluid{
+width: 35%;
+position: relative;
+left: 400px;
+top: 120px;
+
 }
+
+/* .btn-solid-lg page-scroll{
+top: 500px;
+position: relative;
+left: 200px;
+} */
