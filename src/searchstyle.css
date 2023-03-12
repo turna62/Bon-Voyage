@@ -22,18 +22,18 @@
     margin: 0 auto;
     border-radius: 3px;
     position: relative;
-    bottom: 50px;
+    bottom: 60px;
 }
 .templateContainer .template_Container .template{
     background-color: white;
-    margin: 2px;
+    margin: 8px;
     padding: 0px 0px;
     border-radius: 3px;
 
 }
 .templateContainer .template_Container .template img{
     height: 150px;
-    width: 300px;
+    width: 280px;
 
 }
 
