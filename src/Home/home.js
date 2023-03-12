@@ -15,6 +15,8 @@ class HomePage extends React.Component{
             <body class="homebody">
             
             <nav class="navbar navbar-expand-md navbar-dark navbar-custom fixed-top">
+            <h3 class="logo">Bon VOYAGE!</h3>
+
                 
                 <div class="collapse navbar-collapse" id="navbarsExampleDefault">
                     <ul class="navbar-nav ml-auto">

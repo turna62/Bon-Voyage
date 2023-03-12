@@ -57,6 +57,14 @@ Colors:
  color: white;
 } */
 
+.logo{
+    color: white;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 600;
+    position: relative;
+    left: 15px;
+    top: 5px;
+}
 
 .search {
 	width: 500px;
