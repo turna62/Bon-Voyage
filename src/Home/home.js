@@ -89,7 +89,7 @@ class HomePage extends React.Component{
                         <div class="col-lg-5">
                             <div class="text-container">
                                 <div class="section-title">INTRO</div>
-                                <h2>We Offer The Opportunity To Plan Your Trip Collaboratively! </h2>
+                                <h2>We Offer The Opportunity To Plan Your Trip!</h2>
                                 <p>We understand the problems that one can face while planning a trip. </p>
                                 <p class="testimonial-text">So, our mission at Bon Voyage is to help you to plan your trip by offering the outmost benefits that we can.</p>
                             </div>
@@ -107,7 +107,7 @@ class HomePage extends React.Component{
     <div class="container-fluid py-5">
         <div class="container pt-5 pb-3">
             <div class="text-center mb-3 pb-3">
-                <h1>Explore Top Destination</h1>
+                <h1>Explore Top Destinations</h1>
             </div>
             <div class="row">
                 <div class="col-lg-4 col-md-6 mb-4">
@@ -147,7 +147,7 @@ class HomePage extends React.Component{
 			<div class="row">
 				<div class="col-md-8 col-md-offset-2 text-center gtco-heading animate-box">
 					<h2>How It Works</h2>
-					<p>Our system guides you to plan your trip according to your preferences in destination, date, members.</p>
+					<p>Our system guides you to plan your trip according to your preferences in destinations and dates</p>
 				</div>
 			</div>
 			<div class="row">
