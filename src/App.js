@@ -22,6 +22,7 @@ function Search() {
 
   return (
     <>
+    <body class="sbody">
       <div className="templateContainer">
         <div className="searchInput_Container">
           
@@ -48,6 +49,7 @@ function Search() {
           <div className="no_results_found">No results found.</div>
         )}
       </div>
+      </body>
     </>
   );
 }
@@ -58,7 +60,7 @@ function App() {
     <Router>
       <Routes>
         {/* <Route exact path="/" element={isLoggedIn == "true" ? <UserProfile /> : <Home />} /> */}
-        <Route path="/" element={<HomePage />} />
+        <Route exact path="/" element={<HomePage />} />
         <Route path="/search" element={<Search />} />
         <Route path="/sign-up" element={<SignUp />} />
         <Route path="/sign-in" element={<LogIn />} />
