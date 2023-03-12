@@ -9,7 +9,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import SignUp from "./user_creation/signup";
 import LogIn from "./user_creation/login";
 import HomePage from "./Home/home";
-import TripPlan from "./Home/PlanATrip";
+import TripPlan from "./MyTrip/PlanATrip";
 import MyTrip from "./MyTrip/MyTrip";
 
 
