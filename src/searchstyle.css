@@ -1,4 +1,4 @@
-body{
+/* body{
     background-color: rgb(209,204,204);
 }
 .templateContainer{
@@ -14,20 +14,96 @@ body{
     width: 50%;
     padding: 10px;
     outline: none;
-}
+} */
 .templateContainer .template_Container{
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 0 auto;
+    border-radius: 3px;
+    position: relative;
+    bottom: 50px;
 }
 .templateContainer .template_Container .template{
-    background-color: grey;
+    background-color: white;
     margin: 2px;
     padding: 0px 0px;
+    border-radius: 3px;
+
 }
 .templateContainer .template_Container .template img{
     height: 100px;
     width: 300px;
 
 }
+
+.no_results_found {
+    color: #fff;
+    font-size: 15px;
+    position: relative;
+    left: 393px;
+    overflow: hidden;
+    bottom: 120px;
+}
+
+body {
+    background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/41294/hero.jpg) no-repeat center center fixed; 
+    background-size: cover;
+    overflow: hidden;
+  }
+  
+  .search  {
+    width: 500px;
+    height: 40px;
+    margin: 150px auto;
+    background: #444;
+    background: rgba(0,0,0,.2);
+    border-radius:  3px;
+    border: 1px solid #fff;
+    position: relative;
+    top: 20px;
+  }
+    
+    .searchi {
+      width: 370px;
+      padding: 10px 5px;
+      float: left;
+      color: #ccc;
+      border: 0;
+      background: transparent;
+      border-radius: 3px 0 0 3px;
+      position: relative;
+      bottom: 2px;
+    }
+
+    .searchi:focus {
+        outline: 0;
+        background:transparent;
+      }
+    
+    button {
+      position: relative;
+      float: right;
+      border: 0;
+      padding: 0;
+      cursor: pointer;
+      height: 40px;
+      width: 120px;
+      color: #fff;
+      background: transparent;
+      border-left: 1px solid #fff;
+      border-radius: 0 3px 3px 0;
+    }
+      button:hover {
+        background: #fff;
+        color:#444;
+      }
+      button:active {
+        box-shadow: 0px 0px 12px 0px rgba(225, 225, 225, 1);
+      }
+      button:focus {
+        outline: 0;
+      }
+     
+  
+  

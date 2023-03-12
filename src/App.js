@@ -24,14 +24,11 @@ function Search() {
     <>
       <div className="templateContainer">
         <div className="searchInput_Container">
-          <input
-            id="searchInput"
-            type="text"
-            placeholder="Search here..."
-            onChange={(event) => {
-              setSearchTerm(event.target.value);
-            }}
-          />
+          
+          <form class="search" action="">
+                   <input class="searchi" id="searchInput" type="text" placeholder="Search here..." onChange={(event) => {setSearchTerm(event.target.value);}}/>
+                   <button type="submit">Search</button>
+          </form>   
         </div>
         {searchTerm === "" ? (
           <div className="no_results_found"></div>
