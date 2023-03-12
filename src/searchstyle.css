@@ -46,10 +46,11 @@
     bottom: 120px;
 }
 
-.sbody {
+.scbody {
     background: url(./Home/images/details-1-background.jpg) no-repeat center center fixed; 
     background-size: cover;
     overflow: hidden;
+    height: 100%;
   }
   
   .search  {
