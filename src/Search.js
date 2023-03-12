@@ -37,6 +37,7 @@ function Search() {
             
         
         <div className="templateContainer">
+          <img src='Home/'/>
           <div className="searchInput_Container">
             
             <form class="search" action="">
