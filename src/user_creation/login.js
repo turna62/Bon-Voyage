@@ -34,7 +34,7 @@ export default class LogIn extends Component {
             alert("Logged In Successfully!"); 
         window.localStorage.setItem("token", data.data); // storing token in data
         window.localStorage.setItem("loggedIn", true);
-        window.location.href = "./userProfile";
+        window.location.href = "./myTrip";
         } else {
             alert("Error! Something went wrong!");
         }

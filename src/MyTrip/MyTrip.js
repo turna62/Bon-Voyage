@@ -2,7 +2,7 @@ import React from 'react';
 import './mytrip.css';
 
 
-class Mytrip extends React.Component{
+class MyTrip extends React.Component{
     render(){
 
         return(
@@ -56,7 +56,7 @@ class Mytrip extends React.Component{
                     </div>
                 </div>
 
-                <img class="img-fluid" src="MyTrip/hills.jpg" alt="alternative"/>
+                <img class="img-fluid" src="/hills.jpg" alt=""/>
 
         </div>
         
@@ -65,4 +65,4 @@ class Mytrip extends React.Component{
     }
 }
 
-export default Mytrip;
+export default MyTrip;

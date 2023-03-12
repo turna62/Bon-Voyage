@@ -9,8 +9,8 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import SignUp from "./user_creation/signup";
 import LogIn from "./user_creation/login";
 import HomePage from "./Home/home";
-import TripPlan from "./MyTrip/PlanATrip";
-import Mytrip from "./MyTrip/MyTrip";
+import TripPlan from "./Home/PlanATrip";
+import MyTrip from "./MyTrip/MyTrip";
 
 
 
@@ -25,7 +25,7 @@ function App() {
         <Route path="/sign-up" element={<SignUp />} />
         <Route path="/sign-in" element={<LogIn />} />
         <Route path="/planatrip" element={<TripPlan />} />
-        <Route path="/mytrip" element={<Mytrip />} />
+        <Route path="/mytrip" element={<MyTrip />} />
       </Routes>
     </Router>
   );
