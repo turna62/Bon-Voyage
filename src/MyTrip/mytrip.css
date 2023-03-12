@@ -4,18 +4,23 @@
     left: 240px;
     font-family: 'Times New Roman', Times, serif;
     font-weight: 600;
+    overflow: hidden;
 }
 
 .ins{
     position: relative;
     top: 150px;
     left: 240px;
+    overflow: hidden;
 }
 .logo{
     color: white;
     font-family: 'Times New Roman', Times, serif;
     font-weight: 600;
     position: relative;
-    left: 15px;
+    left: 18px;
     top: 5px;
+    overflow-y: hidden;
+}
+.mytrip{
 }
