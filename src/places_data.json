@@ -1,0 +1,36 @@
+[
+    {
+      "place_id": 1,
+      "place_name": "Dhaka",
+      "place_description":"Capital city of Bangladesh",
+      "place_category": "City",
+      "place_image": "/places_images/dhaka.jpg"
+    },
+
+    {
+        "place_id": 2,
+        "place_name": "Sylhet",
+        "place_description":"A city known for its tea gardens",
+        "place_category": "Hills",
+        "place_image": "/places_images/sylhet.jpeg"
+      },
+    
+      {
+        "place_id": 3,
+        "place_name": "Cox's Bazar",
+        "place_description":"Longest sea beach in the world",
+        "place_category": "Beach",
+        "place_image": "/places_images/coxsbazar.jpeg"
+      },
+
+      {
+        "place_id": 4,
+        "place_name": "Chittagong",
+        "place_description":"A coastal city known for its busy seaport",
+        "place_category": "Sea Port",
+        "place_image": "/places_images/ctg.jpeg"
+      }
+      
+  
+
+]
