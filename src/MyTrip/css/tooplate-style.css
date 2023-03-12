@@ -83,7 +83,11 @@ select.tm-select::-ms-expand { display: none; }
 
 .tm-section-subtitle-2 { font-size: 1.8rem; }
 
-
+.tm-search-form image{
+	position: relative;
+	right: 1000px;
+	width: 25%;
+}
 .tm-btn-white-bordered:hover,
 .tm-btn-white-bordered:focus {
 	color: #113448;

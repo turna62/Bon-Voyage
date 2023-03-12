@@ -4,12 +4,12 @@ import Search from "./Search";
 
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
-//  import UserProfile from "./user_creation/userProfile";
+ import UserProfile from "./user_creation/userProfile";
 
 import SignUp from "./user_creation/signup";
 import LogIn from "./user_creation/login";
 import HomePage from "./Home/home";
-import TripPlan from "./Home/PlanATrip";
+import TripPlan from "./MyTrip/PlanATrip";
 import MyTrip from "./MyTrip/MyTrip";
 
 
@@ -26,6 +26,7 @@ function App() {
         <Route path="/sign-in" element={<LogIn />} />
         <Route path="/planatrip" element={<TripPlan />} />
         <Route path="/mytrip" element={<MyTrip />} />
+        <Route path="/myprofile" element={<UserProfile />} />
       </Routes>
     </Router>
   );

@@ -13,27 +13,17 @@ class MyTrip extends React.Component{
                 <div class="collapse navbar-collapse" id="navbarsExampleDefault">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link page-scroll" href="#header">HOME <span class="sr-only">(current)</span></a>
+                            <a class="nav-link page-scroll" href="http://localhost:3000">HOME <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link page-scroll" href="#intro">INTRO</a>
+                            <a class="nav-link page-scroll" href="#intro">LOG OUT</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link page-scroll" href="#services">SERVICES</a>
+                            <a class="nav-link page-scroll" href="http://localhost:3000/myprofile">MY PROFILE</a>
                         </li>
                         
         
-                        <li class="nav-item">
-                            <a class="nav-link" href="http://localhost:3000/sign-up">SIGN UP</a>
-                            
-                        </li>
-
-                        <li class="nav-item-search">
-                          
-                        <a class="nav-link" href="http://localhost:3000/search">SEARCH</a>
- 
-                    
-                      </li>
+                        
                   </ul>
 
               </div>

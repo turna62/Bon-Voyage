@@ -23,30 +23,17 @@ import React from 'react';
 
    
     <nav class="navbar navbar-expand-md navbar-dark navbar-custom fixed-top">
-        
+    <h3 class="logo">Bon VOYAGE!</h3>
+
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link page-scroll" href="#header">HOME <span class="sr-only">(current)</span></a>
+                    <a class="nav-link page-scroll" href="http://localhost:3000">HOME <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link page-scroll" href="#intro">INTRO</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link page-scroll" href="#services">SERVICES</a>
+                    <a class="nav-link page-scroll" href="http://localhost:3000">LOG OUT <span class="sr-only">(current)</span></a>
                 </li>
                 
-
-                <li class="nav-item">
-                    <a class="nav-link" href="user_creation\login.html">SIGN UP</a>
-                    
-                </li>
-
-                <li class="nav-item-search">
-                    
-                    <butaton type="button" class="btn text-light ms-3" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fa fa-search"></i></butaton>
-                    
-                </li>
             </ul>
                     </div>
     </nav>
@@ -77,11 +64,11 @@ import React from 'react';
                                         </div>
                                         <div class="form-group tm-form-element tm-form-element-50">
                                             <i class="fa fa-calendar fa-2x tm-form-element-icon"></i>
-                                            <input name="check-in" type="text" class="form-control" id="inputCheckIn" placeholder="Check In"/>
+                                            <input name="check-in" type="date" class="form-control" id="inputCheckIn" placeholder="Start date"/>
                                         </div>
                                         <div class="form-group tm-form-element tm-form-element-50">
                                             <i class="fa fa-calendar fa-2x tm-form-element-icon"></i>
-                                            <input name="check-out" type="text" class="form-control" id="inputCheckOut" placeholder="Check Out"/>
+                                            <input name="check-out" type="date" class="form-control" id="inputCheckOut" placeholder="End date"/>
                                         </div>
                                     </div>
                                     <div class="form-row tm-search-form-row">
@@ -118,27 +105,14 @@ import React from 'react';
                                             </select>
                                             <i class="fa fa-user tm-form-element-icon tm-form-element-icon-small"></i>
                                         </div>
+                                       
                                         <div class="form-group tm-form-element tm-form-element-2">
-                                            <select name="room" class="form-control tm-select" id="room">
-                                                <option value="">Room</option>
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                                <option value="5">5</option>
-                                                <option value="6">6</option>
-                                                <option value="7">7</option>
-                                                <option value="8">8</option>
-                                                <option value="9">9</option>
-                                                <option value="10">10</option>
-                                            </select>
-                                            <i class="fa fa-2x fa-bed tm-form-element-icon"></i>
-                                        </div>
-                                        <div class="form-group tm-form-element tm-form-element-2">
-                                            <button type="submit" class="btn btn-primary tm-btn-search">Check Availability</button>
+                                            <button type="submit" class="btn btn-primary tm-btn-search">Continue Planning</button>
                                         </div>
                                       </div>
-                                      
+                                      <img class="imgage" src="/hills.jpg" alt=""/>
+
+
                                 </form>
                             </div>                        
                         </div>      
@@ -149,6 +123,7 @@ import React from 'react';
                     </div> 
                 </div> 
             </div> 
+
         </div>
     </header> 
       

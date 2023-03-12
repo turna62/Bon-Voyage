@@ -56,7 +56,7 @@ export default class LogIn extends Component {
 					<i class="bi bi-eye-slash" id="togglePassword"></i>
 					<input type="submit" value="LOGIN"/>
 				</form>
-				<p><a href="http://localhost:3000/home">Back</a></p>
+				<p><a href="http://localhost:3000">Back</a></p>
 			</div>
 		</div>
 		
