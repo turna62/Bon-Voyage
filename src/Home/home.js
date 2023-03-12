@@ -3,8 +3,6 @@ import React from 'react';
  import './HomeCss/swiper.css';
  import './HomeCss/bootstrap.css';
  import './HomeCss/bootstrap.min.css';
- //import './HomeCss/magnific-popup.css';
- //import './HomeCss/fontawesome-all.css';
  import './css1/style.css';
  
 
@@ -15,17 +13,6 @@ class HomePage extends React.Component{
 
 
             <body class="homebody">
-    
-
-             {/* <div class="spinner-wrapper">
-                <div class="spinner">
-                    <div class="bounce1"></div>
-                    <div class="bounce2"></div>
-                    <div class="bounce3"></div>
-                </div>
-            </div>
-             */}
-        
             
             <nav class="navbar navbar-expand-md navbar-dark navbar-custom fixed-top">
                 
@@ -48,8 +35,9 @@ class HomePage extends React.Component{
                         </li>
 
                         <li class="nav-item-search">
-                    
-                            <butaton type="button" class="btn text-light ms-3" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="bi bi-search"></i></butaton>
+                          
+                        <a class="nav-link" href="http://localhost:3000/search">SEARCH</a>
+ 
                     
                       </li>
                   </ul>
@@ -57,22 +45,6 @@ class HomePage extends React.Component{
               </div>
          </nav> 
         
-    <div class="modal fade" id="searchModal" tabindex="-1">
-        <div class="modal-dialog modal-fullscreen">
-            <div class="modal-content">
-                <div class="modal-header border-0">
-                    <button type="button" class="btn bg-white btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body d-flex align-items-center justify-content-center">
-                    <div class="input-group">
-                        <input type="text" class="form-control bg-transparent border-light p-3" placeholder="Type search keyword"/>
-                        <button class="btn btn-success px-4 border-light"><i class="bi bi-search"></i></button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
         
             <header id="header" class="header">
                 <div class="header-content">

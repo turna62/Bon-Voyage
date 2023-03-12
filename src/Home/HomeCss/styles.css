@@ -45,7 +45,7 @@ Colors:
 
 
 
-.modal-content{
+/* .modal-content{
 	background: rgba(11, 18, 26, 0.781);
 }
 .input-group{
@@ -55,7 +55,9 @@ Colors:
 
 .butaton i{
  color: white;
-}
+} */
+
+
 .search {
 	width: 500px;
 	height: 40px;
@@ -725,54 +727,6 @@ input[type='checkbox'] {
 }
 
 
-/**************************/
-/*     03. Navigation     */
-/**************************/
-.navbar-custom {
-	padding-top: 0.375rem;
-	padding-bottom: 0.375rem;
-	background-color: #113448;
-	box-shadow: 0 0.0625rem 0.375rem 0 rgba(0, 0, 0, 0.1);
-	font: 600 0.875rem/0.875rem "Open Sans", sans-serif;
-	transition: all 0.2s;
-}
-
-.navbar-custom .navbar-brand {
-	font-size: 0;
-}
-
-.navbar-custom .navbar-brand.logo-image img {
-    width: 7.0625rem;
-	height: 2rem;
-}
-
-.navbar-custom .navbar-brand.logo-text {
-	margin-top: 0.25rem;
-	margin-bottom: 0.25rem;
-	font: 700 2.25rem/1.5rem "Montserrat", sans-serif;
-	color: #fff;
-	text-decoration: none;
-}
-
-.navbar-custom .navbar-nav {
-	margin-top: 0.75rem;
-	margin-bottom: 0.5rem;
-}
-
-.navbar-custom .nav-item .nav-link {
-	padding: 0.625rem 0.75rem 0.625rem 0.75rem;
-	color: #fff;
-	text-decoration: none;
-	transition: all 0.2s ease;
-	font-size: 17px;
-	left: 1px;
-	letter-spacing: 1px;
-}
-
-.navbar-custom .nav-item .nav-link:hover,
-.navbar-custom .nav-item .nav-link.active {
-	color: #14bf98;
-}
 
 
 /*********************/
@@ -1253,10 +1207,7 @@ a:hover.back-to-top {
 		background-color: #113448;
 	}
 	
-	.navbar-custom .navbar-brand.logo-text {
-		color: #fff;
-	}
-
+	
 	.navbar-custom .navbar-nav {
 		margin-top: 0;
 		margin-bottom: 0;
@@ -1265,8 +1216,15 @@ a:hover.back-to-top {
 	.navbar-custom .nav-item .nav-link {
 		padding: 0.25rem 0.75rem 0.25rem 0.75rem;
 		position: relative;
-		top: 10px;
+		top: 4px;
 	}
+
+	.navbar-custom .nav-item-search .nav-link {
+		padding: 0.29rem 0.75rem 0.25rem 0.75rem;
+		position: relative;
+		top: 4px;
+	}
+	
 	
 	.navbar-custom .nav-item .nav-link:hover,
 	.navbar-custom .nav-item .nav-link.active {
@@ -1294,26 +1252,7 @@ a:hover.back-to-top {
 		color: #15f1be;
 	}
 
-	.navbar-custom .dropdown-menu {
-		padding-top: 1rem;
-		padding-bottom: 1rem;
-		border-top: 0.75rem solid rgba(0, 0, 0, 0);
-		border-radius: 0.25rem;
-		box-shadow: 0 0.25rem 0.375rem 0 rgba(0, 0, 0, 0.03);
-	}
 	
-	.navbar-custom.top-nav-collapse .dropdown-menu {
-		border-top: 0.125rem solid rgba(0, 0, 0, 0);
-	}
-
-	.navbar-custom .dropdown-item {
-		padding-top: 0.25rem;
-		padding-bottom: 0.25rem;
-	}
-
-	.navbar-custom .dropdown-items-divide-hr {
-		width: 84%;
-	}
 	/* end of navigation */
 
 
