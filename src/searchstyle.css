@@ -49,6 +49,7 @@
 .sbody {
     background: url(./Home/images/details-1-background.jpg) no-repeat center center fixed; 
     background-size: cover;
+    overflow: hidden;
   }
   
   .search  {
