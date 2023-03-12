@@ -169,7 +169,6 @@ class HomePage extends React.Component{
 		</div>
 	</div>
  
-
     
     <div id="about" class="counter">
         <div class="container">

@@ -140,12 +140,14 @@ html, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, 
     font-weight: 100;
     text-transform: capitalize;
     letter-spacing: 4px;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Times New Roman', Times, serif;
   }
   
   /*-- main --*/
   .main-w3layouts {
     padding: 3em 0 1em;
+    font-family: 'Times New Roman', Times, serif;
+
   }
   
   .main-agileinfo {

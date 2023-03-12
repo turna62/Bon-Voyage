@@ -56,7 +56,22 @@ Colors:
 .butaton i{
  color: white;
 } */
-
+.cardi {
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+	transition: 0.3s;
+	width: 40%;
+  }
+  
+  .cardi:hover {
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }
+  .cardi image{
+	width: 100%;
+  }
+  
+  .containeri {
+	padding: 2px 16px;
+  }
 
 .tm-section-pad { padding: 60px 50px; }
 .tm-section-pad-2 { padding: 60px 40px; }
@@ -817,16 +832,18 @@ input[type='checkbox'] {
 .basic-1 .image-container {
 	overflow: hidden;
 	border-radius: 0.25rem;
+	position: relative;
+	bottom: 80px;
 }
 
 .basic-1 .image-container img {
-	margin: 0;
+	
 	border-radius: 0.25rem;
 	transition: all 0.3s;
 	position: relative;
-	left: 120px;
-	height: 330px;
-    bottom: 20px;
+	left: 150px;
+	height: 400px;
+	width: 430px;
 	}
 
 .basic-1 .image-container:hover img {

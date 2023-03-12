@@ -46,7 +46,7 @@ class MyTrip extends React.Component{
                     </div>
                 </div>
 
-                <img class="img-fluid" src="/hills.jpg" alt=""/>
+                <img class="img-fluidi" src="/hills.jpg" alt=""/>
 
         </div>
         
