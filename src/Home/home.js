@@ -3,8 +3,8 @@ import React from 'react';
  import './HomeCss/swiper.css';
  import './HomeCss/bootstrap.css';
  import './HomeCss/bootstrap.min.css';
- import './HomeCss/magnific-popup.css';
- import './HomeCss/fontawesome-all.css';
+ //import './HomeCss/magnific-popup.css';
+ //import './HomeCss/fontawesome-all.css';
  import './css1/style.css';
  
 
@@ -49,14 +49,30 @@ class HomePage extends React.Component{
 
                         <li class="nav-item-search">
                     
-                    <butaton type="button" class="btn text-light ms-3" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fa fa-search"></i></butaton>
+                            <butaton type="button" class="btn text-light ms-3" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="bi bi-search"></i></butaton>
                     
-                </li>
-                    </ul>
-                            </div>
-            </nav> 
+                      </li>
+                  </ul>
+                            
+              </div>
+         </nav> 
         
-            
+    <div class="modal fade" id="searchModal" tabindex="-1">
+        <div class="modal-dialog modal-fullscreen">
+            <div class="modal-content">
+                <div class="modal-header border-0">
+                    <button type="button" class="btn bg-white btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body d-flex align-items-center justify-content-center">
+                    <div class="input-group">
+                        <input type="text" class="form-control bg-transparent border-light p-3" placeholder="Type search keyword"/>
+                        <button class="btn btn-success px-4 border-light"><i class="bi bi-search"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
         
             <header id="header" class="header">
                 <div class="header-content">
@@ -96,7 +112,7 @@ class HomePage extends React.Component{
                         </div> 
                         <div class="col-lg-7">
                             <div class="image-container">
-                                <img class="img-fluid" src="images/intro-office.jpg" alt="alternative"/>
+                                <img class="img-fluid" src="images/project-6.jpg" alt="alternative"/>
                             </div> 
                         </div> 
                     </div> 
@@ -185,32 +201,54 @@ class HomePage extends React.Component{
 	</div>
  
 
+    
     <div id="about" class="counter">
         <div class="container">
             <div class="row">
+                <div class="col-lg-5 col-xl-6">
+                    <div class="image-container">
+                        <img class="img-fluid" src="images/about.jpg" alt="alternative"/>
+                    </div> 
+                </div> 
                 <div class="col-lg-7 col-xl-6">
+                    <div class="text-container">
+                        <div class="section-title">ABOUT</div>
+                        <h2>We're Passionate About Delivering Growth Services</h2>
+                        <p>Our goal is to provide the right business growth services at the appropriate time so companies can benefit from the created momentum and thrive for a long period of time</p>
+                        <ul class="list-unstyled li-space-lg">
+                            <li class="media">
+                                <i class="fas fa-square"></i>
+                                <div class="media-body">Everything we recommend has direct positive impact</div>
+                            </li>
+                            <li class="media">
+                                <i class="fas fa-square"></i>
+                                <div class="media-body">You will become an important partner of our company</div>
+                            </li>
+                        </ul>
 
-                    <p class="tillnow"> Till now... </p>
-    <div id="counter">
-        <div class="cell">
-            <div class="counter-value number-count" data-count="231">1</div>
-            <div class="counter-info">Happy Users</div>
-        </div>
-        <div class="cell">
-            <div class="counter-value number-count" data-count="121">1</div>
-            <div class="counter-info">Trips</div>
+                       
+                        <div id="counter">
+                            <div class="cell">
+                                <div class="counter-value number-count" data-count="231">1</div>
+                                <div class="counter-info">Happy Users</div>
+                            </div>
+                            <div class="cell">
+                                <div class="counter-value number-count" data-count="121">1</div>
+                                <div class="counter-info">Issues Solved</div>
+                            </div>
+                            <div class="cell">
+                                <div class="counter-value number-count" data-count="159">1</div>
+                                <div class="counter-info">Good Reviews</div>
+                            </div>
+                        </div>
+                        
+
+                    </div>  
+                </div> 
+            </div> 
         </div> 
-        <div class="cell">
-            <div class="counter-value number-count" data-count="159">1</div>
-            <div class="counter-info">Good Reviews</div>
-        </div>
-        
-    </div>
-    
-</div> 
-</div> 
-</div> 
-</div> 
+    </div> 
+
             <div id="services" class="basic-2"></div>
             <div class="cards-1">
                 <div class="container">

@@ -44,8 +44,18 @@ Colors:
 
 
 
-/* Demo purposes only */
 
+.modal-content{
+	background: rgba(11, 18, 26, 0.781);
+}
+.input-group{
+	max-width: 600px;
+	border: #113448 1px;
+}
+
+.butaton i{
+ color: white;
+}
 .search {
 	width: 500px;
 	height: 40px;
