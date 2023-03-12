@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./searchstyle.css";
 import data from "./places_data.json";
 
+
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 //  import UserProfile from "./user_creation/userProfile";
@@ -12,12 +13,13 @@ import HomePage from "./Home/home";
 import TripPlan from "./Home/PlanATrip";
 
 function Search() {
-  const [searchTerm, setSearchTerm] = useState(""); //preserve values
+  const [searchTerm, setSearchTerm] = useState("");
   const filteredData = data.filter(
     (val) =>
       val.place_name.toLowerCase().includes(searchTerm.toLowerCase()) ||
       val.place_category.toLowerCase().includes(searchTerm.toLowerCase())
   );
+
   return (
     <>
       <div className="templateContainer">
@@ -31,14 +33,16 @@ function Search() {
             }}
           />
         </div>
-        {filteredData.length > 0 ? (
+        {searchTerm === "" ? (
+          <div className="no_results_found"></div>
+        ) : filteredData.length > 0 ? (
           <div className="template_Container">
             {filteredData.map((val) => {
               return (
                 <div className="template" key={val.place_id}>
                   <img src={process.env.PUBLIC_URL + val.place_image} alt="" />
                   <h5>{val.place_name}</h5>
-                  <p> {val.place_description}</p>
+                  <p>{val.place_description}</p>
                 </div>
               );
             })}
