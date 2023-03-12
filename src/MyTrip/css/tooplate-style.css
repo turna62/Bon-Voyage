@@ -1,0 +1,140 @@
+
+.tm-top-bar.active .navbar-expand-lg .navbar-nav .nav-link { padding: 30px 35px; }
+.tm-top-bar-bg { height: 119px; }
+.tm-section { min-height: 515px; }
+
+.tm-section-pad {
+	}
+
+.tm-section{
+
+	position: relative;
+	background-color: white;
+	height: 10px;
+	overflow: hidden;
+
+}
+
+.tm-search-form .tm-form-element { padding: 0 10px; }
+.tm-form-element { position: relative; }
+.tm-form-element:last-child { margin-right: 0; }
+
+.tm-form-element-icon {
+	color: #113448;
+	position: absolute;
+	top: 0px;
+	left: 15px;
+}
+
+.tm-form-element-icon-small {
+	top: 16px;
+	left: 18px;
+}
+
+select.tm-select.form-control:not([size]):not([multiple]) { height: 100%; }
+
+select:not([multiple]) {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-position: right 50%;
+    background-repeat: no-repeat;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAMCAYAAABSgIzaAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NDZFNDEwNjlGNzFEMTFFMkJEQ0VDRTM1N0RCMzMyMkIiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NDZFNDEwNkFGNzFEMTFFMkJEQ0VDRTM1N0RCMzMyMkIiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo0NkU0MTA2N0Y3MUQxMUUyQkRDRUNFMzU3REIzMzIyQiIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo0NkU0MTA2OEY3MUQxMUUyQkRDRUNFMzU3REIzMzIyQiIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PuGsgwQAAAA5SURBVHjaYvz//z8DOYCJgUxAf42MQIzTk0D/M+KzkRGPoQSdykiKJrBGpOhgJFYTWNEIiEeAAAMAzNENEOH+do8AAAAASUVORK5CYII=);
+    padding: .5em;
+    padding-right: 1.5em
+}
+
+/* https://stackoverflow.com/questions/20163079/remove-select-arrow-on-ie */
+select.tm-select::-ms-expand { display: none; }
+
+.tm-select {
+    border-radius: 5px;
+    color: #858789;
+}
+
+.tm-search-form .form-control {
+	font-size: 0.8rem;	
+	padding: 0.75rem 0.85rem 0.85rem 45px;
+}
+
+.tm-search-form .tm-form-element { width: 33.3333%; ; }
+.tm-search-form .tm-form-element-2 { width: 25%; }
+.tm-search-form-row { width: 1000px; }
+.tm-btn-search { width: 100%; }
+
+/* https://css-tricks.com/creating-non-rectangular-headers/ */
+
+
+
+.tm-section-title {
+	color: white;
+	font-size: 3rem;
+}
+
+.tm-section-title-2 {
+	font-size: 3.2rem;
+    font-weight: 600;
+}
+
+.tm-section-subtitle {
+	font-size: 1rem;
+	font-weight: 300;
+	margin-bottom: 25px;
+}
+
+.tm-section-subtitle-2 { font-size: 1.8rem; }
+
+
+.tm-btn-white-bordered:hover,
+.tm-btn-white-bordered:focus {
+	color: #113448;
+	background: white;	
+}
+
+.slick-dots { bottom: -35px; }
+
+.tm-article {
+	padding: 40px;
+	transition: all 0.3s ease;
+}
+
+.tm-article:hover {
+	-webkit-box-shadow: 0px 0px 7px 0px rgba(214,214,214,1);
+	-moz-box-shadow: 0px 0px 7px 0px rgba(214,214,214,1);
+	box-shadow: 0px 0px 7px 0px rgba(214,214,214,1);
+	transform: scale(1.1);
+}
+
+.tm-article-title-1 {
+	font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.tm-article-title-2 { 
+	font-size: 1rem;
+	font-weight: 700;
+	letter-spacing: 1px;
+}
+
+.tm-article-title-3 { font-size: 1.1rem; }
+
+.tm-btn-primary {
+	display: block;
+    width: 100%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 0.75rem;
+}
+
+.tm-sidebar-title {
+	font-size: 1.3rem;
+	margin-bottom: 5px;
+}
+
+.tm-sidebar-item-title {
+	font-size: 1.2rem;
+	letter-spacing: 1px;
+	margin-bottom: 0;	
+}
+
