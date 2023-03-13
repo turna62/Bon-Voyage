@@ -28,6 +28,27 @@ class CreatePoll extends React.Component{
               </div>
          </nav>
 
+    <div class="mainn-w3layouts wrapper">
+		<div class="mainn-agileinfo">
+			<div class="agileitss-top">
+            <h3 class="cpoll">Create Poll</h3><hr></hr>
+            <h5 class="ccpoll">Write a custom question with up to 10 answers travelers can choose from.</h5>
+				<form >
+					<input class="texti" type="text" name="poll" placeholder="Write your question....*" required="" />
+                   <h5 class="ccpll">Answer (Add up to 10)</h5>
+
+					<input class="textt" type="text" name="poll" placeholder="Answer 1" required="" />
+                    <input class="textt" type="text" name="poll" placeholder="Answer 2" required="" />
+                    <input class="textt" type="text" name="poll" placeholder="Answer 3" required="" />
+
+
+					<input type="submit" value="PREVIEW"/>
+				</form>
+				<p><a href="http://localhost:3000"><u>Back</u> </a></p>
+			</div>
+		</div>
+    </div>
+
          <div class="footer">
         <div class="container">
             <div class="row">

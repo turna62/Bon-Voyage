@@ -241,7 +241,7 @@ html, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, 
     -o-transition: .5s all;
     -ms-transition: .5s all;
     transition: .5s all;
-    background: #469a9c;
+    background: rgb(21, 66, 66);
   }
   
   .agileits-top p {
@@ -261,7 +261,7 @@ html, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, 
   }
   
   .agileits-top p a:hover {
-    color: #14bf98;
+    color: rgb(25, 76, 76);
   }
   
   
