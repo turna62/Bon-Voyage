@@ -45,10 +45,7 @@ class HomePage extends React.Component{
                     
                       </li>
 
-                      <li class="nav-item">
-                            <a class="nav-link" href="http://localhost:3000/sign-in">RESET PASSWORD</a>
-                            
-                        </li>
+                      
                   </ul>
                             
               </div>
@@ -311,7 +308,8 @@ class HomePage extends React.Component{
 </figure>
 </div>
 
-   </div>             
+   </div> 
+               
     <div class="footer">
         <div class="container">
             <div class="row">

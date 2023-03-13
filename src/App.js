@@ -1,16 +1,17 @@
 import React, { useState } from "react";
 
-import Search from "./Search";
 
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
- import UserProfile from "./user_creation/userProfile";
+import Search from "./Search";
+import UserProfile from "./user_creation/userProfile";
 import Reset from "./user_creation/reset";
 import SignUp from "./user_creation/signup";
 import LogIn from "./user_creation/login";
 import HomePage from "./Home/home";
 import TripPlan from "./MyTrip/PlanATrip";
 import MyTrip from "./MyTrip/MyTrip";
+import DetailTripPlan from "./MyTrip/detailtripplan";
 
 
 
@@ -28,6 +29,7 @@ function App() {
         <Route path="/mytrip" element={<MyTrip />} />
         <Route path="/myprofile" element={<UserProfile />} />
         <Route path="/reset" element={<Reset />} />
+        <Route path="/detailtripplan" element={<DetailTripPlan />} />
       </Routes>
     </Router>
   );

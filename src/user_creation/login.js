@@ -9,6 +9,7 @@ export default class LogIn extends Component {
             password:""
         };
         this.handleSubmit = this.handleSubmit.bind(this);
+        
  }
  handleSubmit(e){
     e.preventDefault();
@@ -40,6 +41,7 @@ export default class LogIn extends Component {
         }
     })
 }
+
   render() {
     return (
         <body class="signupbody">
