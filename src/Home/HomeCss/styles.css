@@ -384,7 +384,7 @@ strong {
 	text-decoration: none;
 }
 
-.btn-solid-lg {
+.btn-solid-llg {
 	display: inline-block;
 	padding: 1.375rem 2.125rem 1.375rem 2.125rem;
 	border-radius: 0.25rem;
@@ -401,7 +401,7 @@ strong {
 	overflow-x: hidden;
 }
 
-.btn-solid-lg:hover {
+.btn-solid-llg:hover {
 	background-color: rgb(14, 44, 44);
 	color: #fff;
 	text-decoration: none;
@@ -895,7 +895,7 @@ input[type='checkbox'] {
 	color: #dfe5ec;
 }
 
-.header .btn-solid-lg {
+.header .btn-solid-llg {
 	margin-right: 0.5rem;
 	margin-bottom: 1.25rem;
 }

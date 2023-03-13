@@ -18,6 +18,7 @@ import Date from "./MyTrip/date";
 import Destination from "./MyTrip/destination";
 import Activities from "./MyTrip/activities";
 import Itinerary from "./MyTrip/itinerary";
+import CreatePoll from "./MyTrip/createpoll";
 
 
 
@@ -42,6 +43,7 @@ function App() {
         <Route path="/destination" element={<Destination/>} />
         <Route path="/activities" element={<Activities/>} />
         <Route path="/itinerary" element={<Itinerary/>} />
+        <Route path="/createpoll" element={<CreatePoll/>} />
       </Routes>
     </Router>
   );

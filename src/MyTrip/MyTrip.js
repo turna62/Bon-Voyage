@@ -40,7 +40,7 @@ class MyTrip extends React.Component{
                             <div class="col-lg-12">
                                 <div class="text-container">
 
-                                    <a class="btn-solid-lg page-scroll" href="http://localhost:3000/planatrip">Plan A Trip</a>
+                                    <a class="btn-solid-llg page-scroll" href="http://localhost:3000/planatrip">Plan A Trip</a>
 
 
                                 </div>

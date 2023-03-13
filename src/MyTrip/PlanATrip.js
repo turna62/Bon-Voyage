@@ -39,7 +39,7 @@ import React from 'react';
     </nav>
    
     
-    <header id="header" class="header">
+    <header id="header" class="headerp">
         <div class="header-content">
             <div class="container">
                 <div class="row">
@@ -106,11 +106,10 @@ import React from 'react';
                                             <i class="fa fa-user tm-form-element-icon tm-form-element-icon-small"></i>
                                         </div>
                                        
-                                        <div class="form-group tm-form-element tm-form-element-2">
-                                            <button type="submit" class="btn btn-primary tm-btn-search">Continue Planning</button>
-                                        </div>
+                                        <a class="btn-solid-lllg page-scroll" href="http://localhost:3000/detailtripplan">Continue</a>
+                                        
                                       </div>
-                                      <img class="imgage" src="/hills.jpg" alt=""/>
+                                      <img class="imgage" src="/travelingc.png" alt=""/>
 
 
                                 </form>

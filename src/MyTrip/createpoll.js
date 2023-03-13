@@ -2,12 +2,11 @@ import React from 'react';
 import './mytrip.css';
 
 
-class Polls extends React.Component{
+class CreatePoll extends React.Component{
     render(){
 
         return(
-
-    <div class="detailplan">
+            <div class="detailplan">
 
          <nav class="navbar navbar-expand-md navbar-dark navbar-custom fixed-top">
                 <h3 class="logo">Bon VOYAGE!</h3>
@@ -28,48 +27,6 @@ class Polls extends React.Component{
 
               </div>
          </nav>
-
-         <header id="header" class="headerr">
-                <div class="header-content">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="text-container">
-                                    <h1>Let's Plan!</h1>
-                                    {/* <p class="p-heading p-large">The journey of a thousand miles begins with a single step.</p> */}
-
-
-                                </div>
-                            </div> 
-                        </div> 
-                    </div>
-                </div> 
-            </header> 
-
-
-     <div>
-
-        <h4 class="tripname">Trip Name</h4><hr></hr>
-        <ul class="ul">
-        <li class="li"><a href="http://localhost:3000/overview">Overview</a></li>
-        <li class="ovwli"><a href="http://localhost:3000/polls">Polls</a></li>
-        <li class="li"><a href="http://localhost:3000/date">Date</a></li>
-        <li class="li"><a href="http://localhost:3000/destination">Destination</a></li>
-        <li class="li"><a href="http://localhost:3000/activities">Activities</a></li>
-        <li class="li"><a href="http://localhost:3000/itinerary">Itinerary</a></li>
-     </ul>
-
-     </div> 
-
-<div class="phead">
-    <h3>Polls</h3>
-<p>Create a poll to help your group narrow down options or answer key questions.</p> 
-
-</div>
-
-<a class="btn-solid-lg page-scroll" href="http://localhost:3000/createpoll">Create Poll</a>
-
-            
 
          <div class="footer">
         <div class="container">
@@ -134,8 +91,6 @@ class Polls extends React.Component{
             </div>
 
         )
-
     }
 }
-
-export default Polls;
+export default CreatePoll;
