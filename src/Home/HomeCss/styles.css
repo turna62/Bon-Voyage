@@ -328,7 +328,7 @@ a {
 }
 
 a:hover {
-	color: #787976;
+	color: white;
 	text-decoration: underline;
 }
 
@@ -338,7 +338,7 @@ a.green {
 
 a.white,
 .white {
-	color: #dfe5ec;
+	color: white;
 }
 
 .testimonial-text {
@@ -388,7 +388,7 @@ strong {
 	display: inline-block;
 	padding: 1.375rem 2.125rem 1.375rem 2.125rem;
 	border-radius: 0.25rem;
-	background-color: #113448;
+	background-color: rgb(14, 44, 44);
 	color: #fff;
 	font: 700 0.75rem/0 "Montserrat", sans-serif;
 	text-decoration: none;
@@ -402,7 +402,7 @@ strong {
 }
 
 .btn-solid-lg:hover {
-	background-color: #254b60;
+	background-color: rgb(14, 44, 44);
 	color: #fff;
 	text-decoration: none;
 }
@@ -413,7 +413,7 @@ strong {
 	border: 0.125rem solid #787976;
 	border-radius: 0.25rem;
 	background-color: transparent;
-	color: #787976;
+	color: white;
 	font: 700 0.75rem/0 "Montserrat", sans-serif;
 	text-decoration: none;
 	transition: all 0.2s;
@@ -814,7 +814,7 @@ input[type='checkbox'] {
 	right: 0;
 	bottom: 0;
 	left: 0;
-	background: #113448;
+	background: rgb(14, 44, 44);
 }
 
 .spinner {
@@ -1012,76 +1012,6 @@ input[type='checkbox'] {
 
 
 
-/****************************/
-/*     10. Testimonials     */
-/****************************/
-.slider {
-	padding-top: 6.375rem;
-	padding-bottom: 6.5rem;
-	background-color: #fbfbfb;
-}
-
-.slider h2 {
-	margin-bottom: 0.75rem;
-	text-align: center;
-}
-
-.slider .slider-container {
-	position: relative;
-}
-
-.slider .swiper-container {
-	position: static;
-	width: 90%;
-	text-align: center;
-}
-
-.slider .swiper-button-prev:focus,
-.slider .swiper-button-next:focus {
-	/* even if you can't see it chrome you can see it on mobile device */
-	outline: none;
-}
-
-.slider .swiper-button-prev {
-	left: -0.5rem;
-	background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2028%2044'%3E%3Cpath%20d%3D'M0%2C22L22%2C0l2.1%2C2.1L4.2%2C22l19.9%2C19.9L22%2C44L0%2C22L0%2C22L0%2C22z'%20fill%3D'%23787976'%2F%3E%3C%2Fsvg%3E");
-	background-size: 1.125rem 1.75rem;
-}
-
-.slider .swiper-button-next {
-	right: -0.5rem;
-	background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2028%2044'%3E%3Cpath%20d%3D'M27%2C22L27%2C22L5%2C44l-2.1-2.1L22.8%2C22L2.9%2C2.1L5%2C0L27%2C22L27%2C22z'%20fill%3D'%23787976'%2F%3E%3C%2Fsvg%3E");
-	background-size: 1.125rem 1.75rem;
-}
-
-.slider .card {
-	position: relative;
-	border: none;
-	background-color: transparent;
-}
-
-.slider .card-image {
-	width: 6rem;
-	height: 6rem;
-	margin-right: auto;
-	margin-bottom: 0.25rem;
-	margin-left: auto;
-	border-radius: 50%;
-}
-
-.slider .card .card-body {
-	padding-bottom: 0;
-}
-
-.slider .testimonial-text {
-	margin-bottom: 0.625rem;
-}
-
-.slider .testimonial-author {
-	color: #484a46;
-}
-
-
 
 /*Destination*/
 
@@ -1199,7 +1129,7 @@ input[type='checkbox'] {
 /**********************/
 .footer {
 	padding-top: 5rem;
-	background-color: #113448;
+	background-color: rgb(14, 44, 44);
 	position: relative;
 	top: 150px;
 }
@@ -1220,21 +1150,6 @@ input[type='checkbox'] {
 }
 
 
-/*************************/
-/*     18. Copyright     */
-/*************************/
-.copyright {
-	padding-top: 1rem;
-	padding-bottom: 0.5rem;
-	background-color: #113448;
-	text-align: center;
-}
-
-.copyright p,
-.copyright a {
-	color: #dfe5ec;
-	text-decoration: none;
-}
 
 
 /**********************************/
@@ -1265,7 +1180,7 @@ a:hover.back-to-top {
 .ex-header {
 	padding-top: 8rem;
 	padding-bottom: 5rem;
-	background-color: #153e52;
+	background-color: rgb(14, 44, 44);
 	text-align: center;
 }
 
@@ -1344,8 +1259,9 @@ a:hover.back-to-top {
 
 		padding: 0.375rem 2rem 0.375rem 2rem;
 		box-shadow: 0 0.0625rem 0.375rem 0 rgba(0, 0, 0, 0.1);
-		background-color: #113448;
+		background-color: rgb(10, 44, 44);
 		color: white;
+		font-size: 17px;
 	}
 	
 	
@@ -1360,6 +1276,10 @@ a:hover.back-to-top {
 		top: 4px;
 	}
 
+.navbar-custom .nav-item  a{
+	color: white;
+}
+
 	.navbar-custom .nav-item-search .nav-link {
 		padding: 0.29rem 0.75rem 0.25rem 0.75rem;
 		position: relative;
@@ -1373,16 +1293,14 @@ a:hover.back-to-top {
 		color: #15f1be;
 	}
 
-	.navbar-custom.top-nav-collapse {
+	/* .navbar-custom.top-nav-collapse {
         padding: 0.375rem 1.5rem 0.375rem 2rem;
-		box-shadow: 0 0.0625rem 0.375rem 0 white;
-		background-color: #113448;
+		box-shadow: 0 0.0625rem 0.375rem 0;
+		background-color: rgb(10, 44, 44);
+		color: white;
 	}
 
-	.navbar-custom.top-nav-collapse .navbar-brand.logo-text {
-		color: #fff;
-	}
-
+	
 	.navbar-custom.top-nav-collapse .nav-item .nav-link {
 		position: relative;
 		top: 10px;
@@ -1392,7 +1310,7 @@ a:hover.back-to-top {
 	.navbar-custom.top-nav-collapse .nav-item .nav-link:hover,
 	.navbar-custom.top-nav-collapse .nav-item .nav-link.active {
 		color: #15f1be;
-	}
+	} */
 
 	
 	/* end of navigation */
@@ -1753,10 +1671,10 @@ a:hover.back-to-top {
 		padding-left: 5rem;
 	}
 
-	.navbar-custom.top-nav-collapse {
+	/* .navbar-custom.top-nav-collapse {
 		padding-right: 5rem;
 		padding-left: 5rem;
-	}
+	} */
 	/* end of navigation */
 
 	
@@ -1903,10 +1821,10 @@ a:hover.back-to-top {
 		padding-left: 12rem;
 	}
 
-	.navbar-custom.top-nav-collapse {
+	/* .navbar-custom.top-nav-collapse {
 		padding-right: 12rem;
 		padding-left: 12rem;
-	}
+	} */
 	/* end of navigation */
 }
 /* end of min-width width 1200px */

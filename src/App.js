@@ -12,6 +12,7 @@ import HomePage from "./Home/home";
 import TripPlan from "./MyTrip/PlanATrip";
 import MyTrip from "./MyTrip/MyTrip";
 import DetailTripPlan from "./MyTrip/detailtripplan";
+import Overview from "./MyTrip/Overview";
 
 
 
@@ -30,6 +31,7 @@ function App() {
         <Route path="/myprofile" element={<UserProfile />} />
         <Route path="/reset" element={<Reset />} />
         <Route path="/detailtripplan" element={<DetailTripPlan />} />
+        <Route path="/overview" element={<Overview/>} />
       </Routes>
     </Router>
   );
