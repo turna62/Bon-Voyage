@@ -12,7 +12,7 @@ class HomePage extends React.Component{
         return(
 
 
-            <body class="homebody">
+<body class="homebody">
             
             <nav class="navbar navbar-expand-md navbar-dark navbar-custom fixed-top">
              <h3 class="logo">Bon VOYAGE!</h3>
@@ -32,9 +32,11 @@ class HomePage extends React.Component{
                         
         
                         <li class="nav-item">
-                            <a class="nav-link" href="http://localhost:3000/sign-up">SIGN UP</a>
+                            <a class="nav-link" href="http://localhost:3000/sign-in">LOG IN</a>
                             
                         </li>
+
+                        
 
                         <li class="nav-item">
                           
@@ -42,6 +44,11 @@ class HomePage extends React.Component{
  
                     
                       </li>
+
+                      <li class="nav-item">
+                            <a class="nav-link" href="http://localhost:3000/sign-in">RESET PASSWORD</a>
+                            
+                        </li>
                   </ul>
                             
               </div>
@@ -199,7 +206,7 @@ class HomePage extends React.Component{
                             </div>
                             <div class="cell">
                                 <div class="counter-value number-count" data-count="121">1</div>
-                                <div class="counter-info">Issues Solved</div>
+                                <div class="counter-info">Successful Trips</div>
                             </div>
                             <div class="cell">
                                 <div class="counter-value number-count" data-count="159">1</div>
@@ -267,129 +274,110 @@ class HomePage extends React.Component{
                 </div> 
             </div> 
         
-    <div class="slider">
+            <h1 >What Our Users Say About Us...</h1>   
+ <div class="rown">  
+ <div class="columnn">                 
+<figure class="snip1157">
+  <blockquote>Great site to plan trips. Enoyed a lot!
+    <div class="arrow"></div>
+  </blockquote>
+  <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sq-sample3.jpg" alt="sq-sample3" />
+  <div class="author">
+    <h5>Shaira Sadia <span> Chittagong</span></h5>
+  </div>
+</figure></div>
+
+<div class="columnn">  
+<figure class="snip1157 hover">
+  <blockquote> Will surely reccommend it to my friends. 
+    <div class="arrow"></div>
+  </blockquote>
+  <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sq-sample27.jpg" alt="sq-sample27" />
+  <div class="author">
+    <h5>Tohfa<span><p>Khulna</p></span></h5>
+  </div>
+</figure>
+</div>
+
+<div class="columnn">  
+<figure class="snip1157">
+  <blockquote>Bon Voyage is a great site for trip planning.
+    <div class="arrow"></div>
+  </blockquote>
+  <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sq-sample17.jpg" alt="sq-sample17" />
+  <div class="author">
+    <h5>Turna<span><p>Dhaka</p></span></h5>
+  </div>
+</figure>
+</div>
+
+   </div>             
+    <div class="footer">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12">
-                    <h2>What users say about us...</h2>
+                <div class="col-md-6">
+                    <div class="text-container about">
+                        <h4>Few Words About Bon Vogage!</h4>
+                        <p class="white">We are passionate about helping you to arrange your trip as best as we can.</p></div>
+                </div> 
+                <div class="col-md-2">
+                    <div class="text-container">
+                        <h4>Links</h4>
+                        <ul class="list-unstyled li-space-lg white">
+                            <li>
+                                <a class="white" href="#your-link">startupguide.com</a>
+                            </li>
+                            <li>
+                                <a class="white" href="terms-conditions.html">Terms & Conditions</a>
+                            </li>
+                            <li>
+                                <a class="white" href="privacy-policy.html">Privacy Policy</a>
+                            </li>
+                        </ul>
+                    </div> 
+                </div> 
+                <div class="col-md-2">
+                    <div class="text-container">
+                        <h4>Tools</h4>
+                        <ul class="list-unstyled li-space-lg">
+                            <li>
+                                <a class="white" href="#your-link">businessgrowth.com</a>
+                            </li>
+                            <li>
+                               <a class="white" href="#your-link">influencers.com</a>
+                            </li>
+                            <li class="media">
+                                <a class="white" href="#your-link">optimizer.net</a>
+                            </li>
+                        </ul>
+                    </div> 
+                </div> 
+                <div class="col-md-2">
+                    <div class="text-container">
+                        <h4>Partners</h4>
+                        <ul class="list-unstyled li-space-lg">
+                            <li>
+                                <a class="white" href="#your-link">unicorns.com</a>
+                            </li>
+                            <li>
+                                <a class="white" href="#your-link">staffmanager.com</a>
+                            </li>
+                            <li>
+                                <a class="white" href="#your-link">association.gov</a>
+                            </li>
+                        </ul>
+                    </div> 
                 </div> 
             </div>
-            <div class="row">
-                <div class="col-lg-12">
-
-                    
-                    <div class="slider-container">
-                        <div class="swiper-container card-slider">
-                            <div class="swiper-wrapper">
-                                
-                                
-                                <div class="swiper-slide">
-                                    <div class="card">
-                                        <img class="card-image" src="images/testimonial-1.jpg" alt="alternative"/>
-                                        <div class="card-body">
-                                            <div class="testimonial-text">Great site to plan trip. Will surely recommend.</div>
-                                            <div class="testimonial-author">Shaira Sadia</div>
-                                        </div>
-                                    </div>
-                                </div> 
-                                <div class="swiper-slide">
-                                    <div class="card">
-                                        <img class="card-image" src="images/testimonial-2.jpg" alt="alternative"/>
-                                        <div class="card-body">
-                                            <div class="testimonial-text">I purchased the Growth Accelerator service pack a few years ago and I renewed the contract each year. </div>
-                                            <div class="testimonial-author">Marsha Singer - Marketer</div>
-                                        </div>
-                                    </div>        
-                                </div> 
-                                <div class="swiper-slide">
-                                    <div class="card">
-                                        <img class="card-image" src="images/testimonial-3.jpg" alt="alternative"/>
-                                        <div class="card-body">
-                                            <div class="testimonial-text">Aria's CEO personally attends client meetings and gives his feedback on business growth strategies.</div>
-                                            <div class="testimonial-author">Roy Smith - Developer</div>
-                                        </div>
-                                    </div>        
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="card">
-                                        <img class="card-image" src="images/testimonial-4.jpg" alt="alternative"/>
-                                        <div class="card-body">
-                                            <div class="testimonial-text">At the beginning I thought the prices are a little high for what they offer but they over deliver each and every time.</div>
-                                            <div class="testimonial-author">Ronald Spice - Owner</div>
-                                        </div>
-                                    </div>
-                                </div> 
-                                <div class="swiper-slide">
-                                    <div class="card">
-                                        <img class="card-image" src="images/testimonial-5.jpg" alt="alternative"/>
-                                        <div class="card-body">
-                                            <div class="testimonial-text">I recommend Aria to every business owner or growth leader that wants to take his company to the next level.</div>
-                                            <div class="testimonial-author">Lindsay Rune - Manager</div>
-                                        </div>
-                                    </div>        
-                                </div> 
-                                <div class="swiper-slide">
-                                    <div class="card">
-                                        <img class="card-image" src="images/testimonial-6.jpg" alt="alternative"/>
-                                        <div class="card-body">
-                                            <div class="testimonial-text">My goals for using Aria's services seemed high when I first set them but they've met them with no problems.</div>
-                                            <div class="testimonial-author">Ann Black - Consultant</div>
-                                        </div>
-                                    </div>        
-                                </div> 
-                            
-                            </div> 
-        
-                            
-                            <div class="swiper-button-next"></div>
-                            <div class="swiper-button-prev"></div>
-                            
-        
-                        </div> 
-                    </div>
-                </div> 
-            </div> 
         </div> 
     </div> 
+    
+    
 
 
-                
-            <div class="footer">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="text-container about">
-                                <h4></h4>
-                                <p class="white"></p>
-                            </div> 
-                        </div> 
-                        <div class="col-md-2">
-                            <div class="text-container">
-                                <h4>Help</h4>
-                                <ul class="list-unstyled li-space-lg white">
-                                   <li>
-        
-                                   </li>
-                                </ul>
-                            </div> 
-                        </div> 
-                        <div class="col-md-2">
-                            <div class="text-container">
-                                <h4>Social Media</h4>
-                                <ul class="list-unstyled li-space-lg">
-                                    <li>
-                                        
-                                    </li>
-                                </ul>
-                            </div> 
-                        </div> 
-                        </div>
-                </div> 
-            </div> 
-            
     
         
-        </body>
+</body>
            
         
         )

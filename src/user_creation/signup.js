@@ -59,7 +59,7 @@ export default class SignUp extends Component {
 					<input class="text w3lpass" type="password" name="password" placeholder="Confirm Password" required="" id="cpassword"/>
 					<input type="submit" value="SIGNUP"/>
 				</form>
-				<p>Or Log In <a href="http://localhost:3000/sign-in"><u>Here </u> </a></p>
+				<p><a href="http://localhost:3000"><u>Back</u> </a></p>
 			</div>
 		</div>
 		
