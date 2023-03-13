@@ -11,7 +11,10 @@
   margin: 0 auto;
   padding-left: 15px;
   padding-right: 15px;
-
+}
+.gtco-features{
+	position: relative;
+	top: 100px;
 }
 
 #gtco-header,
