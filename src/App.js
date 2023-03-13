@@ -5,7 +5,7 @@ import Search from "./Search";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
  import UserProfile from "./user_creation/userProfile";
-
+import Reset from "./user_creation/reset";
 import SignUp from "./user_creation/signup";
 import LogIn from "./user_creation/login";
 import HomePage from "./Home/home";
@@ -27,6 +27,7 @@ function App() {
         <Route path="/planatrip" element={<TripPlan />} />
         <Route path="/mytrip" element={<MyTrip />} />
         <Route path="/myprofile" element={<UserProfile />} />
+        <Route path="/reset" element={<Reset />} />
       </Routes>
     </Router>
   );
