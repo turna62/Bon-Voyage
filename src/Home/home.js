@@ -15,7 +15,7 @@ class HomePage extends React.Component{
             <body class="homebody">
             
             <nav class="navbar navbar-expand-md navbar-dark navbar-custom fixed-top">
-            <h3 class="logo">Bon VOYAGE!</h3>
+             <h3 class="logo">Bon VOYAGE!</h3>
 
                 
                 <div class="collapse navbar-collapse" id="navbarsExampleDefault">
@@ -36,7 +36,7 @@ class HomePage extends React.Component{
                             
                         </li>
 
-                        <li class="nav-item-search">
+                        <li class="nav-item">
                           
                         <a class="nav-link" href="http://localhost:3000/search">SEARCH</a>
  
@@ -175,22 +175,19 @@ class HomePage extends React.Component{
             <div class="row">
                 <div class="col-lg-5 col-xl-6">
                     <div class="image-container">
-                        <img class="img-fluid" src="images/about.jpg" alt="alternative"/>
+                        <img class="img-fluid" src="img/sylhet.jpg" alt="alternative"/>
                     </div> 
                 </div> 
                 <div class="col-lg-7 col-xl-6">
                     <div class="text-container">
                         <div class="section-title">ABOUT</div>
-                        <h2>We're Passionate About Delivering Growth Services</h2>
-                        <p>Our goal is to provide the right business growth services at the appropriate time so companies can benefit from the created momentum and thrive for a long period of time</p>
+                        <h2>We work to make your trips more enjoyable and easily managed.</h2>
                         <ul class="list-unstyled li-space-lg">
                             <li class="media">
-                                <i class="fas fa-square"></i>
-                                <div class="media-body">Everything we recommend has direct positive impact</div>
+                                <div class="media-body">Collaborative planning feature helps to plan a trip according to every trip members opinion</div>
                             </li>
                             <li class="media">
-                                <i class="fas fa-square"></i>
-                                <div class="media-body">You will become an important partner of our company</div>
+                                <div class="media-body">We believe, you'll enjoy planning your trip with us.</div>
                             </li>
                         </ul>
 
