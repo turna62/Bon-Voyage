@@ -21,7 +21,10 @@ class MyTrip extends React.Component{
                         <li class="nav-item">
                             <a class="nav-link page-scroll" href="http://localhost:3000/myprofile">MY PROFILE</a>
                         </li>
-                        
+                        <li class="nav-item">
+                            <a class="nav-link" href="http://localhost:3000/sign-in">RESET PASSWORD</a>
+                            
+                        </li>
         
                         
                   </ul>
