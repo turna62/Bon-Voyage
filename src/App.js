@@ -13,6 +13,11 @@ import TripPlan from "./MyTrip/PlanATrip";
 import MyTrip from "./MyTrip/MyTrip";
 import DetailTripPlan from "./MyTrip/detailtripplan";
 import Overview from "./MyTrip/Overview";
+import Polls from "./MyTrip/polls";
+import Date from "./MyTrip/date";
+import Destination from "./MyTrip/destination";
+import Activities from "./MyTrip/activities";
+import Itinerary from "./MyTrip/itinerary";
 
 
 
@@ -32,6 +37,11 @@ function App() {
         <Route path="/reset" element={<Reset />} />
         <Route path="/detailtripplan" element={<DetailTripPlan />} />
         <Route path="/overview" element={<Overview/>} />
+        <Route path="/polls" element={<Polls/>} />
+        <Route path="/date" element={<Date/>} />
+        <Route path="/destination" element={<Destination/>} />
+        <Route path="/activities" element={<Activities/>} />
+        <Route path="/itinerary" element={<Itinerary/>} />
       </Routes>
     </Router>
   );

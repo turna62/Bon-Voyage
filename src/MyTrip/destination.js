@@ -2,7 +2,7 @@ import React from 'react';
 import './mytrip.css';
 
 
-class DetailTripPlan extends React.Component{
+class Destination extends React.Component{
     render(){
 
         return(
@@ -51,11 +51,11 @@ class DetailTripPlan extends React.Component{
         <h4 class="tripname">Trip Name</h4><hr></hr>
         <ul class="ul">
         <li class="li"><a href="http://localhost:3000/overview">Overview</a></li>
-        <li class="li"><a href="#">Polls</a></li>
-        <li class="li"><a href="#">Date</a></li>
-        <li class="li"><a href="#">Destination</a></li>
-        <li class="li"><a href="#">Activities</a></li>
-        <li class="li"><a href="#">Itinerary</a></li>
+        <li class="li"><a href="http://localhost:3000/polls">Polls</a></li>
+        <li class="li"><a href="http://localhost:3000/date">Date</a></li>
+        <li class="ovwli"><a href="http://localhost:3000/destination">Destination</a></li>
+        <li class="li"><a href="http://localhost:3000/activities">Activities</a></li>
+        <li class="li"><a href="http://localhost:3000/itinerary">Itinerary</a></li>
      </ul>
 
      </div>            
@@ -126,4 +126,4 @@ class DetailTripPlan extends React.Component{
     }
 }
 
-export default DetailTripPlan;
+export default Destination;
