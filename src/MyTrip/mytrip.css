@@ -695,3 +695,31 @@ top: 70px; }
   color: #fff;
   text-decoration: none;
 }
+
+.savedesbtn{
+  display: inline-block;
+  padding: 1.175rem 1.125rem 1.175rem 1.125rem;
+  border-radius: 0.25rem;
+  background-color: rgb(14, 44, 44);
+  color: #fff;
+  font: 700 0.75rem/0 "Montserrat", sans-serif;
+  text-decoration: none;
+  transition: all 0.2s;
+  font-size: 15px;
+  font-family: 'Times New Roman', Times, serif;
+  position: relative;
+  left: 250px;
+  overflow-x: hidden;
+
+}
+
+.headerr .savedesbtn {
+	margin-right: 0.5rem;
+	margin-bottom: 1.25rem;
+}
+
+.savedesbtn:hover {
+  background-color: rgb(22, 55, 55);
+  color: #fff;
+  text-decoration: none;
+}

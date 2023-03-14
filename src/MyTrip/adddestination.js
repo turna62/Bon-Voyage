@@ -38,8 +38,9 @@ class AddDestination extends React.Component{
                    <h5 class="ccpll">Add a comment (Optional)</h5>
 
 					<input class="textt" type="text" name="poll" placeholder="Comment here..." required="" />
-                    
-                    <input type="submit" value="SAVE"/>
+
+                    <a class="savedesbtn" href="http://localhost:3000/destination2">SAVE</a>
+
 				</form>
 				<p><a href="http://localhost:3000/destination"><u>Back</u> </a></p>
 			</div>
