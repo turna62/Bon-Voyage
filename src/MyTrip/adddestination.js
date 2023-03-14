@@ -2,7 +2,7 @@ import React from 'react';
 import './mytrip.css';
 
 
-class CreatePoll extends React.Component{
+class AddDestination extends React.Component{
     render(){
 
         return(
@@ -31,23 +31,17 @@ class CreatePoll extends React.Component{
     <div class="mainn-w3layouts wrapper">
 		<div class="mainn-agileinfo">
 			<div class="agileitss-top">
-            <h3 class="cpoll">Create Poll</h3><hr></hr>
-            <h5 class="ccpoll">Write a custom question with up to 05 answers travelers can choose from.</h5>
+            <h3 class="cpoll">Add a destination</h3>
+            <h5 class="ccpoll">Suggest a destination for your upcoming trip.</h5> <hr></hr>
 				<form >
-					<input class="texti" type="text" name="poll" placeholder="Write your question....*" required="" />
-                   <h5 class="ccpll">Answer (Add up to 05)</h5>
+					<input class="texti" type="text" name="poll" placeholder="Where to?*  (Enter a location)" required="" />
+                   <h5 class="ccpll">Add a comment (Optional)</h5>
 
-					<input class="textt" type="text" name="poll" placeholder="Answer 1" required="" />
-                    <input class="textt" type="text" name="poll" placeholder="Answer 2" required="" />
-                    <input class="textt" type="text" name="poll" placeholder="Answer 3" required="" />
-                    <input class="textt" type="text" name="poll" placeholder="Answer 4" required="" />
-                    <input class="textt" type="text" name="poll" placeholder="Answer 5" required="" />
-
-
-
-					<input type="submit" value="CREATE POLL"/>
+					<input class="textt" type="text" name="poll" placeholder="Comment here..." required="" />
+                    
+                    <input type="submit" value="SAVE"/>
 				</form>
-				<p><a href="http://localhost:3000/polls"><u>Back</u> </a></p>
+				<p><a href="http://localhost:3000/destination"><u>Back</u> </a></p>
 			</div>
 		</div>
     </div>
@@ -117,4 +111,4 @@ class CreatePoll extends React.Component{
         )
     }
 }
-export default CreatePoll;
+export default AddDestination;
