@@ -1,14 +1,25 @@
-import React from 'react';
-import './mytrip.css';
 
 
-class Destination extends React.Component{
-    render(){
+import React, { Component } from "react";
+import "./mytrip.css";
 
-        return(
-            <div class="deetailplan">
+class Destination extends Component {
+  state = {
+    data: [],
+  };
 
-         <nav class="navbar navbar-expand-md navbar-dark navbar-custom fixed-top">
+  componentDidMount() {
+    fetch("http://localhost:5000/getDestination")
+      .then((response) => response.json())
+      .then((data) => this.setState({ data: data.data }));
+  }
+
+  render() {
+    const { data } = this.state;
+     
+    return (
+<div>
+  <nav class="navbar navbar-expand-md navbar-dark navbar-custom fixed-top">
                 <h3 class="logo">Bon VOYAGE!</h3>
                 <div class="collapse navbar-collapse" id="navbarsExampleDefault">
                     <ul class="navbar-nav ml-auto">
@@ -28,6 +39,7 @@ class Destination extends React.Component{
               </div>
          </nav>
 
+   
          <header id="header" class="headerr">
                 <div class="header-content">
                     <div class="container">
@@ -49,8 +61,6 @@ class Destination extends React.Component{
      <div>
 
         <h4 class="tripname">Trip Name</h4><hr></hr>
-        <a class="btnaddmembers" href="http://localhost:3000/addmembers">+ Add Members</a>
-
         <ul class="ul">
         <li class="li"><a href="http://localhost:3000/overview">Overview</a></li>
         <li class="li"><a href="http://localhost:3000/polls">Polls</a></li>
@@ -60,30 +70,22 @@ class Destination extends React.Component{
         <li class="li"><a href="http://localhost:3000/itinerary">Itinerary</a></li>
      </ul>
 
-     </div>     
-     
-     <div class="phead">
-         <h3>Let's fix destination</h3>
-         <p>Suggest new destinations using the “+ Add destination” button below.</p> 
-    </div>
-    <div class="opollaunch">
-        <h1>  </h1>
-    <h3>Next step: open voting</h3>
-         <p>Start collecting votes from travelers you’ve invited to the trip.</p> 
-    </div>
-    <a class="obtnopnvote" href="">Open Voting</a>
-    <a class="obtnclsvote" href="">Skip Votting</a>
 
-
-       
-    <a class="btndestination" href="http://localhost:3000/adddestination">+ Add Destination</a>
-
-         <div class="footer">
+     </div>  
+     <div className="deetailplan">
+        <ul>
+            Finalized destination:
+          {data.map((destination, index) => (
+            <li key={index}>{destination.destination}</li>
+          ))}
+        </ul>
+      </div> 
+        <div class="footer">
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
                     <div class="text-container about">
-                        <h4>Few Words About Bon Voyage!</h4>
+                        <h4>Few Words About Bon Vogage!</h4>
                         <p class="white">We are passionate about helping you to arrange your trip as best as we can.</p></div>
                 </div> 
                 <div class="col-md-2">
@@ -137,11 +139,13 @@ class Destination extends React.Component{
             </div>
         </div> 
     </div> 
-    
-            </div>
-        )
 
-    }
+
+
+
+     </div>
+    );
+  }
 }
 
 export default Destination;
