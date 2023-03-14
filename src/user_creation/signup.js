@@ -8,15 +8,16 @@ export default class SignUp extends Component {
         this.state = {
             username:"",
             email:"",
-            password:""
+            password:"",
+            confirmpassword:""
         };
         this.handleSubmit = this.handleSubmit.bind(this); // to read properties of state
     }
     // console values
     handleSubmit(e){
         e.preventDefault();
-        const {username, email, password} = this.state;
-        console.log(username, email, password);
+        const {username, email, password, confirmpassword} = this.state;
+        console.log(username, email, password, confirmpassword);
         fetch("http://localhost:5000/register",{ // call API
             method: "POST",
             crossDomain: true,
@@ -28,7 +29,8 @@ export default class SignUp extends Component {
             body: JSON.stringify({
                 username,
                 email,
-                password
+                password,
+                confirmpassword
             }),
         })
         .then((res) => res.json()) // convert data into JSON
@@ -56,7 +58,7 @@ export default class SignUp extends Component {
 					<input class="text email" type="email" name="email" placeholder="Email" required="" onInput = {e=>this.setState({email:e.target.value})}/>
 					<input class="text" type="password" name="password" placeholder="Password" required="" id="password" onInput = {e=>this.setState({password:e.target.value})}/>
 					<i class="bi bi-eye-slash" id="togglePassword"></i>
-					{/* <input class="text w3lpass" type="password" name="password" placeholder="Confirm Password" required="" id="cpassword"/> */}
+					<input class="text w3lpass" type="password" name="confirmpassword" placeholder="Confirm Password" required="" id="cpassword"onInput = {e=>this.setState({confirmpassword:e.target.value})}/>
 					<input type="submit" value="SIGNUP"/>
 				</form>
 				<p><a href="http://localhost:3000"><u>Back</u> </a></p>
