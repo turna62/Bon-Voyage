@@ -77,7 +77,7 @@ class Date extends React.Component{
                                             <input name="check-out" type="date" class="form-controll" id="inputCheckOut" placeholder="End date"/>
                                 </div>
 
-                                <a class="btndate" href="http://localhost:3000/createpoll">Set Date</a>
+                                <a class="btndate" href="">Set Date</a>
 
 
     <div class="footer">
