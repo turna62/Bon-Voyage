@@ -1852,3 +1852,26 @@ a:hover.back-to-top {
 	}
 }
 	
+.btnhome {
+	display: inline-block;
+	padding: 1.375rem 2.125rem 1.375rem 2.125rem;
+	border: 0.2rem solid #14bf98;
+	border-radius: 0.25rem;
+	background-color: transparent;
+	color: #fff;
+	font: 700 0.75rem/0 "Montserrat", sans-serif;
+	text-decoration: none;
+	transition: all 0.2s;
+	font-size: 18px;
+}
+
+.btnhome:hover {
+	background-color: #14bf9767;
+	color: #fff;
+	text-decoration: none;
+}
+
+.header .btnhome {
+	margin-right: 0.5rem;
+	margin-bottom: 1.25rem;
+}
