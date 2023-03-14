@@ -60,22 +60,27 @@ import React from 'react';
                             <div class="col-xs-12 ml-auto mr-auto ie-container-width-fix">
                                 <form action="index.html" method="get" class="tm-search-form tm-section-pad-2">
                                     <div class="form-row tm-search-form-row">
-                                        <div class="form-group tm-form-element tm-form-element-100">
-                                            <i class="fa fa-map-marker fa-2x tm-form-element-icon"></i>
-                                            <input name="city" type="text" class="form-control" id="inputCity" placeholder="Type your destination *(if decided)"/>
+
+                                      <div class="form-group tm-form-element tm-form-element-100">
+                                            <input name="tripName" type="text" class="form-control" id="inputCity" placeholder="Trip Name"/>
+                                        </div>
+                                        
+                                        <div class="form-group tm-form-element tm-form-element-50">
+                                            <i class="fa fa-calendar fa-2x tm-form-element-icon"></i>
+                                            <input name="startDate" type="date" class="form-control" id="inputCheckIn" placeholder="Start date"/>
                                         </div>
                                         <div class="form-group tm-form-element tm-form-element-50">
                                             <i class="fa fa-calendar fa-2x tm-form-element-icon"></i>
-                                            <input name="check-in" type="date" class="form-control" id="inputCheckIn" placeholder="Start date"/>
-                                        </div>
-                                        <div class="form-group tm-form-element tm-form-element-50">
-                                            <i class="fa fa-calendar fa-2x tm-form-element-icon"></i>
-                                            <input name="check-out" type="date" class="form-control" id="inputCheckOut" placeholder="End date"/>
+                                            <input name="endDate" type="date" class="form-control" id="inputCheckOut" placeholder="End date"/>
                                         </div>
                                     </div>
                                     <div class="form-row tm-search-form-row">
+                                        <div class="form-group tm-form-element tm-form-element-100">
+                                            <i class="fa fa-map-marker fa-2x tm-form-element-icon"></i>
+                                            <input name="destination" type="text" class="form-control" id="inputCity" placeholder="Type your destination *(if decided)"/>
+                                        </div>
                                         <div class="form-group tm-form-element tm-form-element-2">                                            
-                                            <select name="adult" class="form-control tm-select" id="adult">
+                                            <select name="member" class="form-control tm-select" id="adult">
                                                 <option value="">Members</option>
                                                 <option value="1">1</option>
                                                 <option value="2">2</option>
