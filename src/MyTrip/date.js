@@ -6,7 +6,7 @@ class Date extends React.Component{
     render(){
 
         return(
-            <div class="detailplan">
+            <div class="deetailplan">
 
          <nav class="navbar navbar-expand-md navbar-dark navbar-custom fixed-top">
                 <h3 class="logo">Bon VOYAGE!</h3>
@@ -69,14 +69,14 @@ class Date extends React.Component{
 
                                <div class="form-group tmm-form-element tm-form-element-50">
                                             <i class="fa fa-calendar fa-2x tmm-form-element-icon"></i>
-                                            <input name="check-in" type="date" class="form-control" id="inputCheckIn" placeholder="Start date"/>
-                                </div>
+                                            <input name="check-in" type="date" class="form-controll" id="inputCheckIn" placeholder="Start date"/>
+                              </div>
                                 <div class="form-group tmm-form-element tm-form-element-50">
                                             <i class="fa fa-calendar fa-2x tmm-form-element-icon"></i>
-                                            <input name="check-out" type="date" class="form-control" id="inputCheckOut" placeholder="End date"/>
+                                            <input name="check-out" type="date" class="form-controll" id="inputCheckOut" placeholder="End date"/>
                                 </div>
 
-         <div class="footer">
+    <div class="footer">
         <div class="container">
             <div class="row">
                 <div class="col-md-6">

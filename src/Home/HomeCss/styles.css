@@ -384,28 +384,7 @@ strong {
 	text-decoration: none;
 }
 
-.btn-solid-llg {
-	display: inline-block;
-	padding: 1.375rem 2.125rem 1.375rem 2.125rem;
-	border-radius: 0.25rem;
-	background-color: rgb(14, 44, 44);
-	color: #fff;
-	font: 700 0.75rem/0 "Montserrat", sans-serif;
-	text-decoration: none;
-	transition: all 0.2s;
-	font-size: 18px;
-	font-family: 'Times New Roman', Times, serif;
-	position: relative;
-	left: 480px;
-	top: 360px;
-	overflow-x: hidden;
-}
 
-.btn-solid-llg:hover {
-	background-color: rgb(14, 44, 44);
-	color: #fff;
-	text-decoration: none;
-}
 
 .btn-outline-reg {
 	display: inline-block;
@@ -895,10 +874,7 @@ input[type='checkbox'] {
 	color: #dfe5ec;
 }
 
-.header .btn-solid-llg {
-	margin-right: 0.5rem;
-	margin-bottom: 1.25rem;
-}
+
 
 
 /*********************/
@@ -976,11 +952,12 @@ input[type='checkbox'] {
 .cards-1 .fa-stack {
 	width: 6rem;
 	height: 6rem;
-	margin-right: auto;
 	margin-bottom: 1rem;
 	margin-left: auto;
 	line-height: 6rem;
-	text-align: left;
+	margin: 10px;
+	position: relative;
+	
 }
 
 .cards-1 .fa-stack .hexagon {
@@ -996,16 +973,69 @@ input[type='checkbox'] {
 	font-size: 2rem;
 	position: relative;
 	top: 4px;
+	left: 30px;
 }
 
 .cards-1 .card-body {
 	padding: 0;
 }
+/* hbujn */
+
+.card-bodyy{
+	position: relative;
+	top: 20px;
+}
+
+.cards-1 .fa-stackk {
+	width: 6rem;
+	height: 6rem;
+	margin-bottom: 1rem;
+	margin-left: auto;
+	line-height: 6rem;
+	margin: 10px;
+	position: relative;
+	
+}
+
+.cards-1 .fa-stackk .hexagon {
+	position: absolute;
+	width: 6rem;
+	height: 6rem;
+	background: url('../images/hexagon-green.svg') center center no-repeat;
+	background-size: 6rem 6rem;
+}
+
+.cards-1 .fa-stackk-1x {
+	color: #fff;
+	font-size: 2rem;
+	position: relative;
+	top: 4px;
+	left: 30px;
+}
+
+.fa-stackk{
+	position: relative;
+	left: 10px;
+	bottom: 10px;
+}
+
+.fa-stack{
+	position: relative;
+	bottom: 25px;
+}
 
 .cards-1 .card-title {
 	margin-bottom: 0.625rem;
+	position: relative;
+	right: 30px;
 }
 
+.cards-1 .card-body p{
+	margin-bottom: 0.625rem;
+	position: relative;
+	right: 40px;
+	margin: 10px;
+}
 
 /************************/
 /*     07. Services     */

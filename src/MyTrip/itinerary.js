@@ -6,7 +6,7 @@ class Itinerary extends React.Component{
     render(){
 
         return(
-            <div class="detailplan">
+            <div class="deetailplan">
 
          <nav class="navbar navbar-expand-md navbar-dark navbar-custom fixed-top">
                 <h3 class="logo">Bon VOYAGE!</h3>

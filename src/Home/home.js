@@ -227,12 +227,12 @@ class HomePage extends React.Component{
                             
                             
                             <div class="card">
-                                <span class="fa-stack">
+                                <span class="fa-stackk">
                                     <span class="hexagon"></span>
                                     <i class="fas fa-list-alt fa-stack-1x"></i>
                                 </span>
-                                <div class="card-body">
-                                    <h4 class="card-title">Creating an Itinerary</h4>
+                                <div class="card-bodyy">
+                                    <h4 class="card-tittle">Creating an Itinerary</h4>
                                     <p>Our system will give scope to download an itinerary once the planning is set.</p>
                                 </div>
                             </div>
@@ -254,15 +254,16 @@ class HomePage extends React.Component{
         
                             
                             <div class="card">
-                                <span class="fa-stack">
-                                    <span class="hexagon"></span>
+                                <span class="fa-stackk">
+                                <span class="hexagon"></span>
                                     
-                                    <i class="fas fa-list-alt fa-stack-1x"></i>
+                                    <i class="fas fa-users fa-stack-1x"></i>
                                 </span>
-                                <div class="card-body">
-                                    <h4 class="card-title">Collaborative Planning</h4>
+                                <div class="card-bodyy">
+                                    <h4 class="card-tittle">Collaborative Planning</h4>
                                     <p>Trip planners can plan collaboratively in a planning slot.</p>
                                 </div>
+                                
                             </div>
                             
                         </div>

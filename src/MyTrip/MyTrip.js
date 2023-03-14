@@ -31,8 +31,11 @@ class MyTrip extends React.Component{
 
               </div>
          </nav> 
-         <h3 class="heading">My Trips</h3>   
+         <div>
+         <h3 class="heading">My Trips</h3> <span></span>  </div>
+         <div>
          <p class="ins">Press the 'Plan Your Trip' button and start planning your next adventure with Bon Voyage.</p>   
+         </div>
         
              <div class="header-content">
                     <div class="container">
@@ -40,7 +43,7 @@ class MyTrip extends React.Component{
                             <div class="col-lg-12">
                                 <div class="text-container">
 
-                                    <a class="btn-solid-llg page-scroll" href="http://localhost:3000/planatrip">Plan A Trip</a>
+                                    <a class="btn-solid-llg" href="http://localhost:3000/planatrip">Plan A Trip</a>
 
 
                                 </div>
@@ -50,6 +53,8 @@ class MyTrip extends React.Component{
                 </div>
 
                 <img class="img-fluidi" src="/hills.jpg" alt=""/>
+
+                
 
         </div>
         
