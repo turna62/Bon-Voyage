@@ -71,8 +71,8 @@ class Destination extends React.Component{
     <h3>Next step: open voting</h3>
          <p>Start collecting votes from travelers you’ve invited to the trip.</p> 
     </div>
-    <a class="obtnopnvote" href="http://localhost:3000/createpoll">Open Voting</a>
-    <a class="obtnclsvote" href="http://localhost:3000/destination">Skip Votting</a>
+    <a class="obtnopnvote" href="">Open Voting</a>
+    <a class="obtnclsvote" href="">Skip Votting</a>
 
 
        

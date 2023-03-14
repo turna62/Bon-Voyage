@@ -122,22 +122,12 @@ import React from 'react';
                                             <i class="fa fa-map-marker fa-2x tm-form-element-icon"></i>
                                             <input name="destination" type="text" class="form-control" id="inputCity" placeholder="Type your destination *(if decided)" onInput = {e=>this.setState({destination:e.target.value})}/>
                                         </div>
-                                        <div class="form-group tm-form-element tm-form-element-2">                                            
-                                            <select name="members" class="form-control tm-select" id="adult" onInput = {e=>this.setState({username:e.target.value})}>
-                                                <option value="">Members</option>
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                                <option value="5">5</option>
-                                                <option value="6">6</option>
-                                                <option value="7">7</option>
-                                                <option value="8">8</option>
-                                                <option value="9">9</option>
-                                                <option value="10">10</option>
-                                            </select>
-                                            <i class="fa fa-2x fa-user tm-form-element-icon"></i>
+                                        
+
+                                        <div class="form-group tm-form-element tm-form-element-100">
+                                            <input name="members" type="text" class="form-control" id="inputCity" placeholder="Total members.." onInput = {e=>this.setState({tripName:e.target.value})}/>
                                         </div>
+
                                                       
                                         {/* <a class="btn-solid-lllg page-scroll" href="http://localhost:3000/detailtripplan">Continue</a> */}
                                         {/* <a class="btn-solid-lllg page-scroll" >Continue</a> */}

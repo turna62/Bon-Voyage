@@ -39,7 +39,7 @@ class AddDestination extends React.Component{
 
 					<input class="textt" type="text" name="poll" placeholder="Comment here..." required="" />
 
-                    <a class="savedesbtn" href="http://localhost:3000/destination2">SAVE</a>
+                    <a class="savedesbtn" href="http://localhost:3000/destination2">NEXT</a>
 
 				</form>
 				<p><a href="http://localhost:3000/destination"><u>Back</u> </a></p>

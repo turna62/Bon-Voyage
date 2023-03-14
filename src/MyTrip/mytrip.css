@@ -569,7 +569,7 @@ top: 70px; }
             bottom: 20px;
             left: 800px;
             height: 200px;
-            opacity: 0.7;
+            opacity: 0.5;
 }
 .obtnopnvote{
   display: inline-block;
@@ -586,7 +586,7 @@ top: 70px; }
   left: 800px;
   bottom: 120px;
   overflow-x: hidden;
-  opacity: 0.7;
+  opacity: 0.5;
 
 }
 
@@ -615,7 +615,7 @@ top: 70px; }
   left: 850px;
   bottom: 120px;
   overflow-x: hidden;
-  opacity: 0.7;
+  opacity: 0.5;
 
 }
 
