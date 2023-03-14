@@ -31,17 +31,17 @@ componentDidMount(){
             }
         });
 }
-logOut = () => {
-    window.localStorage.clear(); // good practice to clear all details rather than just the token
-    window.location.href = "./sign-in";
-}
+// logOut = () => {
+//     window.localStorage.clear(); // good practice to clear all details rather than just the token
+//     window.location.href = "./sign-in";
+// }
     render(){
         return(
             <div>
                 <b>Name:</b> {this.state.userData.username}
                 <br/>
                 <b>Email:</b> {this.state.userData.email}<br/>
-                <button onClick={this.logOut}>Log Out</button>
+                {/* <button onClick={this.logOut}>Log Out</button> */}
 
             </div>
 
