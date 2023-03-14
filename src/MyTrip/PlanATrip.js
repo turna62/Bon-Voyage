@@ -5,7 +5,50 @@ import React from 'react';
  import'./css/tooplate-style.css';
  
  class TripPlan extends React.Component{
-
+    constructor (props){
+        super(props)
+        this.state = {
+            tripName:"",
+            destination:"",
+            startDate:"",
+            endDate:"",
+            members:""
+        };
+        this.handleSubmit = this.handleSubmit.bind(this); // to read properties of state
+   
+    }
+             // console values
+             handleSubmit(e){
+                e.preventDefault();
+                const {tripName, destination, startDate, endDate, members} = this.state;
+                console.log(tripName, destination, startDate, endDate, members);
+                fetch("http://localhost:5000/insert",{ // call API
+                    method: "POST",
+                    crossDomain: true,
+                    headers:{
+                        "Content-Type":"application/json",
+                        Accept: "application/json",
+                        "Access-Control-Allow-Origin": "*",
+                    },
+                    body: JSON.stringify({
+                        tripName,
+                        destination,
+                        startDate,
+                        endDate,
+                        members
+                    }),
+                })
+                .then((res) => res.json()) // convert data into JSON
+                .then((data) => {
+                    console.log(data, "userSubmit");
+                    if (data.status === "OK!"){
+                        alert("Submitted!");
+                        window.location.href = "./detailtripplan";
+                    } else {
+                        alert("Error! Something went wrong!");
+                    }
+                })
+            }
     render(){
 
         return(
@@ -58,29 +101,29 @@ import React from 'react';
                         <h6 class="startedtxt">(select if decided)*</h6>
                         <div class="row">
                             <div class="col-xs-12 ml-auto mr-auto ie-container-width-fix">
-                                <form action="index.html" method="get" class="tm-search-form tm-section-pad-2">
+                                <form onSubmit = {this.handleSubmit}  class="tm-search-form tm-section-pad-2" >
                                     <div class="form-row tm-search-form-row">
 
                                       <div class="form-group tm-form-element tm-form-element-100">
-                                            <input name="tripName" type="text" class="form-control" id="inputCity" placeholder="Trip Name"/>
+                                            <input name="tripName" type="text" class="form-control" id="inputCity" placeholder="Trip Name" onInput = {e=>this.setState({tripName:e.target.value})}/>
                                         </div>
                                         
                                         <div class="form-group tm-form-element tm-form-element-50">
                                             <i class="fa fa-calendar fa-2x tm-form-element-icon"></i>
-                                            <input name="startDate" type="date" class="form-control" id="inputCheckIn" placeholder="Start date"/>
+                                            <input name="startDate" type="date" class="form-control" id="inputCheckIn" placeholder="Start date" onInput = {e=>this.setState({startDate:e.target.value})}/>
                                         </div>
                                         <div class="form-group tm-form-element tm-form-element-50">
                                             <i class="fa fa-calendar fa-2x tm-form-element-icon"></i>
-                                            <input name="endDate" type="date" class="form-control" id="inputCheckOut" placeholder="End date"/>
+                                            <input name="endDate" type="date" class="form-control" id="inputCheckOut" placeholder="End date" onInput = {e=>this.setState({endDate:e.target.value})}/>
                                         </div>
                                     </div>
                                     <div class="form-row tm-search-form-row">
                                         <div class="form-group tm-form-element tm-form-element-100">
                                             <i class="fa fa-map-marker fa-2x tm-form-element-icon"></i>
-                                            <input name="destination" type="text" class="form-control" id="inputCity" placeholder="Type your destination *(if decided)"/>
+                                            <input name="destination" type="text" class="form-control" id="inputCity" placeholder="Type your destination *(if decided)" onInput = {e=>this.setState({destination:e.target.value})}/>
                                         </div>
                                         <div class="form-group tm-form-element tm-form-element-2">                                            
-                                            <select name="member" class="form-control tm-select" id="adult">
+                                            <select name="members" class="form-control tm-select" id="adult" onInput = {e=>this.setState({username:e.target.value})}>
                                                 <option value="">Members</option>
                                                 <option value="1">1</option>
                                                 <option value="2">2</option>
@@ -96,7 +139,10 @@ import React from 'react';
                                             <i class="fa fa-2x fa-user tm-form-element-icon"></i>
                                         </div>
                                                       
-                                        <a class="btn-solid-lllg page-scroll" href="http://localhost:3000/detailtripplan">Continue</a>
+                                        {/* <a class="btn-solid-lllg page-scroll" href="http://localhost:3000/detailtripplan">Continue</a> */}
+                                        {/* <a class="btn-solid-lllg page-scroll" >Continue</a> */}
+                                        <input class="btn-solid-lllg" type="submit" value="Continue"/>
+                                        
                                         
                                       </div>
                                       <img class="imgage" src="/travelingc.png" alt=""/>
