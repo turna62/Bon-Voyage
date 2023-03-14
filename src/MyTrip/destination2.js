@@ -2,7 +2,7 @@ import React from 'react';
 import './mytrip.css';
 
 
-class Destination extends React.Component{
+class Destination2 extends React.Component{
     render(){
 
         return(
@@ -66,13 +66,13 @@ class Destination extends React.Component{
          <h3>Let's fix destination</h3>
          <p>Suggest new destinations using the “+ Add destination” button below.</p> 
     </div>
-    <div class="opollaunch">
+    <div class="pollaunch">
         <h1>  </h1>
     <h3>Next step: open voting</h3>
          <p>Start collecting votes from travelers you’ve invited to the trip.</p> 
     </div>
-    <a class="obtnopnvote" href="http://localhost:3000/createpoll">Open Voting</a>
-    <a class="obtnclsvote" href="http://localhost:3000/destination">Skip Votting</a>
+    <a class="btnopnvote" href="http://localhost:3000/createpoll">Open Voting</a>
+    <a class="btnclsvote" href="http://localhost:3000/destination">Skip Votting</a>
 
 
        
@@ -144,4 +144,4 @@ class Destination extends React.Component{
     }
 }
 
-export default Destination;
+export default Destination2;
