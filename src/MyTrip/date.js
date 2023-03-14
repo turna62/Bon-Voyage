@@ -68,13 +68,18 @@ class Date extends React.Component{
 
 
                                <div class="form-group tmm-form-element tm-form-element-50">
+                                <p class="date">Starting date:</p>
                                             <i class="fa fa-calendar fa-2x tmm-form-element-icon"></i>
                                             <input name="check-in" type="date" class="form-controll" id="inputCheckIn" placeholder="Start date"/>
                               </div>
-                                <div class="form-group tmm-form-element tm-form-element-50">
+                                <div class="form-group tmmm-form-element tm-form-element-50">
+                                <p class="date">Ending date:</p>
                                             <i class="fa fa-calendar fa-2x tmm-form-element-icon"></i>
                                             <input name="check-out" type="date" class="form-controll" id="inputCheckOut" placeholder="End date"/>
                                 </div>
+
+                                <a class="btndate" href="http://localhost:3000/createpoll">Set Date</a>
+
 
     <div class="footer">
         <div class="container">

@@ -85,8 +85,8 @@ width: 35%;
 position: relative;
 left: 380px;
 top: 200px;
-
 }
+
 
 .ul{
     margin:0;
@@ -439,15 +439,20 @@ top: 200px;
           
 .tmm-form-element {
  position: relative;
-left: 180px;
+left: 150px;
 top: 70px; }
 
-.tmm.-form-element-icon {
-	color: #113448;
-	position: absolute;
-	top: 0px;
-	left: 10px;
+.tmm-form-element-icon {
+	color: rgb(14, 44, 44);
+	position: relative;
+	top: 5px;
+  right: 10px ;
 }
+.tmmm-form-element {
+  position: relative;
+ left: 400px;
+ bottom: 20px; }
+ 
 
 .mytriph{
   position: relative;
@@ -456,5 +461,50 @@ top: 70px; }
 .mytripins{
   position: relative;
   top: 100px;
+}
+
+.headerr .btndate {
+	margin-right: 0.5rem;
+	margin-bottom: 1.25rem;
+}
+.btndate {
+  display: inline-block;
+  padding: 1.175rem 1.125rem 1.175rem 1.125rem;
+  border-radius: 0.25rem;
+  background-color: rgb(14, 44, 44);
+  color: #fff;
+  font: 700 0.75rem/0 "Montserrat", sans-serif;
+  text-decoration: none;
+  transition: all 0.2s;
+  font-size: 15px;
+  font-family: 'Times New Roman', Times, serif;
+  position: relative;
+  left: 610px;
+  bottom: 70px;
+  overflow-x: hidden;
+}
+
+.btndate:hover {
+  background-color: rgb(22, 55, 55);
+  color: #fff;
+  text-decoration: none;
+}
+
+.date{
+  position: relative;
+  top: 10px;
+  right: 5px;
+}
+
+.tmm-form-element-2{
+  position: relative;
+  left: 200px;
+}
+
+.startedtxt{
+  font-family: sans-serif;
+  color: rgb(14, 44, 44);
+  position: relative;
+  top: 35px;
 }
 
