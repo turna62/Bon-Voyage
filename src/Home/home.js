@@ -316,7 +316,7 @@ class HomePage extends React.Component{
             <div class="row">
                 <div class="col-md-6">
                     <div class="text-container about">
-                        <h4>Few Words About Bon Vogage!</h4>
+                        <h4>Few Words About Bon Voyage!</h4>
                         <p class="white">We are passionate about helping you to arrange your trip as best as we can.</p></div>
                 </div> 
                 <div class="col-md-2">

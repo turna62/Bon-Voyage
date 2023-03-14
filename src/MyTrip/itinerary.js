@@ -35,6 +35,8 @@ class Itinerary extends React.Component{
                             <div class="col-lg-12">
                                 <div class="text-container">
                                     <h1>Let's Plan!</h1>
+                                    <a class="btnaddmembers" href="http://localhost:3000/addmembers">+ Add Members</a>
+
                                     {/* <p class="p-heading p-large">The journey of a thousand miles begins with a single step.</p> */}
 
 
