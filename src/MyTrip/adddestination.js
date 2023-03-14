@@ -1,51 +1,12 @@
-import React, { Component } from "react";
+import React from 'react';
+import './mytrip.css';
 
-export default class UserProfile extends Component{
-constructor(props){
-    super(props);
-    this.state = {
-        userData: "",
-    };
-}
-componentDidMount(){
-    fetch("http://localhost:5000/userData",{
-            method: "POST",
-            crossDomain: true,
-            headers:{
-                "Content-Type":"application/json",
-                Accept: "application/json",
-                "Access-Control-Allow-Origin": "*",
-            },
-            body: JSON.stringify({
-                token: window.localStorage.getItem("token"),
-            }),
-        })
-        .then((res) => res.json()) // convert data into JSON
-        .then((data) => {
-            console.log(data, "userData");
-            this.setState({userData: data.data});
-            if(data.data == 'Token Expired!'){
-                alert("Token expired! Kindly login again."); 
-                window.localStorage.clear();
-                window.location.href = "./sign-in";
-            }
-        });
-}
-// logOut = () => {
-//     window.localStorage.clear(); // good practice to clear all details rather than just the token
-//     window.location.href = "./sign-in";
-// }
+
+class AddDestination extends React.Component{
     render(){
+
         return(
-<<<<<<< HEAD
-            <div>
-                <b>Name:</b> {this.state.userData.username}
-                <br/>
-                <b>Email:</b> {this.state.userData.email}<br/>
-                {/* <button onClick={this.logOut}>Log Out</button> */}
-=======
             <div class="deetailplan">
->>>>>>> ceef49a79ec2cebf516bcc29302271707850728f
 
          <nav class="navbar navbar-expand-md navbar-dark navbar-custom fixed-top">
                 <h3 class="logo">Bon VOYAGE!</h3>
@@ -67,28 +28,26 @@ componentDidMount(){
               </div>
          </nav>
 
-         
+    <div class="mainn-w3layouts wrapper">
+		<div class="mainn-agileinfo">
+			<div class="agileitss-top">
+            <h3 class="cpoll">Add a destination</h3>
+            <h5 class="ccpoll">Suggest a destination for your upcoming trip.</h5> <hr></hr>
+				<form >
+					<input class="texti" type="text" name="poll" placeholder="Where to?*  (Enter a location)" required="" />
+                   <h5 class="ccpll">Add a comment (Optional)</h5>
 
-         <div class="containerr mt-4 mb-4 p-3 d-flex justify-content-center">
-             <div class="card p-4"> 
-                 <div class=" image d-flex flex-column justify-content-center align-items-center"> 
-                   
-                     <span class="name mt-3">{this.state.userData.username}</span> 
-                     <span class="idd">{this.state.userData.email}</span> 
-                    
-                  
-                 <div class=" d-flex mt-2"> 
-                     <button class="btn1 btn-dark">Edit Profile</button> 
-                </div> 
-                          
-                         
-                        
-                    </div> 
-                </div>
-              </div>  
+					<input class="textt" type="text" name="poll" placeholder="Comment here..." required="" />
 
+                    <a class="savedesbtn" href="http://localhost:3000/destination2">NEXT</a>
 
-              <div class="footerp">
+				</form>
+				<p><a href="http://localhost:3000/destination"><u>Back</u> </a></p>
+			</div>
+		</div>
+    </div>
+
+         <div class="footer">
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
@@ -148,9 +107,9 @@ componentDidMount(){
         </div> 
     </div> 
     
+            </div>
 
-    </div>
-
-        );
+        )
     }
 }
+export default AddDestination;

@@ -1,51 +1,12 @@
-import React, { Component } from "react";
+import React from 'react';
+import './mytrip.css';
 
-export default class UserProfile extends Component{
-constructor(props){
-    super(props);
-    this.state = {
-        userData: "",
-    };
-}
-componentDidMount(){
-    fetch("http://localhost:5000/userData",{
-            method: "POST",
-            crossDomain: true,
-            headers:{
-                "Content-Type":"application/json",
-                Accept: "application/json",
-                "Access-Control-Allow-Origin": "*",
-            },
-            body: JSON.stringify({
-                token: window.localStorage.getItem("token"),
-            }),
-        })
-        .then((res) => res.json()) // convert data into JSON
-        .then((data) => {
-            console.log(data, "userData");
-            this.setState({userData: data.data});
-            if(data.data == 'Token Expired!'){
-                alert("Token expired! Kindly login again."); 
-                window.localStorage.clear();
-                window.location.href = "./sign-in";
-            }
-        });
-}
-// logOut = () => {
-//     window.localStorage.clear(); // good practice to clear all details rather than just the token
-//     window.location.href = "./sign-in";
-// }
+
+class Destination2 extends React.Component{
     render(){
+
         return(
-<<<<<<< HEAD
-            <div>
-                <b>Name:</b> {this.state.userData.username}
-                <br/>
-                <b>Email:</b> {this.state.userData.email}<br/>
-                {/* <button onClick={this.logOut}>Log Out</button> */}
-=======
             <div class="deetailplan">
->>>>>>> ceef49a79ec2cebf516bcc29302271707850728f
 
          <nav class="navbar navbar-expand-md navbar-dark navbar-custom fixed-top">
                 <h3 class="logo">Bon VOYAGE!</h3>
@@ -67,28 +28,57 @@ componentDidMount(){
               </div>
          </nav>
 
-         
+         <header id="header" class="headerr">
+                <div class="header-content">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="text-container">
+                                    <h1>Let's Plan!</h1>
+                                    {/* <p class="p-heading p-large">The journey of a thousand miles begins with a single step.</p> */}
 
-         <div class="containerr mt-4 mb-4 p-3 d-flex justify-content-center">
-             <div class="card p-4"> 
-                 <div class=" image d-flex flex-column justify-content-center align-items-center"> 
-                   
-                     <span class="name mt-3">{this.state.userData.username}</span> 
-                     <span class="idd">{this.state.userData.email}</span> 
-                    
-                  
-                 <div class=" d-flex mt-2"> 
-                     <button class="btn1 btn-dark">Edit Profile</button> 
+
+                                </div>
+                            </div> 
+                        </div> 
+                    </div>
                 </div> 
-                          
-                         
-                        
-                    </div> 
-                </div>
-              </div>  
+            </header> 
 
 
-              <div class="footerp">
+     <div>
+
+        <h4 class="tripname">Trip Name</h4><hr></hr>
+        <a class="btnaddmembers" href="http://localhost:3000/addmembers">+ Add Members</a>
+
+        <ul class="ul">
+        <li class="li"><a href="http://localhost:3000/overview">Overview</a></li>
+        <li class="li"><a href="http://localhost:3000/polls">Polls</a></li>
+        <li class="li"><a href="http://localhost:3000/date">Date</a></li>
+        <li class="ovwli"><a href="http://localhost:3000/destination">Destination</a></li>
+        <li class="li"><a href="http://localhost:3000/activities">Activities</a></li>
+        <li class="li"><a href="http://localhost:3000/itinerary">Itinerary</a></li>
+     </ul>
+
+     </div>     
+     
+     <div class="phead">
+         <h3>Let's fix destination</h3>
+         <p>Suggest new destinations using the “+ Add destination” button below.</p> 
+    </div>
+    <div class="pollaunch">
+        <h1>  </h1>
+    <h3>Next step: open voting</h3>
+         <p>Start collecting votes from travelers you’ve invited to the trip.</p> 
+    </div>
+    <a class="btnopnvote" href="http://localhost:3000/createpoll">Open Voting</a>
+    <a class="btnclsvote" href="http://localhost:3000/destination">Skip Votting</a>
+
+
+       
+    <a class="btndestination" href="http://localhost:3000/adddestination">+ Add Destination</a>
+
+         <div class="footer">
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
@@ -148,9 +138,10 @@ componentDidMount(){
         </div> 
     </div> 
     
+            </div>
+        )
 
-    </div>
-
-        );
     }
 }
+
+export default Destination2;

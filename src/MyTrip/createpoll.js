@@ -47,7 +47,7 @@ class CreatePoll extends React.Component{
 
 					<input type="submit" value="CREATE POLL"/>
 				</form>
-				<p><a href="http://localhost:3000/detailtripplan"><u>Back</u> </a></p>
+				<p><a href="http://localhost:3000/polls"><u>Back</u> </a></p>
 			</div>
 		</div>
     </div>

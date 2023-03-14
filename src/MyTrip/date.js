@@ -61,10 +61,9 @@ class Date extends React.Component{
      </div>   
 
      <div class="phead">
-    <h3>Let's fix date</h3>
-<p>Set a starting and an ending date of your trip.</p> 
-
-</div>
+         <h3>Let's fix date</h3>
+         <p>Set a starting and an ending date of your trip.</p> 
+    </div>
 
 
                                <div class="form-group tmm-form-element tm-form-element-50">
@@ -78,7 +77,7 @@ class Date extends React.Component{
                                             <input name="check-out" type="date" class="form-controll" id="inputCheckOut" placeholder="End date"/>
                                 </div>
 
-                                <a class="btndate" href="http://localhost:3000/createpoll">Set Date</a>
+                                <a class="btndate" href="">Set Date</a>
 
 
     <div class="footer">

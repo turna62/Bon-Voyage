@@ -116,6 +116,9 @@
       }
      
   .searchi ::placeholder{
-    color: #444;
+    color: #faf8f8;
   }
-  
+  .searchi::-webkit-input-placeholder {
+    color: white;
+    font-weight: 100;
+  }
