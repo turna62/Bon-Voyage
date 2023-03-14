@@ -37,7 +37,7 @@ export default class SignUp extends Component {
         .then((data) => {
             console.log(data, "userRegister");
             if (data.status === "OK!"){
-                alert("User account created successfully!");
+                alert("A verification link has been sent to your email");
             } else {
                 alert("Error! Something went wrong!");
             }
