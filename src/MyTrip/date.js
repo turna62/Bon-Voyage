@@ -58,7 +58,23 @@ class Date extends React.Component{
         <li class="li"><a href="http://localhost:3000/itinerary">Itinerary</a></li>
      </ul>
 
-     </div>            
+     </div>   
+
+     <div class="phead">
+    <h3>Let's fix date</h3>
+<p>Set a starting and an ending date of your trip.</p> 
+
+</div>
+
+
+                               <div class="form-group tmm-form-element tm-form-element-50">
+                                            <i class="fa fa-calendar fa-2x tmm-form-element-icon"></i>
+                                            <input name="check-in" type="date" class="form-control" id="inputCheckIn" placeholder="Start date"/>
+                                </div>
+                                <div class="form-group tmm-form-element tm-form-element-50">
+                                            <i class="fa fa-calendar fa-2x tmm-form-element-icon"></i>
+                                            <input name="check-out" type="date" class="form-control" id="inputCheckOut" placeholder="End date"/>
+                                </div>
 
          <div class="footer">
         <div class="container">

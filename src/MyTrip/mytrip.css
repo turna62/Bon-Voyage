@@ -261,11 +261,12 @@ top: 120px;
           .mainn-agileinfo {
             width: 50%;
             margin: 3em auto;
-            background: white;
+            background: rgba(14, 44, 44, 0.182);
             background-size: cover;
             position: relative;
-            bottom: 0px;
+            top: 20px;
             border-style: ridge;
+            box-shadow: #363333;
             
           }
           
@@ -290,11 +291,12 @@ top: 120px;
             background-size: 100%;
             background-repeat: no-repeat;
             font-family: 'Roboto', sans-serif;
+            border-radius: 6px;
           }
 
           .textt {
             font-size: 1.1em;
-            color: #060606;
+            color: #3e3c3c;
             font-weight: 100;
             width: 100%;
             display: block;
@@ -309,13 +311,14 @@ top: 120px;
             background-size: 100%;
             background-repeat: no-repeat;
             font-family: 'Roboto', sans-serif;
+            border-radius: 6px;
           }
          
           
           input.textt, input.textt.w3lpass {
             margin: 2em 0;
           }
-          input.texti, input.textt.w3lpass {
+          input.texti, input.texti.w3lpass {
             margin: 2em 0;
           }
           
@@ -356,7 +359,7 @@ top: 120px;
             top: 30px;
           }
           ::-webkit-input-placeholder {
-            color: #fff;
+            color: #282525;
             font-weight: 100;
           }
           
@@ -395,16 +398,23 @@ top: 120px;
             letter-spacing: 1px;
             font-weight: 300;
             border-style: ridge;
-            border-color: #060606;
+            border-color: #4c4848;
           }
           
           .agileitss-top p a {
-            color: #0a0a0a;
+            color: #363333;
             -webkit-transition: .5s all;
             -moz-transition: .5s all;
             transition: .5s all;
             font-weight: 400;
           }
           
-          
-          
+.tmm-form-element { position: relative; }
+.tmm-form-element:last-child { margin-right: 0; }
+
+.tm.-form-element-icon {
+	color: #113448;
+	position: absolute;
+	top: 0px;
+	left: 15px;
+}
