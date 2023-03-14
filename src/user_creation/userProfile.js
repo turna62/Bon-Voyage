@@ -37,15 +37,7 @@ componentDidMount(){
 // }
     render(){
         return(
-<<<<<<< HEAD
-            <div>
-                <b>Name:</b> {this.state.userData.username}
-                <br/>
-                <b>Email:</b> {this.state.userData.email}<br/>
-                {/* <button onClick={this.logOut}>Log Out</button> */}
-=======
             <div class="deetailplan">
->>>>>>> ceef49a79ec2cebf516bcc29302271707850728f
 
          <nav class="navbar navbar-expand-md navbar-dark navbar-custom fixed-top">
                 <h3 class="logo">Bon VOYAGE!</h3>
