@@ -21,6 +21,7 @@ import Itinerary from "./MyTrip/itinerary";
 import CreatePoll from "./MyTrip/createpoll";
 import AddDestination from "./MyTrip/adddestination";
 import Destination2 from "./MyTrip/destination2";
+import AddMembers from "./MyTrip/addmembers";
 
 
 
@@ -48,6 +49,7 @@ function App() {
         <Route path="/itinerary" element={<Itinerary/>} />
         <Route path="/createpoll" element={<CreatePoll/>} />
         <Route path="/adddestination" element={<AddDestination/>} />
+        <Route path="/addmembers" element={<AddMembers/>} />
       </Routes>
     </Router>
   );
