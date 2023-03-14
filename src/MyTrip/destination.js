@@ -60,7 +60,23 @@ class Destination extends React.Component{
         <li class="li"><a href="http://localhost:3000/itinerary">Itinerary</a></li>
      </ul>
 
-     </div>            
+     </div>     
+     
+     <div class="phead">
+         <h3>Let's fix destination</h3>
+         <p>Suggest new destinations using the “+ Add destination” button below.</p> 
+    </div>
+    <div class="opollaunch">
+        <h1>  </h1>
+    <h3>Next step: open voting</h3>
+         <p>Start collecting votes from travelers you’ve invited to the trip.</p> 
+    </div>
+    <a class="obtnopnvote" href="http://localhost:3000/createpoll">Open Voting</a>
+    <a class="obtnclsvote" href="http://localhost:3000/destination">Skip Votting</a>
+
+
+       
+    <a class="btndestination" href="http://localhost:3000/adddestination">+ Add Destination</a>
 
          <div class="footer">
         <div class="container">

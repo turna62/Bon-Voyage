@@ -97,7 +97,7 @@ import React from 'react';
     <div class="tm-section tm-bg-img" id="tm-section-1">
                 <div class="tm-bg-white ie-container-width-fix-2">
                     <div class="container ie-h-align-center-fix">
-                        <h2 class="startedtxt">Lets get you started!</h2>
+                        <h2 class="startedtxt">Let's get you started!</h2>
                         <h6 class="startedtxt">(select if decided)*</h6>
                         <div class="row">
                             <div class="col-xs-12 ml-auto mr-auto ie-container-width-fix">

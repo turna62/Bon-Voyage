@@ -2,7 +2,7 @@ import React from 'react';
 import './mytrip.css';
 
 
-class CreatePoll extends React.Component{
+class Destination2 extends React.Component{
     render(){
 
         return(
@@ -28,29 +28,55 @@ class CreatePoll extends React.Component{
               </div>
          </nav>
 
-    <div class="mainn-w3layouts wrapper">
-		<div class="mainn-agileinfo">
-			<div class="agileitss-top">
-            <h3 class="cpoll">Create Poll</h3><hr></hr>
-            <h5 class="ccpoll">Write a custom question with up to 05 answers travelers can choose from.</h5>
-				<form >
-					<input class="texti" type="text" name="poll" placeholder="Write your question....*" required="" />
-                   <h5 class="ccpll">Answer (Add up to 05)</h5>
-
-					<input class="textt" type="text" name="poll" placeholder="Answer 1" required="" />
-                    <input class="textt" type="text" name="poll" placeholder="Answer 2" required="" />
-                    <input class="textt" type="text" name="poll" placeholder="Answer 3" required="" />
-                    <input class="textt" type="text" name="poll" placeholder="Answer 4" required="" />
-                    <input class="textt" type="text" name="poll" placeholder="Answer 5" required="" />
+         <header id="header" class="headerr">
+                <div class="header-content">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="text-container">
+                                    <h1>Let's Plan!</h1>
+                                    {/* <p class="p-heading p-large">The journey of a thousand miles begins with a single step.</p> */}
 
 
+                                </div>
+                            </div> 
+                        </div> 
+                    </div>
+                </div> 
+            </header> 
 
-					<input type="submit" value="CREATE POLL"/>
-				</form>
-				<p><a href="http://localhost:3000/polls"><u>Back</u> </a></p>
-			</div>
-		</div>
+
+     <div>
+
+        <h4 class="tripname">Trip Name</h4><hr></hr>
+        <a class="btnaddmembers" href="http://localhost:3000/addmembers">+ Add Members</a>
+
+        <ul class="ul">
+        <li class="li"><a href="http://localhost:3000/overview">Overview</a></li>
+        <li class="li"><a href="http://localhost:3000/polls">Polls</a></li>
+        <li class="li"><a href="http://localhost:3000/date">Date</a></li>
+        <li class="ovwli"><a href="http://localhost:3000/destination">Destination</a></li>
+        <li class="li"><a href="http://localhost:3000/activities">Activities</a></li>
+        <li class="li"><a href="http://localhost:3000/itinerary">Itinerary</a></li>
+     </ul>
+
+     </div>     
+     
+     <div class="phead">
+         <h3>Let's fix destination</h3>
+         <p>Suggest new destinations using the “+ Add destination” button below.</p> 
     </div>
+    <div class="pollaunch">
+        <h1>  </h1>
+    <h3>Next step: open voting</h3>
+         <p>Start collecting votes from travelers you’ve invited to the trip.</p> 
+    </div>
+    <a class="btnopnvote" href="http://localhost:3000/createpoll">Open Voting</a>
+    <a class="btnclsvote" href="http://localhost:3000/destination">Skip Votting</a>
+
+
+       
+    <a class="btndestination" href="http://localhost:3000/adddestination">+ Add Destination</a>
 
          <div class="footer">
         <div class="container">
@@ -113,8 +139,9 @@ class CreatePoll extends React.Component{
     </div> 
     
             </div>
-
         )
+
     }
 }
-export default CreatePoll;
+
+export default Destination2;

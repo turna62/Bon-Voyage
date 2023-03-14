@@ -61,10 +61,9 @@ class Date extends React.Component{
      </div>   
 
      <div class="phead">
-    <h3>Let's fix date</h3>
-<p>Set a starting and an ending date of your trip.</p> 
-
-</div>
+         <h3>Let's fix date</h3>
+         <p>Set a starting and an ending date of your trip.</p> 
+    </div>
 
 
                                <div class="form-group tmm-form-element tm-form-element-50">
