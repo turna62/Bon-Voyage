@@ -45,7 +45,7 @@ export default class SignUp extends Component {
                 //     password: "",
                 //     confirmpassword: ""
                 // });
-                alert("A verification link has been sent to your email");
+                // alert("A verification link has been sent to your email");
 
             } else {
                 alert("Error! Something went wrong!");

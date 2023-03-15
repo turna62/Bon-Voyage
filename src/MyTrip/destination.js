@@ -72,7 +72,7 @@ class Destination extends React.Component{
          <p>Start collecting votes from travelers you’ve invited to the trip.</p> 
     </div>
     <a class="obtnopnvote" href="">Open Voting</a>
-    <a class="obtnclsvote" href="">Skip Votting</a>
+    <a class="obtnclsvote" href="">Skip Voting</a>
 
 
        

@@ -72,7 +72,7 @@ class Destination2 extends React.Component{
          <p>Start collecting votes from travelers you’ve invited to the trip.</p> 
     </div>
     <a class="btnopnvote" href="http://localhost:3000/createpoll">Open Voting</a>
-    <a class="btnclsvote" href="http://localhost:3000/destination">Skip Votting</a>
+    <a class="btnclsvote" href="http://localhost:3000/destination">Skip Voting</a>
 
 
        
