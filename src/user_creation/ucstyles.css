@@ -375,3 +375,13 @@ hr .new1 {
 	line-height: 1.375rem;
 }
 
+.profilebody {
+  overflow: hidden;
+  height: 100%;
+  background-color: rgb(14, 44, 44);
+  background-image: linear-gradient(rgb(14,44,44), white);
+}
+.eyeicon2 i{
+  position: relative;
+  bottom: 400px;
+}

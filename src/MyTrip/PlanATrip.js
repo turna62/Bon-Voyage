@@ -131,7 +131,7 @@ import React from 'react';
                                                       
                                         {/* <a class="btn-solid-lllg page-scroll" href="http://localhost:3000/detailtripplan">Continue</a> */}
                                         {/* <a class="btn-solid-lllg page-scroll" >Continue</a> */}
-                                        <input class="btn-solid-lllg" type="submit" value="Continue"/>
+                                        <input class="btn-solid-lllg" type="submit" value="CONTINUE"/>
                                         
                                         
                                       </div>
