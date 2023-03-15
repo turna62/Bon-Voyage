@@ -37,13 +37,24 @@ export default class SignUp extends Component {
         .then((data) => {
             console.log(data, "userRegister");
             if (data.status === "OK!"){
-                alert("A verification link has been sent to your email");
+ 
+                alert("A verification email has been sent! Kindly check your email!");
+                // this.setState({
+                //     username: "",
+                //     email: "",
+                //     password: "",
+                //     confirmpassword: ""
+                // });
+                // alert("A verification link has been sent to your email");
+
             } else {
                 alert("Error! Something went wrong!");
+                
             }
         })
     }
     render(){
+        // const { username, email, password, confirmpassword } = this.state;
         return(
 
 <body class="signupbody">

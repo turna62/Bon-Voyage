@@ -1,47 +1,25 @@
+
+
 import React, { Component } from "react";
+import "./mytrip.css";
 
-export default class UserProfile extends Component{
-constructor(props){
-    super(props);
-    this.state = {
-        userData: "",
-    };
-}
-componentDidMount(){
-    fetch("http://localhost:5000/userData",{
-            method: "POST",
-            crossDomain: true,
-            headers:{
-                "Content-Type":"application/json",
-                Accept: "application/json",
-                "Access-Control-Allow-Origin": "*",
-            },
-            body: JSON.stringify({
-                token: window.localStorage.getItem("token"),
-            }),
-        })
-        .then((res) => res.json()) // convert data into JSON
-        .then((data) => {
-            console.log(data, "userData");
-            this.setState({userData: data.data});
-            if(data.data == 'Token Expired!'){
-                alert("Token expired! Kindly login again."); 
-                window.localStorage.clear();
-                window.location.href = "./sign-in";
-            }
-        });
-}
-// logOut = () => {
-//     window.localStorage.clear(); // good practice to clear all details rather than just the token
-//     window.location.href = "./sign-in";
-// }
-    render(){
-        return(
+class Destination extends Component {
+  state = {
+    data: [],
+  };
 
-            <body class="profilebody">
-            <div class="deetailplan">
+  componentDidMount() {
+    fetch("http://localhost:5000/getDestination")
+      .then((response) => response.json())
+      .then((data) => this.setState({ data: data.data }));
+  }
 
-         <nav class="navbar navbar-expand-md navbar-dark navbar-custom fixed-top">
+  render() {
+    const { data } = this.state;
+     
+    return (
+<div>
+  <nav class="navbar navbar-expand-md navbar-dark navbar-custom fixed-top">
                 <h3 class="logo">Bon VOYAGE!</h3>
                 <div class="collapse navbar-collapse" id="navbarsExampleDefault">
                     <ul class="navbar-nav ml-auto">
@@ -61,28 +39,48 @@ componentDidMount(){
               </div>
          </nav>
 
-         
+   
+         <header id="header" class="headerr">
+                <div class="header-content">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="text-container">
+                                    <h1>Let's Plan!</h1>
+                                    {/* <p class="p-heading p-large">The journey of a thousand miles begins with a single step.</p> */}
 
-         <div class="containerr mt-4 mb-4 p-3 d-flex justify-content-center">
-             <div class="card p-4"> 
-                 <div class=" image d-flex flex-column justify-content-center align-items-center"> 
-                   
-                     <span class="name mt-3">{this.state.userData.username}</span> 
-                     <span class="idd">{this.state.userData.email}</span> 
-                    
-                  
-                 <div class=" d-flex mt-2"> 
-                     <button class="btn1 btn-dark">Edit Profile</button> 
+
+                                </div>
+                            </div> 
+                        </div> 
+                    </div>
                 </div> 
-                          
-                         
-                        
-                    </div> 
-                </div>
-              </div>  
+            </header> 
 
 
-              <div class="footerp">
+     <div>
+
+        <h4 class="tripname">Trip Name</h4><hr></hr>
+        <ul class="ul">
+        <li class="li"><a href="http://localhost:3000/overview">Overview</a></li>
+        <li class="li"><a href="http://localhost:3000/polls">Polls</a></li>
+        <li class="li"><a href="http://localhost:3000/date">Date</a></li>
+        <li class="ovwli"><a href="http://localhost:3000/destination">Destination</a></li>
+        <li class="li"><a href="http://localhost:3000/activities">Activities</a></li>
+        <li class="li"><a href="http://localhost:3000/itinerary">Itinerary</a></li>
+     </ul>
+
+
+     </div>  
+     <div className="deetailplan">
+        <ul>
+            Finalized destination:
+          {data.map((destination, index) => (
+            <li key={index}>{destination.destination}</li>
+          ))}
+        </ul>
+      </div> 
+        <div class="footer">
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
@@ -141,12 +139,13 @@ componentDidMount(){
             </div>
         </div> 
     </div> 
-    
 
-    </div>
 
-    </body>
 
-        );
-    }
+
+     </div>
+    );
+  }
 }
+
+export default Destination;
