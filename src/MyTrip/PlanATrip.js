@@ -42,7 +42,7 @@ import React from 'react';
                 .then((data) => {
                     console.log(data, "userSubmit");
                     if (data.status === "OK!"){
-                        alert("Submitted!");
+                        
                         window.location.href = "./detailtripplan";
                     } else {
                         alert("Error! Something went wrong!");
@@ -98,7 +98,7 @@ import React from 'react';
                 <div class="tm-bg-white ie-container-width-fix-2">
                     <div class="container ie-h-align-center-fix">
                         <h2 class="startedtxt">Let's get you started!</h2>
-                        <h6 class="startedtxt">(select if decided)*</h6>
+                        <h6 class="startedtxt">(select if decided)</h6>
                         <div class="row">
                             <div class="col-xs-12 ml-auto mr-auto ie-container-width-fix">
                                 <form onSubmit = {this.handleSubmit}  class="tm-search-form tm-section-pad-2" >
@@ -120,12 +120,12 @@ import React from 'react';
                                     <div class="form-row tm-search-form-row">
                                         <div class="form-group tm-form-element tm-form-element-100">
                                             <i class="fa fa-map-marker fa-2x tm-form-element-icon"></i>
-                                            <input name="destination" type="text" class="form-control" id="inputCity" placeholder="Type your destination *(if decided)" onInput = {e=>this.setState({destination:e.target.value})}/>
+                                            <input name="destination" type="text" class="form-control" id="inputCity" placeholder="Type your destination (if decided)" onInput = {e=>this.setState({destination:e.target.value})}/>
                                         </div>
                                         
 
                                         <div class="form-group tm-form-element tm-form-element-100">
-                                            <input name="members" type="text" class="form-control" id="inputCity" placeholder="Total members.." onInput = {e=>this.setState({tripName:e.target.value})}/>
+                                            <input name="members" type="text" class="form-control" id="inputCity" placeholder="Total members (if decided)" onInput = {e=>this.setState({tripName:e.target.value})}/>
                                         </div>
 
                                                       

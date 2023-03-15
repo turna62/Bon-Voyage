@@ -37,12 +37,8 @@
     width: 280px;
     border: #faf9f9 3px;
     border-radius: 6px;
-    transition: .5s;
 }
 
-.templateContainer .template_Container .template img:hover{
-  transform: scale(1.3);
-}
 
    
 
