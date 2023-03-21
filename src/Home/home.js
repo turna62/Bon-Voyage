@@ -1,9 +1,8 @@
 import React from 'react';
  import './HomeCss/styles.css';
- import './HomeCss/swiper.css';
  import './HomeCss/bootstrap.css';
  import './HomeCss/bootstrap.min.css';
- import './css1/style.css';
+
  
 
 class HomePage extends React.Component{
@@ -70,14 +69,14 @@ class HomePage extends React.Component{
             </header> 
             
         
-            
-
-            <div id="intro" class="basic-1">
+<div id="intro">      
+     <div class="q"><p></p>
+            <div class="basic-1">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-5">
                             <div class="text-container">
-                                <div class="section-title">INTRO</div>
+                                <div class="section-titlei">INTRO</div>
                                 <h2>We Offer The Opportunity To Plan Your Trip!</h2>
                                 <p>We understand the problems that one can face while planning a trip. </p>
                                 <p class="testimonial-text">So, our mission at Bon Voyage is to help you to plan your trip by offering the outmost benefits that we can.</p>
@@ -91,12 +90,14 @@ class HomePage extends React.Component{
                     </div> 
                 </div> 
             </div> 
+        </div>
+</div>
 
   <div class="destination">        
     <div class="container-fluid py-5">
         <div class="container pt-5 pb-3">
             <div class="text-center mb-3 pb-3">
-                <h1>Explore Top Destinations</h1>
+                <h1>Explore Popular Destinations</h1>
             </div>
             <div class="row">
                 <div class="col-lg-4 col-md-6 mb-4">
@@ -218,12 +219,13 @@ class HomePage extends React.Component{
         </div> 
     </div> 
 
-            <div id="services" class="basic-2"></div>
+   <div id="services">
+        <div class="basic-2">
             <div class="cards-1">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-12">
-                            <div class="section-title">SERVICES</div>
+                            <div class="section-titles">SERVICES</div>
                             
                             
                             <div class="card">
@@ -271,6 +273,11 @@ class HomePage extends React.Component{
                     </div> 
                 </div> 
             </div> 
+        </div> 
+     </div>
+
+
+     <div class="testimonial">
         
             <h1 >What Our Users Say About Us...</h1>   
  <div class="rown">  
@@ -310,6 +317,7 @@ class HomePage extends React.Component{
 </div>
 
    </div> 
+   </div>
                
     <div class="footer">
         <div class="container">
@@ -356,13 +364,13 @@ class HomePage extends React.Component{
                         <h4>Partners</h4>
                         <ul class="list-unstyled li-space-lg">
                             <li>
-                                <a class="white" href="#your-link">unicorns.com</a>
+                                <a class="white" href="#your-link">booking.com</a>
                             </li>
                             <li>
-                                <a class="white" href="#your-link">staffmanager.com</a>
+                                <a class="white" href="#your-link">trip.com</a>
                             </li>
                             <li>
-                                <a class="white" href="#your-link">association.gov</a>
+                                <a class="white" href="#your-link">travel.com</a>
                             </li>
                         </ul>
                     </div> 

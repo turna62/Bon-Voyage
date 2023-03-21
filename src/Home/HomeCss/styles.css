@@ -341,13 +341,6 @@ a.white,
 	color: white;
 }
 
-.testimonial-text {
-	font-style: italic;
-}
-
-.testimonial-author {
-	font: 700 1rem/1.375rem "Montserrat", sans-serif;
-}
 
 strong {
 	color: #484a46;
@@ -357,13 +350,23 @@ strong {
 	color: #14bf98;
 	font: 600 0.8125rem/1.125rem "Montserrat", sans-serif;
 	position: relative;
-	bottom: 35px;
+	bottom: 40px;
+	font-size: 20px;
+	right: 550px;
+}
+.section-titlei {
+	color: #14bf98;
+	font: 600 0.8125rem/1.125rem "Montserrat", sans-serif;
+	position: relative;
+	bottom: 25px;
 	font-size: 20px;
 }
-
 .section-titles {
+	color: #14bf98;
+	font: 600 0.8125rem/1.125rem "Montserrat", sans-serif;
 	position: relative;
-	top: 30px;
+	font-size: 20px;
+	top: 60px;
 }
 
 .btn-solid-reg {
@@ -947,6 +950,8 @@ input[type='checkbox'] {
 	margin-bottom: 2.5rem;
 	border: none;
 	text-align: center;
+	position: relative;
+	top: 120px;
 }
 
 .cards-1 .fa-stack {
@@ -1037,11 +1042,14 @@ input[type='checkbox'] {
 	margin: 10px;
 }
 
-/************************/
-/*     07. Services     */
-
-
-
+.testimonial{
+	position: relative;
+	top: 150px;
+}
+.testimonial h1{
+	position: relative;
+	top: 10px;
+}
 
 /*Destination*/
 
@@ -1099,6 +1107,8 @@ input[type='checkbox'] {
 
 .counter h2 {
 	margin-bottom: 1.375rem;
+	position: relative;
+	bottom: 30px;
 }
 
 .counter .list-unstyled {
@@ -1161,7 +1171,7 @@ input[type='checkbox'] {
 	padding-top: 5rem;
 	background-color: rgb(14, 44, 44);
 	position: relative;
-	top: 150px;
+	top: 250px;
 }
 
 .footer .text-container {
@@ -1179,7 +1189,9 @@ input[type='checkbox'] {
 	line-height: 1.375rem;
 }
 
-
+.footer a{
+	text-decoration: none;
+}
 
 
 /**********************************/
@@ -1389,21 +1401,6 @@ a:hover.back-to-top {
 		margin-right: 2rem;
 	}
 	/* end of details 2 */
-
-
-	/* Testimonials */
-	.slider .swiper-button-prev {
-		left: 1rem;
-		width: 1.375rem;
-		background-size: 1.375rem 2.125rem;
-	}
-	
-	.slider .swiper-button-next {
-		right: 1rem;
-		width: 1.375rem;
-		background-size: 1.375rem 2.125rem;
-	}
-	/* end of testimonials */
 
 
 	/* Projects */
@@ -1642,15 +1639,7 @@ a:hover.back-to-top {
 	/* end of project lightboxes */
 
 
-	/* Team */
-	.basic-2 .team-member {
-		width: 12.75rem;
-		max-width: 100%;
-		margin-right: 0.75rem;
-		margin-left: 0.75rem;
-	}
-	/* end of team */
-
+	
 
 	/* About */
 	.counter .image-container {
@@ -1799,13 +1788,6 @@ a:hover.back-to-top {
 	/* end of projects */
 
 
-	/* Team */
-	.basic-2 .team-member {
-		width: 14.375rem;
-		margin-right: 1.375rem;
-		margin-left: 1.375rem;
-	}
-	/* end of team */
 	
 	
 	/* Contact */
@@ -1875,3 +1857,203 @@ a:hover.back-to-top {
 	margin-right: 0.5rem;
 	margin-bottom: 1.25rem;
 }
+
+
+/* =======================================================
+*
+* 	Template Style 
+*
+* ======================================================= */
+
+.gtco-container {
+	max-width: 1100px;
+	position: relative;
+	margin: 0 auto;
+	padding-left: 15px;
+	padding-right: 15px;
+  }
+  .gtco-features{
+	  position: relative;
+	  top: 100px;
+  }
+  
+  #gtco-header,
+  #gtco-counter,
+  .gtco-bg {
+	background-size: cover;
+	background-position: top center;
+	background-repeat: no-repeat;
+	position: relative;
+  }
+  
+  .gtco-bg {
+	background-position: center center;
+	width: 100%;
+	float: left;
+	position: relative;
+  }
+  
+  
+  #gtco-features,
+  #gtco-features-2,
+  #gtco-products,
+  #gtco-services,
+  #gtco-subscribe,
+  #gtco-footer,
+  .gtco-section {
+	padding: 7em 0;
+	clear: both;
+	position: relative;
+  }
+  @media screen and (max-width: 768px) {
+	#gtco-features,
+	#gtco-features-2,
+	#gtco-products,
+	#gtco-services,
+	#gtco-subscribe,
+	#gtco-footer,
+	.gtco-section {
+	  padding: 2em 0;
+	}
+  }
+  #gtco-features.border-bottom,
+  #gtco-features-2.border-bottom,
+  #gtco-products.border-bottom,
+  #gtco-services.border-bottom,
+  #gtco-subscribe.border-bottom,
+  #gtco-footer.border-bottom,
+  .gtco-section.border-bottom {
+	border-bottom: 1px solid #e6e6e6;
+  }
+  
+  #gtco-features {
+	background: #14bf98;
+  }
+  #gtco-features .gtco-heading h2 {
+	color: #fff;
+	position: relative;
+	left: 160px;
+	font-size: 40px;
+	bottom: 30px;
+  }
+  #gtco-features .gtco-heading p {
+	color: rgba(255, 255, 255, 0.7);
+	position: relative;
+	left: 150px;
+	bottom: 30px;
+  }
+  #gtco-features .feature-center {
+	position: relative;
+	
+	color: #fff;
+	
+  }
+  #gtco-features .feature-center .icon {
+	width: 90px;
+	height: 90px;
+	border: 1px solid rgba(255, 255, 255, 0.8);
+	background: #14bf98;
+	position: relative;
+	right: 340px;
+  }
+  #gtco-features .feature-center .icon i {
+	color: #fff;
+	font-size: 40px;
+	font-style: normal;
+	position: relative;
+	font-size: 60px;
+	position: relative;
+	top: 10px;
+	right: 20px;
+  }
+  #gtco-features .feature-center h3 {
+	font-weight: 400;
+	color: #fff;
+  }
+  #gtco-features .feature-center p {
+	color: rgba(255, 255, 255, 0.7);
+  }
+  
+  #gtco-features-2 {
+	background: #efefef;
+	position: relative;
+	float: left;
+	width: 100%;
+  }
+  
+  .feature-center {
+	text-align: center;
+	padding-left: 10px;
+	padding-right: 10px;
+	float: left;
+	width: 100%;
+	margin-bottom: 40px;
+	position: relative;
+	left: 45px;
+	overflow-y: hidden;
+  }
+  @media screen and (max-width: 768px) {
+	.feature-center {
+	  margin-bottom: 50px;
+	}
+  }
+  .feature-center .icon {
+	width: 90px;
+	height: 90px;
+	display: table;
+	text-align: center;
+	margin: 0 auto 40px auto;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	-ms-border-radius: 50%;
+	border-radius: 50%;
+  }
+  .feature-center .icon i {
+	display: table-cell;
+	vertical-align: middle;
+	height: 90px;
+	font-size: 40px;
+	line-height: 40px;
+	color: #cccccc;
+	position: relative;
+	right: 0px;
+  }
+  .feature-center p, .feature-center h3 {
+	margin-bottom: 30px;
+  }
+  .feature-center h3 {
+	font-size: 22px;
+	margin-bottom: 20px;
+	color: #09C6AB;
+	position: relative;
+  }
+  
+  .feature-left {
+	float: left;
+	width: 100%;
+	margin-bottom: 30px;
+	position: relative;
+  }
+  .feature-left .icon {
+	float: left;
+	text-align: center;
+	width: 15%;
+  }
+  .feature-left .icon i {
+	display: table-cell;
+	vertical-align: middle;
+	font-size: 40px;
+	color: #09C6AB;
+	position: relative;
+  }
+  .feature-left .feature-copy {
+	float: right;
+	width: 80%;
+  }
+  .feature-left .feature-copy h3 {
+	font-size: 18px;
+	color: #1a1a1a;
+	margin-bottom: 10px;
+  }
+  
+  
