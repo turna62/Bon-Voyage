@@ -4,18 +4,77 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="trystyle.css">
 
-    <title>Document</title>
+    <title>try and test</title>
 </head>
+
+<style>
+
+body {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.slider-card {
+  width: 100%;
+  max-width: 600px;
+  background-color: #cb1f1f;
+  padding: 20px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.slider-card.active {
+  opacity: 1;
+}
+
+
+.slider-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  color: #fff;
+  background-color: #000;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+.slider-button.prev {
+  left: 20px;
+}
+
+.slider-button.next {
+  right: 20px;
+}
+
+</style>
+
 <body>
-    <ul class="ul">
-        <li class="li"><a href="#">Overview</a></li>
-        <li class="li"><a href="#">Polls</a></li>
-        <li class="li"><a href="#">Date</a></li>
-        <li class="li"><a href="#">Destination</a></li>
-        <li class="li"><a href="#">Activities</a></li>
-        <li class="li"><a href="#">Itinerary</a></li>
-     </ul>
+    
+    <div class="slider-container">
+        <div class="slider-card">
+          <img src="image1.jpg" alt="image1">
+          <h3>Card 1</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam venenatis sapien vitae lectus lobortis, a commodo tellus hendrerit. Sed nec turpis dolor.</p>
+        </div>
+        <div class="slider-card">
+          <img src="image2.jpg" alt="image2">
+          <h3>Card 2</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam venenatis sapien vitae lectus lobortis, a commodo tellus hendrerit. Sed nec turpis dolor.</p>
+        </div>
+        <div class="slider-card">
+          <img src="image3.jpg" alt="image3">
+          <h3>Card 3</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam venenatis sapien vitae lectus lobortis, a commodo tellus hendrerit. Sed nec turpis dolor.</p>
+        </div>
+      </div>
+      
+      
 </body>
 </html>
