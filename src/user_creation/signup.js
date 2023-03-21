@@ -61,7 +61,7 @@ export default class SignUp extends Component {
 
    
 	<div class="main-w3layouts wrapper">
-		<div class="main-agileinfo">
+		<div class="main-agileinfo1">
 			<div class="agileits-top">
             <h1>Sign Up</h1>
 				<form onSubmit = {this.handleSubmit}>

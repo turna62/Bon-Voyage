@@ -9,8 +9,8 @@ html, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, 
   }
   i{
     position: relative;
-    left: 340px;
-    bottom: 40px;
+    left: 350px;
+    bottom: 10px;
     color:rgb(5, 5, 5);
   }
 
@@ -126,10 +126,17 @@ html, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, 
   .signupbody {
 
     background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('camp.png') center center no-repeat;
-    background-size: cover;    
+    background-size: cover;  
+    height: 100vh;  
+    overflow: hidden;
   }
+  .signinbody {
 
-  
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('camp.png') center center no-repeat;
+    background-size: cover;  
+    height: 100vh;  
+    overflow: hidden;
+  }
   h1 {
     font-size: 3em;
     text-align: center;
@@ -138,6 +145,8 @@ html, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, 
     text-transform: capitalize;
     letter-spacing: 4px;
     font-family: 'Times New Roman', Times, serif;
+    position: relative;
+    top: 5px;
   }
   
   /*-- main --*/
@@ -154,8 +163,18 @@ html, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, 
     background-size: cover;
     position: relative;
     bottom: 40px;
-    height: 30%;
+    height: 70vh;
   }
+
+  .main-agileinfo1 {
+    width: 35%;
+    margin: 3em auto;
+    background: white;
+    background-size: cover;
+    position: relative;
+    bottom: 45px;
+    height: 85vh;
+      }
   
   .agileits-top {
     padding: 2em;
@@ -163,25 +182,21 @@ html, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, 
   
   input[type="text"], input[type="email"], input[type="password"] {
     font-size: 1.1em;
-    color: #060606;
+    color: #2f2b2b;
     font-weight: 100;
     width: 100%;
     display: block;
-    border: none;
+    border-radius: 5px;
     padding: 0.8em;
-    border: solid 1px rgb(8, 8, 8);
-    -webkit-transition: all 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
-    transition: all 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
-    background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 96%, #fff 4%);
-    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 96%, #fff 4%);
-    background-position: -800px 0;
-    background-size: 100%;
-    background-repeat: no-repeat;
+    border: solid 1px rgba(128, 128, 128, 0.702);
     font-family: 'Roboto', sans-serif;
+    height: 7vh;
+    position: relative;
+    top: 20px;
   }
   
   input.email, input.text.w3lpass {
-    margin: 2em 0;
+    margin: 1.4em 0;
   }
   
   .text:focus, .text:valid {
@@ -229,9 +244,7 @@ html, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, 
     outline: none;
     border: 1px solid #19a8aa;
     cursor: pointer;
-    padding: 0.9em;
     width: 100%;
-    margin: 2em 0;
     letter-spacing: 4px;
   }
   
@@ -250,6 +263,8 @@ html, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, 
     text-align: center;
     letter-spacing: 1px;
     font-weight: 300;
+    position: relative;
+    bottom: 10px;
   }
   
   .agileits-top p a {

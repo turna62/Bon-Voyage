@@ -44,7 +44,7 @@ export default class LogIn extends Component {
 
   render() {
     return (
-        <body class="signupbody">
+        <body class="signinbody">
 
    
 	<div class="main-w3layouts wrapper">
@@ -58,8 +58,8 @@ export default class LogIn extends Component {
 					<i class="bi bi-eye-slash" id="togglePassword"></i>
 					<input type="submit" value="LOGIN"/>
 				</form>
-				<p>Don't have an account? Sign Up <a href="http://localhost:3000/sign-up">here.</a></p>
-                <p>Forgot Password? Reset <a href="http://localhost:3000/reset">here.</a></p>
+				<p>Don't have an account? Sign Up <a href="http://localhost:3000/sign-up">here.</a> Forgot Password? Reset <a href="http://localhost:3000/reset">here.</a></p>
+            
 			</div>
 		</div>
 		
