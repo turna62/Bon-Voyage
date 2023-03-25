@@ -107,13 +107,12 @@ class HomePage extends React.Component{
 
 
                 <div class="text-center mb-3 pb-3">
-                <h1>Explore Popular Destinations</h1>
-            </div>
-            <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
+                      <h1>Explore Popular Destinations</h1>
+                </div>
+    <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
 
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                
+          <div class="carousel-item active">  
             <div class="row">
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="destination-item position-relative overflow-hidden mb-2">
@@ -142,14 +141,82 @@ class HomePage extends React.Component{
                     </div>
                 </div>
                 
-            </div>
-            </div>
-            </div>
-            </div>
-        </div>
-    </div>
-</div>
+             </div>
+           </div>
+            
 
+            <div class="carousel-item">
+                <div class="row">
+
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="destination-item position-relative overflow-hidden mb-2">
+                            <img class="img-fluid" src="img/coxs.jpg" alt=""/>
+                            <a class="destination-overlay text-white text-decoration-none" href="">
+                                <h5 class="text-white">Cox's Bazar</h5>
+                            </a>
+                        </div>
+                    </div>
+    
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="destination-item position-relative overflow-hidden mb-2">
+                            <img class="img-fluid" src="img/sundarban.jpg" alt=""/>
+                            <a class="destination-overlay text-white text-decoration-none" href="">
+                                <h5 class="text-white">Sundarbans</h5>
+                            </a>
+                        </div>
+                    </div>
+                   
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="destination-item position-relative overflow-hidden mb-2">
+                            <img class="img-fluid" src="img/sylhet.jpg" alt=""/>
+                            <a class="destination-overlay text-white text-decoration-none" href="">
+                                <h5 class="text-white">Sylhet</h5>
+                            </a>
+                        </div>
+                    </div>
+
+                </div> 
+            </div>
+
+            <div class="carousel-item ">
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="destination-item position-relative overflow-hidden mb-2">
+                            <img class="img-fluid" src="img/coxs.jpg" alt=""/>
+                            <a class="destination-overlay text-white text-decoration-none" href="">
+                                <h5 class="text-white">Cox's Bazar</h5>
+                            </a>
+                        </div>
+                    </div>
+    
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="destination-item position-relative overflow-hidden mb-2">
+                            <img class="img-fluid" src="img/sundarban.jpg" alt=""/>
+                            <a class="destination-overlay text-white text-decoration-none" href="">
+                                <h5 class="text-white">Sundarbans</h5>
+                            </a>
+                        </div>
+                    </div>
+                   
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="destination-item position-relative overflow-hidden mb-2">
+                            <img class="img-fluid" src="img/sylhet.jpg" alt=""/>
+                            <a class="destination-overlay text-white text-decoration-none" href="">
+                                <h5 class="text-white">Sylhet</h5>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+             </div> 
+           </div>
+          </div>
+
+     </div>
+            </div>
+            </div>
+        
+        
     <div id="gtco-features">
 		<div class="gtco-container">
 			<div class="row">
