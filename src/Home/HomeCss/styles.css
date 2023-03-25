@@ -2074,3 +2074,16 @@ a:hover.back-to-top {
 	color: rgb(10, 44, 44);
 	bottom: 10px;
   }
+
+  .destination .btnl{
+    position: relative;
+	left: 500px;
+	color: rgb(10, 44, 44);
+	top: 50px;
+  }
+  .destination .btnr{
+    position: relative;
+	left: 520px;
+	color: rgb(10, 44, 44);
+	top: 50px;
+  }

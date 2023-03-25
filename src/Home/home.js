@@ -94,9 +94,26 @@ class HomePage extends React.Component{
   <div class="destination">        
     <div class="container-fluid py-5">
         <div class="container pt-5 pb-3">
-            <div class="text-center mb-3 pb-3">
+            <div class="row">
+
+            <div class="col-6 text-right">
+                <a class="btnl" href="#carouselExampleIndicators2" role="button" data-slide="prev">
+                    <i class="fa fa-arrow-left"></i>
+                </a>
+                <a class="btnr" href="#carouselExampleIndicators2" role="button" data-slide="next">
+                    <i class="fa fa-arrow-right"></i>
+                </a>
+            </div>
+
+
+                <div class="text-center mb-3 pb-3">
                 <h1>Explore Popular Destinations</h1>
             </div>
+            <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
+
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                
             <div class="row">
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="destination-item position-relative overflow-hidden mb-2">
@@ -125,6 +142,9 @@ class HomePage extends React.Component{
                     </div>
                 </div>
                 
+            </div>
+            </div>
+            </div>
             </div>
         </div>
     </div>
@@ -167,6 +187,7 @@ class HomePage extends React.Component{
 					</div>
 				</div>
 				
+                </div>
 
 			</div>
 		</div>
