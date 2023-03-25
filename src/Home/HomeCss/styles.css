@@ -253,8 +253,9 @@ figure.snip1157 .author h5 span {
   .destination{
 
 	position: relative;
-	top: 20px;
+	bottom: 50px;
 }
+
   .single-travel-boxes {
     margin-top: -125px;
     background: #fff;
@@ -1517,6 +1518,8 @@ a:hover.back-to-top {
 	/* Intro */
 	.basic-1 {
 		padding-top: 6.875rem;
+		position: relative;
+		top: 30px;
 	}
 
 	.basic-1 .text-container {
