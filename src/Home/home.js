@@ -3,8 +3,6 @@ import React from 'react';
  import './HomeCss/bootstrap.css';
  import './HomeCss/bootstrap.min.css';
 
- 
-
 class HomePage extends React.Component{
     render(){
 
@@ -280,9 +278,32 @@ class HomePage extends React.Component{
      <div class="testimonial">
         
             <h1 >What Our Users Say About Us...</h1>   
- <div class="rown">  
- <div class="columnn">                 
-<figure class="snip1157">
+
+
+   {/* cards slide */}
+
+   <section class="pt-5 pb-5">
+    <div class="container">
+        <div class="row">
+            
+            <div class="col-6 text-right">
+                <a class="btnl" href="#carouselExampleIndicators2" role="button" data-slide="prev">
+                    <i class="fa fa-arrow-left"></i>
+                </a>
+                <a class="btnr" href="#carouselExampleIndicators2" role="button" data-slide="next">
+                    <i class="fa fa-arrow-right"></i>
+                </a>
+            </div>
+            <div class="col-12">
+                <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
+
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="row">
+
+                                <div class="col-md-4 mb-3">
+                                    <div class="card">
+                                    <figure class="snip1157">
   <blockquote>Great site to plan trips. Enoyed a lot!
     <div class="arrow"></div>
   </blockquote>
@@ -290,10 +311,13 @@ class HomePage extends React.Component{
   <div class="author">
     <h5>Shaira Sadia <span> Chittagong</span></h5>
   </div>
-</figure></div>
+</figure>
 
-<div class="columnn">  
-<figure class="snip1157 hover">
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <div class="card">
+                                    <figure class="snip1157 hover">
   <blockquote> Will surely reccommend it to my friends. 
     <div class="arrow"></div>
   </blockquote>
@@ -302,10 +326,11 @@ class HomePage extends React.Component{
     <h5>Tohfa<span><p>Khulna</p></span></h5>
   </div>
 </figure>
-</div>
-
-<div class="columnn">  
-<figure class="snip1157">
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <div class="card">
+                                    <figure class="snip1157">
   <blockquote>Bon Voyage is a great site for trip planning.
     <div class="arrow"></div>
   </blockquote>
@@ -314,10 +339,109 @@ class HomePage extends React.Component{
     <h5>Turna<span><p>Dhaka</p></span></h5>
   </div>
 </figure>
-</div>
+                                    </div>
+                                </div>
 
-   </div> 
-   </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="row">
+
+                                <div class="col-md-4 mb-3">
+                                    <div class="card">
+                                    <figure class="snip1157">
+  <blockquote>Great site to plan trips. Enoyed a lot!
+    <div class="arrow"></div>
+  </blockquote>
+  <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sq-sample3.jpg" alt="sq-sample3" />
+  <div class="author">
+    <h5>Shaira Sadia <span> Chittagong</span></h5>
+  </div>
+</figure>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <div class="card">
+                                    <figure class="snip1157 hover">
+  <blockquote> Will surely reccommend it to my friends. 
+    <div class="arrow"></div>
+  </blockquote>
+  <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sq-sample27.jpg" alt="sq-sample27" />
+  <div class="author">
+    <h5>Tohfa<span><p>Khulna</p></span></h5>
+  </div>
+</figure>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <div class="card">
+                                    <figure class="snip1157">
+  <blockquote>Bon Voyage is a great site for trip planning.
+    <div class="arrow"></div>
+  </blockquote>
+  <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sq-sample17.jpg" alt="sq-sample17" />
+  <div class="author">
+    <h5>Turna<span><p>Dhaka</p></span></h5>
+  </div>
+</figure>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="row">
+
+                                <div class="col-md-4 mb-3">
+                                    <div class="card">
+                                    <figure class="snip1157">
+  <blockquote>Great site to plan trips. Enoyed a lot!
+    <div class="arrow"></div>
+  </blockquote>
+  <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sq-sample3.jpg" alt="sq-sample3" />
+  <div class="author">
+    <h5>Shaira Sadia <span> Chittagong</span></h5>
+  </div>
+</figure>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <div class="card">
+                                    <figure class="snip1157 hover">
+  <blockquote> Will surely reccommend it to my friends. 
+    <div class="arrow"></div>
+  </blockquote>
+  <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sq-sample27.jpg" alt="sq-sample27" />
+  <div class="author">
+    <h5>Tohfa<span><p>Khulna</p></span></h5>
+  </div>
+</figure>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <div class="card">
+                                    <figure class="snip1157">
+  <blockquote>Bon Voyage is a great site for trip planning.
+    <div class="arrow"></div>
+  </blockquote>
+  <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sq-sample17.jpg" alt="sq-sample17" />
+  <div class="author">
+    <h5>Turna<span><p>Dhaka</p></span></h5>
+  </div>
+</figure>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+</div>
                
     <div class="footer">
         <div class="container">
