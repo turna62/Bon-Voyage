@@ -26,7 +26,7 @@
   
 }
 .templateContainer .template_Container .template{
-  background-color: rgba(14, 44, 44, 0.096);
+  background-color: rgba(14, 44, 44, 0.305);
   margin: 8px;
   padding: 0px 0px;
   border: #444 3px;
@@ -69,19 +69,7 @@
   top: 20px;
 }
   
-  .searchi {
-    float: left;
-    color: #ccc;
-    border: 0;
-    background: transparent;
-  }
-
-  .searchi:focus {
-      outline: 0;
-      background:transparent;
-    }
-  
-  button {
+    button {
     position: relative;
     float: right;
     border: 0;
@@ -105,10 +93,3 @@
       outline: 0;
     }
    
-.searchi ::placeholder{
-  color: #faf8f8;
-}
-.searchi::-webkit-input-placeholder {
-  color: white;
-  font-weight: 100;
-}

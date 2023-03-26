@@ -8,6 +8,7 @@
     position: relative;
     top: 50px;
     left: 50px;
+    overflow: hidden;
 }
 
 
@@ -24,6 +25,7 @@
     border-radius: 4px;
     right: 145px;
     top: 20px;
+    overflow: hidden;
 }
 
 .btn1,
@@ -38,6 +40,7 @@
     right: 150px;
     top: 20px;
     border-radius: 4px;
+    overflow: hidden;
 }
 
 .advanced{
@@ -51,10 +54,7 @@
 
 
 }
-.collapse{
-    position: relative;
-    top: 70px;
-}
+
 
 .rown{
     width: 800px;
@@ -68,6 +68,45 @@
 
 .sbody{
     position: relative;
-    top: 80px;
-    left: 40px;
+    top: 40px;    
 }
+
+.templateContainer .template_Container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    border-radius: 3px;
+    position: relative;
+    top: 70px;
+    
+  }
+  .templateContainer .template_Container .template{
+    background-color: rgba(14, 44, 44, 0.226);
+    margin: 8px;
+    padding: 0px 0px;
+    border: #444 3px;
+    border-radius: 6px;
+  }
+  .templateContainer .template_Container .template img{
+    height: 150px;
+    width: 280px;
+    border: #faf9f9 3px;
+    border-radius: 6px;
+  }
+  
+  
+   
+  
+  .no_results_found {
+    color: #fff;
+    font-size: 15px;
+    position: relative;
+    left: 393px;
+    overflow: hidden;
+    bottom: 120px;
+  }
+
+  .footer{
+    width: 100%;
+  }
