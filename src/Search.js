@@ -41,13 +41,15 @@ function Search() {
               </div>
          </nav> 
 
+         <div className="templateContainer">
+          <div className="searchInput_Container">
+      
+
 <div class="container mt-5">
 
         <div class="row d-flex justify-content-center">
 
-        <div className="templateContainer">
-          <div className="searchInput_Container">
-        
+          
                     <h5 class="shead">An Easier way to find your Destinations, Spots and Activities</h5>
 
                     <div class="row g-3 mt-2">
