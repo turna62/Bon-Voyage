@@ -44,11 +44,11 @@ export default class SignUp extends Component {
     render(){
         return(
 
-<body class="signupbody">
+<body class="resetbody">
 
    
 	<div class="main-w3layouts wrapper">
-		<div class="main-agileinfo">
+		<div class="main-agileinfor">
 			<div class="agileits-top">
             <h1>Forgot Password</h1>
 				<form onSubmit = {this.handleSubmit}>

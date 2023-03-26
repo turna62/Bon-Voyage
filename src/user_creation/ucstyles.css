@@ -130,6 +130,13 @@ html, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, 
     height: 100vh;  
     overflow: hidden;
   }
+  .resetbody {
+
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('camp.png') center center no-repeat;
+    background-size: cover;  
+    height: 100vh;  
+    overflow: hidden;
+  }
   .signinbody {
 
     background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('camp.png') center center no-repeat;
@@ -162,7 +169,7 @@ html, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, 
     background: white;
     background-size: cover;
     position: relative;
-    bottom: 40px;
+    bottom: 5px;
     height: 70vh;
   }
 
@@ -176,6 +183,16 @@ html, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, 
     height: 85vh;
       }
   
+      .main-agileinfor {
+        width: 35%;
+        margin: 3em auto;
+        background: white;
+        background-size: cover;
+        position: relative;
+        top: 40px;
+        height: 50vh;
+          }
+      
   .agileits-top {
     padding: 2em;
   }

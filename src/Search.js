@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "./searchstyle.css";
-//import "./Home/HomeCss/styles.css";
 import placesData from "./places_data.json";
 import spotsData from "./spots_data.json";
 

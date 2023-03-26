@@ -22,6 +22,7 @@ import CreatePoll from "./MyTrip/createpoll";
 import AddDestination from "./MyTrip/adddestination";
 import Destination2 from "./MyTrip/destination2";
 import AddMembers from "./MyTrip/addmembers";
+import Search1 from "./search1";
 
 
 
@@ -33,6 +34,7 @@ function App() {
         {/* <Route exact path="/" element={isLoggedIn == "true" ? <UserProfile /> : <Home />} /> */}
         <Route exact path="/" element={<HomePage />} />
         <Route path="/search" element={<Search />} />
+        <Route path="/search1" element={<Search1 />} />
         <Route path="/sign-up" element={<SignUp />} />
         <Route path="/sign-in" element={<LogIn />} />
         <Route path="/planatrip" element={<TripPlan />} />
