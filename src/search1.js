@@ -48,7 +48,7 @@ function Search1() {
         <div className="templateContainer">
           <div className="searchInput_Container">
         
-                    <h5>An Easier way to find your Destinations, Spots and Activities</h5>
+                    <h5 class="shead">An Easier way to find your Destinations, Spots and Activities</h5>
 
                     <div class="row g-3 mt-2">
 
@@ -104,21 +104,21 @@ function Search1() {
 
         <div class="col-md-4">
 
-            <input type="text" placeholder="Property ID" class="inputs form-control"/>
+            <input type="text" placeholder="Search by Type" class="inputs form-control"/>
             
         </div>
 
 
         <div class="col-md-4">
 
-            <input type="text" class="inputs form-control" placeholder="Search by MAP"/>
+            <input type="text" class="inputs form-control" placeholder="Search by Activities"/>
             
         </div>
          
 
          <div class="col-md-4">
 
-            <input type="text" class="inputs form-control" placeholder="Search by Country"/>
+            <input type="text" class="inputs form-control" placeholder="Search by District"/>
             
         </div>
          
