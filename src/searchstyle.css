@@ -65,7 +65,7 @@
 .cardss{
     width: 810px;
     position: relative;
-    top: 40px;
+    top: 60px;
 }
 
 .sbody{
@@ -144,5 +144,3 @@ option{
   font-size: 15px;
 }
 
-.inputs{
-}
