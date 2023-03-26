@@ -69,6 +69,14 @@ hr {
     color: rgb(14, 44, 44);
 }
 
+.inss{
+  position: fixed;
+  top: 150px;
+  left: 210px;
+  margin: 30px;
+  color: rgb(14, 44, 44);
+}
+
 .logo{
     color: white;
     font-family: 'Times New Roman', Times, serif;

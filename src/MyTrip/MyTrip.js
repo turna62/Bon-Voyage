@@ -34,7 +34,7 @@ class MyTrip extends React.Component{
          <div>
          <h3 class="heading">My Trips</h3> <span></span>  </div>
          <div>
-         <p class="ins">Press the 'Plan Your Trip' button and start planning your next adventure with Bon Voyage.</p>   
+         <p class="inss">Press the 'Plan Your Trip' button and start planning your next adventure with Bon Voyage.</p>   
          </div>
         
              <div class="header-content">
