@@ -3,7 +3,7 @@
 import React, { Component } from "react";
 import "./mytrip.css";
 
-class Destination extends Component {
+class FetchedDestination extends Component {
   state = {
     data: [],
   };
@@ -148,4 +148,4 @@ class Destination extends Component {
   }
 }
 
-export default Destination;
+export default FetchedDestination;
