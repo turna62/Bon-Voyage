@@ -103,22 +103,43 @@ function Search1() {
      <div class="rown row">
 
         <div class="col-md-4">
-
-            <input type="text" placeholder="Search by Type" class="inputs form-control"/>
-            
+                        <p class="filterhead">Location Type</p>
+                         <select class="inputs form-control" id="exampleFormControlSelect1" placeholder="Search by Type">
+                                        <option></option>
+                                        <option>Hills</option>
+                                        <option>Beach</option>
+                                        <option>Countryside</option>
+                         </select>            
         </div>
 
 
         <div class="col-md-4">
+        <p class="filterhead">Spots</p>
 
-            <input type="text" class="inputs form-control" placeholder="Search by Activities"/>
+        <select class="inputs form-control" id="exampleFormControlSelect1" placeholder="Search by Type">
+                                        <option></option>
+                                        <option>Inani</option>
+                                        <option>Shugondha</option>
+                                        <option>Kolatoli</option>
+                         </select>
+
+            {/* <input type="text" class="inputs form-control" placeholder="Search by Activities"/> */}
             
         </div>
          
 
          <div class="col-md-4">
+         <p class="filterhead">Activities</p>
 
-            <input type="text" class="inputs form-control" placeholder="Search by District"/>
+         <select class="inputs form-control" id="exampleFormControlSelect1" placeholder="Search by Type">
+                                        <option></option>
+                                        <option>Horse Riding</option>
+                                        <option>Paragliding</option>
+                                        <option>Bungee Jumping</option>
+                                        <option>Hiking</option>
+                         </select>
+
+            {/* <input type="text" class="inputs form-control" placeholder="Search by District"/> */}
             
         </div>
          

@@ -4,17 +4,18 @@
     font-size: 17px;
     font-weight: 400;
     position: relative;
-    top: 25px;
+    top: 40px;
     left: 10px;
     overflow: hidden;
     color: rgba(14, 44, 44) !important;
     box-shadow: none;
     border-radius: 4px;
     height: 60px;
+    font-family: 'Times New Roman', Times, serif;
 }
 .advanced:hover{
   text-decoration: none;
-  opacity: 0.9;
+  opacity: 0.8;
 }
 
 .btns1,
@@ -58,7 +59,7 @@
 .rown{
     width: 800px;
     position: relative;
-    bottom: 20px;
+    bottom: 0px;
 }
 
 .cardss{
@@ -103,7 +104,8 @@
   
   .no_results_found {
     color: rgba(14, 44, 44, 0.712);
-    
+    position: relative;
+    bottom: 20px;
   }
 
   .footer{
@@ -137,4 +139,10 @@ p , h5{
   position: relative;
   left: 10px;
   top: 5px;
+}
+option{
+  font-size: 15px;
+}
+
+.inputs{
 }
