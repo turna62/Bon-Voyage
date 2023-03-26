@@ -37,7 +37,7 @@ class HomePage extends React.Component{
 
                         <li class="nav-item">
                           
-                        <a class="nav-link" href="http://localhost:3000/search1">SEARCH</a>
+                        <a class="nav-link" href="http://localhost:3000/search">SEARCH</a>
  
                     
                       </li>

@@ -3,7 +3,6 @@ import React, { useState } from "react";
 
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
-import Search from "./Search";
 import UserProfile from "./user_creation/userProfile";
 import Reset from "./user_creation/reset";
 import SignUp from "./user_creation/signup";
@@ -22,7 +21,7 @@ import CreatePoll from "./MyTrip/createpoll";
 import AddDestination from "./MyTrip/adddestination";
 import Destination2 from "./MyTrip/destination2";
 import AddMembers from "./MyTrip/addmembers";
-import Search1 from "./search1";
+import Search from "./search";
 
 
 
@@ -34,7 +33,6 @@ function App() {
         {/* <Route exact path="/" element={isLoggedIn == "true" ? <UserProfile /> : <Home />} /> */}
         <Route exact path="/" element={<HomePage />} />
         <Route path="/search" element={<Search />} />
-        <Route path="/search1" element={<Search1 />} />
         <Route path="/sign-up" element={<SignUp />} />
         <Route path="/sign-in" element={<LogIn />} />
         <Route path="/planatrip" element={<TripPlan />} />
