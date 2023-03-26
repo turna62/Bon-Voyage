@@ -37,6 +37,8 @@ componentDidMount(){
 // }
     render(){
         return(
+
+            <body class="profilebody">
             <div class="deetailplan">
 
          <nav class="navbar navbar-expand-md navbar-dark navbar-custom fixed-top">
@@ -142,6 +144,8 @@ componentDidMount(){
     
 
     </div>
+
+    </body>
 
         );
     }
