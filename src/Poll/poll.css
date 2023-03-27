@@ -159,9 +159,10 @@ input[type="checkbox"] {
   font-size: 15px;
   font-family: 'Times New Roman', Times, serif;
   position: relative;
-  left: 95px;
+  left: 125px;
   overflow-x: hidden;
   top: 30px;
+  letter-spacing: 2px;
 }
 
 .btnncreatepoll:hover {
