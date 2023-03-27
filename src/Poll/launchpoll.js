@@ -43,7 +43,7 @@ function LaunchPoll() {
     <>
     <div class="pollbodyy">
     <div class="wrapperr">
-        <header>Poll UI Design</header>
+        <header>Question:</header>
         <div class="poll-area">
             <input type="checkbox" name="poll" id="opt-1"/>
             <input type="checkbox" name="poll" id="opt-2"/>
@@ -53,7 +53,7 @@ function LaunchPoll() {
                 <div class="row">
                     <div class="column">
                         <span class="circle"></span>
-                        <span class="text">HTML</span>
+                        <span class="text">Answer 1</span>
                     </div>
                     <span class="percent">30%</span>
                 </div>
@@ -62,7 +62,7 @@ function LaunchPoll() {
                 <div class="row">
                     <div class="column">
                         <span class="circle"></span>
-                        <span class="text">Java</span>
+                        <span class="text">Answer 2</span>
                     </div>
                     <span class="percent">20%</span>
                 </div>
@@ -71,7 +71,7 @@ function LaunchPoll() {
                 <div class="row">
                     <div class="column">
                         <span class="circle"></span>
-                        <span class="text">Python</span>
+                        <span class="text">Answer 3</span>
                     </div>
                     <span class="percent">40%</span>
                 </div>
@@ -80,11 +80,21 @@ function LaunchPoll() {
                 <div class="row">
                     <div class="column">
                         <span class="circle"></span>
-                        <span class="text">jQuery</span>
+                        <span class="text">Answer 4</span>
                     </div>
                     <span class="percent">10%</span>
                 </div>
             </label>
+            <label for="opt-4" class="opt-4">
+                <div class="row">
+                    <div class="column">
+                        <span class="circle"></span>
+                        <span class="text">Answer 5</span>
+                    </div>
+                    <span class="percent">10%</span>
+                </div>
+            </label>
+            <a class="btnncreatepoll" href="http://localhost:3000/launchpoll">LAUNCH POLL</a>
         </div>
     </div>
     </div>

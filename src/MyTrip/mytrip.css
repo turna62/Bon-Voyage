@@ -295,15 +295,14 @@ top: 200px;
           }
           
           .mainn-agileinfo {
-            width: 50%;
+            width: 40%;
             margin: 3em auto;
             background: rgba(14, 44, 44, 0.182);
             background-size: cover;
             position: relative;
-            top: 20px;
+            top: 60px;
             border-style: ridge;
-            box-shadow: #363333;
-            
+            box-shadow: #363333;      
           }
           
           .agileitss-top {
@@ -728,6 +727,33 @@ top: 70px; }
 }
 
 .savedesbtn:hover {
+  background-color: rgb(22, 55, 55);
+  color: #fff;
+  text-decoration: none;
+}
+
+.headerr .btncreatepoll {
+	margin-right: 0.5rem;
+	margin-bottom: 1.25rem;
+}
+.btncreatepoll {
+  display: inline-block;
+  padding: 1.175rem 1.125rem 1.175rem 1.125rem;
+  border-radius: 0.25rem;
+  background-color: rgb(14, 44, 44);
+  color: #fff;
+  font: 700 0.75rem/0 "Montserrat", sans-serif;
+  text-decoration: none;
+  transition: all 0.2s;
+  font-size: 15px;
+  font-family: 'Times New Roman', Times, serif;
+  position: relative;
+  left: 155px;
+  overflow-x: hidden;
+  top: 5px;
+}
+
+.btncreatepoll:hover {
   background-color: rgb(22, 55, 55);
   color: #fff;
   text-decoration: none;
