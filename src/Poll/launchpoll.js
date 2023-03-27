@@ -41,7 +41,7 @@ function LaunchPoll() {
 
   return (
     <>
-    
+    <div class="pollbodyy">
     <div class="wrapper">
         <header>Poll UI Design</header>
         <div class="poll-area">
@@ -87,7 +87,7 @@ function LaunchPoll() {
             </label>
         </div>
     </div>
-
+    </div>
     </>
   );
 }
