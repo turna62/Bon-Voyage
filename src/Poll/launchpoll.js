@@ -94,7 +94,7 @@ function LaunchPoll() {
                     <span class="percent">10%</span>
                 </div>
             </label>
-            <a class="btnncreatepoll" href="http://localhost:3000/launchpoll">LAUNCH POLL</a>
+            <a class="btnncreatepoll" href="http://localhost:3000/polls">Finish</a>
         </div>
     </div>
     </div>
