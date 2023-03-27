@@ -42,7 +42,7 @@ function LaunchPoll() {
   return (
     <>
     <div class="pollbodyy">
-    <div class="wrapper">
+    <div class="wrapperr">
         <header>Poll UI Design</header>
         <div class="poll-area">
             <input type="checkbox" name="poll" id="opt-1"/>

@@ -3,7 +3,7 @@
     background: #6665ee;
 }
 
-.wrapper {
+.wrapperr {
     background: #fff;
     border-radius: 15px;
     padding: 25px;
@@ -12,12 +12,12 @@
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
 }
 
-.wrapper header {
+.wrapperr header {
     font-size: 22px;
     font-weight: 600;
 }
 
-.wrapper .poll-area {
+.wrapperr .poll-area {
     margin: 20px 0 15px 0;
 }
 
