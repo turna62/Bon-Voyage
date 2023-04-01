@@ -105,7 +105,8 @@
   .no_results_found {
     color: rgba(14, 44, 44, 0.712);
     position: relative;
-    bottom: 20px;
+    bottom: 12px;
+    left: 420px;
   }
 
   .footer{

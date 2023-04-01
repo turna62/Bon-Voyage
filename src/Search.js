@@ -91,6 +91,44 @@ function Search() {
                         
                     </div>
 
+                    {searchTerm === "" ? (
+            <div className="no_results_found"></div>
+          ) : filteredplacesData.length > 0 ? (
+            <div className="template_Container">
+              {filteredplacesData.map((val) => {
+                return (
+                  <div className="template" key={val.place_id}>
+                    <img
+                      src={process.env.PUBLIC_URL + val.place_image}
+                      alt=""
+                    />
+                    <h5>{val.place_name}</h5>
+                    <p>{val.place_description}</p>
+                  </div>
+                );
+              })}
+            </div>
+          ) : filteredspotsData.length > 0 ? (
+            <div className="template_Container">
+              {filteredspotsData.map((val) => {
+                return (
+                  <div className="template" key={val.spot_id}>
+                    <img
+                      src={process.env.PUBLIC_URL + val.spot_image}
+                      alt=""
+                    />
+                    <h5>{val.spot_name}, {val.spot_place_name}</h5>
+                    <p>{val.spot_description}</p>
+                  </div>
+                );
+              })}
+            </div>
+          ) : (
+            <div className="no_results_found">No results found.</div>
+          )}
+
+
+
 
                     <div class="mt-3">
                         
@@ -150,48 +188,7 @@ function Search() {
   </div>
 </div>
 
-{searchTerm === "" ? (
-            <div className="no_results_found"></div>
-          ) : filteredplacesData.length > 0 ? (
-            <div className="template_Container">
-              {filteredplacesData.map((val) => {
-                return (
-                  <div className="template" key={val.place_id}>
-                    <img
-                      src={process.env.PUBLIC_URL + val.place_image}
-                      alt=""
-                    />
-                    <h5>{val.place_name}</h5>
-                    <p>{val.place_description}</p>
-                  </div>
-                );
-              })}
-            </div>
-          ) : filteredspotsData.length > 0 ? (
-            <div className="template_Container">
-              {filteredspotsData.map((val) => {
-                return (
-                  <div className="template" key={val.spot_id}>
-                    <img
-                      src={process.env.PUBLIC_URL + val.spot_image}
-                      alt=""
-                    />
-                    <h5>{val.spot_name}, {val.spot_place_name}</h5>
-                    <p>{val.spot_description}</p>
-                  </div>
-                );
-              })}
-            </div>
-          ) : (
-            <div className="no_results_found">No results found.</div>
-          )}
-
-
                     </div>
-
-
-                    
-
 
             
                 </div>

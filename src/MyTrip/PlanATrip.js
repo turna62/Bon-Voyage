@@ -43,7 +43,7 @@ import React from 'react';
                     console.log(data, "userSubmit");
                     if (data.status === "OK!"){
                         
-                        window.location.href = "./detailtripplan";
+                         window.location.href = "./detailtripplan";
                     } else {
                         alert("Error! Something went wrong!");
                     }
