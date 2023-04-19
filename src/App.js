@@ -3,7 +3,6 @@ import React, { useState } from "react";
 
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
-import Search from "./Search";
 import UserProfile from "./user_creation/userProfile";
 import Reset from "./user_creation/reset";
 import SignUp from "./user_creation/signup";
@@ -24,7 +23,6 @@ import Destination2 from "./MyTrip/destination2";
 import AddMembers from "./MyTrip/addmembers";
 import FetchedDestination from "./MyTrip/fetchedDestination";
 
-import Poll from "./Poll";
 
 
 
@@ -54,6 +52,8 @@ function App() {
         <Route path="/createpoll" element={<CreatePoll/>} />
         <Route path="/adddestination" element={<AddDestination/>} />
         <Route path="/addmembers" element={<AddMembers/>} />
+        <Route path="/launchpoll" element={<LaunchPoll/>} />
+        {/* <Route path = "/fetcheddestination" element = {<FetchedDestination/>}/> */}
         <Route path = "/fetcheddestination" element = {<FetchedDestination/>}/>
         <Route path = "/poll" element = {<Poll/>}/>
          

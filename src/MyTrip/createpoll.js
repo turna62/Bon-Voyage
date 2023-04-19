@@ -43,9 +43,9 @@ class CreatePoll extends React.Component{
                     <input class="textt" type="text" name="poll" placeholder="Answer 4" required="" />
                     <input class="textt" type="text" name="poll" placeholder="Answer 5" required="" />
 
+                    <a class="btncreatepoll" href="http://localhost:3000/launchpoll">LAUNCH POLL</a>
 
 
-					<input type="submit" value="CREATE POLL"/>
 				</form>
 				<p><a href="http://localhost:3000/polls"><u>Back</u> </a></p>
 			</div>

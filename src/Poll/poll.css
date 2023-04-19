@@ -1,0 +1,176 @@
+::selection {
+    color: #fff;
+    background: rgb(14, 44, 44);
+}
+
+.wrapperr {
+    background: #fff;
+    border-radius: 15px;
+    padding: 25px;
+    max-width: 500px;
+    width: 100%;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+    border: solid 3px rgb(14, 44, 44);
+}
+
+.wrapperr header {
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.wrapperr .poll-area {
+    margin: 20px 0 15px 0;
+}
+
+.poll-area label {
+    display: block;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    padding: 8px 15px;
+    border: 2px solid #e6e6e6;
+    transition: all 0.2s ease;
+    position: relative;
+    top: 20px;
+    
+}
+
+.poll-area label:hover {
+    border-color: #ddd;
+}
+
+label.selected {
+    border-color: rgb(14, 44, 44) !important;
+}
+
+label .row {
+    display: flex;
+    pointer-events: none;
+    justify-content: space-between;
+    
+}
+
+label .row .column {
+    display: flex;
+    align-items: center;
+}
+
+label .row .circle {
+    height: 19px;
+    width: 19px;
+    display: block;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    margin-right: 10px;
+    position: relative;
+}
+
+label.selected .row .circle {
+    border-color: rgb(14, 44, 44);
+}
+
+label .row .circle::after {
+    content: "";
+    height: 11px;
+    width: 11px;
+    background: rgb(14, 44, 44);
+    border-radius: inherit;
+    position: absolute;
+    left: 2px;
+    top: 2px;
+    display: none;
+}
+
+.poll-area label:hover .row .circle::after {
+    display: block;
+    background: #e6e6e6;
+}
+
+label.selected .row .circle::after {
+    display: block;
+    background: rgb(14, 44, 44) !important;
+}
+
+label .row span {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+label .row .percent {
+    display: none;
+    position: relative;
+    left: 350px;
+    bottom: 23px;
+}
+
+label .progress {
+    height: 3px;
+    width: 100%;
+    position: relative;
+    background: #f0f0f0;
+    margin: 8px 0 3px 0;
+    border-radius: 30px;
+    display: none;
+    pointer-events: none;
+}
+
+label .progress:after {
+    position: absolute;
+    content: "";
+    height: 50%;
+    background: #ccc;
+    width: calc(1% * var(--w));
+    border-radius: inherit;
+    transition: all 0.2s ease;
+}
+
+label.selected .progress::after {
+    background: rgb(14, 44, 44);
+}
+
+label.selectall .progress,
+label.selectall .row .percent {
+    display: block;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+    display: none;
+}
+
+.pollbodyy{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('camp.png') center center no-repeat;
+    background-size: cover;  
+    height: 100vh;  
+    overflow: hidden;
+}
+
+.btnncreatepoll {
+	margin-right: 0.5rem;
+	margin-bottom: 1.25rem;
+}
+.btnncreatepoll {
+  display: inline-block;
+  padding: 1.175rem 1.125rem 1.175rem 1.125rem;
+  border-radius: 0.25rem;
+  background-color: rgb(14, 44, 44);
+  color: #fff;
+  font: 700 0.75rem/0 "Montserrat", sans-serif;
+  text-decoration: none;
+  transition: all 0.2s;
+  font-size: 15px;
+  font-family: 'Times New Roman', Times, serif;
+  position: relative;
+  left: 175px;
+  overflow-x: hidden;
+  top: 30px;
+  letter-spacing: 2px;
+}
+
+.btnncreatepoll:hover {
+  background-color: rgb(22, 55, 55);
+  color: #fff;
+  text-decoration: none;
+}

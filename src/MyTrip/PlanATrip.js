@@ -1,7 +1,5 @@
 import React from 'react';
  import '../Home/HomeCss/styles.css';
- import './css/bootstrap.min.css';
- import './css/datepicker.css';
  import'./css/tooplate-style.css';
  
  class TripPlan extends React.Component{
@@ -52,11 +50,13 @@ import React from 'react';
                     console.log(data, "userSubmit");
                     if (data.status === "OK!"){
                         
-                        window.location.href = "./detailtripplan";
+                         window.location.href = "./detailtripplan";
                     } else {
                         alert("Error! Something went wrong!");
                     }
                 })
+
+                
             }
     render(){
 
@@ -116,19 +116,18 @@ import React from 'react';
                                       <div class="form-group tm-form-element tm-form-element-100">
                                             <input name="tripName" type="text" class="form-control" id="inputCity" placeholder="Trip Name" onInput = {e=>this.setState({tripName:e.target.value})}/>
                                         </div>
-                                        
                                         <div class="form-group tm-form-element tm-form-element-50">
-                                            <i class="fa fa-calendar fa-2x tm-form-element-icon"></i>
+                                            <i class="fa fa-calendar fa-1x tm-form-element-iconn"></i>
                                             <input name="startDate" type="date" class="form-control" id="inputCheckIn" placeholder="Start date" onInput = {e=>this.setState({startDate:e.target.value})}/>
                                         </div>
                                         <div class="form-group tm-form-element tm-form-element-50">
-                                            <i class="fa fa-calendar fa-2x tm-form-element-icon"></i>
+                                            <i class="fa fa-calendar fa-1x tm-form-element-iconn"></i>
                                             <input name="endDate" type="date" class="form-control" id="inputCheckOut" placeholder="End date" onInput = {e=>this.setState({endDate:e.target.value})}/>
                                         </div>
                                     </div>
                                     <div class="form-row tm-search-form-row">
                                         <div class="form-group tm-form-element tm-form-element-100">
-                                            <i class="fa fa-map-marker fa-2x tm-form-element-icon"></i>
+                                        <i class="fa fa-map-marker fa-1x tm-form-element-icon"></i>
                                             <input name="destination" type="text" class="form-control" id="inputCity" placeholder="Type your destination (if decided)" onInput = {e=>this.setState({destination:e.target.value})}/>
                                         </div>
                                         

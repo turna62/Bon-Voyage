@@ -1095,6 +1095,8 @@ input[type='checkbox'] {
 .counter {
 	padding-top: 6.875rem;
 	padding-bottom: 5.25rem;
+	position: relative;
+	top: 60px;
 }
 
 .counter .image-container {
