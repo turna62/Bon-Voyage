@@ -34,6 +34,7 @@ export default class LogIn extends Component {
         if (data.status === "OK!"){
             alert("Logged In Successfully!"); 
         window.localStorage.setItem("token", data.data); // storing token in data
+        // window.localStorage.setItem("userId", data.userId);
         window.localStorage.setItem("loggedIn", true);
         window.location.href = "./myTrip";
         } else {

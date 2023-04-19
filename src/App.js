@@ -24,11 +24,13 @@ import Destination2 from "./MyTrip/destination2";
 import AddMembers from "./MyTrip/addmembers";
 import FetchedDestination from "./MyTrip/fetchedDestination";
 
+import Poll from "./Poll";
 
 
 
 function App() {
   // const isLoggedIn = window.localStorage.getItem("loggedIn");
+  const userId = localStorage.getItem("userId");
   return (
     <Router>
       <Routes>
@@ -37,7 +39,7 @@ function App() {
         <Route path="/search" element={<Search />} />
         <Route path="/sign-up" element={<SignUp />} />
         <Route path="/sign-in" element={<LogIn />} />
-        <Route path="/planatrip" element={<TripPlan />} />
+        <Route path="/planatrip" element={<TripPlan userId={userId} />} />
         <Route path="/mytrip" element={<MyTrip />} />
         <Route path="/myprofile" element={<UserProfile />} />
         <Route path="/reset" element={<Reset />} />
@@ -53,6 +55,8 @@ function App() {
         <Route path="/adddestination" element={<AddDestination/>} />
         <Route path="/addmembers" element={<AddMembers/>} />
         <Route path = "/fetcheddestination" element = {<FetchedDestination/>}/>
+        <Route path = "/poll" element = {<Poll/>}/>
+         
       </Routes>
     </Router>
   );

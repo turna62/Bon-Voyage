@@ -8,20 +8,28 @@ import React from 'react';
     constructor (props){
         super(props)
         this.state = {
+            //userId :"",
             tripName:"",
             destination:"",
             startDate:"",
             endDate:"",
             members:""
         };
+        //console.log(this.props.userId);
         this.handleSubmit = this.handleSubmit.bind(this); // to read properties of state
    
     }
+
+    // componentDidMount() {
+    //     const userId = localStorage.getItem("userId");
+    //     this.setState({ userId });
+    //   }
              // console values
              handleSubmit(e){
                 e.preventDefault();
-                const {tripName, destination, startDate, endDate, members} = this.state;
-                console.log(tripName, destination, startDate, endDate, members);
+                const {tripName, destination, startDate, endDate, members} = this.state; // , userId
+                //const userId = localStorage.getItem("userId");
+                console.log(tripName, destination, startDate, endDate, members); // , userId
                 fetch("http://localhost:5000/insert",{ // call API
                     method: "POST",
                     crossDomain: true,
@@ -31,6 +39,7 @@ import React from 'react';
                         "Access-Control-Allow-Origin": "*",
                     },
                     body: JSON.stringify({
+                        // userId,
                         tripName,
                         destination,
                         startDate,
