@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
- import "./Poll.css";
+ import "./DemoPoll.css";
 
-function Poll() {  
+function DemoPoll() {  
     const [voteData, setVoteData] = useState();
     const [totalVotes, setTotalVotes] = useState(0);
     const [voted, setVoted] = useState(false);
@@ -61,4 +61,4 @@ return (
     </div>
   );
 }
-export default Poll;
+export default DemoPoll;
