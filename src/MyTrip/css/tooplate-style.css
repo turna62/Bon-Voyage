@@ -3,9 +3,6 @@
 .tm-top-bar-bg { height: 119px; }
 .tm-section { min-height: 515px; }
 
-.tm-section-pad {
-	}
-
 .tm-section{
 
 	position: relative;
@@ -19,15 +16,26 @@
 .tm-form-element { position: relative; }
 .tm-form-element:last-child { margin-right: 0; }
 
-.tm-form-element-icon {
-	color: #113448;
+.tm-form-element-iconn {
+	color: rgb(14,44,44);
 	position: absolute;
-	top: 0px;
+	top: 10px;
+	left: 15px;
+}
+.tm-form-element-icon {
+	color: rgb(14,44,44);
+	position: absolute;
+	top: 30px;
 	left: 15px;
 }
 
-.tm-form-element-icon-small {
-	top: 16px;
+.tm-form-element-50{
+	position: relative;
+	top: 20px;
+	height: 40px;
+}
+.tm-form-element-icon {
+	bottom: 10px;
 	left: 18px;
 }
 
