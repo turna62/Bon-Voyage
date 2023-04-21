@@ -1,0 +1,22 @@
+.poll-container {
+    margin: 1rem 0;
+  }
+  
+  .poll {
+    font-size: 0.9rem;
+  }
+  
+  .poll ul {
+    padding: 0;
+    width: 300px;
+    margin: auto;
+  }
+  
+  .poll ul li {
+    list-style: none;
+    border: 2px solid #00ddf9;
+    border-radius: 9px;
+    line-height: 1rem;
+    margin-bottom: 1rem;
+    width: 100%;
+  }

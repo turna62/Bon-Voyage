@@ -21,13 +21,15 @@ import CreatePoll from "./MyTrip/createpoll";
 import AddDestination from "./MyTrip/adddestination";
 import Destination2 from "./MyTrip/destination2";
 import AddMembers from "./MyTrip/addmembers";
-import Search from "./search";
+import FetchedDestination from "./MyTrip/fetchedDestination";
+import Search from "./Search";
 import LaunchPoll from "./Poll/launchpoll";
-
+import DemoPoll from "./DemoPoll";
 
 
 function App() {
   // const isLoggedIn = window.localStorage.getItem("loggedIn");
+  const userId = localStorage.getItem("userId");
   return (
     <Router>
       <Routes>
@@ -36,7 +38,7 @@ function App() {
         <Route path="/search" element={<Search />} />
         <Route path="/sign-up" element={<SignUp />} />
         <Route path="/sign-in" element={<LogIn />} />
-        <Route path="/planatrip" element={<TripPlan />} />
+        <Route path="/planatrip" element={<TripPlan userId={userId} />} />
         <Route path="/mytrip" element={<MyTrip />} />
         <Route path="/myprofile" element={<UserProfile />} />
         <Route path="/reset" element={<Reset />} />
@@ -53,6 +55,9 @@ function App() {
         <Route path="/addmembers" element={<AddMembers/>} />
         <Route path="/launchpoll" element={<LaunchPoll/>} />
         {/* <Route path = "/fetcheddestination" element = {<FetchedDestination/>}/> */}
+        <Route path = "/fetcheddestination" element = {<FetchedDestination/>}/>
+        <Route path = "/demopoll" element = {<DemoPoll/>}/>
+         
       </Routes>
     </Router>
   );
