@@ -22,43 +22,7 @@ import React from 'react';
         const userId = localStorage.getItem("userId");
         this.setState({ userId });
       }
-             // console values
-            //  handleSubmit(e){
-            //     e.preventDefault();
-            //     const {tripName, destination, startDate, endDate, members} = this.state; // , userId
-            //     const userId = localStorage.getItem("userId");
-            //     console.log(tripName, destination, startDate, endDate, members, userId); // , userId
-            //     fetch("http://localhost:5000/insert",{ // call API
-            //         method: "POST",
-            //         crossDomain: true,
-            //         headers:{
-            //             "Content-Type":"application/json",
-            //             Accept: "application/json",
-            //             "Access-Control-Allow-Origin": "*",
-            //         },
-            //         body: JSON.stringify({
-            //             // userId,
-            //             tripName,
-            //             destination,
-            //             startDate,
-            //             endDate,
-            //             members
-            //         }),
-            //     })
-            //     .then((res) => res.json()) // convert data into JSON
-            //     .then((data) => {
-            //         console.log(data, "userSubmit");
-            //         if (data.status === "OK!"){
-            //             const userId = localStorage.getItem("userId");
-
-            //              window.location.href = "./detailtripplan?userId=${userId}";
-            //         } else {
-            //             alert("Error! Something went wrong!");
-            //         }
-            //     })
-
-                
-            // }
+        
 
             handleSubmit(e){
                 e.preventDefault();
