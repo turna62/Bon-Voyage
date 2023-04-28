@@ -3,6 +3,20 @@ import './mytrip.css';
 
 
 class MyTrip extends React.Component{
+
+    constructor(props) {
+        super(props);
+        this.state = {
+          userId: null
+        };
+      }
+    
+      componentDidMount() {
+        const params = new URLSearchParams(window.location.search);
+        const userId = params.get('userId');
+        this.setState({ userId: userId });
+      }
+      
     render(){
 
         return(

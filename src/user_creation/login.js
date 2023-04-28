@@ -30,7 +30,9 @@ export default function LogIn(props) {
           alert('Logged In Successfully!');
           window.localStorage.setItem('token', data.data); // storing token in data
           window.localStorage.setItem('loggedIn', true);
-          window.location.href = "./mytrip";
+          window.localStorage.setItem('userId', data.userId);
+          
+          window.location.href = "./mytrip?userId=" + data.userId;
         } else {
           alert('Error! Something went wrong!');
         }
