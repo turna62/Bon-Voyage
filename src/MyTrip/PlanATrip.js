@@ -87,7 +87,8 @@ import React from 'react';
                   .then((data) => {
                     console.log(data, "userSubmit");
                     if (data.status === "OK!") {
-                      window.location.href = `./detailtripplan?userId=${userId}`;
+                        window.localStorage.setItem('tripId', data.tripId);
+                      window.location.href = `./detailtripplan?userId=${userId}&tripId=${data.tripId}`;
                     } else {
                       alert(`went wrong: ${data.status}`);
                     }
