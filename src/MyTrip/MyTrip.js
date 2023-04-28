@@ -16,7 +16,7 @@ class MyTrip extends React.Component{
         const userId = params.get('userId');
         this.setState({ userId: userId });
       }
-      
+
     render(){
 
         return(
@@ -57,7 +57,7 @@ class MyTrip extends React.Component{
                             <div class="col-lg-12">
                                 <div class="text-container">
 
-                                    <a class="btn-solid-llg" href="http://localhost:3000/planatrip">Plan A Trip</a>
+                                    <a class="btn-solid-llg" href={`http://localhost:3000/planatrip?userId=${encodeURIComponent(this.state.userId)}`}>Plan A Trip</a>
 
 
                                 </div>
