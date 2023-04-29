@@ -16,7 +16,7 @@ import React from 'react';
         //console.log(this.props.userId);
         this.handleSubmit = this.handleSubmit.bind(this); // to read properties of state
    
-    }
+    } 
 
     componentDidMount() {
         const userId = localStorage.getItem("userId");

@@ -25,6 +25,7 @@ import FetchedDestination from "./MyTrip/fetchedDestination";
 import Search from "./Search";
 import LaunchPoll from "./Poll/launchpoll";
 import DemoPoll from "./DemoPoll";
+import LaunchPoll1 from "./MyTrip/launchpoll1";
 
 
 function App() {
@@ -55,6 +56,7 @@ function App() {
         <Route path="/adddestination" element={<AddDestination/>} />
         <Route path="/addmembers" element={<AddMembers tripId={tripId}/>} />
         <Route path="/launchpoll" element={<LaunchPoll/>} />
+        <Route path="/launchpoll1" element={<LaunchPoll1/>} />
         {/* <Route path = "/fetcheddestination" element = {<FetchedDestination/>}/> */}
         <Route path = "/fetcheddestination" element = {<FetchedDestination/>}/>
         <Route path = "/demopoll" element = {<DemoPoll/>}/>

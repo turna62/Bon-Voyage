@@ -15,7 +15,7 @@ class FetchedDestination extends Component {
   render() {
     const { data } = this.state;
      
-    return (
+    return ( 
 <div>
   <nav class="navbar navbar-expand-md navbar-dark navbar-custom fixed-top">
                 <h3 class="logo">Bon VOYAGE!</h3>

@@ -1,7 +1,6 @@
 import React from 'react';
 import './mytrip.css';
 
-
 class Polls extends React.Component{
     render(){
 
@@ -65,7 +64,7 @@ class Polls extends React.Component{
     <h3>Polls</h3>
 <p>Create a poll to help your group narrow down options or answer key questions.</p> 
 
-</div>
+</div> 
 
 <a class="btn-solid-lg page-scroll" href="http://localhost:3000/createpoll">Create Poll</a>
 

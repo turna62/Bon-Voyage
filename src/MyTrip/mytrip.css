@@ -195,7 +195,7 @@ top: 200px;
             left: 350px;
             top: 90px;
             overflow-x: hidden;
-        }
+        } 
         
         .btn-solid-lg:hover {
             background-color: rgb(14, 44, 44);
