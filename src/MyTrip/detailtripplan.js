@@ -11,7 +11,7 @@ class DetailTripPlan extends React.Component{
           userId: null,
           userData:""
         };
-      }
+      } 
     
       componentDidMount() {
         const params = new URLSearchParams(window.location.search);
@@ -100,11 +100,11 @@ class DetailTripPlan extends React.Component{
 
         <ul class="ul">
         <li class="li"> <a href={`http://localhost:3000/overview?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}`}>Overview</a></li>
-        <li class="li"><a href="http://localhost:3000/polls">Polls</a></li>
-        <li class="li"><a href="http://localhost:3000/polls">Date</a></li>
-        <li class="li"><a href="http://localhost:3000/destination">Destination</a></li>
-        <li class="li"><a href="http://localhost:3000/activities">Activities</a></li>
-        <li class="li"><a href="http://localhost:3000/itinerary">Itinerary</a></li>
+        <li class="li"> <a href={`http://localhost:3000/polls?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}`}>Polls</a></li>
+        <li class="li"> <a href={`http://localhost:3000/date?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}`}>Date</a></li>
+        <li class="li"> <a href={`http://localhost:3000/destination?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}`}>Destination</a></li>
+        <li class="li"> <a href={`http://localhost:3000/activities?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}`}>Activities</a></li>
+        <li class="li"> <a href={`http://localhost:3000/itinerary?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}`}>Itinerary</a></li>
      </ul>
 
      </div>            
