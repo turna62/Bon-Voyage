@@ -74,7 +74,7 @@ class AddMembers extends React.Component{
                         
                   </ul>
 
-              </div>
+              </div> 
          </nav>
 
     <div class="mainn-w3layouts wrapper">

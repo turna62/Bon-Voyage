@@ -143,8 +143,7 @@ input[type="checkbox"] {
     display: flex;
     align-items: center;
     justify-content: center;
-    /* background: rgba(14, 44, 44, 0.205); */
-    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(travelingc.png) center center no-repeat;
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(hill.jpg) center center no-repeat;
     background-size: cover;  
     height: 100vh;  
     overflow: hidden;
@@ -206,10 +205,12 @@ input[type="checkbox"] {
     left: 80px;
     bottom: 190px;
     font-size: 17px;
+    font-weight: 400;
 }
 .head{
     color: white;
     font-size: 30px;
+    font-weight: 600;
 }
 
 .pollbtn {

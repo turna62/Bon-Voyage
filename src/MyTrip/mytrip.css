@@ -487,7 +487,7 @@ top: 70px; }
   font-family: 'Times New Roman', Times, serif;
   position: relative;
   left: 610px;
-  bottom: 70px;
+  top: 5px;
   overflow-x: hidden;
 }
 
@@ -754,6 +754,145 @@ top: 70px; }
 }
 
 .btncreatepoll:hover {
+  background-color: rgb(22, 55, 55);
+  color: #fff;
+  text-decoration: none;
+}
+.overviewdetail, .hr{ 
+  position: relative;
+  left: 40px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 17px;
+  top: 60px;
+}
+.detailfix{
+  position: relative;
+  top: 15px;
+  color: white;
+  height:80vh;
+  background-size: cover;  
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(hill3.jpg) center center no-repeat;
+}
+.detailhead{
+  font-size: 20px;
+  position: relative;
+  left: 450px;
+  top: 40px;
+}
+
+.activitiesform {
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+  position: relative;
+  top: 400px;
+  right: 200px;
+}
+
+.aclabel {
+	display: flex;
+	cursor: pointer;
+	font-weight: 500;
+	position: relative;
+	overflow: hidden;
+	margin-bottom: 0.375em;
+  position: relative;
+  top: 20px;
+}
+
+.aclabel:focus-within {
+	outline: .125em solid rgb(14, 44, 44);
+}
+
+.accinput {
+	position: absolute;
+	left: -9999px;
+}
+
+.accinput:checked + .activitiespan {
+	background-color: rgba(14, 44, 44, 0.257);
+}
+
+.accinput:checked + .activitiespan:before {
+	box-shadow: inset 0 0 0 0.4375em rgb(14, 44, 44);
+}
+
+.activitiespan {
+	display: flex;
+	align-items: center;
+	padding: 0.375em 0.75em 0.375em 0.375em;
+	border-radius: 99em;
+	transition: 0.25s ease;
+  color: white
+}
+
+.activitiespan:hover {
+	background-color: rgba(14, 44, 44, 0.134);
+}
+
+.activitiespan:before {
+	display: flex;
+	flex-shrink: 0;
+	content: "";
+	background-color: #fff;
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 50%;
+	margin-right: 0.375em;
+	transition: 0.25s ease;
+	box-shadow: inset 0 0 0 0.125em rgb(14, 44, 44);
+}
+
+.accontainer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 20px;
+  position: relative;
+  bottom: 500px;
+  left: 200px;
+}
+
+.actbody{
+  display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(hillc.jpg) center center no-repeat;
+    background-size: cover;  
+    height: 100vh;  
+    overflow: hidden;
+ }
+ .acthead{
+  position: relative;
+  right: 10px;
+  color: white;
+  font-size: 20px;
+  font-weight: 700;
+  bottom: 40px;
+}
+
+.headerr .btnact {
+	margin-right: 0.5rem;
+	margin-bottom: 1.25rem;
+}
+.btnact {
+  display: inline-block;
+  padding: 1.175rem 1.125rem 1.175rem 1.125rem;
+  border-radius: 0.25rem;
+  background-color: rgb(14, 44, 44);
+  color: #fff;
+  font: 700 0.75rem/0 "Montserrat", sans-serif;
+  text-decoration: none;
+  transition: all 0.2s;
+  font-size: 15px;
+  font-family: 'Times New Roman', Times, serif;
+  position: relative;
+  overflow-x: hidden;
+  right: 350px;
+  top: 40px;
+}
+
+.btnact:hover {
   background-color: rgb(22, 55, 55);
   color: #fff;
   text-decoration: none;
