@@ -3,6 +3,47 @@ import './mytrip.css';
 
 
 class Date extends React.Component{
+    constructor(props) {
+        super(props);
+        this.state = {
+          userId: null,
+          userData:""
+        };
+      } 
+    
+      componentDidMount() {
+        const params = new URLSearchParams(window.location.search);
+        const userId = params.get('userId');
+        console.log(userId);
+        this.setState({ userId: userId });
+
+
+        fetch("http://localhost:5000/userData",{
+            method: "POST",
+            crossDomain: true,
+            headers:{
+                "Content-Type":"application/json",
+                Accept: "application/json",
+                "Access-Control-Allow-Origin": "*",
+            },
+            body: JSON.stringify({
+                token: window.localStorage.getItem("token"),
+                userId: userId,
+            
+            }),
+        })
+        .then((res) => res.json()) // convert data into JSON
+        .then((data) => {
+            console.log(data, "userData");
+            this.setState({userData: data.data});
+            if(data.data == 'Token Expired!'){
+                alert("Token expired! Kindly login again."); 
+                window.localStorage.clear();
+                window.location.href = "./sign-in";
+            }
+        });
+      }
+
     render(){
 
         return(
@@ -34,7 +75,7 @@ class Date extends React.Component{
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="text-container">
-                                    <h1>Let's Plan!</h1>
+                                <h1 style={{ backgroundColor: this.state.userData.color }}>Let's Plan, {this.state.userData.username}!</h1>
                                     {/* <p class="p-heading p-large">The journey of a thousand miles begins with a single step.</p> */}
 
 

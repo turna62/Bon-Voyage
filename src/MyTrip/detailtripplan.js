@@ -10,7 +10,7 @@ class DetailTripPlan extends React.Component{
           userId: null,
           userData:""
         };
-      }
+      } 
     
       componentDidMount() {
         const params = new URLSearchParams(window.location.search);

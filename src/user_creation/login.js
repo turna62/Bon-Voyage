@@ -90,6 +90,6 @@ export default function LogIn(props) {
           </div>
         </div>
       </div>
-    </body>
+    </body> 
   );
 }
