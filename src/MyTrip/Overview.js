@@ -52,30 +52,30 @@ class Overview extends React.Component{
             }
         });
 
-        // fetch("http://localhost:5000/userData",{
-        //     method: "POST",
-        //     crossDomain: true,
-        //     headers:{
-        //         "Content-Type":"application/json",
-        //         Accept: "application/json",
-        //         "Access-Control-Allow-Origin": "*",
-        //     },
-        //     body: JSON.stringify({
-        //         token: window.localStorage.getItem("token"),
-        //         userId: userId,
+        fetch("http://localhost:5000/userData",{
+            method: "POST",
+            crossDomain: true,
+            headers:{
+                "Content-Type":"application/json",
+                Accept: "application/json",
+                "Access-Control-Allow-Origin": "*",
+            },
+            body: JSON.stringify({
+                token: window.localStorage.getItem("token"),
+                userId: userId,
             
-        //     }),
-        // })
-        // .then((res) => res.json()) // convert data into JSON
-        // .then((data) => {
-        //     console.log(data, "userData");
-        //     this.setState({userData: data.data});
-        //     if(data.data == 'Token Expired!'){
-        //         alert("Token expired! Kindly login again."); 
-        //         window.localStorage.clear();
-        //         window.location.href = "./sign-in";
-        //     }
-        // });
+            }),
+        })
+        .then((res) => res.json()) // convert data into JSON
+        .then((data) => {
+            console.log(data, "userData");
+            this.setState({userData: data.data});
+            if(data.data == 'Token Expired!'){
+                alert("Token expired! Kindly login again."); 
+                window.localStorage.clear();
+                window.location.href = "./sign-in";
+            }
+        });
 
       }
     
@@ -124,7 +124,7 @@ class Overview extends React.Component{
 
      <div>
 
-        <h4 class="tripname">Trip Name</h4><hr></hr>
+        <h4 class="tripname">{this.state.tripData.tripName}</h4><hr></hr>
         <a class="btnaddmembers" href="http://localhost:3000/addmembers">+ Add Members</a>
 
         <ul class="ul">
