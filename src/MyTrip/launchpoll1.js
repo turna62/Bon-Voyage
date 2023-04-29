@@ -1,11 +1,68 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import './polls.css';
 import './mytrip.css';
+import '../Home/HomeCss/styles.css';
 
-class Polls extends React.Component{
-    render(){
+function LaunchPoll1() {
+  const [selectedOption, setSelectedOption] = useState(null);
+  const [totalVotes, setTotalVotes] = useState(0);
+  const [hasVoted, setHasVoted] = useState(false);
+  const [optionsList, setOptionsList] = useState([
+    { id: 'opt-1', text: 'Answer 1', votes: 0 },
+    { id: 'opt-2', text: 'Answer 2', votes: 0 },
+    { id: 'opt-3', text: 'Answer 3', votes: 0 },
+    { id: 'opt-4', text: 'Answer 4', votes: 0 },
+    { id: 'opt-5', text: 'Answer 5', votes: 0 },
+  ]);
 
-        return(
+  useEffect(() => {
+    const sum = optionsList.reduce((acc, cur) => acc + cur, 0);
+    setTotalVotes(sum);
+  }, []);
 
+  const handleOptionClick = (option) => {
+    if (!hasVoted) {
+      setSelectedOption(option);
+      setHasVoted(true);
+      const updatedOptions = optionsList.map((opt) => {
+        if (opt.id === option) {
+          return { ...opt, votes: opt.votes + 1 };
+        }
+        return opt;
+      });
+      setOptionsList(updatedOptions);
+    }
+  };
+
+  const handleSubmit = () => {
+    console.log(`Selected option: ${selectedOption}`);
+    console.log(`Total votes: ${totalVotes}`);
+    console.log(`Has voted: ${hasVoted}`);
+  };
+
+  const pollOptions = optionsList.map((option) => {
+    const isSelected = selectedOption === option.id;
+    const classNames = ['option'];
+    if (isSelected) {
+      classNames.push('selected');
+    }
+    return (
+      <li key={option.id} onClick={() => handleOptionClick(option.id)}>
+        <label htmlFor={option.id} className={classNames.join(' ')}>
+          <div className="row">
+            <div className="column">
+              <span className="circle"></span>
+              <span className="text">{option.text}</span>
+            </div>
+            <span className="votes">{option.votes} votes</span>
+          </div>
+          <input type="radio" name="poll" id={option.id} />
+        </label>
+      </li>
+    );
+  });
+
+  return (
     <div class="deetailplan">
 
          <nav class="navbar navbar-expand-md navbar-dark navbar-custom fixed-top">
@@ -60,81 +117,66 @@ class Polls extends React.Component{
 
      </div> 
 
-<div class="phead">
+      
+    <div className="pollbodyy">
+    
+      <div className="wrapperr">
+        <header>Question:</header>
+        <div className="poll-area">
+          <ul>{pollOptions}</ul>
+          <button className="btnncreatepoll" onClick={handleSubmit}>
+            Finish
+          </button>
+        </div>
+      </div>
+      <div class="pphead">
     <h3>Polls</h3>
-<p>Create a poll to help your group narrow down options or answer key questions.</p> 
+<p>Create another poll to help your group narrow down options or answer key questions.</p> 
 
 </div> 
 
-<a class="btn-solid-lg page-scroll" href="http://localhost:3000/createpoll">Create Poll</a>
+<a class="pollbtn page-scroll" href="http://localhost:3000/createpoll">Create Poll</a>
 
-            
+    </div>
 
-         <div class="footer">
+    <div class="footer">
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
                     <div class="text-container about">
-                        <h4>Few Words About Bon Vogage!</h4>
-                        <p class="white">We are passionate about helping you to arrange your trip as best as we can.</p></div>
+                        <h4></h4>
+                        <p class="white"></p>
+                    </div>
                 </div> 
                 <div class="col-md-2">
                     <div class="text-container">
-                        <h4>Links</h4>
+                        <h4>Help</h4>
                         <ul class="list-unstyled li-space-lg white">
-                            <li>
-                                <a class="white" href="#your-link">startupguide.com</a>
-                            </li>
-                            <li>
-                                <a class="white" href="terms-conditions.html">Terms & Conditions</a>
-                            </li>
-                            <li>
-                                <a class="white" href="privacy-policy.html">Privacy Policy</a>
-                            </li>
+                           <li>
+
+                           </li>
                         </ul>
-                    </div> 
+                    </div>
                 </div> 
                 <div class="col-md-2">
                     <div class="text-container">
-                        <h4>Tools</h4>
+                        <h4>Social Media</h4>
                         <ul class="list-unstyled li-space-lg">
                             <li>
-                                <a class="white" href="#your-link">businessgrowth.com</a>
-                            </li>
-                            <li>
-                               <a class="white" href="#your-link">influencers.com</a>
-                            </li>
-                            <li class="media">
-                                <a class="white" href="#your-link">optimizer.net</a>
+                                
                             </li>
                         </ul>
                     </div> 
                 </div> 
-                <div class="col-md-2">
-                    <div class="text-container">
-                        <h4>Partners</h4>
-                        <ul class="list-unstyled li-space-lg">
-                            <li>
-                                <a class="white" href="#your-link">unicorns.com</a>
-                            </li>
-                            <li>
-                                <a class="white" href="#your-link">staffmanager.com</a>
-                            </li>
-                            <li>
-                                <a class="white" href="#your-link">association.gov</a>
-                            </li>
-                        </ul>
-                    </div> 
                 </div> 
-            </div>
         </div> 
     </div> 
+
     
+        
             </div>
 
-        )
-
-    }
+  );
 }
 
-export default Polls;
+export default LaunchPoll1;

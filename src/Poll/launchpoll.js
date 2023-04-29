@@ -6,15 +6,15 @@ function LaunchPoll() {
   const [totalVotes, setTotalVotes] = useState(0);
   const [hasVoted, setHasVoted] = useState(false);
   const [optionsList, setOptionsList] = useState([
-    { id: 'opt-1', text: 'Answer 1', percent: 30, votes: 0 },
-    { id: 'opt-2', text: 'Answer 2', percent: 20, votes: 0 },
-    { id: 'opt-3', text: 'Answer 3', percent: 40, votes: 0 },
-    { id: 'opt-4', text: 'Answer 4', percent: 10, votes: 0 },
-    { id: 'opt-5', text: 'Answer 5', percent: 10, votes: 0 },
+    { id: 'opt-1', text: 'Answer 1', votes: 0 },
+    { id: 'opt-2', text: 'Answer 2', votes: 0 },
+    { id: 'opt-3', text: 'Answer 3', votes: 0 },
+    { id: 'opt-4', text: 'Answer 4', votes: 0 },
+    { id: 'opt-5', text: 'Answer 5', votes: 0 },
   ]);
 
   useEffect(() => {
-    const sum = optionsList.reduce((acc, cur) => acc + cur.percent, 0);
+    const sum = optionsList.reduce((acc, cur) => acc + cur, 0);
     setTotalVotes(sum);
   }, []);
 
@@ -52,7 +52,6 @@ function LaunchPoll() {
               <span className="circle"></span>
               <span className="text">{option.text}</span>
             </div>
-            <span className="percent">{option.percent}%</span>
             <span className="votes">{option.votes} votes</span>
           </div>
           <input type="radio" name="poll" id={option.id} />
