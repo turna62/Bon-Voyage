@@ -1,104 +1,79 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import './poll.css';
 
 function LaunchPoll() {
+  const [selectedOption, setSelectedOption] = useState(null);
+  const [totalVotes, setTotalVotes] = useState(0);
+  const [hasVoted, setHasVoted] = useState(false);
+  const [optionsList, setOptionsList] = useState([
+    { id: 'opt-1', text: 'Answer 1', percent: 30, votes: 0 },
+    { id: 'opt-2', text: 'Answer 2', percent: 20, votes: 0 },
+    { id: 'opt-3', text: 'Answer 3', percent: 40, votes: 0 },
+    { id: 'opt-4', text: 'Answer 4', percent: 10, votes: 0 },
+    { id: 'opt-5', text: 'Answer 5', percent: 10, votes: 0 },
+  ]);
+
   useEffect(() => {
-    const options = document.querySelectorAll("label");
-    for (let i = 0; i < options.length; i++) {
-      options[i].addEventListener("click", () => {
-        for (let j = 0; j < options.length; j++) {
-          if (options[j].classList.contains("selected")) {
-            options[j].classList.remove("selected");
-          }
-        }
-        options[i].classList.add("selected");
-        for (let k = 0; k < options.length; k++) {
-          options[k].classList.add("selectall");
-        }
-        let forVal = options[i].getAttribute("for");
-        let selectInput = document.querySelector("#" + forVal);
-        let getAtt = selectInput.getAttribute("type");
-        if (getAtt === "checkbox") {
-          selectInput.setAttribute("type", "radio");
-        } else if (selectInput.checked === true) {
-          options[i].classList.remove("selected");
-          selectInput.setAttribute("type", "checkbox");
-        }
-        let array = [];
-        for (let l = 0; l < options.length; l++) {
-          if (options[l].classList.contains("selected")) {
-            array.push(l);
-          }
-        }
-        if (array.length === 0) {
-          for (let m = 0; m < options.length; m++) {
-            options[m].removeAttribute("class");
-          }
-        }
-      });
-    }
+    const sum = optionsList.reduce((acc, cur) => acc + cur.percent, 0);
+    setTotalVotes(sum);
   }, []);
 
+  const handleOptionClick = (option) => {
+    if (!hasVoted) {
+      setSelectedOption(option);
+      setHasVoted(true);
+      const updatedOptions = optionsList.map((opt) => {
+        if (opt.id === option) {
+          return { ...opt, votes: opt.votes + 1 };
+        }
+        return opt;
+      });
+      setOptionsList(updatedOptions);
+    }
+  };
+
+  const handleSubmit = () => {
+    console.log(`Selected option: ${selectedOption}`);
+    console.log(`Total votes: ${totalVotes}`);
+    console.log(`Has voted: ${hasVoted}`);
+  };
+
+  const pollOptions = optionsList.map((option) => {
+    const isSelected = selectedOption === option.id;
+    const classNames = ['option'];
+    if (isSelected) {
+      classNames.push('selected');
+    }
+    return (
+      <li key={option.id} onClick={() => handleOptionClick(option.id)}>
+        <label htmlFor={option.id} className={classNames.join(' ')}>
+          <div className="row">
+            <div className="column">
+              <span className="circle"></span>
+              <span className="text">{option.text}</span>
+            </div>
+            <span className="percent">{option.percent}%</span>
+            <span className="votes">{option.votes} votes</span>
+          </div>
+          <input type="radio" name="poll" id={option.id} />
+        </label>
+      </li>
+    );
+  });
+
   return (
-    <>
-    <div class="pollbodyy">
-    <div class="wrapperr">
+    <div className="pollbodyy">
+      <div className="wrapperr">
         <header>Question:</header>
-        <div class="poll-area">
-            <input type="checkbox" name="poll" id="opt-1"/>
-            <input type="checkbox" name="poll" id="opt-2"/>
-            <input type="checkbox" name="poll" id="opt-3"/>
-            <input type="checkbox" name="poll" id="opt-4"/>
-            <label for="opt-1" class="opt-1">
-                <div class="row">
-                    <div class="column">
-                        <span class="circle"></span>
-                        <span class="text">Answer 1</span>
-                    </div>
-                    <span class="percent">30%</span>
-                </div>
-            </label>
-            <label for="opt-2" class="opt-2">
-                <div class="row">
-                    <div class="column">
-                        <span class="circle"></span>
-                        <span class="text">Answer 2</span>
-                    </div>
-                    <span class="percent">20%</span>
-                </div>
-            </label>
-            <label for="opt-3" class="opt-3">
-                <div class="row">
-                    <div class="column">
-                        <span class="circle"></span>
-                        <span class="text">Answer 3</span>
-                    </div>
-                    <span class="percent">40%</span>
-                </div>
-            </label>
-            <label for="opt-4" class="opt-4">
-                <div class="row">
-                    <div class="column">
-                        <span class="circle"></span>
-                        <span class="text">Answer 4</span>
-                    </div>
-                    <span class="percent">10%</span>
-                </div>
-            </label>
-            <label for="opt-4" class="opt-4">
-                <div class="row">
-                    <div class="column">
-                        <span class="circle"></span>
-                        <span class="text">Answer 5</span>
-                    </div>
-                    <span class="percent">10%</span>
-                </div>
-            </label>
-            <a class="btnncreatepoll" href="http://localhost:3000/polls">Finish</a>
+        <div className="poll-area">
+          <ul>{pollOptions}</ul>
+          <button className="btnncreatepoll" onClick={handleSubmit}>
+            Finish
+          </button>
         </div>
+      </div>
     </div>
-    </div>
-    </>
   );
 }
-export default LaunchPoll;  
+
+export default LaunchPoll;
