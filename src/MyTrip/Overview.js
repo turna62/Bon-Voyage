@@ -19,7 +19,7 @@ class Overview extends React.Component{
         const userId = params.get('userId');
         const tripId = params.get('tripId');
         
-        console.log(userId);
+        console.log(userId); 
         console.log(tripId);
         this.setState({ userId: userId });
         this.setState({ tripId: tripId });
@@ -52,30 +52,30 @@ class Overview extends React.Component{
             }
         });
 
-        // fetch("http://localhost:5000/userData",{
-        //     method: "POST",
-        //     crossDomain: true,
-        //     headers:{
-        //         "Content-Type":"application/json",
-        //         Accept: "application/json",
-        //         "Access-Control-Allow-Origin": "*",
-        //     },
-        //     body: JSON.stringify({
-        //         token: window.localStorage.getItem("token"),
-        //         userId: userId,
+        fetch("http://localhost:5000/userData",{
+            method: "POST",
+            crossDomain: true,
+            headers:{
+                "Content-Type":"application/json",
+                Accept: "application/json",
+                "Access-Control-Allow-Origin": "*",
+            },
+            body: JSON.stringify({
+                token: window.localStorage.getItem("token"),
+                userId: userId,
             
-        //     }),
-        // })
-        // .then((res) => res.json()) // convert data into JSON
-        // .then((data) => {
-        //     console.log(data, "userData");
-        //     this.setState({userData: data.data});
-        //     if(data.data == 'Token Expired!'){
-        //         alert("Token expired! Kindly login again."); 
-        //         window.localStorage.clear();
-        //         window.location.href = "./sign-in";
-        //     }
-        // });
+            }),
+        })
+        .then((res) => res.json()) // convert data into JSON
+        .then((data) => {
+            console.log(data, "userData");
+            this.setState({userData: data.data});
+            if(data.data == 'Token Expired!'){
+                alert("Token expired! Kindly login again."); 
+                window.localStorage.clear();
+                window.location.href = "./sign-in";
+            }
+        });
 
       }
     
@@ -128,12 +128,12 @@ class Overview extends React.Component{
         <a class="btnaddmembers" href="http://localhost:3000/addmembers">+ Add Members</a>
 
         <ul class="ul">
-        <li class="ovwli"><a href="http://localhost:3000/overview">Overview</a></li>
-        <li class="li"><a href="http://localhost:3000/polls">Polls</a></li>
-        <li class="li"><a href="http://localhost:3000/date">Date</a></li>
-        <li class="li"><a href="http://localhost:3000/destination">Destination</a></li>
-        <li class="li"><a href="http://localhost:3000/activities">Activities</a></li>
-        <li class="li"><a href="http://localhost:3000/itinerary">Itinerary</a></li>
+        <li class="li"> <a href={`http://localhost:3000/overview?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}`}>Overview</a></li>
+        <li class="li"> <a href={`http://localhost:3000/polls?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}`}>Polls</a></li>
+        <li class="li"> <a href={`http://localhost:3000/date?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}`}>Date</a></li>
+        <li class="li"> <a href={`http://localhost:3000/destination?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}`}>Destination</a></li>
+        <li class="li"> <a href={`http://localhost:3000/activities?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}`}>Activities</a></li>
+        <li class="li"> <a href={`http://localhost:3000/itinerary?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}`}>Itinerary</a></li>
      </ul>
 
 <p>List of collaborators:</p>
