@@ -7,6 +7,7 @@ class DetailTripPlan extends React.Component{
     constructor(props) {
         super(props);
         this.state = {
+            tripId: null,
           userId: null,
           userData:""
         };
@@ -15,9 +16,10 @@ class DetailTripPlan extends React.Component{
       componentDidMount() {
         const params = new URLSearchParams(window.location.search);
         const userId = params.get('userId');
-        console.log(userId);
+        const tripId = params.get('tripId');
+        console.log(userId, tripId);
         this.setState({ userId: userId });
-
+        this.setState({ tripId: tripId });
 
         fetch("http://localhost:5000/userData",{
             method: "POST",
@@ -97,7 +99,7 @@ class DetailTripPlan extends React.Component{
         <a class="btnaddmembers" href="http://localhost:3000/addmembers">+ Add Members</a>
 
         <ul class="ul">
-        <li class="li"><a href="http://localhost:3000/overview">Overview</a></li>
+        <li class="li"> <a href={`http://localhost:3000/overview?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}`}>Overview</a></li>
         <li class="li"><a href="http://localhost:3000/polls">Polls</a></li>
         <li class="li"><a href="http://localhost:3000/polls">Date</a></li>
         <li class="li"><a href="http://localhost:3000/destination">Destination</a></li>

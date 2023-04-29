@@ -44,7 +44,7 @@ function App() {
         <Route path="/myprofile" element={<UserProfile userId={userId} />} />
         <Route path="/reset" element={<Reset />} />
         <Route path="/detailtripplan" element={<DetailTripPlan />} />
-        <Route path="/overview" element={<Overview/>} />
+        <Route path="/overview"  element={<Overview userId={userId} tripId={tripId} />} />
         <Route path="/polls" element={<Polls/>} />
         <Route path="/date" element={<Date/>} />
         <Route path="/destination" element={<Destination/>} />

@@ -26,7 +26,8 @@ class AddMembers extends React.Component{
             "Content-Type": "application/json",
             Accept: "application/json",
             "Access-Control-Allow-Origin": "*",
-            authorization: localStorage.getItem("userId") 
+            authorization: localStorage.getItem("userId") ,
+          //  authorization: localStorage.getItem("email") ,
           },
           body: JSON.stringify({
             email,

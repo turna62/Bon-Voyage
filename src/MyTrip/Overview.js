@@ -3,6 +3,82 @@ import './mytrip.css';
 
 
 class Overview extends React.Component{
+
+    constructor(props) {
+        super(props);
+        this.state = {
+          userId: null,
+          tripId: null,
+          tripData:"",
+          userData:"",
+        };
+      }
+    
+      componentDidMount() {
+        const params = new URLSearchParams(window.location.search);
+        const userId = params.get('userId');
+        const tripId = params.get('tripId');
+        
+        console.log(userId);
+        console.log(tripId);
+        this.setState({ userId: userId });
+        this.setState({ tripId: tripId });
+        
+        
+
+
+        fetch("http://localhost:5000/tripData",{
+            method: "POST",
+            crossDomain: true,
+            headers:{
+                "Content-Type":"application/json",
+                Accept: "application/json",
+                "Access-Control-Allow-Origin": "*",
+            },
+            body: JSON.stringify({
+                
+                tripId: tripId,
+            
+            }),
+        })
+        .then((res) => res.json()) // convert data into JSON
+        .then((data) => {
+            console.log(data, "tripData");
+            this.setState({tripData: data.data});
+            if(data.data == 'Token Expired!'){
+                alert("Token expired! Kindly login again."); 
+                window.localStorage.clear();
+                window.location.href = "./sign-in";
+            }
+        });
+
+        // fetch("http://localhost:5000/userData",{
+        //     method: "POST",
+        //     crossDomain: true,
+        //     headers:{
+        //         "Content-Type":"application/json",
+        //         Accept: "application/json",
+        //         "Access-Control-Allow-Origin": "*",
+        //     },
+        //     body: JSON.stringify({
+        //         token: window.localStorage.getItem("token"),
+        //         userId: userId,
+            
+        //     }),
+        // })
+        // .then((res) => res.json()) // convert data into JSON
+        // .then((data) => {
+        //     console.log(data, "userData");
+        //     this.setState({userData: data.data});
+        //     if(data.data == 'Token Expired!'){
+        //         alert("Token expired! Kindly login again."); 
+        //         window.localStorage.clear();
+        //         window.location.href = "./sign-in";
+        //     }
+        // });
+
+      }
+    
     render(){
 
         return(
@@ -19,7 +95,7 @@ class Overview extends React.Component{
                             <a class="nav-link page-scroll" href="#intro">LOG OUT</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link page-scroll" href="http://localhost:3000/myprofile">MY PROFILE</a>
+                            <a class="nav-link page-scroll"  href={`http://localhost:3000/myprofile?userId=${encodeURIComponent(this.state.userId)}`}>MY PROFILE</a>
                         </li>
                        
                         
@@ -59,6 +135,12 @@ class Overview extends React.Component{
         <li class="li"><a href="http://localhost:3000/activities">Activities</a></li>
         <li class="li"><a href="http://localhost:3000/itinerary">Itinerary</a></li>
      </ul>
+
+<p>List of collaborators:</p>
+     {Array.isArray(this.state.tripData.collaborators) && this.state.tripData.collaborators.map((collaborator, index) => (
+  <p key={index}>Collaborator {index + 1}: {collaborator}</p>
+))}
+
 
      </div>            
 
