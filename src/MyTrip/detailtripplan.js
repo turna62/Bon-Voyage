@@ -3,7 +3,22 @@ import './mytrip.css';
 
 
 class DetailTripPlan extends React.Component{
+
+    constructor(props) {
+        super(props);
+        this.state = {
+          userId: null
+        };
+      }
+    
+      componentDidMount() {
+        const params = new URLSearchParams(window.location.search);
+        const userId = params.get('userId');
+        this.setState({ userId: userId });
+      }
+
     render(){
+        
 
         return(
             <div class="deetailplan">
@@ -19,7 +34,7 @@ class DetailTripPlan extends React.Component{
                             <a class="nav-link page-scroll" href="#intro">LOG OUT</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link page-scroll" href="http://localhost:3000/myprofile">MY PROFILE</a>
+                            <a class="nav-link page-scroll" href={`http://localhost:3000/myprofile?userId=${encodeURIComponent(this.state.userId)}`}>MY PROFILE</a>
                         </li>
                        
                         

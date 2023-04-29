@@ -3,6 +3,54 @@ import './mytrip.css';
 
 
 class AddMembers extends React.Component{
+
+    constructor(props) {
+        super(props)
+        this.state = {
+          email: "",
+          tripId: props.tripId,
+          //userId: props.userId
+        };
+        this.handleSubmit = this.handleSubmit.bind(this); // to read properties of state
+      }
+
+      handleSubmit(e){
+        e.preventDefault();
+        const { email, tripId } = this.state;
+        
+        console.log(email, tripId);
+        fetch("http://localhost:5000/add-member", {
+          method: "POST",
+          crossDomain: true,
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+            "Access-Control-Allow-Origin": "*",
+            authorization: localStorage.getItem("userId") 
+          },
+          body: JSON.stringify({
+            email,
+            tripId,
+            
+          }),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data, "userSubmit");
+            if (data.status === "OK!") {
+                
+                alert('Invitation Successfully!');
+            } else {
+              alert(`went wrong: ${data.status}`);
+            }
+          })
+          .catch((error) => {
+            console.error(error);
+            alert("Error! Something went wrong while calling the API.");
+          });
+      }
+
+
     render(){
 
         return(
@@ -33,13 +81,13 @@ class AddMembers extends React.Component{
 			<div class="agileitss-top">
             <h3 class="cpoll">Share this Trip</h3>
             <h5 class="ccpoll">Invite friends to suggest, comment, and vote on trip details.</h5> <hr></hr>
-				<form >
+				<form onSubmit = {this.handleSubmit}>
                    <h5 class="ccpll">Invite by email</h5>
 
-					<input class="textt" type="text" name="poll" placeholder="Add email" required="" />
+					<input class="textt" type="text" name="email" placeholder="Add email" required=""  onInput = {e=>this.setState({email:e.target.value})} />
 
-                    <a class="savedesbtn" href="http://localhost:3000/detailtripplan">ADD</a>
-
+                    {/* <a class="savedesbtn" >ADD</a> */}
+<input type="submit" value="Submit"/> 
 				</form>
 			</div>
 		</div>

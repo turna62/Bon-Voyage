@@ -18,46 +18,50 @@ import React from 'react';
    
     }
 
-    // componentDidMount() {
-    //     const userId = localStorage.getItem("userId");
-    //     this.setState({ userId });
-    //   }
-             // console values
-             handleSubmit(e){
-                e.preventDefault();
-                const {tripName, destination, startDate, endDate, members} = this.state; // , userId
-                //const userId = localStorage.getItem("userId");
-                console.log(tripName, destination, startDate, endDate, members); // , userId
-                fetch("http://localhost:5000/insert",{ // call API
-                    method: "POST",
-                    crossDomain: true,
-                    headers:{
-                        "Content-Type":"application/json",
-                        Accept: "application/json",
-                        "Access-Control-Allow-Origin": "*",
-                    },
-                    body: JSON.stringify({
-                        // userId,
-                        tripName,
-                        destination,
-                        startDate,
-                        endDate,
-                        members
-                    }),
-                })
-                .then((res) => res.json()) // convert data into JSON
-                .then((data) => {
-                    console.log(data, "userSubmit");
-                    if (data.status === "OK!"){
-                        
-                         window.location.href = "./detailtripplan";
-                    } else {
-                        alert("Error! Something went wrong!");
-                    }
-                })
+    componentDidMount() {
+        const userId = localStorage.getItem("userId");
+        this.setState({ userId });
+      }
+        
 
-                
-            }
+            handleSubmit(e){
+                e.preventDefault();
+                const { tripName, destination, startDate, endDate, members } = this.state;
+                const userId = localStorage.getItem("userId");
+                console.log(tripName, destination, startDate, endDate, members, userId);
+                fetch("http://localhost:5000/insert", {
+                  method: "POST",
+                  crossDomain: true,
+                  headers: {
+                    "Content-Type": "application/json",
+                    Accept: "application/json",
+                    "Access-Control-Allow-Origin": "*",
+                    authorization: localStorage.getItem("userId") 
+                  },
+                  body: JSON.stringify({
+                    tripName,
+                    destination,
+                    startDate,
+                    endDate,
+                    members,
+                    userId
+                  }),
+                })
+                  .then((res) => res.json())
+                  .then((data) => {
+                    console.log(data, "userSubmit");
+                    if (data.status === "OK!") {
+                        window.localStorage.setItem('tripId', data.tripId);
+                      window.location.href = `./detailtripplan?userId=${userId}&tripId=${data.tripId}`;
+                    } else {
+                      alert(`went wrong: ${data.status}`);
+                    }
+                  })
+                  .catch((error) => {
+                    console.error(error);
+                    alert("Error! Something went wrong while calling the API.");
+                  });
+              }
     render(){
 
         return(

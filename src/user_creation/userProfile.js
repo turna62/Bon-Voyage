@@ -1,13 +1,35 @@
 import React, { Component } from "react";
 
 export default class UserProfile extends Component{
-constructor(props){
+// constructor(props){
+//     super(props);
+//     this.state = {
+//         userData: "",
+//         userId: props.userId,
+//     };
+
+// }
+
+constructor(props) {
     super(props);
     this.state = {
-        userData: "",
+      userId: null,
+      userData:""
     };
-}
-componentDidMount(){
+  }
+// componentDidMount(){
+//     const {  userId } = this.state;
+//     console.log(this.state.userId);
+
+
+componentDidMount() {
+    const params = new URLSearchParams(window.location.search);
+    const userId = params.get('userId');
+    
+    console.log(userId);
+    this.setState({ userId: userId });
+    
+
     fetch("http://localhost:5000/userData",{
             method: "POST",
             crossDomain: true,
@@ -18,6 +40,8 @@ componentDidMount(){
             },
             body: JSON.stringify({
                 token: window.localStorage.getItem("token"),
+                userId: userId,
+            
             }),
         })
         .then((res) => res.json()) // convert data into JSON
@@ -41,7 +65,7 @@ componentDidMount(){
             <body class="profilebody">
             <div class="deetailplan">
 
-         <nav class="navbar navbar-expand-md navbar-dark navbar-custom fixed-top">
+         {/* <nav class="navbar navbar-expand-md navbar-dark navbar-custom fixed-top">
                 <h3 class="logo">Bon VOYAGE!</h3>
                 <div class="collapse navbar-collapse" id="navbarsExampleDefault">
                     <ul class="navbar-nav ml-auto">
@@ -52,14 +76,14 @@ componentDidMount(){
                             <a class="nav-link page-scroll" href="#intro">LOG OUT</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link page-scroll" href="http://localhost:3000/myprofile">MY PROFILE</a>
-                        </li>
+                            <a class="nav-link page-scroll" href="http://localhost:3000/myprofile?userId=userId">MY PROFILE</a>
+                        </li> */}
                        
-                        
+{/*                         
                   </ul>
 
               </div>
-         </nav>
+         </nav> */}
 
          
 

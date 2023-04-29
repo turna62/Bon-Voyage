@@ -3,6 +3,20 @@ import './mytrip.css';
 
 
 class MyTrip extends React.Component{
+
+    constructor(props) {
+        super(props);
+        this.state = {
+          userId: null
+        };
+      }
+    
+      componentDidMount() {
+        const params = new URLSearchParams(window.location.search);
+        const userId = params.get('userId');
+        this.setState({ userId: userId });
+      }
+
     render(){
 
         return(
@@ -19,7 +33,7 @@ class MyTrip extends React.Component{
                             <a class="nav-link page-scroll" href="#intro">LOG OUT</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link page-scroll" href="http://localhost:3000/myprofile">MY PROFILE</a>
+                            <a class="nav-link page-scroll"  href={`http://localhost:3000/myprofile?userId=${encodeURIComponent(this.state.userId)}`}>MY PROFILE</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="http://localhost:3000/reset">RESET PASSWORD</a>
@@ -43,7 +57,7 @@ class MyTrip extends React.Component{
                             <div class="col-lg-12">
                                 <div class="text-container">
 
-                                    <a class="btn-solid-llg" href="http://localhost:3000/planatrip">Plan A Trip</a>
+                                    <a class="btn-solid-llg" href={`http://localhost:3000/planatrip?userId=${encodeURIComponent(this.state.userId)}`}>Plan A Trip</a>
 
 
                                 </div>
