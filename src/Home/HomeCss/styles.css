@@ -988,11 +988,11 @@ Colors:
 	.cards-1 .card-body {
 		padding: 0;
 	}
-	/* hbujn */
 	
-	.card-bodyy{
+	.card-bodyy p{
 		position: relative;
 		top: 20px;
+		right: 40px;
 	}
 	
 	.cards-1 .fa-stackk {
@@ -1039,9 +1039,9 @@ Colors:
 		right: 30px;
 	}
 	
-	.card-body p{
+	.cards-1 .card-body p{
 		position: relative;
-		right: 0px;
+		right: 400px;
 	}
 	
 	.testimonial{

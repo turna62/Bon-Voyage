@@ -18,7 +18,7 @@ function DemoPoll() {
       });
       setTotalVotes(sum);
     });
-}, []);
+}, []); 
 
 const submitVote = (e) => {
     if(voted === false) {
