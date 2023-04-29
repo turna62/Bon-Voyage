@@ -125,7 +125,7 @@ class Overview extends React.Component{
 
      <div> 
 
-        <h4 class="tripname">{this.state.tripData.tripName}</h4><hr></hr>
+        <h4 class="tripname">Trip Name{this.state.tripData.tripName}</h4><hr></hr>
         <a class="btnaddmembers" href="http://localhost:3000/addmembers">+ Add Members</a>
 
         <ul class="ul">
@@ -145,7 +145,7 @@ class Overview extends React.Component{
      {Array.isArray(this.state.tripData.collaborators) && this.state.tripData.collaborators.map((collaborator, index) => (
   <p key={index}>Collaborator {index + 1}: {collaborator}</p>
 ))}
-<hr class="hr"></hr>
+<hr class="hr"></hr> 
 <p class="overviewdetail">Starting Date:</p>
 <p class="overviewdetail">Ending Date:</p>
 <hr class="hr"></hr>

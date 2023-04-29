@@ -3,6 +3,7 @@ import './mytrip.css';
 
 
 class AddMembers extends React.Component{
+  
 
     constructor(props) {
         super(props)
@@ -51,7 +52,12 @@ class AddMembers extends React.Component{
           });
       }
 
-
+     handleClick = () => {
+        alert('Click OK to continue');
+        window.location.href = "http://localhost:3000/detailtripplan?tripId=${tripId}&userId=${userId}"; // replace with your invitation link
+      }
+      
+     
     render(){
 
         return(

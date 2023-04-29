@@ -26,6 +26,7 @@ import Search from "./Search";
 import LaunchPoll from "./Poll/launchpoll";
 import DemoPoll from "./DemoPoll";
 import LaunchPoll1 from "./MyTrip/launchpoll1";
+import PopUp from "./MyTrip/popup";
 
 
 function App() {
@@ -60,7 +61,7 @@ function App() {
         {/* <Route path = "/fetcheddestination" element = {<FetchedDestination/>}/> */}
         <Route path = "/fetcheddestination" element = {<FetchedDestination/>}/>
         <Route path = "/demopoll" element = {<DemoPoll/>}/>
-         
+        <Route path = "/popup" element = {<PopUp/>}/>       
       </Routes>
     </Router>
   );
