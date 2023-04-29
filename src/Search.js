@@ -107,7 +107,7 @@ function Search() {
                   </div>
                 );
               })}
-            </div>
+            </div> 
           ) : filteredspotsData.length > 0 ? (
             <div className="template_Container">
               {filteredspotsData.map((val) => {
