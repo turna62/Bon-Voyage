@@ -31,7 +31,7 @@ class AddMembers extends React.Component{
           },
           body: JSON.stringify({
             email,
-            tripId,
+            tripId
             
           }),
         })
@@ -51,6 +51,8 @@ class AddMembers extends React.Component{
           });
       }
 
+
+      
 
     render(){
 
@@ -88,7 +90,7 @@ class AddMembers extends React.Component{
 					<input class="textt" type="text" name="email" placeholder="Add email" required=""  onInput = {e=>this.setState({email:e.target.value})} />
 
                     {/* <a class="savedesbtn" >ADD</a> */}
-<input type="submit" value="Submit"/> 
+<input type="submit" value="Add"/> 
 				</form>
 			</div>
 		</div>

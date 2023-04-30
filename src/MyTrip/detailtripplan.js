@@ -96,7 +96,7 @@ class DetailTripPlan extends React.Component{
      <div>
 
         <h4 class="tripname">Trip Name</h4><hr></hr>
-        <a class="btnaddmembers" href="http://localhost:3000/addmembers">+ Add Members</a>
+        <a class="btnaddmembers" href={`http://localhost:3000/addmembers?tripId=${encodeURIComponent(this.state.tripId)}`}>+ Add Members</a>
 
         <ul class="ul">
         <li class="li"> <a href={`http://localhost:3000/overview?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}`}>Overview</a></li>
