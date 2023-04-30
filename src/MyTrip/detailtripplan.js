@@ -9,7 +9,8 @@ class DetailTripPlan extends React.Component{
         this.state = {
             tripId: null,
           userId: null,
-          userData:""
+          userData:"",
+          tripData :"",
         };
       } 
     
@@ -45,6 +46,35 @@ class DetailTripPlan extends React.Component{
                 window.location.href = "./sign-in";
             }
         });
+
+
+
+        fetch("http://localhost:5000/tripData",{
+            method: "POST",
+            crossDomain: true,
+            headers:{
+                "Content-Type":"application/json",
+                Accept: "application/json",
+                "Access-Control-Allow-Origin": "*",
+            },
+            body: JSON.stringify({
+                
+                tripId: tripId,
+            
+            }),
+        })
+        .then((res) => res.json()) // convert data into JSON
+        .then((data) => {
+            console.log(data, "tripData");
+            this.setState({tripData: data.data});
+            if(data.data == 'Token Expired!'){
+                alert("Token expired! Kindly login again."); 
+                window.localStorage.clear();
+                window.location.href = "./sign-in";
+            }
+        });
+
+
       }
 
       
@@ -95,7 +125,7 @@ class DetailTripPlan extends React.Component{
 
      <div>
 
-        <h4 class="tripname">Trip Name</h4><hr></hr>
+        <h4 class="tripname">{this.state.tripData.tripName}</h4><hr></hr>
         <a class="btnaddmembers" href={`http://localhost:3000/addmembers?tripId=${encodeURIComponent(this.state.tripId)}`}>+ Add Members</a>
 
         <ul class="ul">

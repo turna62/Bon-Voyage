@@ -64,7 +64,7 @@ class TripInvitation extends React.Component {
       console.log(data, 'tripInvitation');
       if (data.status === 'OK!') {
         alert('Trip Invitation Accepted Successfully!');
-        window.location.href = `http://localhost:3000/detailtripplan?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}`;
+        window.location.href = `http://localhost:3000/overview?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}`;
       } else {
         alert('Error! Something went wrong!');
       }
