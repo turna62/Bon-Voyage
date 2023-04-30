@@ -86,9 +86,9 @@ class AddMembers extends React.Component{
             <h3 class="cpoll">Share this Trip</h3>
             <h5 class="ccpoll">Invite friends to suggest, comment, and vote on trip details.</h5> <hr></hr>
 				<form onSubmit = {this.handleSubmit}>
-                   <h5 class="ccpll">Invite by email</h5>
+                   <h5 class="ccpll">Invite by email </h5>
 
-					<input class="textt" type="text" name="email" placeholder="Add email" required=""  onInput = {e=>this.setState({email:e.target.value})} />
+					<input class="textt" type="text" name="email" placeholder="Add email" required=""  onInput = {e=>this.setState({email:e.target.value})}  title="Please enter the email addresses of users who have verified accounts on our site!"/>
 
                     {/* <a class="savedesbtn" >ADD</a> */}
 <input type="submit" value="Add"/> 
