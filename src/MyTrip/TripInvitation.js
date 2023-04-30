@@ -94,7 +94,7 @@ class TripInvitation extends React.Component {
     })
       .then((res) => res.json())
       
-        alert("declined");
+        alert("Invitation declined");
     
   };
 
