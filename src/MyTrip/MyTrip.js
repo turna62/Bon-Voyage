@@ -29,26 +29,31 @@ class MyTrip extends React.Component{
                         <li class="nav-item">
                             <a class="nav-link page-scroll" href="http://localhost:3000">HOME <span class="sr-only">(current)</span></a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link page-scroll" href="#intro">LOG OUT</a>
-                        </li>
+                      
                         <li class="nav-item">
                             <a class="nav-link page-scroll"  href={`http://localhost:3000/myprofile?userId=${encodeURIComponent(this.state.userId)}`}>MY PROFILE</a>
+                        </li>
+                       
+                        <li class="nav-item">
+                            <a class="nav-link" href={`http://localhost:3000/tripsection?userId=${encodeURIComponent(this.state.userId)}`}>MY TRIPS</a>
+                            
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="http://localhost:3000/reset">RESET PASSWORD</a>
                             
                         </li>
-        
+                        <li class="nav-item">
+                            <a class="nav-link page-scroll" href="#intro">LOG OUT</a>
+                        </li>
                         
                   </ul>
 
               </div>
          </nav> 
          <div>
-         <h3 class="heading">My Trips</h3> <span></span>  </div>
+         <h3 class="heading">Plan Your Next Trip</h3> <span></span>  </div>
          <div>
-         <p class="inss">Press the 'Plan Your Trip' button and start planning your next adventure with Bon Voyage.</p>   
+         <p class="inss">Press the 'Plan A Trip' button and start planning your next adventure with Bon Voyage.</p>   
          </div>
         
              <div class="header-content">
