@@ -3,6 +3,7 @@ import './mytrip.css';
 
 
 class AddMembers extends React.Component{
+  
 
     constructor(props) {
         super(props)
@@ -76,7 +77,7 @@ class AddMembers extends React.Component{
                         
                   </ul>
 
-              </div>
+              </div> 
          </nav>
 
     <div class="mainn-w3layouts wrapper">

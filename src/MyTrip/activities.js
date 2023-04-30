@@ -102,8 +102,40 @@ class Activities extends React.Component{
         <li class="li"> <a href={`http://localhost:3000/activities?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}`}>Activities</a></li>
         <li class="li"> <a href={`http://localhost:3000/itinerary?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}`}>Itinerary</a></li>
      </ul>
+     </div>   
 
-     </div>            
+     <div class="actbody">  
+     <div class="accontainer">
+	<form class="activitiesform"> 
+    <p class="acthead">Select your favourite activities from here and keep planning</p>
+		<label class="aclabel">
+			<input class="accinput" type="checkbox" name="checkbox1" checked/>
+			<span class="activitiespan">Paragliding</span>
+		</label>
+		<label class="aclabel">
+			<input class="accinput" type="checkbox" name="checkbox2"/>
+			<span class="activitiespan">Hiking</span>
+		</label>
+		<label class="aclabel">
+			<input class="accinput" type="checkbox" name="checkbox3"/>
+			<span class="activitiespan">Swimming</span>
+		</label>
+        <label class="aclabel">
+			<input class="accinput" type="checkbox" name="checkbox4"/>
+			<span class="activitiespan">Cycling</span>
+		</label>
+        <label class="aclabel">
+			<input class="accinput" type="checkbox" name="checkbox5"/>
+			<span class="activitiespan">Wild Life Safari</span>
+		</label>
+        <label class="aclabel">
+			<input class="accinput" type="checkbox" name="checkbox6"/>
+			<span class="activitiespan">Horse Riding</span>
+		</label>
+	</form>
+</div>       <a class="btnact" href="http://localhost:3000/itinerary">Submit</a>
+ 
+</div>   
 
          <div class="footer">
         <div class="container">
