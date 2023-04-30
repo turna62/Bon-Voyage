@@ -9,9 +9,9 @@ class Polls extends React.Component{
           userId: null,
           tripId: null,
           tripData:"",
-          userData:"",
+          userData:"", 
         };
-      }
+      } 
     
       componentDidMount() {
         const params = new URLSearchParams(window.location.search);

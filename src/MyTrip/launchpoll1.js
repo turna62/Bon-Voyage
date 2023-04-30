@@ -106,6 +106,7 @@ function LaunchPoll1() {
      <div>
 
         <h4 class="tripname">Trip Name</h4><hr></hr>
+        <a class="btnaddmembers" href="http://localhost:3000/addmembers">+ Add Members</a>
         <ul class="ul">
         <li class="li"><a href="http://localhost:3000/overview">Overview</a></li>
         <li class="ovwli"><a href="http://localhost:3000/polls">Polls</a></li>
