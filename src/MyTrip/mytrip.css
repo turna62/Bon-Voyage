@@ -890,6 +890,7 @@ top: 70px; }
   overflow-x: hidden;
   right: 350px;
   top: 40px;
+  letter-spacing: 1px;
 }
 
 .btnact:hover {
