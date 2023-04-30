@@ -111,7 +111,7 @@ class DetailTripPlan extends React.Component{
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="text-container"> 
-                                    <h1 style={{ backgroundColor: this.state.userData.color }}>Let's Plan, {this.state.userData.username}!</h1>
+                                    <h1 >Let's Plan, {this.state.userData.username}!</h1>
                                     {/* <p class="p-heading p-large">The journey of a thousand miles begins with a single step.</p> */}
 
 

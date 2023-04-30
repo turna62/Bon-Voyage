@@ -111,7 +111,7 @@ class Overview extends React.Component{
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="text-container">
-                                    <h1 style={{ backgroundColor: this.state.userData.color }}>Let's Plan, {this.state.userData.username}!</h1>
+                                    <h1 >Let's Plan, {this.state.userData.username}!</h1>
                                     {/* <p class="p-heading p-large">The journey of a thousand miles begins with a single step.</p> */}
 
 
@@ -126,7 +126,7 @@ class Overview extends React.Component{
      <div> 
 
         <h4 class="tripname">{this.state.tripData.tripName}</h4><hr></hr>
-        <a class="btnaddmembers" href={`http://localhost:3000/overview?tripId=${encodeURIComponent(this.state.tripId)}`}>+ Add Members</a>
+        <a class="btnaddmembers" href={`http://localhost:3000/addmembers?tripId=${encodeURIComponent(this.state.tripId)}`}>+ Add Members</a>
 
         <ul class="ul">
         <li class="li"> <a href={`http://localhost:3000/overview?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}`}>Overview</a></li>
@@ -139,21 +139,23 @@ class Overview extends React.Component{
      </ul>
 
      <div class="detailfix">
-<p class="detailhead">A brief overview of the trip is shown below:</p>
+<p class="detailhead">A brief overview of your trip, {this.state.tripData.tripName} is shown below:</p>
 
 
-<p class="overviewdetail">List of added Trip-Members:</p>
+<p class="overviewdetail">Created by: {this.state.tripData.createdBy} </p>
+<hr class="hr"></hr>
+<p class="overviewdetail">List of Added Trip Members:</p>
      {Array.isArray(this.state.tripData.collaborators) && this.state.tripData.collaborators.map((collaborator, index) => (
-  <p key={index}>Collaborator {index + 1}: {collaborator}</p>
+  <p  class="overviewdetail" key={index}>Added Member  {index + 1}: {collaborator}</p>
 ))}
 <hr class="hr"></hr> 
 <p class="overviewdetail">Starting Date:</p>
 <p class="overviewdetail">Ending Date:</p>
 <hr class="hr"></hr>
-<p class="overviewdetail">Starting Destination:</p>
+
 <p class="overviewdetail">Final Destination:</p>
 <hr class="hr"></hr>
-<p class="overviewdetail">Preffered Activities:</p>
+<p class="overviewdetail">Preferred Activities:</p>
 <hr class="hr"></hr>
 </div>
      </div>  
