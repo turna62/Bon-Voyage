@@ -49,6 +49,7 @@ class CreatePoll extends React.Component{
             if (data.status === "OK!") {
                 
                 alert("gese" );
+                window.location.href = `http://localhost:3000/polls?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}`;
             } else {
               alert(`went wrong: ${data.status}`);
             }
@@ -181,6 +182,7 @@ class CreatePoll extends React.Component{
                     <input class="btncreatepoll" type="submit" value="LAUNCH POLL"/>
 
 				</form>
+
 				<p><a href="http://localhost:3000/polls"><u>Back</u> </a></p>
 			</div>
 		</div>

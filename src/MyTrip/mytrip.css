@@ -6,6 +6,11 @@
     font-weight: 600;
     overflow: hidden;
 }
+
+.no{
+  text-decoration: none;
+  color: black;
+}
 .detailplan{
     overflow-x: hidden;
 }
