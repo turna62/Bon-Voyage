@@ -28,7 +28,7 @@ import DemoPoll from "./DemoPoll";
 import LaunchPoll1 from "./MyTrip/launchpoll1";
 import TripInvitation from "./MyTrip/TripInvitation";
 import PopUp from "./MyTrip/popup";
-import Road from "./MyTrip/routes";
+import Maps from "./MyTrip/routes";
 
 
 function App() {
@@ -65,7 +65,7 @@ function App() {
         <Route path = "/demopoll" element = {<DemoPoll/>}/>
         <Route path = "/popup" element = {<PopUp/>}/>   
         <Route path = "/tripinvitation" element = {<TripInvitation/>}/>  
-        <Route path = "/route" element = {<Road/>}/>    
+        <Route path = "/route" element = {<Maps/>}/>    
       </Routes>
     </Router>
   );
