@@ -189,13 +189,18 @@ render(){
 
 
 
-{options.map((option) => (
-  (option.value !== '') && (
-    <li key={option.id}>
-      <label>{option.value}</label>
-    </li>
-  )
-))}
+          <form>
+  {options.map((option) => (
+    (option.value !== '') && (
+      <div className="option-label" key={option.id}>
+        <input type="radio" name="vote" value={option.id} id={option.id} />
+        <label htmlFor={option.id}>{option.value}</label>
+      </div>
+    )
+  ))}
+  <button  style={{ backgroundColor: '#0d5358', color: 'white' }}type="submit">Vote</button>
+</form>
+
 
 
 
@@ -203,9 +208,9 @@ render(){
 
 
 </ul>
-          <button className="btnncreatepoll"> 
-            Finish
-          </button>
+          {/* <button className="btnncreatepoll"> 
+            Close Polling
+          </button> */}
         </div>
       </div>
       <div class="pphead">
