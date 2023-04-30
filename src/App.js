@@ -56,7 +56,7 @@ function App() {
         <Route path="/destination2" element={<Destination2/>} />
         <Route path="/activities" element={<Activities/>} />
         <Route path="/itinerary" element={<Itinerary/>} />
-        <Route path="/createpoll" element={<CreatePoll/>} />
+        <Route path="/createpoll" element={<CreatePoll  userId={userId} tripId={tripId} />} />
         <Route path="/adddestination" element={<AddDestination/>} />
         <Route path="/addmembers" element={<AddMembers tripId={tripId} />} />
         <Route path="/launchpoll" element={<LaunchPoll/>} />

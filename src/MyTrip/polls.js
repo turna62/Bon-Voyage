@@ -110,7 +110,7 @@ class Polls extends React.Component{
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="text-container">
-                                <h1 style={{ backgroundColor: this.state.userData.color }}>Let's Plan, {this.state.userData.username}!</h1>
+                                <h1 >Let's Plan, {this.state.userData.username}!</h1>
                                     {/* <p class="p-heading p-large">The journey of a thousand miles begins with a single step.</p> */}
 
 
@@ -124,8 +124,8 @@ class Polls extends React.Component{
 
      <div>
 
-        <h4 class="tripname">Trip Name</h4><hr></hr>
-        <a class="btnaddmembers" href="http://localhost:3000/addmembers">+ Add Members</a>
+        <h4 class="tripname">{this.state.tripData.tripName}</h4><hr></hr>
+        <a class="btnaddmembers"  href={`http://localhost:3000/addmembers?tripId=${encodeURIComponent(this.state.tripId)}`}>+ Add Members</a>
 
         <ul class="ul">
         <li class="li"> <a href={`http://localhost:3000/overview?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}`}>Overview</a></li>
@@ -145,7 +145,7 @@ class Polls extends React.Component{
 
 </div> 
 
-<a class="btn-solid-lg page-scroll" href="http://localhost:3000/createpoll">Create Poll</a>
+<a class="btn-solid-lg page-scroll" href={`http://localhost:3000/createpoll?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}`}>Create Poll</a>
 
             
 
