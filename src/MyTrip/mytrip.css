@@ -939,3 +939,9 @@ top: 70px; }
   border: solid 3px rgba(14, 44, 44, 0.589);
   border-radius: 3px;
 }
+
+.combobox-input{
+  position: relative;
+  top: 100px;
+  left: 200px;
+}
