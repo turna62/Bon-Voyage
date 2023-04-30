@@ -9,7 +9,7 @@ class Polls extends React.Component{
           userId: null,
           tripId: null,
           tripData:"",
-          userData:"",
+          userData:"", 
         };
       } 
     

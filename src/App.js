@@ -28,12 +28,7 @@ import DemoPoll from "./DemoPoll";
 import LaunchPoll1 from "./MyTrip/launchpoll1";
 import TripInvitation from "./MyTrip/TripInvitation";
 import PopUp from "./MyTrip/popup";
-<<<<<<< HEAD
-import Maps from "./MyTrip/routes";
-=======
-import Road from "./MyTrip/routes";
-import TripSection from "./MyTrip/TripSection";
->>>>>>> c185d631fa5a12034e37b3afb6bfc65f82f965ea
+import Places from "./MyTrip/routes";
 
 
 function App() {
@@ -70,7 +65,7 @@ function App() {
         <Route path = "/demopoll" element = {<DemoPoll/>}/>
         <Route path = "/popup" element = {<PopUp/>}/>   
         <Route path = "/tripinvitation" element = {<TripInvitation/>}/>  
-        <Route path = "/route" element = {<Maps/>}/>    
+        <Route path = "/route" element = {<Places/>}/>    
       </Routes>
     </Router>
   );
