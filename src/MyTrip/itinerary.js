@@ -110,10 +110,7 @@ class Itinerary extends React.Component{
                             <div class="col-lg-12">
                                 <div class="text-container">
                                 <h1 style={{ backgroundColor: this.state.userData.color }}>Let's Plan, {this.state.userData.username}!</h1>
-                                    <a class="btnaddmembers" href="http://localhost:3000/addmembers">+ Add Members</a>
-
                                     {/* <p class="p-heading p-large">The journey of a thousand miles begins with a single step.</p> */}
-
 
                                 </div>
                             </div> 
@@ -121,8 +118,6 @@ class Itinerary extends React.Component{
                     </div>
                 </div> 
             </header> 
-
-
      <div>
 
         <h4 class="tripname">Trip Name</h4><hr></hr>
@@ -134,6 +129,7 @@ class Itinerary extends React.Component{
         <li class="li"> <a href={`http://localhost:3000/date?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}`}>Date</a></li>
         <li class="li"> <a href={`http://localhost:3000/destination?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}`}>Destination</a></li>
         <li class="li"> <a href={`http://localhost:3000/activities?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}`}>Activities</a></li>
+        <li class="li"> <a href={`http://localhost:3000/route?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}`}>Route</a></li>
         <li class="li"> <a href={`http://localhost:3000/itinerary?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}`}>Itinerary</a></li>
      </ul>
 

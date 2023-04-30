@@ -112,6 +112,7 @@ function LaunchPoll1() {
         <li class="li"><a href="http://localhost:3000/date">Date</a></li>
         <li class="li"><a href="http://localhost:3000/destination">Destination</a></li>
         <li class="li"><a href="http://localhost:3000/activities">Activities</a></li>
+        <li class="li"><a href="http://localhost:3000/route">Route</a></li>
         <li class="li"><a href="http://localhost:3000/itinerary">Itinerary</a></li>
      </ul>
 
