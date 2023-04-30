@@ -67,7 +67,7 @@ function App() {
         <Route path = "/popup" element = {<PopUp/>}/>   
         <Route path = "/tripinvitation" element = {<TripInvitation/>}/>  
         <Route path = "/route" element = {<Road/>}/>  
-        <Route path = "/tripsection" element = {<TripSection userId={userId}/>}/>  
+        <Route path = "/tripsection" element = {<TripSection userId={userId} />}/>  
       </Routes>
     </Router>
   );

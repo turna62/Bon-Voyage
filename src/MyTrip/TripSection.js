@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
+import './TripSection.css';
 
 class TripSection extends React.Component {
   state = {
@@ -73,17 +74,24 @@ class TripSection extends React.Component {
   
     return (
       <div>
-        <h2>My Trips</h2>
+        <h2>My Created Trips</h2>
         <ul>
-          {myTrips.map(trip => (
-            <li key={trip._id}>{trip.tripName}</li>
-          ))}
+        {myTrips.map((trip, index) => (
+        <li key={trip._id}>
+       <Link to={`/overview?userId=${this.state.userId}&tripId=${trip._id}`}className="no-underline">{index + 1}. {trip.tripName}</Link>
+       </li>
+))}
+
         </ul>
   
         <h2>Joined Trips</h2>
         <ul>
-          {joinedTrips.map(trip => (
-            <li key={trip._id}>{trip.tripName}</li>
+          {joinedTrips.map((trip, index) => (
+            <li key={trip._id}>
+            <Link to={`/overview?userId=${this.state.userId}&tripId=${trip._id}`}className="no-underline">{index + 1}.{trip.tripName}</Link>
+
+
+            </li>
           ))}
         </ul>
       </div>
