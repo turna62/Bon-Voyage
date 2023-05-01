@@ -187,13 +187,14 @@ const PlacesAutocomplete = ({ setSelected }) => {
   };
 
   return (
+    <div>
     <Combobox onSelect={handleSelect}>
       <ComboboxInput
         value={value}
         onChange={(e) => setValue(e.target.value)}
         disabled={!ready}
         className="combobox-input"
-        placeholder="Search an address"
+        placeholder="Starting place"
       />
       <ComboboxPopover>
         <ComboboxList>
@@ -204,5 +205,6 @@ const PlacesAutocomplete = ({ setSelected }) => {
         </ComboboxList>
       </ComboboxPopover>
     </Combobox>
+   </div>
   );
 };

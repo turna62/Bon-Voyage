@@ -933,9 +933,9 @@ top: 70px; }
 .map-container {
   position: relative;
   height: 70vh;
-  width: 100vh;
+  width: 120vh;
   top: 60px;
-  left: 650px;
+  left: 500px;
   border: solid 3px rgba(14, 44, 44, 0.589);
   border-radius: 3px;
 }
