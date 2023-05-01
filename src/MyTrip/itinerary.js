@@ -10,7 +10,9 @@ class Itinerary extends React.Component{
           tripId: null,
           tripData:"",
           userData:"",
+          destination: ""
         };
+        this.handleSubmit = this.handleSubmit.bind(this); // to read properties of state
       }
     
       componentDidMount() {
@@ -76,6 +78,50 @@ class Itinerary extends React.Component{
             }
         });
 
+
+
+
+      }
+
+      handleSubmit(e){
+        e.preventDefault();
+        const { destination, userId, tripId } = this.state;
+        
+        console.log(destination, userId, tripId);
+        fetch("http://localhost:5000/itinerary", {
+          method: "POST",
+          crossDomain: true,
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+            "Access-Control-Allow-Origin": "*",
+            authorization: localStorage.getItem("userId") ,
+          //  authorization: localStorage.getItem("email") ,
+          },
+          body: JSON.stringify({
+            destination,
+            userId,
+            tripId
+            
+          }),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data, "itinerarySubmit");
+            if (data.status === "OK!") {
+                
+                alert('submitted Successfully!');
+                window.localStorage.setItem('itineraryId', data.itineraryId);
+                window.location.href = `http://localhost:3000/myitinerary?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}&itineraryId=${data.itineraryId}`;
+
+            } else {
+              alert(`went wrong: ${data.status}`);
+            }
+          })
+          .catch((error) => {
+            console.error(error);
+            alert("Error! Something went wrong while calling the API.");
+          });
       }
     
     render(){
@@ -120,7 +166,7 @@ class Itinerary extends React.Component{
             </header> 
      <div>
 
-        <h4 class="tripname">Trip Name</h4><hr></hr>
+        <h4 class="tripname">{this.state.tripData.tripName}</h4><hr></hr>
         <a class="btnaddmembers" href="http://localhost:3000/addmembers">+ Add Members</a>
 
         <ul class="ul">
@@ -133,7 +179,16 @@ class Itinerary extends React.Component{
         <li class="ovwli"> <a href={`http://localhost:3000/itinerary?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}`}>Itinerary</a></li>
      </ul>
 
-     </div>            
+     </div>          
+
+<form onSubmit = {this.handleSubmit}>
+
+<input  type="text" name="destination" placeholder="Add destination" required=""  onInput = {e=>this.setState({destination:e.target.value})} />
+
+{/* <a class="savedesbtn" >ADD</a> */}
+<input type="submit" value="Add"/> 
+</form>
+                
 
          <div class="footer">
         <div class="container">
