@@ -100,19 +100,22 @@ class MyItinerary extends React.Component {
 
 handleDownload = () => {
     const { itineraryData } = this.state;
-    const fileName = "itineraryData.pdf";
+    const fileName = "Itinerary.pdf";
     const doc = new jsPDF();
   
+    const destinationLabel = "Destination: ";
     const destination = itineraryData.destination;
-    doc.text(destination, 10, 10);
+    const data = destinationLabel + destination;
   
+    doc.text(data, 10, 10);
     const url = doc.output('dataurlstring');
+    
     const link = document.createElement("a");
-  
     link.href = url;
     link.download = fileName;
     link.click();
   }
+  
   
   
   
@@ -125,10 +128,10 @@ handleDownload = () => {
         {this.state.itineraryData ? (
           <div>
             <p>{this.state.itineraryData.destination}</p>
-            <button style={{ backgroundColor: 'red', color: 'white' }} onClick={this.handleDownload}>Download Itinerary Data</button>
+            <button style={{ backgroundColor: 'red', color: 'white' }} onClick={this.handleDownload}>Download Itinerary</button>
           </div>
         ) : (
-          <p>Loading itinerary data...</p>
+          <p>Loading itinerary...</p>
         )}
       </div>
     );
