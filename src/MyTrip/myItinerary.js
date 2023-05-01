@@ -1,6 +1,7 @@
 import React from 'react';
 import './mytrip.css';
-
+import { saveAs } from 'file-saver';
+import { CSVLink } from 'react-csv';
 
 class MyItinerary extends React.Component{
     constructor(props) {
