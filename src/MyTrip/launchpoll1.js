@@ -102,7 +102,7 @@ import '../Home/HomeCss/styles.css';
               this.setState({
                 question: poll.question,
                 options: poll.options,
-                // votes: poll.votes,
+                votes: poll.votes,
               });
             } else {
               alert("Error! Poll not found!");
@@ -194,12 +194,17 @@ render(){
     (option.value !== '') && (
       <div className="option-label" key={option.id}>
         <input type="radio" name="vote" value={option.id} id={option.id} />
-        <label htmlFor={option.id}>{option.value}</label>
+        <label htmlFor={option.id}>
+          {option.value}
+          {option.votes ? <span className="vote-count">{option.votes} votes</span> : null}
+        </label>
       </div>
     )
   ))}
-  <button  style={{ backgroundColor: '#0d5358', color: 'white' }}type="submit">Vote</button>
+  <button style={{ backgroundColor: '#0d5358', color: 'white' }} type="submit">Vote</button>
 </form>
+
+
 
 
 

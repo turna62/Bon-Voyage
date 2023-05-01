@@ -37,6 +37,20 @@
   background-color: #0d5358;
   color: #fff;
 }
+
+.option-label label:after {
+  content: " (0 votes)";
+  color: #ccc;
+  font-size: 12px;
+  left: 185px;
+  position: relative;
+}
+
+.no-votes {
+  display: none;
+}
+
+
 .detailplan{
     overflow-x: hidden;
 }
