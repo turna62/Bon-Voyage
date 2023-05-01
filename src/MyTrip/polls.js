@@ -1,5 +1,7 @@
 import React from 'react';
+import { useParams, Link } from "react-router-dom";
 import './mytrip.css';
+
 
 class Polls extends React.Component{
 
@@ -9,7 +11,8 @@ class Polls extends React.Component{
           userId: null,
           tripId: null,
           tripData:"",
-          userData:"", 
+          userData:"",
+          myPolls:[], 
         };
       } 
     
@@ -76,10 +79,41 @@ class Polls extends React.Component{
             }
         });
 
+          // Fetch polls data
+ 
+
+         
+    fetch("http://localhost:5000/getpolls",{
+        method: "POST",
+        crossDomain: true,
+        headers:{
+            "Content-Type":"application/json",
+            Accept: "application/json",
+            "Access-Control-Allow-Origin": "*",
+        },
+        body: JSON.stringify({
+          tripId: tripId,
+        }),
+      })
+      .then((res) => res.json()) // convert data into JSON
+      .then((data) => {
+        console.log(data, 'my polls');
+        if (data.status === 'OK!') {
+          this.setState({ myPolls: data.polls });
+        } else {
+          alert('Error! Something went wrong!');
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+        alert("An error occurred while retrieving");
+      });
+    
+
       }
     
     render(){
-
+const {myPolls} = this.state;
         return(
 
     <div class="deetailplan">
@@ -110,7 +144,7 @@ class Polls extends React.Component{
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="text-container">
-                                <h1 style={{ backgroundColor: this.state.userData.color }}>Let's Plan, {this.state.userData.username}!</h1>
+                                <h1 >Let's Plan, {this.state.userData.username}!</h1>
                                     {/* <p class="p-heading p-large">The journey of a thousand miles begins with a single step.</p> */}
 
 
@@ -124,8 +158,8 @@ class Polls extends React.Component{
 
      <div>
 
-        <h4 class="tripname">Trip Name</h4><hr></hr>
-        <a class="btnaddmembers" href="http://localhost:3000/addmembers">+ Add Members</a>
+        <h4 class="tripname">{this.state.tripData.tripName}</h4><hr></hr>
+        <a class="btnaddmembers"  href={`http://localhost:3000/addmembers?tripId=${encodeURIComponent(this.state.tripId)}`}>+ Add Members</a>
 
         <ul class="ul">
         <li class="li"> <a href={`http://localhost:3000/overview?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}`}>Overview</a></li>
@@ -145,9 +179,21 @@ class Polls extends React.Component{
 
 </div> 
 
-<a class="btn-solid-lg page-scroll" href="http://localhost:3000/createpoll">Create Poll</a>
 
-            
+
+<a class="btn-solid-lg page-scroll" href={`http://localhost:3000/createpoll?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}`}>Create Poll</a>
+
+<div>
+<p>Click on these polls to cast your votes!</p>
+      {myPolls.map((poll, index) => (
+        <div key={poll._id}>
+          
+          
+          <Link to={`/launchpoll1?pollId=${poll._id}`}className="no">{index + 1}.{poll.question}</Link>
+          
+        </div>
+      ))}
+    </div>
 
          <div class="footer">
         <div class="container">

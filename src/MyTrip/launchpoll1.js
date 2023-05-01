@@ -3,66 +3,124 @@ import './polls.css';
 import './mytrip.css';
 import '../Home/HomeCss/styles.css';
 
-function LaunchPoll1() {
-  const [selectedOption, setSelectedOption] = useState(null);
-  const [totalVotes, setTotalVotes] = useState(0);
-  const [hasVoted, setHasVoted] = useState(false);
-  const [optionsList, setOptionsList] = useState([
-    { id: 'opt-1', text: 'Answer 1', votes: 0 },
-    { id: 'opt-2', text: 'Answer 2', votes: 0 },
-    { id: 'opt-3', text: 'Answer 3', votes: 0 },
-    { id: 'opt-4', text: 'Answer 4', votes: 0 },
-    { id: 'opt-5', text: 'Answer 5', votes: 0 },
-  ]);
+ class LaunchPoll1 extends React.Component {
+//   const [selectedOption, setSelectedOption] = useState(null);
+//   const [totalVotes, setTotalVotes] = useState(0);
+//   const [hasVoted, setHasVoted] = useState(false);
+//   const [optionsList, setOptionsList] = useState([
+//     { id: 'opt-1', text: 'Answer 1', votes: 0 },
+//     { id: 'opt-2', text: 'Answer 2', votes: 0 },
+//     { id: 'opt-3', text: 'Answer 3', votes: 0 },
+//     { id: 'opt-4', text: 'Answer 4', votes: 0 },
+//     { id: 'opt-5', text: 'Answer 5', votes: 0 },
+//   ]);
 
-  useEffect(() => {
-    const sum = optionsList.reduce((acc, cur) => acc + cur, 0);
-    setTotalVotes(sum);
-  }, []);
+//   useEffect(() => {
+//     const sum = optionsList.reduce((acc, cur) => acc + cur, 0);
+//     setTotalVotes(sum);
+//   }, []);
 
-  const handleOptionClick = (option) => {
-    if (!hasVoted) {
-      setSelectedOption(option);
-      setHasVoted(true);
-      const updatedOptions = optionsList.map((opt) => {
-        if (opt.id === option) {
-          return { ...opt, votes: opt.votes + 1 };
-        }
-        return opt;
-      });
-      setOptionsList(updatedOptions);
-    }
-  };
+//   const handleOptionClick = (option) => {
+//     if (!hasVoted) {
+//       setSelectedOption(option);
+//       setHasVoted(true);
+//       const updatedOptions = optionsList.map((opt) => {
+//         if (opt.id === option) {
+//           return { ...opt, votes: opt.votes + 1 };
+//         }
+//         return opt;
+//       });
+//       setOptionsList(updatedOptions);
+//     }
+//   };
 
-  const handleSubmit = () => {
-    console.log(`Selected option: ${selectedOption}`);
-    console.log(`Total votes: ${totalVotes}`);
-    console.log(`Has voted: ${hasVoted}`);
-  };
+//   const handleSubmit = () => {
+//     console.log(`Selected option: ${selectedOption}`);
+//     console.log(`Total votes: ${totalVotes}`);
+//     console.log(`Has voted: ${hasVoted}`);
+//   };
 
-  const pollOptions = optionsList.map((option) => {
-    const isSelected = selectedOption === option.id;
-    const classNames = ['option'];
-    if (isSelected) {
-      classNames.push('selected');
-    }
-    return (
-      <li key={option.id} onClick={() => handleOptionClick(option.id)}>
-        <label htmlFor={option.id} className={classNames.join(' ')}>
-          <div className="row">
-            <div className="column">
-              <span className="circle"></span>
-              <span className="text">{option.text}</span>
-            </div>
-            <span className="votes">{option.votes} votes</span>
-          </div>
-          <input type="radio" name="poll" id={option.id} />
-        </label>
-      </li>
-    );
-  });
+//   const pollOptions = optionsList.map((option) => {
+//     const isSelected = selectedOption === option.id;
+//     const classNames = ['option'];
+//     if (isSelected) {
+//       classNames.push('selected');
+//     }
+    // return (
+    //   <li key={option.id} onClick={() => handleOptionClick(option.id)}>
+    //     <label htmlFor={option.id} className={classNames.join(' ')}>
+    //       <div className="row">
+    //         <div className="column">
+    //           <span className="circle"></span>
+    //           <span className="text">{option.text}</span>
+    //         </div>
+    //         <span className="votes">{option.votes} votes</span>
+    //       </div>
+    //       <input type="radio" name="poll" id={option.id} />
+    //     </label>
+    //   </li>
+    // );
+  
+  //);
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      pollId: null,
+      question: "",
+      options: [],
+      //votes: [],
+    };
+  }
+
+  componentDidMount() {
+
+    const params = new URLSearchParams(window.location.search);
+    const pollId = params.get('pollId');
+    console.log(pollId);
+    this.setState({ pollId: pollId});
+    // Fetch poll data from server
+    fetch(`http://localhost:5000/getpollsbypollId`, {
+      method: "POST",
+      crossDomain: true,
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        "Access-Control-Allow-Origin": "*",
+      },
+       body: JSON.stringify({
+        pollId: pollId,
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data, "poll data");
+        if (data.status === "OK!") {
+            // Find the poll object with the specified pollId
+            const poll = data.polls.find((p) => p._id === pollId);
+            if (poll) {
+              this.setState({
+                question: poll.question,
+                options: poll.options,
+                votes: poll.votes,
+              });
+            } else {
+              alert("Error! Poll not found!");
+            }
+          } else {
+            alert("Error! Something went wrong!");
+          }
+        })
+        .catch((error) => {
+          console.error(error);
+          alert("An error occurred while retrieving poll data");
+        });
+  }
+
+render(){
+    const { question, options, votes } = this.state;
   return (
+
     <div class="deetailplan">
 
          <nav class="navbar navbar-expand-md navbar-dark navbar-custom fixed-top">
@@ -124,20 +182,49 @@ function LaunchPoll1() {
     
       <div className="wrapperr">
         <header>Question:</header>
+        <p>{question}</p>
         <div className="poll-area">
-          <ul>{pollOptions}</ul>
-          <button className="btnncreatepoll" onClick={handleSubmit}>
-            Finish
-          </button>
+          {/* <ul>{pollOptions}</ul> */}
+          <ul>
+
+
+
+          <form>
+  {options.map((option) => (
+    (option.value !== '') && (
+      <div className="option-label" key={option.id}>
+        <input type="radio" name="vote" value={option.id} id={option.id} />
+        <label htmlFor={option.id}>
+          {option.value}
+          {option.votes ? <span className="vote-count">{option.votes} votes</span> : null}
+        </label>
+      </div>
+    )
+  ))}
+  <button style={{ backgroundColor: '#0d5358', color: 'white' }} type="submit">Vote</button>
+</form>
+
+
+
+
+
+
+
+
+
+</ul>
+          {/* <button className="btnncreatepoll"> 
+            Close Polling
+          </button> */}
         </div>
       </div>
       <div class="pphead">
-    <h3 class="head">Polls</h3>
-<p>Create another poll to help your group narrow down options or answer key questions.</p> 
+    <h3 class="head">Vote Here</h3>
+<p>Cast your votes here to complete polling!</p> 
 
 </div> 
 
-<a class="pollbtn page-scroll" href="http://localhost:3000/createpoll">Create Poll</a>
+{/* <a class="pollbtn page-scroll" href="http://localhost:3000/createpoll">Create Poll</a> */}
 
     </div>
 
@@ -146,5 +233,6 @@ function LaunchPoll1() {
 
   );
 }
+ }
 
 export default LaunchPoll1;
