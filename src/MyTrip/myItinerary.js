@@ -1,75 +1,138 @@
+import { CSVLink } from 'react-csv';
 import React from 'react';
-import './mytrip.css';
+import Papa from 'papaparse';
+import jsPDF from 'jspdf';
 
+class MyItinerary extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      userId: null,
+      tripId: null,
+      itineraryId: null,
+      itineraryData: null
+    };
+  }
 
-class MyItinerary extends React.Component{
-    constructor(props) {
-        super(props);
-        this.state = {
-          userId: null,
-          tripId: null,
-          itineraryId: null,
-          itineraryData:""
-        
-        };
-      }
+  componentDidMount() {
+    const params = new URLSearchParams(window.location.search);
+    const userId = params.get('userId');
+    const tripId = params.get('tripId');
+    const itineraryId = params.get('itineraryId');
 
-      componentDidMount() {
-        const params = new URLSearchParams(window.location.search);
-        const userId = params.get('userId');
-        const tripId = params.get('tripId');
-        const itineraryId = params.get('itineraryId');
-        console.log(userId); 
-        
-        console.log(tripId);
-        this.setState({ userId: userId });
-        this.setState({ tripId: tripId });
-        this.setState({ itineraryId: itineraryId });
-    
-        
-    fetch("http://localhost:5000/itineraryData",{
-        method: "POST",
-        crossDomain: true,
-        headers:{
-            "Content-Type":"application/json",
-            Accept: "application/json",
-            "Access-Control-Allow-Origin": "*",
-        },
-        body: JSON.stringify({
-            //token: window.localStorage.getItem("token"),
-            itineraryId: itineraryId,
-        
-        }),
+    this.setState({ userId, tripId, itineraryId });
+
+    fetch("http://localhost:5000/itineraryData", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json",
+      },
+      body: JSON.stringify({
+        itineraryId,
+      }),
     })
-    .then((res) => res.json()) // convert data into JSON
-    .then((data) => {
+      .then((res) => res.json())
+      .then((data) => {
         console.log(data, "itineraryData");
-        this.setState({itineraryData: data.data});
-        if(data.data == 'Token Expired!'){
-            alert("Token expired! Kindly login again."); 
-            window.localStorage.clear();
-            window.location.href = "./sign-in";
+        if (data.data === "Token Expired!") {
+          alert("Token expired! Kindly login again.");
+          window.localStorage.clear();
+          window.location.href = "./sign-in";
+        } else {
+          this.setState({ itineraryData: data.data });
         }
-    });
+      });
+  }
 
-     
-
-      }
+//csv
+//   handleDownload = () => {
+//     const data = [
+//       ["Key", "Value"],
+//       ...Object.entries(this.state.itineraryData || {})
+//     ];
+//     const fileName = "itineraryData.csv";
+//     const headers = { "Content-Disposition": `attachment; filename="${fileName}"` };
+//     const csvData = Papa.unparse({ fields: headers, data });
+//     const blob = new Blob([csvData], { type: 'text/csv' });
+//     const csvURL = URL.createObjectURL(blob);
     
-    render(){
-        //const {itineraryData} = this.state;
+//     const tempLink = document.createElement("a");
+//     tempLink.href = csvURL;
+//     tempLink.setAttribute("download", fileName);
+//     tempLink.setAttribute("style", "display:none;");
+//     tempLink.setAttribute("target", "_blank");
+//     tempLink.setAttribute("rel", "noopener noreferrer");
+//     Object.keys(headers).forEach((key) => {
+//       tempLink.setAttribute(key, headers[key]);
+//     });
+  
+//     document.body.appendChild(tempLink);
+//     tempLink.click();
+//     document.body.removeChild(tempLink);
+//   }
+  
 
-        return(
-            <div >
+// text
+// handleDownload = () => {
+//     const data = this.state.itineraryData;
+  
+//     const fileName = "itineraryData.txt";
+//     const fileContents = JSON.stringify(data);
+//     const headers = {
+//       "Content-Type": "text/plain",
+//       "Content-Disposition": `attachment; filename="${fileName}"`,
+//     };
+  
+//     const blob = new Blob([fileContents], { type: "text/plain" });
+  
+//     const link = document.createElement("a");
+//     link.href = window.URL.createObjectURL(blob);
+//     link.download = fileName;
+//     Object.keys(headers).forEach(key => link.setAttribute(key, headers[key]));
+//     document.body.appendChild(link);
+//     link.click();
+//     document.body.removeChild(link);
+//   }
+  
 
-         
-<p> {this.state.itineraryData.destination}</p>
-      
-    
-            </div>
-        )
+// 
 
-    }
+handleDownload = () => {
+    const { itineraryData } = this.state;
+    const fileName = "itineraryData.pdf";
+    const doc = new jsPDF();
+  
+    const destination = itineraryData.destination;
+    doc.text(destination, 10, 10);
+  
+    const url = doc.output('dataurlstring');
+    const link = document.createElement("a");
+  
+    link.href = url;
+    link.download = fileName;
+    link.click();
+  }
+  
+  
+  
+  
+  
+
+  render() {
+    return (
+      <div>
+        {this.state.itineraryData ? (
+          <div>
+            <p>{this.state.itineraryData.destination}</p>
+            <button style={{ backgroundColor: 'red', color: 'white' }} onClick={this.handleDownload}>Download Itinerary Data</button>
+          </div>
+        ) : (
+          <p>Loading itinerary data...</p>
+        )}
+      </div>
+    );
+  }
 }
 
 export default MyItinerary;
