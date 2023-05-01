@@ -30,6 +30,7 @@ import TripInvitation from "./MyTrip/TripInvitation";
 import PopUp from "./MyTrip/popup";
 import Places from "./MyTrip/routes";
 import TripSection from "./MyTrip/TripSection";
+import MyItinerary from "./MyTrip/myItinerary";
 
 
 function App() {
@@ -68,6 +69,8 @@ function App() {
         <Route path = "/tripinvitation" element = {<TripInvitation/>}/>  
         <Route path = "/route" element = {<Places/>}/>   
         <Route path = "/tripsection" element = {<TripSection/>}/>  
+        <Route path = "/myitinerary" element = {<MyItinerary/>}/>  
+
       </Routes>
     </Router>
   );
