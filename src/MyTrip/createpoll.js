@@ -20,11 +20,33 @@ class CreatePoll extends React.Component{
         this.handleSubmit = this.handleSubmit.bind(this); // to read properties of state
       }
 
-      handleSubmit(e){
+      componentDidMount() {
+        const params = new URLSearchParams(window.location.search);
+        const userId = params.get('userId');
+        const tripId = params.get('tripId');
+        
+        console.log(userId); 
+        console.log(tripId);
+        this.setState({ userId: userId });
+        this.setState({ tripId: tripId });
+      }
+      
+
+      handleSubmit(e, isTripOwner) {
         e.preventDefault();
         const { question, options, tripId, userId } = this.state;
-        
-        console.log(question, options, tripId, userId);
+        console.log (tripId, userId);
+      
+        // Set the addedMembers data based on the user role
+        let addedMembers;
+        if (isTripOwner) {
+          addedMembers = null; // Trip owner has no added members
+        } else {
+          addedMembers = [userId]; // Added member is the current user
+        }
+      
+        console.log(question, options, tripId, userId, addedMembers);
+      
         fetch("http://localhost:5000/createpoll", {
           method: "POST",
           crossDomain: true,
@@ -32,24 +54,25 @@ class CreatePoll extends React.Component{
             "Content-Type": "application/json",
             Accept: "application/json",
             "Access-Control-Allow-Origin": "*",
-            authorization: localStorage.getItem("userId") ,
-          //  authorization: localStorage.getItem("email") ,
+            authorization: localStorage.getItem("userId"),
           },
           body: JSON.stringify({
             question,
             options,
             tripId,
-            userId
-            
+            userId,
+            addedMembers,
           }),
         })
           .then((res) => res.json())
           .then((data) => {
             console.log(data, "pollSubmit");
             if (data.status === "OK!") {
-                
-                alert("gese" );
-                window.location.href = `http://localhost:3000/polls?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}`;
+              alert("gese");
+              console.log(tripId);
+              window.location.href = `http://localhost:3000/polls?userId=${encodeURIComponent(
+                this.state.userId
+              )}&tripId=${encodeURIComponent(this.state.tripId)}`;
             } else {
               alert(`went wrong: ${data.status}`);
             }
@@ -59,7 +82,8 @@ class CreatePoll extends React.Component{
             alert("Error! Something went wrong while calling the API.");
           });
       }
-
+      
+    
     render(){
 
         return(
@@ -90,7 +114,7 @@ class CreatePoll extends React.Component{
 			<div class="agileitss-top">
             <h3 class="cpoll">Create Poll</h3><hr></hr>
             <h5 class="ccpoll">Write a custom question with up to 05 answers travelers can choose from.</h5>
-				<form onSubmit = {this.handleSubmit} >
+				<form onSubmit={(e) => this.handleSubmit(e, this.props.isTripOwner)}>
 					<input class="texti" type="text" name="question" placeholder="Write your question....*" required="" onInput = {e=>this.setState({question:e.target.value})} />
                    <h5 class="ccpll">Answer (Add up to 05)</h5>
 
