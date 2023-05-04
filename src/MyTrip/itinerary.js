@@ -181,13 +181,19 @@ class Itinerary extends React.Component{
 
      </div>          
 
-<form onSubmit = {this.handleSubmit}>
+     <div class="phead">
+    <h3>Itinerary</h3>
+<p>Build an itinerary to start organizing your destinations, stays, and activities by day.</p> 
+
+</div> <a class="btn-solid-lg page-scroll" href={`http://localhost:3000/createitenerary`}>Create Itinerary</a>
+
+
+{/* <form onSubmit = {this.handleSubmit}>
 
 <input  type="text" name="destination" placeholder="Add destination" required=""  onInput = {e=>this.setState({destination:e.target.value})} />
 
-{/* <a class="savedesbtn" >ADD</a> */}
-<input type="submit" value="Add"/> 
-</form>
+<input class="savedesbtn" type="submit" value="Add"/> 
+</form> */}
                 
 
          <div class="footer">
