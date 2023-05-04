@@ -101,24 +101,36 @@ class TripSection extends React.Component {
       <div class="trips">
 
         <h4>Created Trips:</h4><hr class="hr1"></hr>
-        <ul class="mytrip1">
-        {myTrips.map((trip, index) => (
-        <li key={trip._id}>
-       <Link to={`/overview?userId=${this.state.userId}&tripId=${trip._id}`}className="no-underline">{index + 1}. {trip.tripName}</Link>
-       </li>
-))}
+        <ul className="mytrip1">
+  {myTrips.filter(trip => !trip.deleted).reverse().map((trip, index) => {
+    let count = index + 1; // start count at 1
+    return (
+      <li key={trip._id}>
+        <Link to={`/overview?userId=${this.state.userId}&tripId=${trip._id}`} className="no-underline">
+          {count}. {trip.tripName}
+        </Link>
+      </li>
+    );
+  })}
+</ul>
 
-        </ul>
+
+       
   
         <h4>Joined Trips:</h4>
         <hr class="hr1"></hr>
         <ul class="joinedtrip">
-          {joinedTrips.map((trip, index) => (
-            <li key={trip._id}>
-            <Link to={`/overview?userId=${this.state.userId}&tripId=${trip._id}`}className="no-underline">{index + 1}.{trip.tripName}</Link>
-            </li>
-          ))}
-        </ul>
+        {joinedTrips.filter(trip => !trip.deleted).reverse().map((trip, index) => {
+    let count = index + 1; // start count at 1
+    return (
+      <li key={trip._id}>
+        <Link to={`/overview?userId=${this.state.userId}&tripId=${trip._id}`} className="no-underline">
+          {count}. {trip.tripName}
+        </Link>
+      </li>
+    );
+  })}
+</ul>
 
         </div>
 
