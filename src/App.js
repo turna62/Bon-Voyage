@@ -27,10 +27,10 @@ import LaunchPoll from "./Poll/launchpoll";
 import DemoPoll from "./DemoPoll";
 import LaunchPoll1 from "./MyTrip/launchpoll1";
 import TripInvitation from "./MyTrip/TripInvitation";
-import PopUp from "./MyTrip/popup";
 import Places from "./MyTrip/routes";
 import TripSection from "./MyTrip/TripSection";
 import MyItinerary from "./MyTrip/myItinerary";
+import CreateItenerary from "./MyTrip/createitenerary";
 
 
 function App() {
@@ -65,11 +65,11 @@ function App() {
         {/* <Route path = "/fetcheddestination" element = {<FetchedDestination/>}/> */}
         <Route path = "/fetcheddestination" element = {<FetchedDestination/>}/>
         <Route path = "/demopoll" element = {<DemoPoll/>}/>
-        <Route path = "/popup" element = {<PopUp/>}/>   
         <Route path = "/tripinvitation" element = {<TripInvitation/>}/>  
         <Route path = "/route" element = {<Places/>}/>   
         <Route path = "/tripsection" element = {<TripSection/>}/>  
         <Route path = "/myitinerary" element = {<MyItinerary/>}/>  
+        <Route path = "/createitenerary" element = {<CreateItenerary/>}/>  
 
       </Routes>
     </Router>

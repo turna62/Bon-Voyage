@@ -224,6 +224,13 @@ top: 200px;
             left: 150px;
         }
 
+        .phead p{
+          color: rgb(14, 44, 44);
+          font-family: sans-serif;
+          position: relative;
+          right: 20px;
+          }
+
         .btn-solid-lg {
             display: inline-block;
             padding: 1.375rem 2.125rem 1.375rem 2.125rem;
@@ -1003,7 +1010,7 @@ top: 70px; }
   display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(rgba(14, 44, 44, 0.469), rgba(14, 44, 44, 0.411)), url(hill7.jpg) center center no-repeat;
+    background: linear-gradient(rgba(14, 44, 44, 0.288), rgba(14, 44, 44, 0.308)), url(hill6.jpg) center center no-repeat;
     background-size: cover;  
     height: 100vh;  
  }
@@ -1018,14 +1025,13 @@ top: 70px; }
  .trips{
     width: 40%;
     margin: 3em auto;
-    background: rgba(255, 255, 255, 0.192);
+    background: rgba(161, 218, 227, 0.449);
     background-size: cover;
     position: relative;
     border-radius: 6px;
     border: solid 3px white;
     height: auto;
     right: 450px;
-    bottom: 20px;
     }
 
  .mytrip1{
@@ -1049,4 +1055,31 @@ top: 70px; }
   font-family: 'Times New Roman', Times, serif;
   right: 20px;
  }
- 
+ /* Float four columns side by side */
+.icolumn {
+  float: left;
+  width: 55%;
+  padding: 0 10px;
+}
+
+/* Remove extra left and right margins, due to padding */
+.icolumn {margin: 0 -5px;}
+
+/* Style the counter cards */
+.icard {
+  padding: 16px;
+  text-align: center;
+  background-color: #f1f1f1;
+  border: solid 1px black;
+  margin: 10px;
+}
+
+.ibody{
+  display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(hillc.jpg) center center no-repeat;
+    background-size: cover;  
+    height: 100vh;  
+    overflow: hidden;
+ }
