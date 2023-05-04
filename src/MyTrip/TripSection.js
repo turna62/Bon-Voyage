@@ -96,12 +96,12 @@ class TripSection extends React.Component {
            </div>
       </nav>
 
-      <h2 class="thead">My Trips</h2>
+      <h2 class="thead">My Trips  <h5 class="thead1">To see the details of the trips, click on the trip name.</h5> </h2>
 
       <div class="trips">
 
         <h4>Created Trips:</h4><hr class="hr1"></hr>
-        <ul class="mytrip">
+        <ul class="mytrip1">
         {myTrips.map((trip, index) => (
         <li key={trip._id}>
        <Link to={`/overview?userId=${this.state.userId}&tripId=${trip._id}`}className="no-underline">{index + 1}. {trip.tripName}</Link>

@@ -61,7 +61,9 @@ html, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, 
   a {
     text-decoration: none;
   }
-  
+  a:hover{
+    text-decoration: none;
+  }
   .txt-rt {
     text-align: right;
   }
@@ -348,15 +350,6 @@ html, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, 
     color: #444444
 }
 
-.btn1 {
-    height: 40px;
-    width: 150px;
-    border: none;
-    background-color: rgb(14, 44, 44);
-    color: #aeaeae;
-    font-size: 15px
-}
-
 .text span {
     font-size: 13px;
     color: #545454;
@@ -384,37 +377,42 @@ hr .new1 {
 .containerr{
   position: relative;
   top: 200px;
-}
-
-.footerp {
-	padding-top: 5rem;
-	background-color: rgb(14, 44, 44);
-	position: relative;
-	top: 250px;
-}
-
-.footerp .text-container {
-	margin-bottom: 2.25rem;
-}
-
-.footerp h4 {
-	margin-bottom: 0.75rem;
-	color: #fff;
-}
-
-.footerp p,
-.footerp ul {
-	font-size: 0.875rem;
-	line-height: 1.375rem;
+  height: 65vh;
+  
 }
 
 .profilebody {
   overflow: hidden;
   height: 100%;
   background-color: rgb(14, 44, 44);
-  background-image: linear-gradient(rgb(14,44,44), white);
+  background: linear-gradient(rgba(14, 44, 44, 0.469), rgba(14, 44, 44, 0.411)), url(camp.png) center center no-repeat;
+  background-size: cover;  
+  height: 100vh; 
 }
 .eyeicon2 i{
   position: relative;
   bottom: 400px;
+}
+
+.btn1 {
+  display: inline-block;
+  padding: 1.175rem 1.125rem 1.175rem 1.125rem;
+  border-radius: 0.25rem;
+  color: black;
+  font: 700 0.75rem/0 "Montserrat", sans-serif;
+  text-decoration: none;
+  transition: all 0.2s;
+  font-size: 15px;
+  font-family: 'Times New Roman', Times, serif;
+  position: relative;
+  letter-spacing: 1px;
+  left:0px;
+  border: solid 2px rgb(14, 44, 44);
+  margin-right: 0.5rem;
+	margin-bottom: 1.25rem;
+  top: 10px;
+}
+.btn1:hover{
+  text-decoration: none;
+  color: rgb(14, 44, 44);
 }
