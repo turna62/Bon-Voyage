@@ -1011,7 +1011,7 @@ top: 70px; }
   display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(rgba(14, 44, 44, 0.288), rgba(14, 44, 44, 0.308)), url(hill6.jpg) center center no-repeat;
+    background: linear-gradient(rgba(14, 44, 44, 0.288), rgba(14, 44, 44, 0.308)), url(hill5.jpg) center center no-repeat;
     background-size: cover;  
     height: 100vh;  
  }
@@ -1026,13 +1026,14 @@ top: 70px; }
  .trips{
     width: 40%;
     margin: 3em auto;
-    background: rgb(15, 53, 70);
+    /* background: rgb(15, 53, 70); */
     background-size: cover;
     position: relative;
     border-radius: 6px;
-    border: solid 3px rgb(14, 44, 44);
+    /* border: solid 3px rgb(14, 44, 44); */
     height: auto;
     right: 450px;
+    top: 520px;
     }
 
  .mytrip1{
