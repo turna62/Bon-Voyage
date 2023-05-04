@@ -991,8 +991,9 @@ top: 70px; }
 }
 
 .no-underline {
+  position: relative;
   text-decoration: none;
-  color: white;
+  color: rgb(14, 44, 44);
   font-size: 20px;
   font-family: 'Times New Roman', Times, serif;
 }
@@ -1006,7 +1007,37 @@ top: 70px; }
     background-size: cover;  
     height: 100vh;  
  }
- .tripsectionbody h2{
-  color: white;
+ .tripsectionbody h4{
+  position: relative;
+  top: 20px;
+  left: 10px;
+  color: rgb(14, 44, 44);
   font-family: 'Times New Roman', Times, serif;
  }
+
+ .trips{
+  width: 40%;
+    margin: 3em auto;
+    background: rgba(255, 255, 255, 0.113);
+    background-size: cover;
+    position: relative;
+    bottom: 5px;
+    border-radius: 9px;
+    border: solid 3px white;
+    height: auto;
+    }
+
+ .mytrip{
+  overflow-y: scroll;
+ }
+ .joinedtrip{
+  overflow-y: scroll;
+ }
+ .thead{
+  position: relative;
+  bottom: 240px;
+  left: 50px;
+  color: rgb(14, 44, 44);
+  font-family: 'Times New Roman', Times, serif;
+ }
+ 
