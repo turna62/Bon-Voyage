@@ -989,3 +989,24 @@ top: 70px; }
   top: 100px;
   left: 200px;
 }
+
+.no-underline {
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+  font-family: 'Times New Roman', Times, serif;
+}
+.tripsectionbody{
+  position: relative;
+  top: 50px;
+  display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(rgba(14, 44, 44, 0.469), rgba(14, 44, 44, 0.411)), url(hill7.jpg) center center no-repeat;
+    background-size: cover;  
+    height: 100vh;  
+ }
+ .tripsectionbody h2{
+  color: white;
+  font-family: 'Times New Roman', Times, serif;
+ }
