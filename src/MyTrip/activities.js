@@ -126,7 +126,7 @@ class Activities extends React.Component{
 			<span class="activitiespan">Cycling</span>
 		</label>
         <label class="aclabel">
-			<input class="accinput" type="checkbox" name="checkbox5"/>
+			<input class="accinput" type="checkbox" name="checkbox5"/> 
 			<span class="activitiespan">Wild Life Safari</span>
 		</label>
         <label class="aclabel">

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState} from "react";
-import { GoogleMap, useLoadScript, Marker } from "@react-google-maps/api";
+import {useLoadScript } from "@react-google-maps/api";
 import './mytrip.css';
 import usePlacesAutocomplete, {
     getGeocode,
@@ -23,7 +23,8 @@ import usePlacesAutocomplete, {
             libraries: ["places"],
           });
         
-          if (!isLoaded) return <div>Loading...</div>;        
+          if (!isLoaded) return <div>Loading...</div>;   
+          
         
                 return(
                     <div class="deetailplan">
@@ -78,14 +79,22 @@ import usePlacesAutocomplete, {
    
      </div>
 
+     
+
+     <div class="ibody">
+
      <div class="pheadd">
     <h3>Itinerary</h3>
 <p>Add your preffered activities, location and build your suitable itinerary.</p> 
 
 </div> 
+<div class="pheadd1">
+    <h3>Preview Itinerary:</h3>
+<p>Click on the 'View' button to see your itinerary.</p> 
+<a class="btnit" href={`http://localhost:3000/myitinerary`}>View</a>
 
+</div> 
 
-     <div class="ibody">
 
      <div class="icolumn">
   <div class="irow">
@@ -93,23 +102,41 @@ import usePlacesAutocomplete, {
       <h3>Day 1</h3>
       <p>Spot:<Map/>
 </p>
-      <p>Activities:</p>
+      <p>Activities: <p>
+			<input class="accinput" type="checkbox" name="checkbox4"/>
+			<span class="activitiespan">Cycling</span>
+			<input class="accinput" type="checkbox" name="checkbox4"/>
+			<span class="activitiespan">Cycling</span>
+			<input class="accinput" type="checkbox" name="checkbox4"/>
+			<span class="activitiespan">Cycling</span></p>
+		
+        </p>
     </div>
   </div>
 
   <div class="irow">
     <div class="icard">
       <h3>Day 2</h3>
-      <p>Some text</p>
-      <p>Some text</p>
+      <p>Spot:<Map/></p>
+      <p>Activities: 
+      <label class="checkbox-inline">
+      <input type="checkbox" value=""/>Option 1
+    </label>
+    <label class="checkbox-inline">
+      <input type="checkbox" value=""/>Option 2
+    </label>
+    <label class="checkbox-inline">
+      <input type="checkbox" value=""/>Option 3
+    </label>
+   </p>
     </div>
   </div>
   
   <div class="irow">
     <div class="icard">
       <h3>Day 3</h3>
-      <p>Some text</p>
-      <p>Some text</p>
+      <p>Spot:<Map/></p>
+      <p>Activities:</p>
     </div>
   </div>
 

@@ -1067,14 +1067,14 @@ top: 70px; }
 .icolumn {
   margin: 0 -5px;
   position: relative;
-  top: 120px;
-  left: 60px;
+  top: 140px;
+  right: 670px;
 }
 
 /* Style the counter cards */
 .icard {
   padding: 16px;
-  background-color: #b5e1e7;
+  background-color: #b4dde2;
   margin: 15px;
   border-radius: 6px;
 }
@@ -1084,16 +1084,24 @@ top: 70px; }
     background: linear-gradient(rgba(0, 0, 0, 0.116), rgba(0, 0, 0, 0.137)), url(hill3.jpg) center center no-repeat;
     background-size: cover;  
     height: 140vh;  
+    position: relative;
+    top: 20px;
  }
 
  .pheadd{
   color: rgb(14, 44, 44);
   font-family: sans-serif;
   position: relative;
-  top: 110px;
+  top: 40px;
   left: 90px;
 }
-
+.pheadd1{
+  color: rgb(14, 44, 44);
+  font-family: sans-serif;
+  position: relative;
+  left: 240px;
+  top: 150px;
+}
 .pheadd p{
 color: rgb(14, 44, 44);
 font-family: sans-serif;
@@ -1105,7 +1113,7 @@ font-size: 19px;
   position: relative;
   border: 0px;
   left: 50px;
-  bottom: 20px;
+  bottom: 23px;
   background-color: white;
 }
 .icard p{
@@ -1115,4 +1123,43 @@ font-size: 19px;
 
 .trips hr{
   color: #b5e1e7;
+}
+
+.btnit {
+	margin-right: 0.5rem;
+	margin-bottom: 1.25rem;
+}
+.btnit {
+  display: inline-block;
+  padding: 1.175rem 1.125rem 1.175rem 1.125rem;
+  border-radius: 0.25rem;
+  background-color: rgb(14, 29, 44);
+  color: #fff;
+  font: 700 0.75rem/0 "Montserrat", sans-serif;
+  text-decoration: none;
+  transition: all 0.2s;
+  font-size: 15px;
+  font-family: 'Times New Roman', Times, serif;
+  position: relative;
+  overflow-x: hidden;
+  letter-spacing: 1px;
+}
+
+.btnit:hover {
+  background-color: rgb(22, 45, 68);
+  color: #fff;
+  text-decoration: none;
+}
+
+input[type="checkbox"]{
+  width: 45px;
+  position: relative;
+  left: 7px;
+}
+.check{
+  font-family: 'Times New Roman', Times, serif;
+  color: rgb(46, 16, 9);
+  position: relative;
+  right: 20px;
+  top: 15px;
 }
