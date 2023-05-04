@@ -106,7 +106,7 @@ class Polls extends React.Component{
       })
       .catch((error) => {
         console.error(error);
-        alert("An error occurred while retrieving");
+        alert("ok");
       });
     
 
