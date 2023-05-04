@@ -1,3 +1,6 @@
+
+
+
 import React, { useState, useEffect } from 'react';
 import './polls.css';
 import './mytrip.css';
@@ -12,8 +15,7 @@ import '../Home/HomeCss/styles.css';
       pollId: null,
       question: "",
       options: [],
-      votes: [],
-      selectedOption: null
+      //votes: [],
     };
   }
 
@@ -61,45 +63,8 @@ import '../Home/HomeCss/styles.css';
         });
   }
 
-  submitVote = () => {
-    const { pollId, selectedOption } = this.state;
-  
-    if (selectedOption === null) {
-      alert("Please select an option");
-      return;
-    }
-  
-    fetch(`http://localhost:5000/vote`, {
-      method: "POST",
-      crossDomain: true,
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-        "Access-Control-Allow-Origin": "*",
-      },
-      body: JSON.stringify({
-        pollId: pollId,
-        option: selectedOption,
-      }),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        if (data.status === "OK!") {
-          this.setState({ votes: data.votes });
-        } else {
-          alert("Error! Something went wrong!");
-        }
-      })
-      .catch((error) => {
-        console.error(error);
-        alert("An error occurred while submitting your vote");
-      });
-  };
-  
-
 render(){
-    const { question, options, votes, selectedOption } = this.state;
+    const { question, options, votes } = this.state;
   return (
 
     <div class="deetailplan">
@@ -174,20 +139,15 @@ render(){
   {options.map((option) => (
     (option.value !== '') && (
       <div className="option-label" key={option.id}>
-        <input type="radio" name="votes" value={option.id} id={option.id} checked={selectedOption === option.id}
-                onChange={() => this.setState({ selectedOption: option.id })} />
+        <input type="radio" name="vote" value={option.id} id={option.id} />
         <label htmlFor={option.id}>
           {option.value}
-          {/* {option.votes ? <span className="vote-count">{option.votes} votes</span> : null} */}
-          {option.votes ? (
-                  <span className="vote-count">{option.votes} votes</span>
-                ) : null}
-
+          {option.votes ? <span className="vote-count">{option.votes} votes</span> : null}
         </label>
       </div>
     )
   ))}
-  <button style={{ backgroundColor: '#0d5358', color: 'white' }}   onClick={this.submitVote} type="submit">Vote</button>
+  <button style={{ backgroundColor: '#0d5358', color: 'white' }} type="submit">Vote</button>
 </form>
 
 
