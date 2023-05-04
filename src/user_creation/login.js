@@ -66,7 +66,7 @@ export default function LogIn(props) {
                 class="text email"
                 type="email"
                 name="email"
-                placeholder="Email"
+                placeholder="Email" 
                 required=""
                 onInput={(e) => setEmail(e.target.value)}
               />

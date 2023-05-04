@@ -989,3 +989,55 @@ top: 70px; }
   top: 100px;
   left: 200px;
 }
+
+.no-underline {
+  position: relative;
+  text-decoration: none;
+  color: rgb(14, 44, 44);
+  font-size: 20px;
+  font-family: 'Times New Roman', Times, serif;
+}
+.tripsectionbody{
+  position: relative;
+  top: 50px;
+  display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(rgba(14, 44, 44, 0.469), rgba(14, 44, 44, 0.411)), url(hill7.jpg) center center no-repeat;
+    background-size: cover;  
+    height: 100vh;  
+ }
+ .tripsectionbody h4{
+  position: relative;
+  top: 20px;
+  left: 10px;
+  color: rgb(14, 44, 44);
+  font-family: 'Times New Roman', Times, serif;
+ }
+
+ .trips{
+  width: 40%;
+    margin: 3em auto;
+    background: rgba(255, 255, 255, 0.113);
+    background-size: cover;
+    position: relative;
+    bottom: 5px;
+    border-radius: 9px;
+    border: solid 3px white;
+    height: auto;
+    }
+
+ .mytrip{
+  overflow-y: scroll;
+ }
+ .joinedtrip{
+  overflow-y: scroll;
+ }
+ .thead{
+  position: relative;
+  bottom: 240px;
+  left: 50px;
+  color: rgb(14, 44, 44);
+  font-family: 'Times New Roman', Times, serif;
+ }
+ 
