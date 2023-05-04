@@ -1,3 +1,5 @@
+    
+
 import React from 'react';
 import { useParams, Link } from "react-router-dom";
 import './mytrip.css';
@@ -106,7 +108,7 @@ class Polls extends React.Component{
       })
       .catch((error) => {
         console.error(error);
-        alert("ok");
+        alert("An error occurred while retrieving");
       });
     
 

@@ -1,10 +1,70 @@
+
+
+
 import React, { useState, useEffect } from 'react';
 import './polls.css';
 import './mytrip.css';
 import '../Home/HomeCss/styles.css';
 
  class LaunchPoll1 extends React.Component {
+//   const [selectedOption, setSelectedOption] = useState(null);
+//   const [totalVotes, setTotalVotes] = useState(0);
+//   const [hasVoted, setHasVoted] = useState(false);
+//   const [optionsList, setOptionsList] = useState([
+//     { id: 'opt-1', text: 'Answer 1', votes: 0 },
+//     { id: 'opt-2', text: 'Answer 2', votes: 0 },
+//     { id: 'opt-3', text: 'Answer 3', votes: 0 },
+//     { id: 'opt-4', text: 'Answer 4', votes: 0 },
+//     { id: 'opt-5', text: 'Answer 5', votes: 0 },
+//   ]);
 
+//   useEffect(() => {
+//     const sum = optionsList.reduce((acc, cur) => acc + cur, 0);
+//     setTotalVotes(sum);
+//   }, []);
+
+//   const handleOptionClick = (option) => {
+//     if (!hasVoted) {
+//       setSelectedOption(option);
+//       setHasVoted(true);
+//       const updatedOptions = optionsList.map((opt) => {
+//         if (opt.id === option) {
+//           return { ...opt, votes: opt.votes + 1 };
+//         }
+//         return opt;
+//       });
+//       setOptionsList(updatedOptions);
+//     }
+//   };
+
+//   const handleSubmit = () => {
+//     console.log(`Selected option: ${selectedOption}`);
+//     console.log(`Total votes: ${totalVotes}`);
+//     console.log(`Has voted: ${hasVoted}`);
+//   };
+
+//   const pollOptions = optionsList.map((option) => {
+//     const isSelected = selectedOption === option.id;
+//     const classNames = ['option'];
+//     if (isSelected) {
+//       classNames.push('selected');
+//     }
+    // return (
+    //   <li key={option.id} onClick={() => handleOptionClick(option.id)}>
+    //     <label htmlFor={option.id} className={classNames.join(' ')}>
+    //       <div className="row">
+    //         <div className="column">
+    //           <span className="circle"></span>
+    //           <span className="text">{option.text}</span>
+    //         </div>
+    //         <span className="votes">{option.votes} votes</span>
+    //       </div>
+    //       <input type="radio" name="poll" id={option.id} />
+    //     </label>
+    //   </li>
+    // );
+  
+  //);
 
   constructor(props) {
     super(props);
@@ -12,8 +72,7 @@ import '../Home/HomeCss/styles.css';
       pollId: null,
       question: "",
       options: [],
-      votes: [],
-      selectedOption: null
+      //votes: [],
     };
   }
 
@@ -61,45 +120,8 @@ import '../Home/HomeCss/styles.css';
         });
   }
 
-  submitVote = () => {
-    const { pollId, selectedOption } = this.state;
-  
-    if (selectedOption === null) {
-      alert("Please select an option");
-      return;
-    }
-  
-    fetch(`http://localhost:5000/vote`, {
-      method: "POST",
-      crossDomain: true,
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-        "Access-Control-Allow-Origin": "*",
-      },
-      body: JSON.stringify({
-        pollId: pollId,
-        option: selectedOption,
-      }),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        if (data.status === "OK!") {
-          this.setState({ votes: data.votes });
-        } else {
-          alert("Error! Something went wrong!");
-        }
-      })
-      .catch((error) => {
-        console.error(error);
-        alert("An error occurred while submitting your vote");
-      });
-  };
-  
-
 render(){
-    const { question, options, votes, selectedOption } = this.state;
+    const { question, options, votes } = this.state;
   return (
 
     <div class="deetailplan">
@@ -174,20 +196,15 @@ render(){
   {options.map((option) => (
     (option.value !== '') && (
       <div className="option-label" key={option.id}>
-        <input type="radio" name="votes" value={option.id} id={option.id} checked={selectedOption === option.id}
-                onChange={() => this.setState({ selectedOption: option.id })} />
+        <input type="radio" name="vote" value={option.id} id={option.id} />
         <label htmlFor={option.id}>
           {option.value}
-          {/* {option.votes ? <span className="vote-count">{option.votes} votes</span> : null} */}
-          {option.votes ? (
-                  <span className="vote-count">{option.votes} votes</span>
-                ) : null}
-
+          {option.votes ? <span className="vote-count">{option.votes} votes</span> : null}
         </label>
       </div>
     )
   ))}
-  <button style={{ backgroundColor: '#0d5358', color: 'white' }}   onClick={this.submitVote} type="submit">Vote</button>
+  <button style={{ backgroundColor: '#0d5358', color: 'white' }} type="submit">Vote</button>
 </form>
 
 
