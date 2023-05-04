@@ -995,12 +995,13 @@ top: 70px; }
   position: relative;
   top: 100px;
   left: 200px;
+  border: 0px;
 }
 
 .no-underline {
   position: relative;
   text-decoration: none;
-  color: rgb(14, 44, 44);
+  color: white;
   font-size: 20px;
   font-family: 'Times New Roman', Times, serif;
 }
@@ -1018,18 +1019,18 @@ top: 70px; }
   position: relative;
   top: 20px;
   left: 10px;
-  color: rgb(14, 44, 44);
+  color: white;
   font-family: 'Times New Roman', Times, serif;
  }
 
  .trips{
     width: 40%;
     margin: 3em auto;
-    background: rgba(161, 218, 227, 0.449);
+    background: rgb(15, 53, 70);
     background-size: cover;
     position: relative;
     border-radius: 6px;
-    border: solid 3px white;
+    border: solid 3px rgb(14, 44, 44);
     height: auto;
     right: 450px;
     }
@@ -1063,23 +1064,55 @@ top: 70px; }
 }
 
 /* Remove extra left and right margins, due to padding */
-.icolumn {margin: 0 -5px;}
+.icolumn {
+  margin: 0 -5px;
+  position: relative;
+  top: 120px;
+  left: 60px;
+}
 
 /* Style the counter cards */
 .icard {
   padding: 16px;
-  text-align: center;
-  background-color: #f1f1f1;
-  border: solid 1px black;
-  margin: 10px;
+  background-color: #b5e1e7;
+  margin: 15px;
+  border-radius: 6px;
 }
 
 .ibody{
-  display: flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(hillc.jpg) center center no-repeat;
+    display: flex;
+    background: linear-gradient(rgba(0, 0, 0, 0.116), rgba(0, 0, 0, 0.137)), url(hill3.jpg) center center no-repeat;
     background-size: cover;  
-    height: 100vh;  
-    overflow: hidden;
+    height: 140vh;  
  }
+
+ .pheadd{
+  color: rgb(14, 44, 44);
+  font-family: sans-serif;
+  position: relative;
+  top: 110px;
+  left: 90px;
+}
+
+.pheadd p{
+color: rgb(14, 44, 44);
+font-family: sans-serif;
+position: relative;
+right: 20px;
+font-size: 19px;
+}
+.combobox-iinput{
+  position: relative;
+  border: 0px;
+  left: 50px;
+  bottom: 20px;
+  background-color: white;
+}
+.icard p{
+  position: relative;
+  top: 10px;
+}
+
+.trips hr{
+  color: #b5e1e7;
+}
