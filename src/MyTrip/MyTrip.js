@@ -8,7 +8,7 @@ class MyTrip extends React.Component{
         super(props);
         this.state = {
           userId: null
-        };
+        }; 
       }
     
       componentDidMount() {

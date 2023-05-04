@@ -1016,18 +1016,19 @@ top: 70px; }
  }
 
  .trips{
-  width: 40%;
+    width: 40%;
     margin: 3em auto;
-    background: rgba(255, 255, 255, 0.113);
+    background: rgba(255, 255, 255, 0.192);
     background-size: cover;
     position: relative;
-    bottom: 5px;
-    border-radius: 9px;
+    border-radius: 6px;
     border: solid 3px white;
     height: auto;
+    right: 450px;
+    bottom: 20px;
     }
 
- .mytrip{
+ .mytrip1{
   overflow-y: scroll;
  }
  .joinedtrip{
@@ -1035,9 +1036,17 @@ top: 70px; }
  }
  .thead{
   position: relative;
-  bottom: 240px;
-  left: 50px;
+  bottom: 200px;
+  left: 100px;
   color: rgb(14, 44, 44);
   font-family: 'Times New Roman', Times, serif;
+ }
+ 
+ .thead1{
+  position: relative;
+  top: 10px;
+  color: rgb(14, 44, 44);
+  font-family: 'Times New Roman', Times, serif;
+  right: 20px;
  }
  
