@@ -549,7 +549,7 @@ input[type="submit"] {
   padding: 0.9em;
   width: 30%;
   margin: 2em 0;
-  letter-spacing: 4px;
+  letter-spacing: 1px;
   position: relative;
   left: 170px;
 }
@@ -826,7 +826,7 @@ input[type="submit"] {
 }
 .btncreatepoll {
   display: inline-block;
-  padding: 1.175rem 1.125rem 1.175rem 1.125rem;
+  padding: 2rem 1.125rem 2rem 1.125rem;
   border-radius: 0.25rem;
   background-color: rgb(14, 44, 44);
   color: #fff;
@@ -839,6 +839,7 @@ input[type="submit"] {
   left: 155px;
   overflow-x: hidden;
   top: 5px;
+  width: 100px;
 }
 
 .btncreatepoll:hover {

@@ -205,7 +205,7 @@ class CreatePoll extends React.Component{
 
 
 
-                    <input class="btncreatepoll" type="submit" value="LAUNCH POLL"/>
+                    <input class="btncreatepoll" type="submit" value="LAUNCH"/>
 
 				</form>
 

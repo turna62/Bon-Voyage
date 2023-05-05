@@ -199,16 +199,16 @@ input[type="checkbox"] {
 }
 
 .pphead{
-    color: white;
+    color: rgb(14, 44, 44);
     font-family: sans-serif;
     position: relative;
     left: 80px;
-    bottom: 190px;
-    font-size: 17px;
+    bottom: 200px;
+    font-size: 20px;
     font-weight: 400;
 }
 .head{
-    color: white;
+    color: rgb(14, 44, 44);
     font-size: 30px;
     font-weight: 600;
 }
