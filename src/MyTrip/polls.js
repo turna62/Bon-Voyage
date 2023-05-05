@@ -191,7 +191,7 @@ const {myPolls} = this.state;
         <div key={poll._id}>
           
           
-          <Link to={`/launchpoll1?pollId=${poll._id}`}className="no">{index + 1}.{poll.question}</Link>
+          <Link to={`/launchpoll1?pollId=${poll._id}&userId=${encodeURIComponent(this.state.userId)}`}className="no">{index + 1}.{poll.question}</Link>
           
         </div>
       ))}

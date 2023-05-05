@@ -14,14 +14,25 @@ import '../Home/HomeCss/styles.css';
     this.state = {
       pollId: null,
       question: "",
-      options: [],
+      options: [  {count: 0}],
+      userId: null,
+  
       //votes: [],
     };
+    this.handleSubmit = this.handleSubmit.bind(this); // to read properties of state
   }
 
   componentDidMount() {
 
     const params = new URLSearchParams(window.location.search);
+
+   
+        const userId = params.get('userId');
+      
+        console.log(userId); 
+       
+        this.setState({ userId: userId });
+        
     const pollId = params.get('pollId');
     console.log(pollId);
     this.setState({ pollId: pollId});
@@ -54,7 +65,7 @@ import '../Home/HomeCss/styles.css';
               alert("Error! Poll not found!");
             }
           } else {
-            alert("Error! Something went wrong!");
+            alert("Error! tSomething went wrong!");
           }
         })
         .catch((error) => {
@@ -63,8 +74,57 @@ import '../Home/HomeCss/styles.css';
         });
   }
 
+
+  handleSubmit(e) {
+    e.preventDefault();
+    const selectedOption = document.querySelector('input[name="count"]:checked');
+    if (!selectedOption) {
+      alert('Please select an option');
+      return;
+    }
+    const selectedOptionId = parseInt(selectedOption.value, 10);
+    console.log(selectedOptionId);
+    const { pollId, userId, options: { count } } = this.state;
+    console.log(this.state.options.count);
+
+    fetch(`http://localhost:5000/vote`, {
+      method: "POST",
+      crossDomain: true,
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        "Access-Control-Allow-Origin": "*",
+      },
+      body: JSON.stringify({
+        pollId: pollId,
+        optionId: selectedOptionId,
+        userId: userId, 
+        options: {
+          count: count
+        }
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.status === "OK!") {
+          const poll = data.polls.find((p) => p._id === pollId);
+          this.setState({
+            votes: poll.votes,
+            options: poll.options,
+          });
+        } else {
+          alert("Error! Something went wrong!");
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+        alert("An error occurred while submitting your vote");
+      });
+  }
+  
+
 render(){
-    const { question, options, votes } = this.state;
+    const { question, options, options: { count } } = this.state;
   return (
 
     <div class="deetailplan">
@@ -135,14 +195,14 @@ render(){
 
 
 
-          <form>
+          <form onSubmit= {this.handleSubmit}>
   {options.map((option) => (
     (option.value !== '') && (
       <div className="option-label" key={option.id}>
-        <input type="radio" name="vote" value={option.id} id={option.id} />
+        <input type="radio" name="count" value={option.id} id={option.id} onInput = {e=>this.setState({count:e.target.value})} />
         <label htmlFor={option.id}>
           {option.value}
-          {option.votes ? <span className="vote-count">{option.votes} votes</span> : null}
+          {option.count ? <span className="vote-count">{option.count} votes</span> : null}
         </label>
       </div>
     )
