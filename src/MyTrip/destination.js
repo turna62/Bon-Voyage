@@ -83,19 +83,19 @@ import usePlacesAutocomplete, {
      <div class="phead">
          <h3>Let's fix destination</h3>
          <p>Search destinations and then select it by clicking on 'Select Destination' button.</p> 
-         <div class="sdes">< Map/></div>
+         < Map/>
     </div>
     <div class="pollaunch">
         <h1>  </h1>
     <h3>Or Open voting</h3>
          <p>Launch poll to decide destinations through voting.</p> 
     </div>
-    <a class="btnopnvote" href="http://localhost:3000/createpolldes">Open Voting</a>
 
     {/* <a class="btndestination" href="http://localhost:3000/adddestination">Select Destination</a> */}
     <div class="dbtnfix">
     <input class="btndestination" type="submit" value="SELECT DESTINATION"/></div>
 
+    <a class="btnopnvote" href="http://localhost:3000/createpolldes">Open Voting</a>
 
          <div class="footer">
         <div class="container">

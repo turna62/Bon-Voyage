@@ -201,7 +201,7 @@ class CreatePoll extends React.Component{
       ),
     })
   }
-/>
+/> 
 
 
 
