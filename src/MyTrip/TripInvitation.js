@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import React from 'react';
+import './mytrip.css';
 
 class TripInvitation extends React.Component {
   constructor(props) {
@@ -100,15 +100,15 @@ class TripInvitation extends React.Component {
 
   render() {
     return (
-      <div>
+      <div class="bannerbody">
         
 
         <div>
-          <div>
+          <div class="banner">
             <p>Do you wish to accept this trip invitation?</p>
 
-            <button  style={{ backgroundColor: 'blue', color: 'white' }} onClick={this.handleAccSubmit}>Yes, Accept </button>
-            <button style={{ backgroundColor: 'red', color: 'white' }} onClick={this.handleDecSubmit}>No, Decline</button></div>
+            <button class="redbtn redblu" onClick={this.handleAccSubmit}>Accept </button>
+            <button class="blubtn redblu" onClick={this.handleDecSubmit}>Decline</button></div>
           
         </div>
       </div>

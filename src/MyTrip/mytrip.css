@@ -551,7 +551,7 @@ input[type="submit"] {
   margin: 2em 0;
   letter-spacing: 1px;
   position: relative;
-  left: 160px;
+  left: 140px;
   top: 20px;
 }
 .triphr{
@@ -1222,4 +1222,84 @@ font-size: 19px;
   height: 40px;
   margin: 5px;
   top: 40px;
+}
+.banner{
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+width: 500px;
+height: 300px;
+margin: auto;
+text-align: center;
+font-family: 'Times New Roman', Times, serif;
+background-color: rgb(155, 218, 211);
+position: relative;
+top: 130px;
+border-radius: 5px;
+left: 400px;
+border: solid 2px rgba(14, 29, 44, 0.507);
+}
+.bannerbody{
+  display: flex;
+    background: linear-gradient(rgba(0, 0, 0, 0.116), rgba(0, 0, 0, 0.137)), url(hill.jpg) center center no-repeat;
+    background-size: cover;  
+    height: 100vh;  
+    position: relative;
+    overflow: hidden;
+}
+
+.banner p{
+  color: rgb(14, 44, 44);
+  font-size: 22px;
+  position: relative;
+  top: 100px;
+}
+.redbtn {
+  display: inline-block;
+  padding: 1.175rem 1.125rem 1.175rem 1.125rem;
+  border-radius: 0.25rem;
+  background-color: rgb(14, 29, 44);
+  color: #fff;
+  font: 700 0.75rem/0 "Montserrat", sans-serif;
+  text-decoration: none;
+  transition: all 0.2s;
+  font-size: 15px;
+  font-family: 'Times New Roman', Times, serif;
+  position: relative;
+  overflow-x: hidden;
+  letter-spacing: 1px;
+  margin-right: 0.5rem;
+	margin-bottom: 1.25rem;
+}
+
+.redbtn:hover {
+  background-color: rgb(22, 45, 68);
+  color: #fff;
+  text-decoration: none;
+}
+.blubtn {
+  display: inline-block;
+  padding: 1.175rem 1.125rem 1.175rem 1.125rem;
+  border-radius: 0.25rem;
+  background-color: rgb(14, 29, 44);
+  color: #fff;
+  font: 700 0.75rem/0 "Montserrat", sans-serif;
+  text-decoration: none;
+  transition: all 0.2s;
+  font-size: 15px;
+  font-family: 'Times New Roman', Times, serif;
+  position: relative;
+  overflow-x: hidden;
+  letter-spacing: 1px;
+  margin-right: 0.5rem;
+	margin-bottom: 1.25rem;
+}
+
+.blubtn:hover {
+  background-color: rgb(22, 45, 68);
+  color: #fff;
+  text-decoration: none;
+}
+.redblu{
+  position: relative;
+  top: 120px;
+  right: 110px;
 }
