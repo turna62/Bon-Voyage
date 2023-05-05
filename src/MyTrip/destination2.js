@@ -137,7 +137,7 @@ class Destination2 extends React.Component{
 
      </div>     
      
-     <div class="phead">
+     <div class="phead"> 
          <h3>Let's fix destination</h3>
          <p>Suggest new destinations using the “+ Add destination” button below.</p> 
     </div>

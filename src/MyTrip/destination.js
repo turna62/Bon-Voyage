@@ -1,85 +1,29 @@
 import React from 'react';
 import './mytrip.css';
+import { useState} from "react";
+import {useLoadScript } from "@react-google-maps/api";
+import usePlacesAutocomplete, {
+    getGeocode,
+    getLatLng,
+  } from "use-places-autocomplete";
+  import {
+    Combobox,
+    ComboboxInput,
+    ComboboxPopover,
+    ComboboxList,
+    ComboboxOption,
+  } from "@reach/combobox";
+  import "@reach/combobox/styles.css";  
 
-
-class Destination extends React.Component{
-
-    constructor(props) {
-        super(props);
-        this.state = {
-          userId: null,
-          tripId: null,
-          tripData:"",
-          userData:"",
-        };
-      }
+  export default function Destination() {
+    const { isLoaded } = useLoadScript({
+        googleMapsApiKey: "AIzaSyAz2_MkHBuMmmgsKwwVnp1tF-qOVm0B9Oo",
+        libraries: ["places"],
+      });
     
-      componentDidMount() {
-        const params = new URLSearchParams(window.location.search);
-        const userId = params.get('userId');
-        const tripId = params.get('tripId');
-        
-        console.log(userId); 
-        console.log(tripId);
-        this.setState({ userId: userId });
-        this.setState({ tripId: tripId });
-        
-        
+      if (!isLoaded) return <div>Loading...</div>;   
 
-
-        fetch("http://localhost:5000/tripData",{
-            method: "POST",
-            crossDomain: true,
-            headers:{
-                "Content-Type":"application/json",
-                Accept: "application/json",
-                "Access-Control-Allow-Origin": "*",
-            },
-            body: JSON.stringify({
-                
-                tripId: tripId,
-            
-            }),
-        })
-        .then((res) => res.json()) // convert data into JSON
-        .then((data) => {
-            console.log(data, "tripData");
-            this.setState({tripData: data.data});
-            if(data.data == 'Token Expired!'){
-                alert("Token expired! Kindly login again."); 
-                window.localStorage.clear();
-                window.location.href = "./sign-in";
-            }
-        });
-
-        fetch("http://localhost:5000/userData",{
-            method: "POST",
-            crossDomain: true,
-            headers:{
-                "Content-Type":"application/json",
-                Accept: "application/json",
-                "Access-Control-Allow-Origin": "*",
-            },
-            body: JSON.stringify({
-                token: window.localStorage.getItem("token"),
-                userId: userId,
-            
-            }),
-        })
-        .then((res) => res.json()) // convert data into JSON
-        .then((data) => {
-            console.log(data, "userData");
-            this.setState({userData: data.data});
-            if(data.data == 'Token Expired!'){
-                alert("Token expired! Kindly login again."); 
-                window.localStorage.clear();
-                window.location.href = "./sign-in";
-            }
-        });
-
-      }
     
-    render(){
 
         return(
             <div class="deetailplan">
@@ -110,7 +54,7 @@ class Destination extends React.Component{
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="text-container">
-                                <h1 style={{ backgroundColor: this.state.userData.color }}>Let's Plan, {this.state.userData.username}!</h1>
+                                <h1></h1>
                                     {/* <p class="p-heading p-large">The journey of a thousand miles begins with a single step.</p> */}
 
 
@@ -124,35 +68,34 @@ class Destination extends React.Component{
 
      <div>
 
-        <h4 class="tripname">Trip Name</h4><hr></hr> 
+     <h4 class="tripname">trip name</h4><hr></hr>
         <a class="btnaddmembers" href="http://localhost:3000/addmembers">+ Add Members</a>
-
         <ul class="ul">
-        <li class="li"> <a href={`http://localhost:3000/overview?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}`}>Overview</a></li>
-        <li class="li"> <a href={`http://localhost:3000/polls?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}`}>Polls</a></li>
-        <li class="li"> <a href={`http://localhost:3000/date?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}`}>Date</a></li>
-        <li class="ovwli"> <a href={`http://localhost:3000/destination?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}`}>Destination</a></li>
-        <li class="li"> <a href={`http://localhost:3000/route?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}`}>Route</a></li>
-        <li class="li"> <a href={`http://localhost:3000/itinerary?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}`}>Itinerary</a></li>
-     </ul>
-
-     </div>     
+        <li class="li"><a href="http://localhost:3000/overview">Overview</a></li>
+        <li class="li"><a href="http://localhost:3000/polls">Polls</a></li>
+        <li class="li"><a href="http://localhost:3000/date">Date</a></li>
+        <li class="ovwli"><a href="http://localhost:3000/destination">Destination</a></li>
+        <li class="li"><a href="http://localhost:3000/activities">Activities</a></li>
+        <li class="li"><a href="http://localhost:3000/route">Route</a></li>
+        <li class="li"><a href="http://localhost:3000/itinerary">Itinerary</a></li>
+     </ul>     </div>     
      
      <div class="phead">
          <h3>Let's fix destination</h3>
-         <p>Suggest new destinations using the “+ Add destination” button below.</p> 
+         <p>Search destinations and then select it by clicking on 'Select Destination' button.</p> 
+         <div class="sdes">< Map/></div>
     </div>
-    <div class="opollaunch">
+    <div class="pollaunch">
         <h1>  </h1>
-    <h3>Next step: open voting</h3>
-         <p>Start collecting votes from travelers you’ve invited to the trip.</p> 
+    <h3>Or Open voting</h3>
+         <p>Launch poll to decide destinations through voting.</p> 
     </div>
-    <a class="obtnopnvote" href="http://localhost:3000/launchpoll1">Open Voting</a>
-    <a class="obtnclsvote" href="http://localhost:3000/destination">Skip Voting</a>
+    <a class="btnopnvote" href="http://localhost:3000/createpolldes">Open Voting</a>
 
+    {/* <a class="btndestination" href="http://localhost:3000/adddestination">Select Destination</a> */}
+    <div class="dbtnfix">
+    <input class="btndestination" type="submit" value="SELECT DESTINATION"/></div>
 
-       
-    <a class="btndestination" href="http://localhost:3000/adddestination">+ Add Destination</a>
 
          <div class="footer">
         <div class="container">
@@ -215,9 +158,59 @@ class Destination extends React.Component{
     </div> 
     
             </div>
-        )
+        );
 
     }
-}
 
-export default Destination;
+
+    function Map() {
+        const [setSelected] = useState(null);
+      
+        return (
+          <>
+            <div className="places-container">
+              <PlacesAutocomplete setSelected={setSelected} />
+            </div>
+      
+           </>
+        );
+      }
+      
+const PlacesAutocomplete = ({ setSelected }) => {
+    const {
+      ready,
+      value,
+      setValue,
+      suggestions: { status, data },
+      clearSuggestions,
+    } = usePlacesAutocomplete();
+  
+    const handleSelect = async (address) => {
+      setValue(address, false);
+      clearSuggestions();
+  
+      const results = await getGeocode({ address });
+      const { lat, lng } = await getLatLng(results[0]);
+      setSelected({ lat, lng });
+    };
+  
+    return (
+      <Combobox onSelect={handleSelect}>
+        <ComboboxInput
+          value={value}
+          onChange={(e) => setValue(e.target.value)}
+          disabled={!ready}
+          className="combobox-sinput"
+          placeholder="Select a spot.."
+        />
+        <ComboboxPopover>
+          <ComboboxList>
+            {status === "OK" &&
+              data.map(({ place_id, description }) => (
+                <ComboboxOption key={place_id} value={description} />
+              ))}
+          </ComboboxList>
+        </ComboboxPopover>
+      </Combobox>
+    );
+  };

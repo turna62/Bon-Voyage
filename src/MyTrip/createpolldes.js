@@ -1,10 +1,8 @@
-
-
 import React from 'react';
 import './mytrip.css';
 
 
-class CreatePoll extends React.Component{
+class CreatePollD extends React.Component{
     constructor(props) {
         super(props)
         this.state = {
@@ -115,10 +113,9 @@ class CreatePoll extends React.Component{
 		<div class="mainn-agileinfo">
 			<div class="agileitss-top">
             <h3 class="cpoll">Create Poll</h3><hr></hr>
-            <h5 class="ccpoll">Write a custom question with up to 05 answers travelers can choose from.</h5>
+            <h5 class="ccpoll">Add upto five places to create poll and vote to finalise destination.</h5>
 				<form onSubmit={(e) => this.handleSubmit(e, this.props.isTripOwner)}>
-					<input class="texti" type="text" name="question" placeholder="Write your question....*" required="" onInput = {e=>this.setState({question:e.target.value})} />
-                   <h5 class="ccpll">Answer (Add up to 05)</h5>
+                   <h5 class="ccpll">Add up to 05 places:</h5>
 
                    {/* <input class="textt" type="text" name="option1" placeholder="Answer 1" required="" onInput={e => this.setState({options: { ...this.state.options, 0: e.target.value }})} />
                   <input class="textt" type="text" name="option2" placeholder="Answer 2" required="" onInput={e => this.setState({options: { ...this.state.options, 1: e.target.value }})} />
@@ -133,7 +130,7 @@ class CreatePoll extends React.Component{
   class="textt"
   type="text"
   name="options"
-  placeholder="Answer 1"
+  placeholder="Place 1"
   required=""
   onInput={(e) =>
     this.setState({
@@ -148,7 +145,7 @@ class CreatePoll extends React.Component{
   class="textt"
   type="text"
   name="options"
-  placeholder="Answer 2"
+  placeholder="Place 2"
   required=""
   onInput={(e) =>
     this.setState({
@@ -163,7 +160,7 @@ class CreatePoll extends React.Component{
   class="textt"
   type="text"
   name="options"
-  placeholder="Answer 3"
+  placeholder="Place 3"
   required=""
   onInput={(e) =>
     this.setState({
@@ -178,7 +175,7 @@ class CreatePoll extends React.Component{
   class="textt"
   type="text"
   name="options"
-  placeholder="Answer 4"
+  placeholder="Place 4"
   required=""
   onInput={(e) =>
     this.setState({
@@ -192,7 +189,7 @@ class CreatePoll extends React.Component{
   class="textt"
   type="text"
   name="options"
-  placeholder="Answer 5"
+  placeholder="Place 5"
   required=""
   onInput={(e) =>
     this.setState({
@@ -279,4 +276,4 @@ class CreatePoll extends React.Component{
         )
     }
 }
-export default CreatePoll;
+export default CreatePollD;

@@ -129,7 +129,7 @@ import usePlacesAutocomplete, {
       <input type="checkbox" value=""/>Option 3
     </label>
    </p>
-    </div>
+    </div> 
   </div>
   
   <div class="irow">

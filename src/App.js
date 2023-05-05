@@ -18,6 +18,7 @@ import Destination from "./MyTrip/destination";
 import Activities from "./MyTrip/activities";
 import Itinerary from "./MyTrip/itinerary";
 import CreatePoll from "./MyTrip/createpoll";
+import CreatePollD from "./MyTrip/createpolldes";
 import AddDestination from "./MyTrip/adddestination";
 import Destination2 from "./MyTrip/destination2";
 import AddMembers from "./MyTrip/addmembers";
@@ -58,6 +59,7 @@ function App() {
         <Route path="/activities" element={<Activities/>} />
         <Route path="/itinerary" element={<Itinerary/>} />
         <Route path="/createpoll" element={<CreatePoll  userId={userId} tripId={tripId} />} />
+        <Route path="/createpolldes" element={<CreatePollD  userId={userId} tripId={tripId} />} />
         <Route path="/adddestination" element={<AddDestination/>} />
         <Route path="/addmembers" element={<AddMembers tripId={tripId} />} />
         <Route path="/launchpoll" element={<LaunchPoll/>} />
