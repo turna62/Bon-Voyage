@@ -141,7 +141,7 @@ componentDidMount() {
                      <span class="name mt-3">{this.state.userData.username}</span> 
                      <span class="idd">{this.state.userData.email}</span> 
                                      
-                    <p> <a class="btn1">Edit Profile</a>  
+                    <p> <a href="" class="btn1">Edit Profile</a>  
                      <a class="btn1" href={`http://localhost:3000/tripsection?userId=${encodeURIComponent(this.state.userId)}`}>My Trips</a>    </p>                      
                         
                          

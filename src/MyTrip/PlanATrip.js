@@ -111,7 +111,6 @@ import React from 'react';
                 <div class="tm-bg-white ie-container-width-fix-2">
                     <div class="container ie-h-align-center-fix">
                         <h2 class="startedtxt">Let's get you started!</h2>
-                        <h6 class="startedtxt">(select if decided)</h6>
                         <div class="row">
                             <div class="col-xs-12 ml-auto mr-auto ie-container-width-fix">
                                 <form onSubmit = {this.handleSubmit}  class="tm-search-form tm-section-pad-2" >
@@ -120,7 +119,7 @@ import React from 'react';
                                       <div class="form-group tm-form-element tm-form-element-100">
                                             <input name="tripName" type="text" class="form-control" id="inputCity" placeholder="Trip Name" onInput = {e=>this.setState({tripName:e.target.value})}/>
                                         </div>
-                                        <div class="form-group tm-form-element tm-form-element-50">
+                                        {/* <div class="form-group tm-form-element tm-form-element-50">
                                             <i class="fa fa-calendar fa-1x tm-form-element-iconn"></i>
                                             <input name="startDate" type="date" class="form-control" id="inputCheckIn" placeholder="Start date" onInput = {e=>this.setState({startDate:e.target.value})}/>
                                         </div>
@@ -140,10 +139,8 @@ import React from 'react';
                                             <input name="members" type="text" class="form-control" id="inputCity" placeholder="Total members (if decided)" onInput = {e=>this.setState({tripName:e.target.value})}/>
                                         </div>
 
-                                                      
-                                        {/* <a class="btn-solid-lllg page-scroll" href="http://localhost:3000/detailtripplan">Continue</a> */}
-                                        {/* <a class="btn-solid-lllg page-scroll" >Continue</a> */}
-                                        <input class="btn-solid-lllg" type="submit" value="CONTINUE"/>
+                                                       */}
+                            <input class="btn-solid-lllg" type="submit" value="CONTINUE"/>
                                         
                                         
                                       </div>

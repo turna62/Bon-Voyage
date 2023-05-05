@@ -303,20 +303,15 @@ html, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, 
   
 
 .card {
-    width: 350px;
+    width: 300px;
     background-color: #efefef;
     border: none;
     cursor: pointer;
     transition: all 0.5s;
+    border-radius: 0px;
+    border: solid 2px rgb(14, 44, 44);
 }
 
-.image img {
-    transition: all 0.5s
-}
-
-.card:hover .image img {
-    transform: scale(1.5)
-}
 
 .btn {
     height: 140px;
@@ -338,40 +333,11 @@ html, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, 
     font-size: 12px
 }
 
-.number {
-    font-size: 22px;
-    font-weight: bold
-}
-
-.follow {
-    font-size: 12px;
-    font-weight: 500;
-    color: #444444
-}
-
-.text span {
-    font-size: 13px;
-    color: #545454;
-    font-weight: 500
-}
-
-.icons i {
-    font-size: 19px
-}
 
 hr .new1 {
     border: 1px solid
 }
 
-.join {
-    font-size: 14px;
-    color: #a0a0a0;
-    font-weight: bold
-}
-
-.date {
-    background-color: #ccc
-}
   
 .containerr{
   position: relative;
@@ -397,7 +363,7 @@ hr .new1 {
   display: inline-block;
   padding: 1.175rem 1.125rem 1.175rem 1.125rem;
   border-radius: 0.25rem;
-  color: black;
+  color: white;
   font: 700 0.75rem/0 "Montserrat", sans-serif;
   text-decoration: none;
   transition: all 0.2s;
