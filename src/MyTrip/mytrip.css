@@ -40,7 +40,7 @@
 }
 
 .option-label label:after {
-  content: " (0 votes)";
+  content: " ( votes)";
   color: rgb(14, 44, 44);
   font-size: 14px;
   position: relative;
@@ -1048,7 +1048,7 @@ input[type="submit"] {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(rgba(14, 44, 44, 0.25), rgba(14, 44, 44, 0.229)), url(hill5.jpg) center center no-repeat;
+    background: linear-gradient(rgba(14, 44, 44, 0.342), rgba(14, 44, 44, 0.366)), url(hill5.jpg) center center no-repeat;
     background-size: cover;  
     height: 200vh;  
     
@@ -1071,7 +1071,7 @@ input[type="submit"] {
 .trips .tjoined{
   position: relative;
   left: 400px;
-  bottom: 290px; 
+  bottom: 260px; 
 }
  .thead{
   position: relative;
@@ -1230,12 +1230,12 @@ height: 300px;
 margin: auto;
 text-align: center;
 font-family: 'Times New Roman', Times, serif;
-background-color: rgb(155, 218, 211);
+background-color: white;
 position: relative;
 top: 130px;
 border-radius: 5px;
 left: 400px;
-border: solid 2px rgba(14, 29, 44, 0.507);
+border: solid 3px rgba(14, 44, 44, 0.805);
 }
 .bannerbody{
   display: flex;
