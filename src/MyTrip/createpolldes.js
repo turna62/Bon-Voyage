@@ -1,91 +1,25 @@
 import React from 'react';
 import './mytrip.css';
+import { useState} from "react";
+import {useLoadScript } from "@react-google-maps/api";
+import usePlacesAutocomplete, {
+    getGeocode,
+    getLatLng,
+  } from "use-places-autocomplete";
+  import {
+    Combobox,
+    ComboboxInput,
+    ComboboxPopover,
+    ComboboxList,
+    ComboboxOption,
+  } from "@reach/combobox";
+  import "@reach/combobox/styles.css";  
 
-
-class CreatePollD extends React.Component{
-    constructor(props) {
-        super(props)
-        this.state = {
-          question: "",
-          options: [
-            { id: 0, value: "" },
-            { id: 1, value: "" },
-            { id: 2, value: "" },
-            { id: 3, value: "" },
-            { id: 4, value: "" },
-          ],
-          tripId: props.tripId,
-          userId: props.userId
-        };
-        this.handleSubmit = this.handleSubmit.bind(this); // to read properties of state
-      }
-
-      componentDidMount() {
-        const params = new URLSearchParams(window.location.search);
-        const userId = params.get('userId');
-        const tripId = params.get('tripId');
-        
-        console.log(userId); 
-        console.log(tripId);
-        this.setState({ userId: userId });
-        this.setState({ tripId: tripId });
-      }
-      
-
-      handleSubmit(e, isTripOwner) {
-        e.preventDefault();
-        const { question, options, tripId, userId } = this.state;
-        console.log (tripId, userId);
-      
-        // Set the addedMembers data based on the user role
-        let addedMembers;
-        if (isTripOwner) {
-          addedMembers = null; // Trip owner has no added members
-        } else {
-          addedMembers = [userId]; // Added member is the current user
-        }
-      
-        console.log(question, options, tripId, userId, addedMembers);
-      
-        fetch("http://localhost:5000/createpoll", {
-          method: "POST",
-          crossDomain: true,
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json",
-            "Access-Control-Allow-Origin": "*",
-            authorization: localStorage.getItem("userId"),
-          },
-          body: JSON.stringify({
-            question,
-            options,
-            tripId,
-            userId,
-            addedMembers,
-          }),
-        })
-          .then((res) => res.json())
-          .then((data) => {
-            console.log(data, "pollSubmit");
-            if (data.status === "OK!") {
-              alert("gese");
-              console.log(tripId);
-              window.location.href = `http://localhost:3000/polls?userId=${encodeURIComponent(
-                this.state.userId
-              )}&tripId=${encodeURIComponent(this.state.tripId)}`;
-            } else {
-              alert(`went wrong: ${data.status}`);
-            }
-          })
-          .catch((error) => {
-            console.error(error);
-            alert("Error! Something went wrong while calling the API.");
-          });
-      }
-      
-    
-    render(){
-
+export default function CreatePollD() {
+    const { isLoaded } = useLoadScript({
+        googleMapsApiKey: "AIzaSyAz2_MkHBuMmmgsKwwVnp1tF-qOVm0B9Oo",
+        libraries: ["places"],
+      });
         return(
             <div class="deetailplan">
 
@@ -126,82 +60,7 @@ class CreatePollD extends React.Component{
 
                     {/* <a class="btncreatepoll" href="http://localhost:3000/launchpoll1">LAUNCH POLL</a> */}
 
-                    <input
-  class="textt"
-  type="text"
-  name="options"
-  placeholder="Place 1"
-  required=""
-  onInput={(e) =>
-    this.setState({
-      options: this.state.options.map((option) =>
-        option.id === 0 ? { ...option, value: e.target.value } : option
-      ),
-    })
-  }
-/>
-
-<input
-  class="textt"
-  type="text"
-  name="options"
-  placeholder="Place 2"
-  required=""
-  onInput={(e) =>
-    this.setState({
-      options: this.state.options.map((option) =>
-        option.id === 1 ? { ...option, value: e.target.value } : option
-      ),
-    })
-  }
-/>
-
-<input
-  class="textt"
-  type="text"
-  name="options"
-  placeholder="Place 3"
-  required=""
-  onInput={(e) =>
-    this.setState({
-      options: this.state.options.map((option) =>
-        option.id === 2 ? { ...option, value: e.target.value } : option
-      ),
-    })
-  }
-/>
-
-<input
-  class="textt"
-  type="text"
-  name="options"
-  placeholder="Place 4"
-  required=""
-  onInput={(e) =>
-    this.setState({
-      options: this.state.options.map((option) =>
-        option.id === 3 ? { ...option, value: e.target.value } : option
-      ),
-    })
-  }
-/>
-<input
-  class="textt"
-  type="text"
-  name="options"
-  placeholder="Place 5"
-  required=""
-  onInput={(e) =>
-    this.setState({
-      options: this.state.options.map((option) =>
-        option.id === 4 ? { ...option, value: e.target.value } : option
-      ),
-    })
-  }
-/>
-
-
-
+                    <Map/>
                     <input class="btncdestination" type="submit" value="LAUNCH POLL"/>
 
 				</form>
@@ -273,7 +132,73 @@ class CreatePollD extends React.Component{
     
             </div>
 
-        )
-    }
+        );
+    
 }
-export default CreatePollD;
+function Map() {
+    const [selectedSpots, setSelectedSpots] = useState(Array(5).fill(null));
+  
+    const handleSelect = (index, spot) => {
+      const newSelectedSpots = [...selectedSpots];
+      newSelectedSpots[index] = spot;
+      setSelectedSpots(newSelectedSpots);
+    };
+  
+    return (
+      <>
+        {Array(5)
+          .fill()
+          .map((_, index) => (
+            <div key={index} className="places-container">
+              <PlacesAutocomplete
+                setSelected={(spot) => handleSelect(index, spot)}
+                value={selectedSpots[index]}
+              />
+            </div>
+          ))}
+      </>
+    );
+  }
+       
+const PlacesAutocomplete = ({ setSelected }) => {
+    const {
+      ready,
+      value,
+      setValue,
+      suggestions: { status, data },
+      clearSuggestions,
+    } = usePlacesAutocomplete();
+  
+    const handleSelect = async (address) => {
+      setValue(address, false);
+      clearSuggestions();
+  
+      const results = await getGeocode({ address });
+      const { lat, lng } = await getLatLng(results[0]);
+      setSelected({ lat, lng });
+    };
+  
+    return (
+      <Combobox onSelect={handleSelect}>
+        <ComboboxInput
+          value={value}
+          onChange={(e) => setValue(e.target.value)}
+          disabled={!ready}
+          className="combobox-dinput"
+          placeholder="Select a spot.."
+        />
+        <ComboboxPopover>
+          <ComboboxList>
+            {status === "OK" &&
+              data.map(({ place_id, description }) => (
+                <ComboboxOption key={place_id} value={description} />
+              ))}
+          </ComboboxList>
+        </ComboboxPopover>
+      </Combobox>
+      
+    );
+    
+  };
+
+  
