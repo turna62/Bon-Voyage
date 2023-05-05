@@ -84,8 +84,9 @@ import '../Home/HomeCss/styles.css';
     }
     const selectedOptionId = parseInt(selectedOption.value, 10);
     console.log(selectedOptionId);
-    const { pollId, userId, options: { count } } = this.state;
-    console.log(this.state.options.count);
+    const { pollId, userId, options} = this.state;
+ 
+    const count = options[0].count;
 
     fetch(`http://localhost:5000/vote`, {
       method: "POST",
@@ -106,15 +107,23 @@ import '../Home/HomeCss/styles.css';
     })
       .then((res) => res.json())
       .then((data) => {
-        if (data.status === "OK!") {
-          const poll = data.polls.find((p) => p._id === pollId);
+        // if (data.status === "OK!") {
+        //   const poll = data.polls.find((p) => p._id === pollId);
+        //   this.setState({
+        //     votes: poll.votes,
+        //     options: poll.options,
+        //   });
+        // } else {
+        //   alert("Error! Something went wrong!");
+        // }
+
+        if (data._id === pollId) {
           this.setState({
-            votes: poll.votes,
-            options: poll.options,
+            votes: data.votes,
+            options: data.options,
           });
-        } else {
-          alert("Error! Something went wrong!");
         }
+        
       })
       .catch((error) => {
         console.error(error);
