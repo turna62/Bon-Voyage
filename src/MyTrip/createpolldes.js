@@ -20,6 +20,9 @@ export default function CreatePollD() {
         googleMapsApiKey: "AIzaSyAz2_MkHBuMmmgsKwwVnp1tF-qOVm0B9Oo",
         libraries: ["places"],
       });
+
+      if (!isLoaded) return <div>Loading...</div>;   
+
         return(
             <div class="deetailplan">
 
@@ -48,7 +51,7 @@ export default function CreatePollD() {
 			<div class="agileitss-top">
             <h3 class="cpoll">Create Poll</h3><hr></hr>
             <h5 class="ccpoll">Add upto five places to create poll and vote to finalise destination.</h5>
-				<form onSubmit={(e) => this.handleSubmit(e, this.props.isTripOwner)}>
+				<form>
                    <h5 class="ccpll">Add up to 05 places:</h5>
 
                    {/* <input class="textt" type="text" name="option1" placeholder="Answer 1" required="" onInput={e => this.setState({options: { ...this.state.options, 0: e.target.value }})} />
@@ -149,7 +152,7 @@ function Map() {
         {Array(5)
           .fill()
           .map((_, index) => (
-            <div key={index} className="places-container">
+            <div key={index} className="placesF-container">
               <PlacesAutocomplete
                 setSelected={(spot) => handleSelect(index, spot)}
                 value={selectedSpots[index]}
