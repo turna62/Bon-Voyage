@@ -1,6 +1,3 @@
-
-
-
 import React, { useState, useEffect } from 'react';
 import './polls.css';
 import './mytrip.css';
@@ -196,8 +193,7 @@ render(){
     <div className="pollbodyy">
     
       <div className="wrapperr">
-        <header>Question:</header>
-        <p>{question}</p>
+        <header>Question: {question}</header>
         <div className="poll-area">
           {/* <ul>{pollOptions}</ul> */}
           <ul>
@@ -216,7 +212,7 @@ render(){
       </div>
     )
   ))}
-  <button style={{ backgroundColor: '#0d5358', color: 'white' }} type="submit">Vote</button>
+  <button class="pollbtn1" type="submit">Submit</button>
 </form>
 
 

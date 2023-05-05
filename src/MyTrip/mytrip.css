@@ -16,12 +16,12 @@
   
   align-items: center;
   justify-content: space-between;
-  padding: 10px;
-  
-  
-  margin-bottom: 10px;
+  padding: 15px;
+  margin-bottom: 0px;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
+  position: relative;
+  right: 20px;
 }
 
 .option-label:hover {
@@ -31,17 +31,20 @@
 
 .option-label input[type="radio"] {
   display: none;
-}
+  }
 
 .option-label input[type="radio"]:checked + label {
-  background-color: #0d5358;
-  color: #fff;
+  background-color: #69737471;
+  color: rgb(14, 44, 44);
+  
 }
 
 .option-label label:after {
   content: " (0 votes)";
-  color: #ccc;
-  font-size: 12px;
+  color: rgb(14, 44, 44);
+  font-size: 14px;
+  position: relative;
+  left: 190px;
 
 }
 
@@ -60,14 +63,29 @@
 	background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('camp.png') center center no-repeat;
 	background-size: cover;
 }
+.pollclick{
+  position: relative;
+  left: 800px;
+  font-family: sans-serif;
+  color: rgb(14, 44, 44);
+  bottom: 1000px;
+  font-size: 20px;
+}
 
+.quespoll{
+  position: relative;
+  left: 830px;
+  font-family: sans-serif;
+  color: rgb(14, 44, 44);
+  
+}
 .tripname{
     font-family:'Times New Roman', Times, serif;
     font-weight: 800;
     color: rgb(14, 44, 44);
     position: relative;
     top: 15px;
-    left: 510px;
+    left: 490px;
     
 }
 hr {
@@ -244,7 +262,7 @@ top: 200px;
             font-family: 'Times New Roman', Times, serif;
             position: relative;
             left: 350px;
-            top: 90px;
+            top: 30px;
             overflow-x: hidden;
         } 
         
