@@ -199,20 +199,21 @@ render(){
 
 
 
-          <form onSubmit= {this.handleSubmit}>
+          <form onSubmit={this.handleSubmit}>
   {options.map((option) => (
-    (option.value !== '') && (
+    option.value !== '' && (
       <div className="option-label" key={option.id}>
-        <input type="radio" name="count" value={option.id} id={option.id} onInput = {e=>this.setState({count:e.target.value})} />
+        <input type="radio" name="count" value={option.id} id={option.id} onInput={e => this.setState({ count: e.target.value })} />
         <label htmlFor={option.id}>
           {option.value}
-          {option.count ? <span className="vote-count">{option.count} votes</span> : null}
+          <div class="votedis">{option.count} votes</div>
         </label>
       </div>
     )
   ))}
   <button class="pollbtn1" type="submit">Submit</button>
 </form>
+
 
 
 
