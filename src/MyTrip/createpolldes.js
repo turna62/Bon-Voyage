@@ -15,15 +15,13 @@ import usePlacesAutocomplete, {
   } from "@reach/combobox";
   import "@reach/combobox/styles.css";  
 
-  export default function Destination() {
+export default function CreatePollD() {
     const { isLoaded } = useLoadScript({
         googleMapsApiKey: "AIzaSyAz2_MkHBuMmmgsKwwVnp1tF-qOVm0B9Oo",
         libraries: ["places"],
       });
-    
-      if (!isLoaded) return <div>Loading...</div>;   
 
-    
+      if (!isLoaded) return <div>Loading...</div>;   
 
         return(
             <div class="deetailplan">
@@ -48,61 +46,39 @@ import usePlacesAutocomplete, {
               </div>
          </nav>
 
-         <header id="header" class="headerr">
-                <div class="header-content">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="text-container">
-                                <h1></h1>
-                                    {/* <p class="p-heading p-large">The journey of a thousand miles begins with a single step.</p> */}
+    <div class="mainn-w3layouts wrapper">
+		<div class="mainn-agileinfo">
+			<div class="agileitss-top">
+            <h3 class="cpoll">Create Poll</h3><hr></hr>
+            <h5 class="ccpoll">Add upto five places to create poll and vote to finalise destination.</h5>
+				<form>
+                   <h5 class="ccpll">Add up to 05 places:</h5>
+
+                   {/* <input class="textt" type="text" name="option1" placeholder="Answer 1" required="" onInput={e => this.setState({options: { ...this.state.options, 0: e.target.value }})} />
+                  <input class="textt" type="text" name="option2" placeholder="Answer 2" required="" onInput={e => this.setState({options: { ...this.state.options, 1: e.target.value }})} />
+                   <input class="textt" type="text" name="option3" placeholder="Answer 3" required="" onInput={e => this.setState({options: { ...this.state.options, 2: e.target.value }})} />
+                     <input class="textt" type="text" name="option4" placeholder="Answer 4" required="" onInput={e => this.setState({options: { ...this.state.options, 3: e.target.value }})} />
+                      <input class="textt" type="text" name="option5" placeholder="Answer 5" required="" onInput={e => this.setState({options: { ...this.state.options, 4: e.target.value }})} /> */}
 
 
-                                </div>
-                            </div> 
-                        </div> 
-                    </div>
-                </div> 
-            </header> 
+                    {/* <a class="btncreatepoll" href="http://localhost:3000/launchpoll1">LAUNCH POLL</a> */}
 
+                    <Map/>
+                    <input class="btncdestination" type="submit" value="LAUNCH POLL"/>
 
-     <div>
+				</form>
 
-     <h4 class="tripname">trip name</h4><hr></hr>
-        <a class="btnaddmembers" href="http://localhost:3000/addmembers">+ Add Members</a>
-        <ul class="ul">
-        <li class="li"><a href="http://localhost:3000/overview">Overview</a></li>
-        <li class="li"><a href="http://localhost:3000/polls">Polls</a></li>
-        <li class="li"><a href="http://localhost:3000/date">Date</a></li>
-        <li class="ovwli"><a href="http://localhost:3000/destination">Destination</a></li>
-        <li class="li"><a href="http://localhost:3000/activities">Activities</a></li>
-        <li class="li"><a href="http://localhost:3000/route">Route</a></li>
-        <li class="li"><a href="http://localhost:3000/itinerary">Itinerary</a></li>
-     </ul>     </div>     
-     
-     <div class="phead">
-         <h3>Let's fix destination</h3>
-         <p>Search destinations and then select it by clicking on 'Select Destination' button.</p> 
-         < Map/>
+				<p><a href="http://localhost:3000/polls"><u>Back</u> </a></p>
+			</div>
+		</div>
     </div>
-    <div class="pollaunch">
-        <h1>  </h1>
-    <h3>Or Open voting</h3>
-         <p>Launch poll to decide destinations through voting.</p> 
-    </div>
-
-    {/* <a class="btndestination" href="http://localhost:3000/adddestination">Select Destination</a> */}
-    <div class="dbtnfix">
-    <input class="btndestination" type="submit" value="SELECT DESTINATION"/></div>
-
-    <a class="btnopnvote" href="http://localhost:3000/createpolldes">Open Voting</a>
 
          <div class="footer">
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
                     <div class="text-container about">
-                        <h4>Few Words About Bon Voyage!</h4>
+                        <h4>Few Words About Bon Vogage!</h4>
                         <p class="white">We are passionate about helping you to arrange your trip as best as we can.</p></div>
                 </div> 
                 <div class="col-md-2">
@@ -158,24 +134,35 @@ import usePlacesAutocomplete, {
     </div> 
     
             </div>
+
         );
-
-    }
-
-
-    function Map() {
-        const [setSelected] = useState(null);
-      
-        return (
-          <>
-            <div className="places-container">
-              <PlacesAutocomplete setSelected={setSelected} />
+    
+}
+function Map() {
+    const [selectedSpots, setSelectedSpots] = useState(Array(5).fill(null));
+  
+    const handleSelect = (index, spot) => {
+      const newSelectedSpots = [...selectedSpots];
+      newSelectedSpots[index] = spot;
+      setSelectedSpots(newSelectedSpots);
+    };
+  
+    return (
+      <>
+        {Array(5)
+          .fill()
+          .map((_, index) => (
+            <div key={index} className="placesF-container">
+              <PlacesAutocomplete
+                setSelected={(spot) => handleSelect(index, spot)}
+                value={selectedSpots[index]}
+              />
             </div>
-      
-           </>
-        );
-      }
-      
+          ))}
+      </>
+    );
+  }
+       
 const PlacesAutocomplete = ({ setSelected }) => {
     const {
       ready,
@@ -200,7 +187,7 @@ const PlacesAutocomplete = ({ setSelected }) => {
           value={value}
           onChange={(e) => setValue(e.target.value)}
           disabled={!ready}
-          className="combobox-sinput"
+          className="combobox-dinput"
           placeholder="Select a spot.."
         />
         <ComboboxPopover>
@@ -212,5 +199,9 @@ const PlacesAutocomplete = ({ setSelected }) => {
           </ComboboxList>
         </ComboboxPopover>
       </Combobox>
+      
     );
+    
   };
+
+  

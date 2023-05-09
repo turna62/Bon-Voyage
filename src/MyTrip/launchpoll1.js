@@ -1,6 +1,3 @@
-
-
-
 import React, { useState, useEffect } from 'react';
 import './polls.css';
 import './mytrip.css';
@@ -185,7 +182,6 @@ render(){
         <li class="ovwli"><a href="http://localhost:3000/polls">Polls</a></li>
         <li class="li"><a href="http://localhost:3000/date">Date</a></li>
         <li class="li"><a href="http://localhost:3000/destination">Destination</a></li>
-        <li class="li"><a href="http://localhost:3000/activities">Activities</a></li>
         <li class="li"><a href="http://localhost:3000/route">Route</a></li>
         <li class="li"><a href="http://localhost:3000/itinerary">Itinerary</a></li>
      </ul>
@@ -196,28 +192,28 @@ render(){
     <div className="pollbodyy">
     
       <div className="wrapperr">
-        <header>Question:</header>
-        <p>{question}</p>
+        <header>Question: {question}</header>
         <div className="poll-area">
           {/* <ul>{pollOptions}</ul> */}
           <ul>
 
 
 
-          <form onSubmit= {this.handleSubmit}>
+          <form onSubmit={this.handleSubmit}>
   {options.map((option) => (
-    (option.value !== '') && (
+    option.value !== '' && (
       <div className="option-label" key={option.id}>
-        <input type="radio" name="count" value={option.id} id={option.id} onInput = {e=>this.setState({count:e.target.value})} />
+        <input type="radio" name="count" value={option.id} id={option.id} onInput={e => this.setState({ count: e.target.value })} />
         <label htmlFor={option.id}>
           {option.value}
-          {option.count ? <span className="vote-count">{option.count} votes</span> : null}
+          <div class="votedis">{option.count} votes</div>
         </label>
       </div>
     )
   ))}
-  <button style={{ backgroundColor: '#0d5358', color: 'white' }} type="submit">Vote</button>
+  <button class="pollbtn1" type="submit">Submit</button>
 </form>
+
 
 
 

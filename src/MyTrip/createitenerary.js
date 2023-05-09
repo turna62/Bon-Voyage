@@ -119,17 +119,9 @@ import usePlacesAutocomplete, {
       <h3>Day 2</h3>
       <p>Spot:<Map/></p>
       <p>Activities: 
-      <label class="checkbox-inline">
-      <input type="checkbox" value=""/>Option 1
-    </label>
-    <label class="checkbox-inline">
-      <input type="checkbox" value=""/>Option 2
-    </label>
-    <label class="checkbox-inline">
-      <input type="checkbox" value=""/>Option 3
-    </label>
+      
    </p>
-    </div>
+    </div> 
   </div>
   
   <div class="irow">

@@ -12,7 +12,7 @@
 
 }
 
-.tm-search-form .tm-form-element { padding: 0 10px; }
+.tm-search-form .tm-form-element { padding: 0 5px; }
 .tm-form-element { position: relative; }
 .tm-form-element:last-child { margin-right: 0; }
 
@@ -61,7 +61,11 @@ select.tm-select::-ms-expand { display: none; }
 
 .tm-search-form .form-control {
 	font-size: 0.8rem;	
-	padding: 0.75rem 0.85rem 0.85rem 45px;
+	padding: 0.75rem 0.85rem 0.85rem 35px;
+	height: 30px;
+	position: relative;
+	top: 35px;
+	left: 150px;
 }
 
 .tm-search-form .tm-form-element { width: 33.3333%; ; }

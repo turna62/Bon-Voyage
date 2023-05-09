@@ -99,7 +99,7 @@ class TripSection extends React.Component {
       <h2 class="thead">My Trips  <h5 class="thead1">To see the details of the trips, click on the trip name.</h5> </h2>
 
       <div class="trips">
-
+<div class="tcreated">
         <h4>Created Trips:</h4><hr class="hr1"></hr>
         <ul className="mytrip1">
   {myTrips.filter(trip => !trip.deleted).reverse().map((trip, index) => {
@@ -113,9 +113,10 @@ class TripSection extends React.Component {
     );
   })}
 </ul>
+</div>
 
 
-       
+   <div class="tjoined">    
   
         <h4>Joined Trips:</h4>
         <hr class="hr1"></hr>
@@ -130,7 +131,7 @@ class TripSection extends React.Component {
       </li>
     );
   })}
-</ul>
+</ul></div>
 
         </div>
 
