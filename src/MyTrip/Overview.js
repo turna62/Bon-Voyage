@@ -12,7 +12,10 @@ class Overview extends React.Component{
           tripId: null,
           tripData:"",
           userData:"",
+          notifsData:[],
+          
         };
+        this.updateAllIsRead = this.updateAllIsRead.bind(this)
       }
     
       componentDidMount() {
@@ -25,8 +28,29 @@ class Overview extends React.Component{
         this.setState({ userId: userId });
         this.setState({ tripId: tripId });
         
-        
+    //     fetch(`http://localhost:5000/notifications`)
+    //   .then(response => response.json())
+    //   .then(data => this.setState({ notifications: data }))
+    //   .catch(error => console.error(error));
 
+    
+  
+    fetch("http://localhost:5000/notifications",{
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          tripId: tripId,
+        }),
+      })
+      .then((res) => res.json()) // convert data into JSON
+      .then((data) => {
+        console.log(data, "notifsData");
+        this.setState({notifsData: data});
+      });
+      
 
         fetch("http://localhost:5000/tripData",{
             method: "POST",
@@ -80,6 +104,33 @@ class Overview extends React.Component{
 
       }
     
+
+      updateAllIsRead = () => {
+        const unreadNotifs = this.state.notifsData.filter((notif) => !notif.isRead);
+        const unreadNotifIds = unreadNotifs.map((notif) => notif._id);
+      
+        fetch('http://localhost:5000/notifications/read', {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+          },
+          body: JSON.stringify({ ids: unreadNotifIds }),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            // Update the notifsData state to mark all notifications as read
+            const updatedNotifsData = this.state.notifsData.map((notif) => ({
+              ...notif,
+              isRead: true,
+            }));
+            this.setState({ notifsData: updatedNotifsData });
+          })
+          .catch((error) => console.error(error));
+      };
+      
+          
+      
     render(){
 
         return(
@@ -89,10 +140,42 @@ class Overview extends React.Component{
                 <h3 class="logo">Bon VOYAGE!</h3>
                 <div class="collapse navbar-collapse" id="navbarsExampleDefault">
                     <ul class="navbar-nav ml-auto">
+                       
+                
                         <li class="nav-item">
+                        
+
+                        <a class="nav-link page-scroll">
+  <button onClick={this.updateAllIsRead}>
+    <span class="notif-icon">
+      <i class="fas fa-bell"></i>
+      {this.state.notifsData.filter(notif => !notif.isRead).length > 0 && (
+        <span class="notif-count">
+          {this.state.notifsData.filter(notif => !notif.isRead).length}
+        </span>
+      )}
+    </span>
+  </button>
+</a>
+<div class="notifications-container">
+  <ul>
+    {this.state.notifsData.map((notif, index) => (
+      <li key={index}>
+        <p>{notif.message}</p>
+        <p>{notif.createdAt}</p>
+      </li>
+    ))}
+  </ul>
+</div>
+ 
+  
+  
+</li>
+ <li class="nav-item">
                             <a class="nav-link page-scroll" href="http://localhost:3000">HOME <span class="sr-only">(current)</span></a>
                         </li>
-                        <li class="nav-item">
+
+                       <li class="nav-item">
                             <a class="nav-link page-scroll" href="#intro">LOG OUT</a>
                         </li>
                         <li class="nav-item">
@@ -104,6 +187,13 @@ class Overview extends React.Component{
 
               </div>
          </nav>
+
+
+       
+    
+    
+
+         
 
          <header id="header" class="headerr">
                 <div class="header-content">

@@ -50,6 +50,83 @@
 }
 
 
+.nav-link:hover + .notifications-container {
+  display: block;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 17px;
+  margin-top: 1rem;
+  animation: fadeIn 0.3s ease-in-out;
+  
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.notifications-container {
+  position: absolute;
+  top: 100%;
+  right: 100px;
+  background-color: rgb(21, 40, 44);
+  border: 1px solid #ccc;
+  z-index: 999;
+  padding: 10px;
+  display: none;
+  max-height: 300px;
+  overflow-y: auto;
+  text-align: center;
+  align-items: center; /* align text vertically */
+  justify-content: center; 
+  width: 258px;
+
+}
+
+.notifications-container ul {
+  text-align: center;
+}
+
+
+.notif-icon{
+  margin-left: 5.7rem; 
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-top: -10px;
+  
+  /* margin-top: 8.9rem; */
+}
+
+.notif-count {
+  position: absolute;
+  top: -5px;
+  right: -20px;
+  font-size: 12px;
+  font-weight: bold;
+  color: white;
+  background-color: rgb(21, 40, 44);
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-link button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 0;
+}
+
 .detailplan{
     overflow-x: hidden;
 }
