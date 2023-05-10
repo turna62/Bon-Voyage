@@ -90,8 +90,21 @@ class TripInvitation extends React.Component {
 
   render() {
     return (
+      
       <div class="bannerbody">
         
+        
+        <nav class="navbar navbar-expand-md navbar-dark navbar-custom fixed-top">
+    <h3 class="logo">Bon VOYAGE!</h3>
+
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+            <ul class="navbar-nav ml-auto">
+              
+             
+                
+            </ul>
+                    </div>
+    </nav>
 
         <div>
           <div class="banner">
