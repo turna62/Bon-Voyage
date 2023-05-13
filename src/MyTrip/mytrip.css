@@ -13,8 +13,7 @@
 }
 
 .option-label {
-  
-  align-items: center;
+   align-items: center;
   justify-content: space-between;
   padding: 5px;
   margin-bottom: 0px;
@@ -29,14 +28,18 @@
   background-color: #f5f5f59c;
   border-color: #ad9898;
 }
+.option-label label{
+  border: 2px solid rgb(14, 44, 44);
 
+}
 .option-label input[type="radio"] {
-  display: none;
+  border: 2px solid rgb(14, 44, 44);
   }
 
 .option-label input[type="radio"]:checked + label {
   background-color: #69737471;
   color: rgb(14, 44, 44);
+  border: 2px solid rgb(14, 44, 44);
   
 }
 
@@ -1483,6 +1486,16 @@ border: solid 3px rgba(14, 44, 44, 0.805);
   top: 15px;
   color: white;
   background: linear-gradient(rgba(14, 128, 123, 0.325), rgba(11, 120, 113, 0.414)), url(hill7.jpg) center center no-repeat;
+  background-size: cover;  
+  height: 100vh;  
+  overflow: hidden;
+}
+
+.desbody{
+  position: relative;
+  top: 15px;
+  color: white;
+  background: linear-gradient(rgba(14, 128, 123, 0.325), rgba(11, 120, 113, 0.414)), url(hill6.jpg) center center no-repeat;
   background-size: cover;  
   height: 100vh;  
   overflow: hidden;

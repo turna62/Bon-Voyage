@@ -78,7 +78,8 @@ import usePlacesAutocomplete, {
         <li class="li"><a href="http://localhost:3000/itinerary">Itinerary</a></li>
      </ul>     </div>     
      
-     <div class="phead">
+     <div class="desbody">
+     <div class="phead"> 
          <h3>Let's fix destination</h3>
          <p>Search destinations and then select it by clicking on 'Select' button.</p> 
          < Map/>
@@ -154,7 +155,7 @@ import usePlacesAutocomplete, {
             </div>
         </div> 
     </div> 
-    
+    </div>
             </div>
         );
 

@@ -134,7 +134,7 @@ class Date extends React.Component{
      </ul>
 
      </div>   
-     
+     <div class="datebody">
      <div class="pheaddate">
          <h3>Let's fix date</h3>
          <p>Set a starting and an ending date of your trip.</p> 
@@ -210,7 +210,7 @@ class Date extends React.Component{
             </div>
         </div> 
     </div> 
-    
+    </div>
             </div>
         )
 
