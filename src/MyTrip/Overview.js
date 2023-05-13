@@ -107,8 +107,17 @@ class Overview extends React.Component{
     
 
       updateAllIsRead = () => {
+         const params = new URLSearchParams(window.location.search);
+        const userId = params.get('userId');
+        const tripId = params.get('tripId');
+        
+        console.log(userId); 
+        console.log(tripId);
+        this.setState({ userId: userId });
+        this.setState({ tripId: tripId });
         const unreadNotifs = this.state.notifsData.filter((notif) => !notif.isRead);
         const unreadNotifIds = unreadNotifs.map((notif) => notif._id);
+
       
         fetch('http://localhost:5000/notifications/read', {
           method: 'PUT',
@@ -116,7 +125,7 @@ class Overview extends React.Component{
             'Content-Type': 'application/json',
             Accept: 'application/json',
           },
-          body: JSON.stringify({ ids: unreadNotifIds }),
+          body: JSON.stringify({ userId:userId, tripId:tripId }),
         })
           .then((res) => res.json())
           .then((data) => {
