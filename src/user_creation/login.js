@@ -63,7 +63,7 @@ export default function LogIn(props) {
             <h1>Log In</h1>
             <form onSubmit={handleSubmit}>
               <input
-                class="text email"
+                class="text inputmail"
                 type="email"
                 name="email"
                 placeholder="Email" 
@@ -71,7 +71,7 @@ export default function LogIn(props) {
                 onInput={(e) => setEmail(e.target.value)}
               />
               <input
-                class="text"
+                class="text inputp"
                 type="password"
                 name="password"
                 placeholder="Password"
@@ -80,7 +80,7 @@ export default function LogIn(props) {
                 onInput={(e) => setPassword(e.target.value)}
               />
               <i class="bi bi-eye-slash" id="togglePassword"></i>
-              <input type="submit" value="LOGIN" />
+              <input class="inputsubmit" type="submit" value="LOGIN" />
             </form>
             <p>
               Don't have an account? Sign Up{' '}

@@ -53,9 +53,9 @@ export default class SignUp extends Component {
             <h1>Forgot Password</h1>
 				<form onSubmit = {this.handleSubmit}>
 					
-					<input class="text email" type="email" name="email" placeholder="Email" required="" onInput = {e=>this.setState({email:e.target.value})}/>
+					<input class="text inputmail" type="email" name="email" placeholder="Email" required="" onInput = {e=>this.setState({email:e.target.value})}/>
 					
-					<input type="submit" value="Submit"/>
+					<input class="inputsubmit" type="submit" value="Submit"/>
 				</form>
 				{/* <p>Or Log In <a href="http://localhost:3000/sign-in"><u>Here </u> </a></p> */}
 			</div>
