@@ -125,7 +125,7 @@ import usePlacesAutocomplete, {
   </div>
 
   <div class="irow">
-    <div class="icard">
+    <div class="iicard">
       <h3>Day 1</h3>
       <p>Spot:<Map/></p>
       <p>Activities: </p>
@@ -153,7 +153,7 @@ import usePlacesAutocomplete, {
   </div>
 
   <div class="irow">
-    <div class="icard">
+    <div class="iicard">
       <h3>Day 1</h3>
       <p>Spot:<Map/></p>
       <p>Activities: </p>

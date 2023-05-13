@@ -32,7 +32,7 @@ import Places from "./MyTrip/routes";
 import TripSection from "./MyTrip/TripSection";
 import MyItinerary from "./MyTrip/myItinerary";
 import CreateItenerary from "./MyTrip/createitenerary";
-
+import MyItinerary1 from "./MyTrip/myItinerary1";
 
 function App() {
   // const isLoggedIn = window.localStorage.getItem("loggedIn");
@@ -72,6 +72,7 @@ function App() {
         <Route path = "/tripsection" element = {<TripSection/>}/>  
         <Route path = "/myitinerary" element = {<MyItinerary/>}/>  
         <Route path = "/createitenerary" element = {<CreateItenerary/>}/>  
+        <Route path = "/myitinerary1" element = {<MyItinerary1/>}/>  
 
       </Routes>
     </Router>
