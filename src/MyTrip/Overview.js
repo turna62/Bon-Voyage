@@ -15,7 +15,7 @@ class Overview extends React.Component{
           notifsData:[],
           
         };
-        this.updateAllIsRead = this.updateAllIsRead.bind(this)
+        this.updateAllIsRead = this.updateAllIsRead.bind(this);
       }
     
       componentDidMount() {
