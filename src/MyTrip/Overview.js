@@ -43,6 +43,7 @@ class Overview extends React.Component{
         },
         body: JSON.stringify({
           tripId: tripId,
+          userId: userId
         }),
       })
       .then((res) => res.json()) // convert data into JSON
