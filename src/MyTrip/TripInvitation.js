@@ -23,17 +23,7 @@ class TripInvitation extends React.Component {
   handleAccSubmit = (e) => {
     e.preventDefault();
 
-    fetch("http://localhost:5000/tripinvitation/accept", {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json",
-    Accept: "application/json",
-  },
-  body: JSON.stringify({
-    userId: this.state.userId,
-    tripId: this.state.tripId,
-  }),
-})
+   
 // .then((res) =>   res.json()) 
  
 //   alert("HOISE");
@@ -46,7 +36,7 @@ class TripInvitation extends React.Component {
 //   alert("An error occurred while accepting the trip invitation.");
 // });
 // };handleAccSubmit = (e) => {
-  e.preventDefault();
+  
 
   fetch("http://localhost:5000/tripinvitation/accept", {
     method: "POST",
@@ -100,8 +90,21 @@ class TripInvitation extends React.Component {
 
   render() {
     return (
+      
       <div class="bannerbody">
         
+        
+        <nav class="navbar navbar-expand-md navbar-dark navbar-custom fixed-top">
+    <h3 class="logo">Bon VOYAGE!</h3>
+
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+            <ul class="navbar-nav ml-auto">
+              
+             
+                
+            </ul>
+                    </div>
+    </nav>
 
         <div>
           <div class="banner">
