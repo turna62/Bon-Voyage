@@ -50,9 +50,9 @@ export default function CreatePollD() {
 		<div class="mainn-agileinfo">
 			<div class="agileitss-top">
             <h3 class="cpoll">Create Poll</h3><hr></hr>
-            <h5 class="ccpoll">Add upto five places to create poll and vote to finalise destination.</h5>
+            <h5 class="ccpoll1">Add upto five places to create poll and vote to finalise destination.</h5>
 				<form>
-                   <h5 class="ccpll">Add up to 05 places:</h5>
+                   <h5 class="ccpll1">Add up to 05 places:</h5>
 
                    {/* <input class="textt" type="text" name="option1" placeholder="Answer 1" required="" onInput={e => this.setState({options: { ...this.state.options, 0: e.target.value }})} />
                   <input class="textt" type="text" name="option2" placeholder="Answer 2" required="" onInput={e => this.setState({options: { ...this.state.options, 1: e.target.value }})} />
@@ -68,7 +68,7 @@ export default function CreatePollD() {
 
 				</form>
 
-				<p><a href="http://localhost:3000/polls"><u>Back</u> </a></p>
+				<p class="back"><a href="http://localhost:3000/polls"><u>Back</u> </a></p>
 			</div>
 		</div>
     </div>

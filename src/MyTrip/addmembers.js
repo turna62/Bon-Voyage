@@ -91,7 +91,7 @@ class AddMembers extends React.Component{
 					<input class="textt" type="text" name="email" placeholder="Add email" required=""  onInput = {e=>this.setState({email:e.target.value})}  title="Please enter the email addresses of users who have verified accounts on our site!"/>
 
                     {/* <a class="savedesbtn" >ADD</a> */}
-<input type="submit" value="Add"/> 
+<input class="inputsubmitt" type="submit" value="Add"/> 
 				</form>
 			</div>
 		</div>

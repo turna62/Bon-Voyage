@@ -135,22 +135,18 @@ class Date extends React.Component{
 
      </div>   
      
-     <div class="phead">
+     <div class="pheaddate">
          <h3>Let's fix date</h3>
          <p>Set a starting and an ending date of your trip.</p> 
     </div>
 
-
-                               <div class="form-group tmm-form-element tm-form-element-50">
+ 
                                 <p class="date">Starting date:</p>
                                             <i class="fa fa-calendar fa-2x tmm-form-element-icon"></i>
                                             <input name="check-in" type="date" class="form-controll" id="inputCheckIn" placeholder="Start date"/>
-                              </div>
-                                <div class="form-group tmmm-form-element tm-form-element-50">
                                 <p class="date">Ending date:</p>
-                                            <i class="fa fa-calendar fa-2x tmm-form-element-icon"></i>
-                                            <input name="check-out" type="date" class="form-controll" id="inputCheckOut" placeholder="End date"/>
-                                </div>
+                                            <i class="fa fa-calendar fa-2x tm-form-element-icon"></i>
+                                            <input name="check-out" type="date" class="form-controlll" id="inputCheckOut" placeholder="End date"/>
 
                                 <a class="btndate" href="">Set Date</a>
 

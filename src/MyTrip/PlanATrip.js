@@ -24,60 +24,50 @@ import React from 'react';
       }
         
 
-            handleSubmit(e){
-                e.preventDefault();
-                const { tripName, destination, startDate, endDate, members } = this.state;
-                const userId = localStorage.getItem("userId");
-                console.log(tripName, destination, startDate, endDate, members, userId);
-                fetch("http://localhost:5000/insert", {
-                  method: "POST",
-                  crossDomain: true,
-                  headers: {
-                    "Content-Type": "application/json",
-                    Accept: "application/json",
-                    "Access-Control-Allow-Origin": "*",
-                    authorization: localStorage.getItem("userId") 
-                  },
-                  body: JSON.stringify({
-                    tripName,
-                    destination,
-                    startDate,
-                    endDate,
-                    members,
-                    userId
-                  }),
-                })
-                  .then((res) => res.json())
-                  .then((data) => {
-                    console.log(data, "userSubmit");
-                    if (data.status === "OK!") {
-                        window.localStorage.setItem('tripId', data.tripId);
-                      window.location.href = `./overview?userId=${userId}&tripId=${data.tripId}`;
-                    } else {
-                      alert(`went wrong: ${data.status}`);
-                    }
-                  })
-                  .catch((error) => {
-                    console.error(error);
-                    alert("Error! Something went wrong while calling the API.");
-                  });
-              }
+      handleSubmit(e){
+        e.preventDefault();
+        const { tripName, destination, startDate, endDate, members } = this.state;
+        const userId = localStorage.getItem("userId");
+        console.log(tripName, destination, startDate, endDate, members, userId);
+        fetch("http://localhost:5000/insert", {
+            method: "POST",
+            crossDomain: true,
+            headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json",
+                "Access-Control-Allow-Origin": "*",
+                authorization: localStorage.getItem("userId") 
+            },
+            body: JSON.stringify({
+                tripName,
+                destination,
+                startDate,
+                endDate,
+                members,
+                userId
+            }),
+        })
+        .then((res) => res.json())
+        .then((data) => {
+            console.log(data, "userSubmit");
+            if (data.status === "OK!") {
+                window.localStorage.setItem('tripId', data.tripId);
+                window.location.href = `./overview?userId=${userId}&tripId=${data.tripId}`;
+            } else {
+                alert(`went wrong: ${data.status}`);
+            }
+        })
+        .catch((error) => {
+            console.error(error);
+            alert("Error! Something went wrong while calling the API.");
+        });
+    }
+    
     render(){
 
         return(
              <div class="planbody">
     
-    
-	{/* <div class="spinner-wrapper">
-        <div class="spinner">
-            <div class="bounce1"></div>
-            <div class="bounce2"></div>
-            <div class="bounce3"></div>
-        </div>
-    </div> */}
-  
-
-   
     <nav class="navbar navbar-expand-md navbar-dark navbar-custom fixed-top">
     <h3 class="logo">Bon VOYAGE!</h3>
 
@@ -94,7 +84,7 @@ import React from 'react';
                     </div>
     </nav>
    
-    
+                
     <header id="header" class="headerp">
         <div class="header-content">
             <div class="container">
@@ -114,36 +104,11 @@ import React from 'react';
                         <div class="row">
                             <div class="col-xs-12 ml-auto mr-auto ie-container-width-fix">
                                 <form onSubmit = {this.handleSubmit}  class="tm-search-form tm-section-pad-2" >
-                                    <div class="form-row tm-search-form-row">
-
-                                      <div class="form-group tm-form-element tm-form-element-100">
-                                            <input name="tripName" type="text" class="form-control" id="inputCity" placeholder="Trip Name" onInput = {e=>this.setState({tripName:e.target.value})}/>
-                                        </div>
-                                        {/* <div class="form-group tm-form-element tm-form-element-50">
-                                            <i class="fa fa-calendar fa-1x tm-form-element-iconn"></i>
-                                            <input name="startDate" type="date" class="form-control" id="inputCheckIn" placeholder="Start date" onInput = {e=>this.setState({startDate:e.target.value})}/>
-                                        </div>
-                                        <div class="form-group tm-form-element tm-form-element-50">
-                                            <i class="fa fa-calendar fa-1x tm-form-element-iconn"></i>
-                                            <input name="endDate" type="date" class="form-control" id="inputCheckOut" placeholder="End date" onInput = {e=>this.setState({endDate:e.target.value})}/>
-                                        </div>
-                                    </div>
-                                    <div class="form-row tm-search-form-row">
-                                        <div class="form-group tm-form-element tm-form-element-100">
-                                        <i class="fa fa-map-marker fa-1x tm-form-element-icon"></i>
-                                            <input name="destination" type="text" class="form-control" id="inputCity" placeholder="Type your destination (if decided)" onInput = {e=>this.setState({destination:e.target.value})}/>
-                                        </div>
+                                            <input name="tripName" type="text" class=" tripinput" id="inputCity" placeholder="Trip Name" onInput = {e=>this.setState({tripName:e.target.value})}/>
                                         
-
-                                        <div class="form-group tm-form-element tm-form-element-100">
-                                            <input name="members" type="text" class="form-control" id="inputCity" placeholder="Total members (if decided)" onInput = {e=>this.setState({tripName:e.target.value})}/>
-                                        </div>
-
-                                                       */}
                             <input class="btn-solid-lllg" type="submit" value="CONTINUE"/>
                                         
                                         
-                                      </div>
                                       <img class="imgage" src="/travelingc.png" alt=""/>
 
 
@@ -157,7 +122,7 @@ import React from 'react';
                     </div> 
                 </div> 
             </div> 
-
+                
         </div>
     </header> 
       
@@ -193,7 +158,7 @@ import React from 'react';
                 </div> 
         </div> 
     </div>  
- 
+    
 </div>
 
         )

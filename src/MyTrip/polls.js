@@ -191,7 +191,7 @@ const {myPolls} = this.state;
         </div>
       ))}
     </div>
-
+ 
 
 
 <a class="btn-solid-lg page-scroll" href={`http://localhost:3000/createpoll?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}`}>Create Poll</a>

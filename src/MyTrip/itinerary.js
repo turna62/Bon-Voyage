@@ -184,7 +184,7 @@ class Itinerary extends React.Component{
     <h3>Itinerary</h3>
 <p>Build an itinerary to start organizing your destinations, stays, and activities by day.</p> 
 
-</div> <a class="btn-solid-lg page-scroll" href={`http://localhost:3000/createitenerary`}>Create Itinerary</a>
+</div> <a class="btn-solid-lg1 page-scroll" href={`http://localhost:3000/createitenerary`}>Create Itinerary</a>
 
 
 {/* <form onSubmit = {this.handleSubmit}>
