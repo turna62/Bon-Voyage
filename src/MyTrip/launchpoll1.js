@@ -203,7 +203,7 @@ render(){
   {options.map((option) => (
     option.value !== '' && (
       <div className="option-label" key={option.id}>
-        <input type="radio" name="count" value={option.id} id={option.id} onInput={e => this.setState({ count: e.target.value })} />
+        <input type="radio" class="voteinput" name="count" value={option.id} id={option.id} onInput={e => this.setState({ count: e.target.value })} />
         <label htmlFor={option.id}>
           {option.value}
           <div class="votedis">{option.count} votes</div>
@@ -213,7 +213,7 @@ render(){
   ))}
   <button class="pollbtn1" type="submit">Submit</button>
 </form>
-
+ 
 
 
 

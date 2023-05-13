@@ -178,13 +178,16 @@ class Itinerary extends React.Component{
         <li class="ovwli"> <a href={`http://localhost:3000/itinerary?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}`}>Itinerary</a></li>
      </ul>
 
-     </div>          
+     </div>     
+
+          <div class="itfix">
+     
 
      <div class="phead">
     <h3>Itinerary</h3>
 <p>Build an itinerary to start organizing your destinations, stays, and activities by day.</p> 
 
-</div> <a class="btn-solid-lg page-scroll" href={`http://localhost:3000/createitenerary`}>Create Itinerary</a>
+</div> <a class="btn-solid-lg1 page-scroll" href={`http://localhost:3000/createitenerary`}>Create Itinerary</a>
 
 
 {/* <form onSubmit = {this.handleSubmit}>
@@ -195,66 +198,8 @@ class Itinerary extends React.Component{
 </form> */}
                 
 
-         <div class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="text-container about">
-                        <h4>Few Words About Bon Vogage!</h4>
-                        <p class="white">We are passionate about helping you to arrange your trip as best as we can.</p></div>
-                </div> 
-                <div class="col-md-2">
-                    <div class="text-container">
-                        <h4>Links</h4>
-                        <ul class="list-unstyled li-space-lg white">
-                            <li>
-                                <a class="white" href="#your-link">startupguide.com</a>
-                            </li>
-                            <li>
-                                <a class="white" href="terms-conditions.html">Terms & Conditions</a>
-                            </li>
-                            <li>
-                                <a class="white" href="privacy-policy.html">Privacy Policy</a>
-                            </li>
-                        </ul>
-                    </div> 
-                </div> 
-                <div class="col-md-2">
-                    <div class="text-container">
-                        <h4>Tools</h4>
-                        <ul class="list-unstyled li-space-lg">
-                            <li>
-                                <a class="white" href="#your-link">businessgrowth.com</a>
-                            </li>
-                            <li>
-                               <a class="white" href="#your-link">influencers.com</a>
-                            </li>
-                            <li class="media">
-                                <a class="white" href="#your-link">optimizer.net</a>
-                            </li>
-                        </ul>
-                    </div> 
-                </div> 
-                <div class="col-md-2">
-                    <div class="text-container">
-                        <h4>Partners</h4>
-                        <ul class="list-unstyled li-space-lg">
-                            <li>
-                                <a class="white" href="#your-link">unicorns.com</a>
-                            </li>
-                            <li>
-                                <a class="white" href="#your-link">staffmanager.com</a>
-                            </li>
-                            <li>
-                                <a class="white" href="#your-link">association.gov</a>
-                            </li>
-                        </ul>
-                    </div> 
-                </div> 
-            </div>
-        </div> 
-    </div> 
-    
+         
+    </div>
             </div>
         )
 

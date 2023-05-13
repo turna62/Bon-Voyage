@@ -13,8 +13,7 @@
 }
 
 .option-label {
-  
-  align-items: center;
+   align-items: center;
   justify-content: space-between;
   padding: 5px;
   margin-bottom: 0px;
@@ -29,14 +28,18 @@
   background-color: #f5f5f59c;
   border-color: #ad9898;
 }
+.option-label label{
+  border: 2px solid rgb(14, 44, 44);
 
+}
 .option-label input[type="radio"] {
-  display: none;
+  border: 2px solid rgb(14, 44, 44);
   }
 
 .option-label input[type="radio"]:checked + label {
   background-color: #69737471;
   color: rgb(14, 44, 44);
+  border: 2px solid rgb(14, 44, 44);
   
 }
 
@@ -100,7 +103,20 @@
 .notifications-container ul {
   text-align: center;
 }
-
+.tmm-form-element-icon{
+  color: rgb(14, 44, 44);
+  font-size: 20px;
+  position: relative;
+  left: 95px;
+  top: 30px;
+}
+.tm-form-element-icon{
+  color: rgb(14, 44, 44);
+  font-size: 20px;
+  position: relative;
+  left: 95px;
+  top: 10px;
+}
 
 .notif-icon{
   margin-left: 5.7rem; 
@@ -195,11 +211,6 @@ hr {
 .headerr .p-large {
 	margin-bottom: 2rem;
 	color: #dfe5ec;
-}
-
-.headerr .btn-solid-lg {
-	margin-right: 0.5rem;
-	margin-bottom: 1.25rem;
 }
 
 .detailplan .footer{
@@ -333,6 +344,20 @@ top: 200px;
           right: 20px;
           }
 
+          .pheaddate{
+            color: rgb(14, 44, 44);
+            font-family: sans-serif;
+            position: relative;
+            top: 40px;
+            left: 150px;
+        }
+
+        .pheaddate p{
+          color: rgb(14, 44, 44);
+          font-family: sans-serif;
+          position: relative;
+          }
+
         .btn-solid-lg {
             display: inline-block;
             padding: 1.375rem 2.125rem 1.375rem 2.125rem;
@@ -347,7 +372,7 @@ top: 200px;
             position: relative;
             left: 350px;
             overflow-x: hidden;
-            bottom: 600px;
+            top: 20px;
         } 
         
         .btn-solid-lg:hover {
@@ -359,6 +384,32 @@ top: 200px;
             margin-right: 0.5rem;
             margin-bottom: 1.25rem;
         }        
+        .btn-solid-lg1 {
+          display: inline-block;
+          padding: 1.375rem 2.125rem 1.375rem 2.125rem;
+          border-radius: 0.25rem;
+          background-color: rgb(14, 44, 44);
+          color: #fff;
+          font: 700 0.75rem/0 "Montserrat", sans-serif;
+          text-decoration: none;
+          transition: all 0.2s;
+          font-size: 18px;
+          font-family: 'Times New Roman', Times, serif;
+          position: relative;
+          left: 350px; 
+          overflow-x: hidden;
+          top: 80px;
+      } 
+      
+      .btn-solid-lg1:hover {
+          background-color: rgb(14, 44, 44);
+          color: #fff;
+          text-decoration: none;
+      }
+      .btn-solid-lg1 {
+          margin-right: 0.5rem;
+          margin-bottom: 1.25rem;
+      }        
 
         .headerp {
             background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('./camp.png') center center no-repeat;
@@ -414,25 +465,27 @@ top: 200px;
       }
         .btn-solid-lllg {
             display: inline-block;
-            padding: 1.5rem 2.125rem 1.5rem 2.125rem;
+            padding: 1rem 2.125rem 1rem 2.125rem;
             border-radius: 0.25rem;
             background-color: rgb(14, 44, 44);
             color: #fff;
-            font: 700 0.75rem/0 "Montserrat", sans-serif;
+            font: 550 0.75rem/0 "Montserrat", sans-serif;
             text-decoration: none;
             transition: all 0.2s;
             font-size: 18px;
             font-family: 'Times New Roman', Times, serif;
             position: relative;
-            left: 10px;
-            top: 3px;
+            left: 160px;
+            bottom: 10px;
+            border: 3px rgb(14, 44, 44);
             overflow-x: hidden;
         }
         
         .btn-solid-lllg:hover {
-            background-color: rgb(14, 44, 44);
+            background-color: rgb(17, 57, 57);
             color: #fff;
             text-decoration: none;
+            border: 3px rgb(14, 44, 44);
         }
         .btn-solid-lllg {
             margin-right: 0.5rem;
@@ -565,20 +618,6 @@ top: 200px;
             color: #fff;
           }
           
-          /* input[type="submit"] {
-            font-size: .9em;
-            color: #fff;
-            background: rgb(14, 44, 44);
-            outline: none;
-            border: 1px solid rgb(14, 44, 44);
-            cursor: pointer;
-            padding: 0.9em;
-            width: 100%;
-            margin: 2em 0;
-            letter-spacing: 4px;
-          }
-           */
-          
           .agileitss-top p {
             font-size: 1em;
             color: #070707;
@@ -596,23 +635,20 @@ top: 200px;
             transition: .5s all;
             font-weight: 400;
           }
-          
-.tmm-form-element {
- position: relative;
-left: 150px;
-top: 70px; }
-
-.tmm-form-element-icon {
-	color: rgb(14, 44, 44);
-	position: relative;
-	top: 5px;
-  right: 10px ;
-}
-.tmmm-form-element {
-  position: relative;
- left: 400px;
- bottom: 20px; }
- 
+ .tripinput{
+  font-size: 1.1em;
+    color: #2f2b2b;
+    font-weight: 100;
+    width: 35%;
+    display: block;
+    border: solid 1px rgba(128, 128, 128, 0.702);
+    font-family: 'Roboto', sans-serif;
+    height: 5.5vh;
+    position: relative;
+    top: 25px;
+    margin: 3px 3px;
+    left: 200px;
+ }
 
 .mytriph{
   position: relative;
@@ -622,22 +658,6 @@ top: 70px; }
   position: relative;
   top: 100px;
 }
-/* 
-input[type="submit"] {
-  font-size: 1em;
-  color: #fff;
-  background: rgb(14, 44, 44);
-  outline: none;
-  border: 1px solid rgb(14, 44, 44);
-  cursor: pointer;
-  padding: 0.9em;
-  width: 30%;
-  margin: 2em 0;
-  letter-spacing: 1px;
-  position: relative;
-  left: 140px;
-  top: 20px;
-} */
 .triphr{
   position: relative;
   top: 30px;
@@ -659,8 +679,8 @@ input[type="submit"] {
   font-size: 15px;
   font-family: 'Times New Roman', Times, serif;
   position: relative;
-  left: 610px;
-  top: 5px;
+  left: 270px;
+  top: 20px;
   overflow-x: hidden;
 }
 
@@ -672,11 +692,13 @@ input[type="submit"] {
 
 .date{
   position: relative;
-  top: 10px;
-  right: 5px;
-  background: white;
+  top: 70px;
+  background-color: white;
+  left: 120px;
 }
-
+.fa-calendar{
+  color: rgb(14, 44, 44);
+}
 .tmm-form-element-2{
   position: relative;
   left: 200px;
@@ -722,7 +744,7 @@ input[type="submit"] {
 }
 .btndestination {
   display: inline-block;
-  padding: 1.175rem 1.125rem 1.175rem 1.125rem;
+  padding: 1.175rem .7rem 1.175rem .7rem;
   border-radius: 0.25rem;
   background-color: rgb(14, 44, 44);
   color: #fff;
@@ -732,11 +754,44 @@ input[type="submit"] {
   font-size: 15px;
   font-family: 'Times New Roman', Times, serif;
   position: relative;
-  bottom: 120px;
   overflow-x: hidden;
+  top: 50px;
+  left: 300px;
+  border: 3px solid rgb(14, 44, 44);
 }
 
 .btndestination:hover {
+  background-color: rgb(22, 55, 55);
+  color: #fff;
+  text-decoration: none;
+}
+.headerr .btncdestination {
+	margin-right: 0.5rem;
+	margin-bottom: 1.25rem;
+}
+.btncdestination {
+  display: inline-block;
+  padding: 1.175rem .7rem 1.175rem .7rem;
+  border-radius: 0.25rem;
+  background-color: rgb(14, 44, 44);
+  color: #fff;
+  font: 700 0.75rem/0 "Montserrat", sans-serif;
+  text-decoration: none;
+  transition: all 0.2s;
+  font-size: 15px;
+  font-family: 'Times New Roman', Times, serif;
+  position: relative;
+  overflow-x: hidden;
+  top: 50px;
+  left: 130px;
+  border: 3px solid rgb(14, 44, 44);
+}
+.back{
+  position: relative;
+  left: 80px;
+  top: 20px;
+}
+.btncdestination:hover {
   background-color: rgb(22, 55, 55);
   color: #fff;
   text-decoration: none;
@@ -832,7 +887,7 @@ input[type="submit"] {
   font-family: 'Times New Roman', Times, serif;
   position: relative;
   left: 880px;
-  bottom: 260px;
+  bottom: 200px;
   overflow-x: hidden;
 
 }
@@ -961,16 +1016,18 @@ input[type="submit"] {
   top: 400px;
   right: 200px;
 }
-
 .aclabel {
 	display: flex;
 	cursor: pointer;
-	font-weight: 500;
+	font-weight: 400;
 	position: relative;
 	overflow: hidden;
 	margin-bottom: 0.375em;
   position: relative;
-  top: 20px;
+  display: inline-block;
+  margin-right: 5px;
+  left: 80px;
+  bottom: 33px;
 }
 
 .aclabel:focus-within {
@@ -980,6 +1037,7 @@ input[type="submit"] {
 .accinput {
 	position: absolute;
 	left: -9999px;
+  color: rgb(14, 44, 44);
 }
 
 .accinput:checked + .activitiespan {
@@ -996,7 +1054,7 @@ input[type="submit"] {
 	padding: 0.375em 0.75em 0.375em 0.375em;
 	border-radius: 99em;
 	transition: 0.25s ease;
-  color: white
+  color: rgb(14, 44, 44)
 }
 
 .activitiespan:hover {
@@ -1171,19 +1229,15 @@ input[type="submit"] {
   color: rgb(14, 44, 44);
   font-family: 'Times New Roman', Times, serif;
  }
- /* Float four columns side by side */
-.icolumn {
-  float: left;
-  width: 55%;
-  padding: 0 10px;
-}
-
-/* Remove extra left and right margins, due to padding */
+ 
 .icolumn {
   margin: 0 -5px;
   position: relative;
   top: 140px;
-  right: 670px;
+  right: 640px;
+  float: left;
+  width: 65%;
+  height: 20vh;
 }
 
 /* Style the counter cards */
@@ -1196,7 +1250,7 @@ input[type="submit"] {
 
 .ibody{
     display: flex;
-    background: linear-gradient(rgba(0, 0, 0, 0.116), rgba(0, 0, 0, 0.137)), url(hill3.jpg) center center no-repeat;
+    background: linear-gradient(rgba(48, 182, 219, 0.226), rgba(14, 189, 212, 0.281)), url(hill3.jpg) center center no-repeat;
     background-size: cover;  
     height: 140vh;  
     position: relative;
@@ -1280,7 +1334,7 @@ font-size: 19px;
 }
 .ccpoll{
   position: relative;
-  top: 30px;
+  top: 10px;
 }
 .ccpolll{
   position: relative;
@@ -1290,11 +1344,47 @@ font-size: 19px;
   position: relative;
   top: 20px;
 }
-
-.ccpll{
+.ccpoll1{
   position: relative;
-  top: 40px;
 }
+
+.ccpll1{
+  position: relative;
+  top: 20px;
+}
+.form-controll{
+  position: relative;
+  left: 210px;
+  top: 30px;
+}
+.form-controlll{
+  position: relative;
+  left: 210px;
+  top: 8px;
+}
+
+.inputsubmitt {
+  font-size: .9em;
+  color: #fff;
+  background: rgb(14, 44, 44);
+  outline: none;
+  border: 1px solid rgb(14, 44, 44);
+  cursor: pointer;
+  width: 100%;
+  letter-spacing: 4px;
+  height: 45px;
+  position: relative;
+  top: 7px;
+}
+.inputsubmitt:hover {
+  -webkit-transition: .5s all;
+  -moz-transition: .5s all;
+  -o-transition: .5s all;
+  -ms-transition: .5s all;
+  transition: .5s all;
+  background: rgb(21, 66, 66);
+}
+
 
 .combobox-dinput{
   position: relative;
@@ -1353,7 +1443,10 @@ border: solid 3px rgba(14, 44, 44, 0.805);
   margin-right: 0.5rem;
 	margin-bottom: 1.25rem;
 }
-
+.back1{
+  position: relative;
+  top: 20px;
+}
 .redbtn:hover {
   background-color: rgb(22, 45, 68);
   color: #fff;
@@ -1386,4 +1479,48 @@ border: solid 3px rgba(14, 44, 44, 0.805);
   position: relative;
   top: 120px;
   right: 110px;
+}
+.itfix{
+  position: relative;
+  top: 15px;
+  color: white;
+  background: linear-gradient(rgba(14, 128, 123, 0.325), rgba(11, 120, 113, 0.414)), url(hill7.jpg) center center no-repeat;
+  background-size: cover;  
+  height: 100vh;  
+  overflow: hidden;
+}
+
+.desbody{
+  position: relative;
+  top: 15px;
+  color: white;
+  background: linear-gradient(rgba(14, 128, 122, 0.178), rgba(11, 120, 113, 0.209)), url(hill4.jpg) center center no-repeat;
+  background-size: cover;  
+  height: 100vh;  
+  overflow: hidden;
+}
+.footerbody{
+  display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(rgba(0, 0, 0, 0.116), rgba(0, 0, 0, 0.137)), url(hill32.jpg) center center no-repeat;
+    background-size: cover;  
+    height: 100vh;  
+    overflow: hidden;
+}
+
+.accinputt {
+  width: 80%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  position: relative;
+  left: 10px;
+}
+.descripfix{
+  position: relative;
+  bottom: 60px;
 }

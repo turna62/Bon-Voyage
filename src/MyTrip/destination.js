@@ -10,7 +10,7 @@ import usePlacesAutocomplete, {
     Combobox,
     ComboboxInput,
     ComboboxPopover,
-    ComboboxList,
+    ComboboxList, 
     ComboboxOption,
   } from "@reach/combobox";
   import "@reach/combobox/styles.css";  
@@ -55,7 +55,6 @@ import usePlacesAutocomplete, {
                             <div class="col-lg-12">
                                 <div class="text-container">
                                 <h1></h1>
-                                    {/* <p class="p-heading p-large">The journey of a thousand miles begins with a single step.</p> */}
 
 
                                 </div>
@@ -75,14 +74,14 @@ import usePlacesAutocomplete, {
         <li class="li"><a href="http://localhost:3000/polls">Polls</a></li>
         <li class="li"><a href="http://localhost:3000/date">Date</a></li>
         <li class="ovwli"><a href="http://localhost:3000/destination">Destination</a></li>
-        <li class="li"><a href="http://localhost:3000/activities">Activities</a></li>
         <li class="li"><a href="http://localhost:3000/route">Route</a></li>
         <li class="li"><a href="http://localhost:3000/itinerary">Itinerary</a></li>
      </ul>     </div>     
      
-     <div class="phead">
+     <div class="desbody">
+     <div class="phead"> 
          <h3>Let's fix destination</h3>
-         <p>Search destinations and then select it by clicking on 'Select Destination' button.</p> 
+         <p>Search destinations and then select it by clicking on 'Select' button.</p> 
          < Map/>
     </div>
     <div class="pollaunch">
@@ -93,7 +92,7 @@ import usePlacesAutocomplete, {
 
     {/* <a class="btndestination" href="http://localhost:3000/adddestination">Select Destination</a> */}
     <div class="dbtnfix">
-    <input class="btndestination" type="submit" value="SELECT DESTINATION"/></div>
+    <input class="btndestination" type="submit" value="SELECT"/></div>
 
     <a class="btnopnvote" href="http://localhost:3000/createpolldes">Open Voting</a>
 
@@ -156,7 +155,7 @@ import usePlacesAutocomplete, {
             </div>
         </div> 
     </div> 
-    
+    </div>
             </div>
         );
 

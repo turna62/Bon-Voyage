@@ -95,5 +95,5 @@ handleDownload = () => {
     );
   }
 }
-
+ 
 export default MyItinerary;

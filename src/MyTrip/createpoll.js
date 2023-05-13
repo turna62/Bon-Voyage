@@ -205,11 +205,11 @@ class CreatePoll extends React.Component{
 
 
 
-                    <input class="btncdestination" type="submit" value="LAUNCH POLL"/>
+                    <input class="inputsubmitt" type="submit" value="LAUNCH POLL"/>
 
 				</form>
 
-				<p><a href="http://localhost:3000/polls"><u>Back</u> </a></p>
+				<p class="back1"><a href="http://localhost:3000/polls"><u>Back</u> </a></p>
 			</div>
 		</div>
     </div>
