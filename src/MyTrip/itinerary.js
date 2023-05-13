@@ -178,7 +178,10 @@ class Itinerary extends React.Component{
         <li class="ovwli"> <a href={`http://localhost:3000/itinerary?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}`}>Itinerary</a></li>
      </ul>
 
-     </div>          
+     </div>     
+
+          <div class="itfix">
+     
 
      <div class="phead">
     <h3>Itinerary</h3>
@@ -254,7 +257,7 @@ class Itinerary extends React.Component{
             </div>
         </div> 
     </div> 
-    
+    </div>
             </div>
         )
 

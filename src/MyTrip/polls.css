@@ -265,3 +265,12 @@ input[type="checkbox"] {
     margin-right: 0.5rem;
     margin-bottom: 1.25rem;
 }        
+.pollfix1{
+    position: relative;
+    top: 15px;
+    color: white;
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(hill.jpg) center center no-repeat;
+    background-size: cover;  
+    height: 100vh;  
+    overflow: hidden;
+}

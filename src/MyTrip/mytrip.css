@@ -369,7 +369,7 @@ top: 200px;
             position: relative;
             left: 350px;
             overflow-x: hidden;
-            top: 35px;
+            top: 20px;
         } 
         
         .btn-solid-lg:hover {
@@ -393,7 +393,7 @@ top: 200px;
           font-size: 18px;
           font-family: 'Times New Roman', Times, serif;
           position: relative;
-          left: 350px;
+          left: 350px; 
           overflow-x: hidden;
           top: 80px;
       } 
@@ -1477,4 +1477,13 @@ border: solid 3px rgba(14, 44, 44, 0.805);
   position: relative;
   top: 120px;
   right: 110px;
+}
+.itfix{
+  position: relative;
+  top: 15px;
+  color: white;
+  background: linear-gradient(rgba(14, 128, 123, 0.325), rgba(11, 120, 113, 0.414)), url(hill7.jpg) center center no-repeat;
+  background-size: cover;  
+  height: 100vh;  
+  overflow: hidden;
 }
