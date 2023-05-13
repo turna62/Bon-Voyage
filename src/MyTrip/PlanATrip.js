@@ -52,7 +52,7 @@ import React from 'react';
                     console.log(data, "userSubmit");
                     if (data.status === "OK!") {
                         window.localStorage.setItem('tripId', data.tripId);
-                      window.location.href = `./detailtripplan?userId=${userId}&tripId=${data.tripId}`;
+                      window.location.href = `./overview?userId=${userId}&tripId=${data.tripId}`;
                     } else {
                       alert(`went wrong: ${data.status}`);
                     }
