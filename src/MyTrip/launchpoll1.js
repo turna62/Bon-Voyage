@@ -13,6 +13,7 @@ import '../Home/HomeCss/styles.css';
       question: "",
       options: [  {count: 0}],
       userId: null,
+      tripId:null
   
       //votes: [],
     };
@@ -29,6 +30,11 @@ import '../Home/HomeCss/styles.css';
         console.log(userId); 
        
         this.setState({ userId: userId });
+        const tripId = params.get('tripId');
+      
+        console.log(tripId); 
+       
+        this.setState({ tripId: tripId });
         
     const pollId = params.get('pollId');
     console.log(pollId);
@@ -81,7 +87,7 @@ import '../Home/HomeCss/styles.css';
     }
     const selectedOptionId = parseInt(selectedOption.value, 10);
     console.log(selectedOptionId);
-    const { pollId, userId, options} = this.state;
+    const { pollId, userId, options, tripId} = this.state;
  
     const count = options[0].count;
 
@@ -96,6 +102,7 @@ import '../Home/HomeCss/styles.css';
       body: JSON.stringify({
         pollId: pollId,
         optionId: selectedOptionId,
+        tripId:tripId,
         userId: userId, 
         options: {
           count: count
