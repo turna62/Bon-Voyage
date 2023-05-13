@@ -61,9 +61,7 @@ html, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, 
   a {
     text-decoration: none;
   }
-  a:hover{
-    text-decoration: none;
-  }
+  
   .txt-rt {
     text-align: right;
   }
@@ -205,6 +203,7 @@ html, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, 
     font-weight: 100;
     width: 100%;
     display: block;
+    border-radius: 5px;
     padding: 0.8em;
     border: solid 1px rgba(128, 128, 128, 0.702);
     font-family: 'Roboto', sans-serif;
@@ -265,7 +264,6 @@ html, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, 
     cursor: pointer;
     width: 100%;
     letter-spacing: 4px;
-    
   }
   
   input[type="submit"]:hover {
@@ -304,15 +302,20 @@ html, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, 
   
 
 .card {
-    width: 300px;
+    width: 350px;
     background-color: #efefef;
     border: none;
     cursor: pointer;
     transition: all 0.5s;
-    border-radius: 0px;
-    border: solid 2px rgb(14, 44, 44);
 }
 
+.image img {
+    transition: all 0.5s
+}
+
+.card:hover .image img {
+    transform: scale(1.5)
+}
 
 .btn {
     height: 140px;
@@ -334,51 +337,84 @@ html, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, 
     font-size: 12px
 }
 
+.number {
+    font-size: 22px;
+    font-weight: bold
+}
+
+.follow {
+    font-size: 12px;
+    font-weight: 500;
+    color: #444444
+}
+
+.btn1 {
+    height: 40px;
+    width: 150px;
+    border: none;
+    background-color: rgb(14, 44, 44);
+    color: #aeaeae;
+    font-size: 15px
+}
+
+.text span {
+    font-size: 13px;
+    color: #545454;
+    font-weight: 500
+}
+
+.icons i {
+    font-size: 19px
+}
 
 hr .new1 {
     border: 1px solid
 }
 
+.join {
+    font-size: 14px;
+    color: #a0a0a0;
+    font-weight: bold
+}
+
+.date {
+    background-color: #ccc
+}
   
 .containerr{
   position: relative;
   top: 200px;
-  height: 65vh;
-  
+}
+
+.footerp {
+	padding-top: 5rem;
+	background-color: rgb(14, 44, 44);
+	position: relative;
+	top: 250px;
+}
+
+.footerp .text-container {
+	margin-bottom: 2.25rem;
+}
+
+.footerp h4 {
+	margin-bottom: 0.75rem;
+	color: #fff;
+}
+
+.footerp p,
+.footerp ul {
+	font-size: 0.875rem;
+	line-height: 1.375rem;
 }
 
 .profilebody {
   overflow: hidden;
   height: 100%;
   background-color: rgb(14, 44, 44);
-  background: linear-gradient(rgba(14, 44, 44, 0.469), rgba(14, 44, 44, 0.411)), url(camp.png) center center no-repeat;
-  background-size: cover;  
-  height: 100vh; 
+  background-image: linear-gradient(rgb(14,44,44), white);
 }
 .eyeicon2 i{
   position: relative;
   bottom: 400px;
-}
-
-.btn1 {
-  display: inline-block;
-  padding: 1.175rem 1.125rem 1.175rem 1.125rem;
-  border-radius: 0.25rem;
-  color: white;
-  font: 700 0.75rem/0 "Montserrat", sans-serif;
-  text-decoration: none;
-  transition: all 0.2s;
-  font-size: 15px;
-  font-family: 'Times New Roman', Times, serif;
-  position: relative;
-  letter-spacing: 1px;
-  left:0px;
-  border: solid 2px rgb(14, 44, 44);
-  margin-right: 0.5rem;
-	margin-bottom: 1.25rem;
-  top: 10px;
-}
-.btn1:hover{
-  text-decoration: none;
-  color: rgb(14, 44, 44);
 }
