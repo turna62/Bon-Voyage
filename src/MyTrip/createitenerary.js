@@ -86,7 +86,7 @@ import usePlacesAutocomplete, {
     <h3>Itinerary</h3>
 <p>Add your preffered activities, location and build your suitable itinerary.</p> 
 
-</div> 
+</div>  
 <div class="pheadd1">
     <h3>Preview Itinerary:</h3>
 <p>Click on the 'View' button to see your itinerary.</p> 
@@ -99,100 +99,94 @@ import usePlacesAutocomplete, {
   <div class="irow">
     <div class="icard">
       <h3>Day 1</h3>
-      <p>Spot:<Map/>
-</p>
-      <p>Activities: <p>
+      <p>Spot:<Map/></p>
+      <p>Activities: </p>
+      <label class="aclabel">
 			<input class="accinput" type="checkbox" name="checkbox4"/>
-			<span class="activitiespan">Cycling</span>
+			<span class="activitiespan">Paragliding</span>
+      </label>
+      <label class="aclabel">
 			<input class="accinput" type="checkbox" name="checkbox4"/>
-			<span class="activitiespan">Cycling</span>
+			<span class="activitiespan">Hiking</span></label>
+      <label class="aclabel">
 			<input class="accinput" type="checkbox" name="checkbox4"/>
-			<span class="activitiespan">Cycling</span></p>
-		
-        </p>
+			<span class="activitiespan">Boating</span></label>
+      <label class="aclabel">
+			<input class="accinput" type="checkbox" name="checkbox4"/>
+			<span class="activitiespan">Cycling</span></label>
+      <label class="aclabel">
+			<input class="accinput" type="checkbox" name="checkbox4"/>
+			<span class="activitiespan">Horse Riding</span></label>
+      <label class="aclabel">
+			<input class="accinput" type="checkbox" name="checkbox4"/>
+			<span class="activitiespan">Wildlife Safari</span></label>
+      <p class="descripfix">Description: <input class="accinputt" type="text" id="fname" name="description" placeholder="Description.."/></p>
     </div>
   </div>
 
   <div class="irow">
     <div class="icard">
-      <h3>Day 2</h3>
+      <h3>Day 1</h3>
       <p>Spot:<Map/></p>
-      <p>Activities: 
-      
-   </p>
-    </div> 
+      <p>Activities: </p>
+      <label class="aclabel">
+			<input class="accinput" type="checkbox" name="checkbox4"/>
+			<span class="activitiespan">Paragliding</span>
+      </label>
+      <label class="aclabel">
+			<input class="accinput" type="checkbox" name="checkbox4"/>
+			<span class="activitiespan">Hiking</span></label>
+      <label class="aclabel">
+			<input class="accinput" type="checkbox" name="checkbox4"/>
+			<span class="activitiespan">Boating</span></label>
+      <label class="aclabel">
+			<input class="accinput" type="checkbox" name="checkbox4"/>
+			<span class="activitiespan">Cycling</span></label>
+      <label class="aclabel">
+			<input class="accinput" type="checkbox" name="checkbox4"/>
+			<span class="activitiespan">Horse Riding</span></label>
+      <label class="aclabel">
+			<input class="accinput" type="checkbox" name="checkbox4"/>
+			<span class="activitiespan">Wildlife Safari</span></label>
+      <p class="descripfix">Description: <input class="accinputt" type="text" id="fname" name="description" placeholder="Description.."/></p>
+    </div>
   </div>
+
+  <div class="irow">
+    <div class="icard">
+      <h3>Day 1</h3>
+      <p>Spot:<Map/></p>
+      <p>Activities: </p>
+      <label class="aclabel">
+			<input class="accinput" type="checkbox" name="checkbox4"/>
+			<span class="activitiespan">Paragliding</span>
+      </label>
+      <label class="aclabel">
+			<input class="accinput" type="checkbox" name="checkbox4"/>
+			<span class="activitiespan">Hiking</span></label>
+      <label class="aclabel">
+			<input class="accinput" type="checkbox" name="checkbox4"/>
+			<span class="activitiespan">Boating</span></label>
+      <label class="aclabel">
+			<input class="accinput" type="checkbox" name="checkbox4"/>
+			<span class="activitiespan">Cycling</span></label>
+      <label class="aclabel">
+			<input class="accinput" type="checkbox" name="checkbox4"/>
+			<span class="activitiespan">Horse Riding</span></label>
+      <label class="aclabel">
+			<input class="accinput" type="checkbox" name="checkbox4"/>
+			<span class="activitiespan">Wildlife Safari</span></label>
+      <p class="descripfix">Description: <input class="accinputt" type="text" id="fname" name="description" placeholder="Description.."/></p>
+    </div>
+  </div>
+
   
-  <div class="irow">
-    <div class="icard">
-      <h3>Day 3</h3>
-      <p>Spot:<Map/></p>
-      <p>Activities:</p>
-    </div>
-  </div>
-
 </div>
 
 </div>
 
-<div class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="text-container about">
-                        <h4>Few Words About Bon Vogage!</h4>
-                        <p class="white">We are passionate about helping you to arrange your trip as best as we can.</p></div>
-                </div> 
-                <div class="col-md-2">
-                    <div class="text-container">
-                        <h4>Links</h4>
-                        <ul class="list-unstyled li-space-lg white">
-                            <li>
-                                <a class="white" href="#your-link">startupguide.com</a>
-                            </li>
-                            <li>
-                                <a class="white" href="terms-conditions.html">Terms & Conditions</a>
-                            </li>
-                            <li>
-                                <a class="white" href="privacy-policy.html">Privacy Policy</a>
-                            </li>
-                        </ul>
-                    </div> 
-                </div> 
-                <div class="col-md-2">
-                    <div class="text-container">
-                        <h4>Tools</h4>
-                        <ul class="list-unstyled li-space-lg">
-                            <li>
-                                <a class="white" href="#your-link">businessgrowth.com</a>
-                            </li>
-                            <li>
-                               <a class="white" href="#your-link">influencers.com</a>
-                            </li>
-                            <li class="media">
-                                <a class="white" href="#your-link">optimizer.net</a>
-                            </li>
-                        </ul>
-                    </div> 
-                </div> 
-                <div class="col-md-2">
-                    <div class="text-container">
-                        <h4>Partners</h4>
-                        <ul class="list-unstyled li-space-lg">
-                            <li>
-                                <a class="white" href="#your-link">unicorns.com</a>
-                            </li>
-                            <li>
-                                <a class="white" href="#your-link">staffmanager.com</a>
-                            </li>
-                            <li>
-                                <a class="white" href="#your-link">association.gov</a>
-                            </li>
-                        </ul>
-                    </div> 
-                </div> 
-            </div>
-        </div> 
+<div class="footerbody">
+         
     </div> 
     
      

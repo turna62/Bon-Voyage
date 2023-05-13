@@ -1016,16 +1016,18 @@ top: 200px;
   top: 400px;
   right: 200px;
 }
-
 .aclabel {
 	display: flex;
 	cursor: pointer;
-	font-weight: 500;
+	font-weight: 400;
 	position: relative;
 	overflow: hidden;
 	margin-bottom: 0.375em;
   position: relative;
-  top: 20px;
+  display: inline-block;
+  margin-right: 5px;
+  left: 80px;
+  bottom: 33px;
 }
 
 .aclabel:focus-within {
@@ -1035,6 +1037,7 @@ top: 200px;
 .accinput {
 	position: absolute;
 	left: -9999px;
+  color: rgb(14, 44, 44);
 }
 
 .accinput:checked + .activitiespan {
@@ -1051,7 +1054,7 @@ top: 200px;
 	padding: 0.375em 0.75em 0.375em 0.375em;
 	border-radius: 99em;
 	transition: 0.25s ease;
-  color: white
+  color: rgb(14, 44, 44)
 }
 
 .activitiespan:hover {
@@ -1226,19 +1229,15 @@ top: 200px;
   color: rgb(14, 44, 44);
   font-family: 'Times New Roman', Times, serif;
  }
- /* Float four columns side by side */
-.icolumn {
-  float: left;
-  width: 55%;
-  padding: 0 10px;
-}
-
-/* Remove extra left and right margins, due to padding */
+ 
 .icolumn {
   margin: 0 -5px;
   position: relative;
   top: 140px;
-  right: 670px;
+  right: 640px;
+  float: left;
+  width: 65%;
+  height: 20vh;
 }
 
 /* Style the counter cards */
@@ -1251,7 +1250,7 @@ top: 200px;
 
 .ibody{
     display: flex;
-    background: linear-gradient(rgba(0, 0, 0, 0.116), rgba(0, 0, 0, 0.137)), url(hill3.jpg) center center no-repeat;
+    background: linear-gradient(rgba(48, 182, 219, 0.226), rgba(14, 189, 212, 0.281)), url(hill3.jpg) center center no-repeat;
     background-size: cover;  
     height: 140vh;  
     position: relative;
@@ -1495,8 +1494,33 @@ border: solid 3px rgba(14, 44, 44, 0.805);
   position: relative;
   top: 15px;
   color: white;
-  background: linear-gradient(rgba(14, 128, 123, 0.325), rgba(11, 120, 113, 0.414)), url(hill6.jpg) center center no-repeat;
+  background: linear-gradient(rgba(14, 128, 122, 0.178), rgba(11, 120, 113, 0.209)), url(hill4.jpg) center center no-repeat;
   background-size: cover;  
   height: 100vh;  
   overflow: hidden;
+}
+.footerbody{
+  display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(rgba(0, 0, 0, 0.116), rgba(0, 0, 0, 0.137)), url(hill32.jpg) center center no-repeat;
+    background-size: cover;  
+    height: 100vh;  
+    overflow: hidden;
+}
+
+.accinputt {
+  width: 80%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  position: relative;
+  left: 10px;
+}
+.descripfix{
+  position: relative;
+  bottom: 60px;
 }
