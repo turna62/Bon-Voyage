@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import './style.css';
-import GoogleAutocomplete from 'react-google-autocomplete';
 
 function Places() {
   
