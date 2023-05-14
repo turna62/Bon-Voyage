@@ -211,7 +211,7 @@ const {myPolls} = this.state;
                             <a class="nav-link page-scroll" href="#intro">LOG OUT</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link page-scroll" href="http://localhost:3000/myprofile">MY PROFILE</a>
+                            <a class="nav-link page-scroll" href={`http://localhost:3000/myprofile?userId=${encodeURIComponent(this.state.userId)}`} >MY PROFILE</a>
                         </li>
                        
                         

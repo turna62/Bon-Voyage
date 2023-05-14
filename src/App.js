@@ -48,7 +48,7 @@ function App() {
         <Route path="/sign-in" element={<LogIn />} />
         <Route path="/planatrip" element={<TripPlan userId={userId} />} />
         <Route path="/mytrip" element={<MyTrip />} />
-        <Route path="/myprofile" element={<UserProfile userId={userId} />} />
+        <Route path="/myprofile" element={<UserProfile  />} />
         <Route path="/reset" element={<Reset />} />
         <Route path="/detailtripplan" element={<DetailTripPlan />} />
         <Route path="/overview"  element={<Overview userId={userId} tripId={tripId} />} />
