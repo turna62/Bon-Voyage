@@ -29,6 +29,7 @@ import DemoPoll from "./DemoPoll";
 import LaunchPoll1 from "./MyTrip/launchpoll1";
 import TripInvitation from "./MyTrip/TripInvitation";
 import Places from "./MyTrip/routes";
+import Places1 from "./MyTrip/routes";
 import TripSection from "./MyTrip/TripSection";
 import MyItinerary from "./MyTrip/myItinerary";
 import CreateItenerary from "./MyTrip/createitenerary";
@@ -72,7 +73,8 @@ function App() {
         <Route path = "/tripsection" element = {<TripSection/>}/>  
         <Route path = "/myitinerary" element = {<MyItinerary/>}/>  
         <Route path = "/createitenerary" element = {<CreateItenerary/>}/>  
-        <Route path = "/myitinerary1" element = {<MyItinerary1/>}/>  
+        <Route path = "/myitinerary1" element = {<MyItinerary1/>}/>
+        <Route path = "/route1" element = {<Places1/>}/>   
 
       </Routes>
     </Router>
