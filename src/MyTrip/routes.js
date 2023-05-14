@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
+import './style.css';
+import GoogleAutocomplete from 'react-google-autocomplete';
 
 function Places() {
+  
   const [from, setFrom] = useState("");
   const [to, setTo] = useState("");
   const [map, setMap] = useState(null);
@@ -8,6 +11,9 @@ function Places() {
   const [directionsService, setDirectionsService] = useState(null);
   const [output, setOutput] = useState("");
 
+  const handlePlaceSelect = (place) => {
+    console.log(place);
+  };
   const handleFromChange = (event) => {
     setFrom(event.target.value);
   };
@@ -129,23 +135,29 @@ function Places() {
     <div>
       <div className="input-group mb-3">
         <input
-          id="from"
+      apiKey="AIzaSyAz2_MkHBuMmmgsKwwVnp1tF-qOVm0B9Oo"
+      onPlaceSelected={handlePlaceSelect}
+      types={['(regions)']}
+      id="from"
           type="text"
           className="form-control"
           placeholder="Enter origin"
           onChange={handleFromChange}
           value={from}
-        />
+    />
       </div>
       <div className="input-group mb-3">
         <input
-          id="to"
-          type="text"
-          className="form-control"
-          placeholder="Enter destination"
-          onChange={handleToChange}
-          value={to}
-        />
+      apiKey="AIzaSyAz2_MkHBuMmmgsKwwVnp1tF-qOVm0B9Oo"
+      onPlaceSelected={handlePlaceSelect}
+      types={['(regions)']}
+      id="to"
+      type="text"
+      className="form-control"
+      placeholder="Enter destination"
+      onChange={handleToChange}
+      value={to}
+    />
       </div>
       <button
         className="btn btn-primary"
