@@ -1,133 +1,166 @@
-import React, { useState, useRef } from "react";
-import {
-  GoogleMap,
-  useJsApiLoader,
-  Marker,
-  Autocomplete,
-  DirectionsService,
-  DirectionsRenderer,
-} from "@react-google-maps/api";
-
-const center = { lat: 48.8584, lng: 2.2945 };
+import React, { useState, useEffect } from "react";
 
 function Places() {
+  const [from, setFrom] = useState("");
+  const [to, setTo] = useState("");
   const [map, setMap] = useState(null);
-  const [directionsResponse, setDirectionsResponse] = useState(null);
-  const [distance, setDistance] = useState("");
-  const [duration, setDuration] = useState("");
+  const [directionsDisplay, setDirectionsDisplay] = useState(null);
+  const [directionsService, setDirectionsService] = useState(null);
+  const [output, setOutput] = useState("");
 
-  const originRef = useRef();
-  const destinationRef = useRef();
+  const handleFromChange = (event) => {
+    setFrom(event.target.value);
+  };
 
-  const { isLoaded } = useJsApiLoader({
-    googleMapsApiKey: "AIzaSyAz2_MkHBuMmmgsKwwVnp1tF-qOVm0B9Oo",
-    libraries: ["places"],
-  });
+  const handleToChange = (event) => {
+    setTo(event.target.value);
+  };
 
-  function calculateRoute() {
-    if (
-      originRef.current.value === "" ||
-      destinationRef.current.value === ""
-    ) {
-      return;
-    }
-    const directionsService = new DirectionsService();
-    directionsService.route(
-      {
-        origin: originRef.current.value,
-        destination: destinationRef.current.value,
-        travelMode: "DRIVING",
-      },
-      (results, status) => {
-        if (status === "OK") {
-          setDirectionsResponse(results);
-          setDistance(results.routes[0].legs[0].distance.text);
-          setDuration(results.routes[0].legs[0].duration.text);
-        } else {
-          console.error(`error fetching directions ${status}`);
-        }
+  const handleCalcRoute = () => {
+    if (!directionsService || !directionsDisplay) return;
+    //create request
+    const request = {
+      origin: from,
+      destination: to,
+      travelMode: window.google.maps.TravelMode.DRIVING, //WALKING, BYCYCLING, TRANSIT
+      unitSystem: window.google.maps.UnitSystem.IMPERIAL,
+    };
+
+    //pass the request to the route method
+    directionsService.route(request, function (result, status) {
+      if (status === window.google.maps.DirectionsStatus.OK) {
+        //Get distance and time
+        setOutput(
+          "<div class='alert-info'>From: " +
+            from +
+            ".<br />To: " +
+            to +
+            ".<br /> Driving distance <i class='fas fa-road'></i> : " +
+            result.routes[0].legs[0].distance.text +
+            ".<br />Duration <i class='fas fa-hourglass-start'></i> : " +
+            result.routes[0].legs[0].duration.text +
+            ".</div>"
+        );
+
+        //display route
+        directionsDisplay.setDirections(result);
+      } else {
+        //delete route from map
+        directionsDisplay.setDirections({ routes: [] });
+        //center map in London
+        map.setCenter({ lat: 38.3460, lng: -0.4907 });
+
+        //show error message
+        setOutput(
+          "<div class='alert-danger'><i class='fas fa-exclamation-triangle'></i> Could not retrieve driving distance.</div>"
+        );
       }
-    );
-  }
+    });
+  };
 
-  function clearRoute() {
-    setDirectionsResponse(null);
-    setDistance("");
-    setDuration("");
-    originRef.current.value = "";
-    destinationRef.current.value = "";
-  }
+  useEffect(() => {
+    //load google map script
+    const loadScript = (url) => {
+      const index = window.document.getElementsByTagName("script")[0];
+      const script = window.document.createElement("script");
+      script.src = url;
+      script.async = true;
+      script.defer = true;
+      index.parentNode.insertBefore(script, index);
+    };
+
+    window.initMap = () => {
+      const myLatLng = { lat: 38.3460, lng: -0.4907 };
+      const mapOptions = {
+        center: myLatLng,
+        zoom: 7,
+        mapTypeId: window.google.maps.MapTypeId.ROADMAP,
+      };
+
+      //create map
+      const newMap = new window.google.maps.Map(
+        document.getElementById("googleMap"),
+        mapOptions
+      );
+      setMap(newMap);
+
+      //create a DirectionsService object to use the route method and get a result for our request
+      const newDirectionsService = new window.google.maps.DirectionsService();
+      setDirectionsService(newDirectionsService);
+
+      //create a DirectionsRenderer object which we will use to display the route
+      const newDirectionsDisplay = new window.google.maps.DirectionsRenderer();
+      newDirectionsDisplay.setMap(newMap);
+      setDirectionsDisplay(newDirectionsDisplay);
+
+      //create autocomplete objects for the from and to input fields
+      const fromAutocomplete = new window.google.maps.places.Autocomplete(
+        document.getElementById("from")
+      );
+      const toAutocomplete = new window.google.maps.places.Autocomplete(
+        document.getElementById("to")
+      );
+
+      //bind the map bounds to the autocomplete results
+      fromAutocomplete.bindTo("bounds", newMap);
+      toAutocomplete.bindTo("bounds", newMap);
+
+      //define a listener for the from place changed event
+      fromAutocomplete.addListener("place_changed", function () {
+        const place = fromAutocomplete.getPlace();
+        if (!place.geometry) return;
+        setFrom(place.formatted_address);
+      });
+
+      //define a listener for the to place changed event
+      toAutocomplete.addListener("place_changed", function () {
+        const place = toAutocomplete.getPlace();
+        if (!place.geometry) return;
+        setTo(place.formatted_address);
+      });
+    };
+
+    loadScript(
+      `https://maps.googleapis.com/maps/api/js?key=AIzaSyAz2_MkHBuMmmgsKwwVnp1tF-qOVm0B9Oo&callback=initMap`
+    );
+  }, []);
 
   return (
-    <div style={{ position: "relative", height: "100vh", width: "100vw" }}>
-      {isLoaded ? (
-        <GoogleMap
-          center={center}
-          zoom={15}
-          options={{
-            zoomControl: false,
-            streetViewControl: false,
-            mapTypeControl: false,
-            fullscreenControl: false,
-          }}
-          onLoad={(map) => setMap(map)}
-        >
-          <Marker position={center} />
-          {directionsResponse && (
-            <DirectionsRenderer directions={directionsResponse} />
-          )}
-        </GoogleMap>
-      ) : (
-        <div>Loading...</div>
-      )}
-      <div
-        style={{
-          position: "absolute",
-          top: "4rem",
-          right: "2rem",
-          zIndex: "1",
-          backgroundColor: "white",
-          padding: "1rem",
-          borderRadius: "0.5rem",
-          boxShadow: "0 0 0.5rem rgba(0, 0, 0, 0.25)",
-        }}
+    <div>
+      <div className="input-group mb-3">
+        <input
+          id="from"
+          type="text"
+          className="form-control"
+          placeholder="Enter origin"
+          onChange={handleFromChange}
+          value={from}
+        />
+      </div>
+      <div className="input-group mb-3">
+        <input
+          id="to"
+          type="text"
+          className="form-control"
+          placeholder="Enter destination"
+          onChange={handleToChange}
+          value={to}
+        />
+      </div>
+      <button
+        className="btn btn-primary"
+        type="button"
+        onClick={handleCalcRoute}
       >
-        <div style={{ display: "flex", marginBottom: "0.5rem" }}>
-          <Autocomplete onLoad={(autocomplete) => autocomplete}>
-            <input
-              type="text"
-              placeholder="Origin"
-              ref={originRef}
-              style={{ flexGrow: 1, marginRight: "0.5rem" }}
-            />
-          </Autocomplete>
-          <Autocomplete onLoad={(autocomplete) => autocomplete}>
-            <input
-              type="text"
-              placeholder="Destination"
-              ref={destinationRef}
-              style={{ flexGrow: 1, marginRight: "0.5rem" }}
-            />
-          </Autocomplete>
-          <div style={{ display: "flex", alignItems: "center" }}>
-            <button onClick={calculateRoute}>Calculate Route</button>
-            <button onClick={clearRoute}>Clear Route</button>
-</div>
-</div>
-{directionsResponse && (
-<div style={{ display: "flex", alignItems: "center" }}>
-<div style={{ marginRight: "0.5rem" }}>Distance: {distance}</div>
-<div>Duration: {duration}</div>
-</div>
-)}
-</div>
-</div>
-);
+        Calculate route
+      </button>
+      <div
+        className="mt-3"
+        dangerouslySetInnerHTML={{ __html: output }}
+      ></div>
+      <div id="googleMap" style={{ height: "500px", marginTop: "20px" }}></div>
+    </div>
+  );
 }
 
 export default Places;
-
-
-
-
-
