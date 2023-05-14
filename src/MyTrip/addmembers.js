@@ -17,6 +17,7 @@ class AddMembers extends React.Component{
 
       handleSubmit(e){
         e.preventDefault();
+        console.log("Form submitted!"); 
         const { email, tripId } = this.state;
         
         console.log(email, tripId);
@@ -42,6 +43,9 @@ class AddMembers extends React.Component{
             if (data.status === "OK!") {
                 
                 alert('Invitation Successfully!');
+             
+                this.form.reset();
+
             } else {
               alert(`went wrong: ${data.status}`);
             }
@@ -85,7 +89,7 @@ class AddMembers extends React.Component{
 			<div class="agileitss-top">
             <h3 class="cpoll">Share this Trip</h3>
             <h5 class="ccpolll">Invite friends to suggest, comment, and vote on trip details.</h5> <hr></hr>
-				<form onSubmit = {this.handleSubmit}>
+				<form ref={form => this.form = form} onSubmit = {this.handleSubmit}>
                    <h5 class="ccplll">Invite by email </h5>
 
 					<input class="textt" type="text" name="email" placeholder="Add email" required=""  onInput = {e=>this.setState({email:e.target.value})}  title="Please enter the email addresses of users who have verified accounts on our site!"/>
