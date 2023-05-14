@@ -98,31 +98,7 @@ function Places() {
       newDirectionsDisplay.setMap(newMap);
       setDirectionsDisplay(newDirectionsDisplay);
 
-      //create autocomplete objects for the from and to input fields
-      const fromAutocomplete = new window.google.maps.places.Autocomplete(
-        document.getElementById("from")
-      );
-      const toAutocomplete = new window.google.maps.places.Autocomplete(
-        document.getElementById("to")
-      );
-
-      //bind the map bounds to the autocomplete results
-      fromAutocomplete.bindTo("bounds", newMap);
-      toAutocomplete.bindTo("bounds", newMap);
-
-      //define a listener for the from place changed event
-      fromAutocomplete.addListener("place_changed", function () {
-        const place = fromAutocomplete.getPlace();
-        if (!place.geometry) return;
-        setFrom(place.formatted_address);
-      });
-
-      //define a listener for the to place changed event
-      toAutocomplete.addListener("place_changed", function () {
-        const place = toAutocomplete.getPlace();
-        if (!place.geometry) return;
-        setTo(place.formatted_address);
-      });
+     
     };
 
     loadScript(
@@ -134,10 +110,7 @@ function Places() {
     <div>
       <div className="input-group mb-3">
         <input
-      apiKey="AIzaSyAz2_MkHBuMmmgsKwwVnp1tF-qOVm0B9Oo"
-      onPlaceSelected={handlePlaceSelect}
-      types={['(regions)']}
-      id="from"
+          id="from"
           type="text"
           className="form-control"
           placeholder="Enter origin"
@@ -147,9 +120,6 @@ function Places() {
       </div>
       <div className="input-group mb-3">
         <input
-      apiKey="AIzaSyAz2_MkHBuMmmgsKwwVnp1tF-qOVm0B9Oo"
-      onPlaceSelected={handlePlaceSelect}
-      types={['(regions)']}
       id="to"
       type="text"
       className="form-control"
