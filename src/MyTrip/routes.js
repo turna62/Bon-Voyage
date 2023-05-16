@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-//import './style.css';
+import './mytrip.css';
 
 class Places extends React.Component {
   constructor(props) {
@@ -11,7 +11,7 @@ class Places extends React.Component {
       directionsDisplay: null,
       directionsService: null,
       output: "",
-      userId: null,
+      userId: null, 
           tripId: null,
           tripData:"",
           userData:"",
@@ -43,7 +43,7 @@ class Places extends React.Component {
 
     directionsService.route(request, (result, status) => {
       if (status === window.google.maps.DirectionsStatus.OK) {
-        const output = `<div class='alert-info'>From: ${from}.<br />To: ${to}.<br /> Driving distance <i class='fas fa-road'></i> : ${result.routes[0].legs[0].distance.text}.<br />Duration <i class='fas fa-hourglass-start'></i> : ${result.routes[0].legs[0].duration.text}.</div>`;
+        const output = `<div class='destinationinfo'><div class='alertdest'>From: ${from}.<br />To: ${to}.<br /> Driving distance <i class='fas fa-road'></i> : ${result.routes[0].legs[0].distance.text}.<br />Duration <i class='fas fa-hourglass-start'></i> : ${result.routes[0].legs[0].duration.text}.</div></div>`;
         this.setState({ output });
         directionsDisplay.setDirections(result);
       } else {
@@ -52,7 +52,7 @@ class Places extends React.Component {
         map.setCenter({ lat: 23.777176, lng: 90.399452 });
 
         //show error message
-        const output = "<div class='alert-danger'><i class='fas fa-exclamation-triangle'></i> Could not retrieve driving distance.</div>";
+        const output = "<div class='alert-danger'><div class='danger'><i class='fas fa-exclamation-triangle'></i> Could not retrieve driving distance.</div>";
         this.setState({ output });
       }
     });
@@ -278,33 +278,97 @@ class Places extends React.Component {
 
      </div> 
 
-    <div>
+    <div class="routebody">
       <div className="input-group mb-3">
+      <p class="startdestext destxt">Start Destination:</p>
+
         <input
           id="from"
           type="text"
-          className="form-control"
+          className="startdesinput"
           placeholder="Enter starting location"
           onChange={(event) => this.setState({ from: event.target.value })}
           value={from}
         />
       </div>
       <div className="input-group mb-3">
+        <p class="enddestext destxt">End Destination:</p>
         <input
           id="to"
           type="text"
-          className="form-control"
+          className="enddesinput"
           placeholder="Enter destination"
           onChange={(event) => this.setState({ to: event.target.value })}
           value={to}
         />
-      </div>
-      <button className="btn btn-primary" type="button" onClick={this.handleCalcRoute}>
-        Calculate route
+         <button className="routebtn" type="button" onClick={this.handleCalcRoute}>View   
       </button>
+     
+      </div>
       <div className="mt-3" dangerouslySetInnerHTML={{ __html: output }}></div>
       <div id="googleMap" style={{ height: "100vh", marginTop: "20px" }}></div>
     </div>
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="text-container about">
+                        <h4>Few Words About Bon Voyage!</h4>
+                        <p class="white">We are passionate about helping you to arrange your trip as best as we can.</p></div>
+                </div> 
+                <div class="col-md-2">
+                    <div class="text-container">
+                        <h4>Links</h4>
+                        <ul class="list-unstyled li-space-lg white">
+                            <li>
+                                <a class="white" href="#your-link">startupguide.com</a>
+                            </li>
+                            <li>
+                                <a class="white" href="terms-conditions.html">Terms & Conditions</a>
+                            </li>
+                            <li>
+                                <a class="white" href="privacy-policy.html">Privacy Policy</a>
+                            </li>
+                        </ul>
+                    </div> 
+                </div> 
+                <div class="col-md-2">
+                    <div class="text-container">
+                        <h4>Tools</h4>
+                        <ul class="list-unstyled li-space-lg">
+                            <li>
+                                <a class="white" href="#your-link">businessgrowth.com</a>
+                            </li>
+                            <li>
+                               <a class="white" href="#your-link">influencers.com</a>
+                            </li>
+                            <li class="media">
+                                <a class="white" href="#your-link">optimizer.net</a>
+                            </li>
+                        </ul>
+                    </div> 
+                </div> 
+                <div class="col-md-2">
+                    <div class="text-container">
+                        <h4>Partners</h4>
+                        <ul class="list-unstyled li-space-lg">
+                            <li>
+                                <a class="white" href="#your-link">unicorns.com</a>
+                            </li>
+                            <li>
+                                <a class="white" href="#your-link">staffmanager.com</a>
+                            </li>
+                            <li>
+                                <a class="white" href="#your-link">association.gov</a>
+                            </li>
+                        </ul>
+                    </div> 
+                </div> 
+            </div>
+        </div> 
+    </div> 
+    
+        
     </div>
             
    

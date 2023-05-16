@@ -1536,3 +1536,81 @@ border: solid 3px rgba(14, 44, 44, 0.805);
   position: relative;
   bottom: 60px;
 }
+
+.enddesinput{
+  font-size: 1.1em;
+    color: #2f2b2b;
+    font-weight: 100;
+    width: 40%;
+    display: block;
+    border: solid 1px rgba(128, 128, 128, 0.702);
+    font-family: 'Roboto', sans-serif;
+    height: 6.2vh;
+    position: relative;
+    top: 50px;
+    left: 76px;
+    margin: 3px 3px;
+}
+
+.startdesinput{
+  font-size: 1.1em;
+    color: #2f2b2b;
+    font-weight: 100;
+    width: 40%;
+    display: block;
+    border: solid 1px rgba(128, 128, 128, 0.702);
+    font-family: 'Roboto', sans-serif;
+    height: 6.2vh;
+    position: relative;
+    top: 50px;
+    left: 70px;
+    margin: 3px 3px;
+}
+
+.destxt{
+  position: relative;
+  top: 55px;
+  left: 50px;
+}
+
+#googleMap{
+  position: relative;
+  top: 50px;
+}
+.routebtn {
+  display: inline-block;
+  padding: 1.375rem 1.125rem 1.375rem 1.125rem;
+  background-color: rgb(14, 44, 44);
+  color: #fff;
+  font: 700 0.75rem/0 "Montserrat", sans-serif;
+  text-decoration: none;
+  transition: all 0.2s;
+  font-size: 16px;
+  font-family: 'Times New Roman', Times, serif;
+  position: relative;
+  left: 140px;
+  overflow-x: hidden;
+  top: 50px;
+  margin-right: 0.5rem;
+  margin-bottom: 1.25rem;
+  letter-spacing: 2px;
+} 
+.destinationinfo{
+  position: relative;
+  top: 40px;
+  height: 130px;
+  background-color: rgba(167, 235, 218, 0.637);
+}
+.alertdest{
+  position: relative;
+  left: 60px;
+  top: 14px;
+}
+
+.alert-danger{
+  position: relative;top: 35px;
+}
+.danger{
+  position: relative;
+  left: 60px;
+}
