@@ -118,7 +118,11 @@ class Polls extends React.Component{
       .then((data) => {
         console.log(data, 'my polls');
         if (data.status === 'OK!') {
-          this.setState({ myPolls: data.polls });
+          const pollsWithClosed = data.polls.map(poll => ({
+            ...poll,
+            closed: poll.closed // Assuming the API response includes the "closed" property
+          }));
+          this.setState({ myPolls: pollsWithClosed });
         } else {
           alert('Error! Something went wrong!');
         }
@@ -127,6 +131,9 @@ class Polls extends React.Component{
         console.error(error);
         alert("ok");
       });
+
+
+      
     
 
       }
@@ -268,13 +275,22 @@ const {myPolls} = this.state;
   <p class="pollclick">Click on these polls to cast your votes!</p>
 
 <div class="quespoll">
-      {myPolls.map((poll, index) => (
-        <div key={poll._id}>
-          
-          <Link to={`/launchpoll1?pollId=${poll._id}&userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}`}className="no">{index + 1}.{poll.question}</Link>
-          
-        </div>
-      ))}
+{myPolls.map((poll, index) => (
+  <div key={poll._id}>
+    {poll.closed ? (
+      // Poll is closed, redirect to pollresult
+      <Link to={`/pollresult?pollId=${poll._id}&userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}`} className="no">
+        {index + 1}. {poll.question}
+      </Link>
+    ) : (
+      // Poll is open, redirect to launchpoll1
+      <Link to={`/launchpoll1?pollId=${poll._id}&userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}`} className="no">
+        {index + 1}. {poll.question}
+      </Link>
+    )}
+  </div>
+))}
+
     </div>
     </div>
 
