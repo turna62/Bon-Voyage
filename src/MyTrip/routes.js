@@ -53,7 +53,7 @@ function Places() {
         //delete route from map
         directionsDisplay.setDirections({ routes: [] });
         //center map in London
-        map.setCenter({ lat: 38.3460, lng: -0.4907 });
+        map.setCenter({ lat:  23.777176, lng: 90.399452 });
 
         //show error message
         setOutput(
@@ -75,7 +75,7 @@ function Places() {
     };
 
     window.initMap = () => {
-      const myLatLng = { lat: 38.3460, lng: -0.4907 };
+      const myLatLng = { lat: 23.777176, lng: 90.399452 };
       const mapOptions = {
         center: myLatLng,
         zoom: 7,
