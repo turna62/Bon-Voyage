@@ -79,13 +79,12 @@ import usePlacesAutocomplete, {
      </ul>     </div>     
      
      <div class="desbody">
-     <div class="phead"> 
+     <div class="phead">  
          <h3>Let's fix destination</h3>
          <p>Search destinations and then select it by clicking on 'Select' button.</p> 
          < Map/>
     </div>
     <div class="pollaunch">
-        <h1>  </h1>
     <h3>Or Open voting</h3>
          <p>Launch poll to decide destinations through voting.</p> 
     </div>

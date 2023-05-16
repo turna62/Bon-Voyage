@@ -1,7 +1,7 @@
 import React from 'react';
 import './mytrip.css';
 
-
+ 
 class Itinerary extends React.Component{
     constructor(props) {
         super(props);
