@@ -15,8 +15,6 @@ constructor(props) {
   };
 }
 
-  
-
   componentDidMount() {
     const params = new URLSearchParams(window.location.search);
     const userId = params.get('userId');
@@ -81,8 +79,7 @@ constructor(props) {
               <span className="name mt-3">{this.state.userData.username}</span>
               <span className="idd">{this.state.userData.email}</span>
   
-              <p>
-                <a href="" className="btn1">
+             <span>   <a href="" className="btn1">
                   Edit Profile
                 </a>
                 <a
@@ -90,8 +87,7 @@ constructor(props) {
                   href={`http://localhost:3000/tripsection?userId=${encodeURIComponent(this.state.userId)}`}
                 >
                   My Trips
-                </a>
-              </p>
+                </a> </span>
             </div>
           </div>
         </div>

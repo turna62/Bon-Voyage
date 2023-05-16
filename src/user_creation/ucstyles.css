@@ -24,7 +24,7 @@ html, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, 
     height: 100vh;  
     overflow: hidden;
   }
-  .resetbody {
+  .resetbody { 
 
     background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('camp.png') center center no-repeat;
     background-size: cover;  
@@ -200,11 +200,13 @@ html, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, 
   
 
 .card {
-    width: 350px;
+    width: 400px;
     background-color: #efefef;
     border: none;
     cursor: pointer;
     transition: all 0.5s;
+    position: relative;
+    top: 160px;
 }
 
 .image img {
@@ -246,14 +248,6 @@ html, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, 
     color: #444444
 }
 
-.btn1 {
-    height: 40px;
-    width: 150px;
-    border: none;
-    background-color: rgb(14, 44, 44);
-    color: #aeaeae;
-    font-size: 15px
-}
 
 .text span {
     font-size: 13px;
@@ -308,11 +302,36 @@ hr .new1 {
 
 .profilebody {
   overflow: hidden;
-  height: 100%;
-  background-color: rgb(14, 44, 44);
-  background-image: linear-gradient(rgb(14,44,44), white);
+  background: linear-gradient(rgba(44, 55, 55, 0.575), rgba(47, 56, 56, 0.541)), url('hill7.jpg') center center no-repeat;
+  background-size: cover;  
+  height: 100vh;  
 }
 .eyeicon2 i{
   position: relative;
   bottom: 400px;
+}
+
+.btn1{
+  display: inline-block;
+  padding: 1.375rem 2.125rem 1.375rem 2.125rem;
+  border-radius: 0.25rem;
+  background-color: rgb(14, 44, 44);
+  color: #fff;
+  font: 700 0.75rem/0 "Montserrat", sans-serif;
+  text-decoration: none;
+  transition: all 0.2s;
+  font-size: 18px;
+  font-family: 'Times New Roman', Times, serif;
+  position: relative;
+  overflow-x: hidden;
+  left: 5px;
+  top: 40px;
+  margin-right: 0.5rem;
+  margin-bottom: 1.25rem;
+} 
+
+.btn1:hover {
+  background-color: rgb(14, 44, 44);
+  color: #fff;
+  text-decoration: none;
 }
