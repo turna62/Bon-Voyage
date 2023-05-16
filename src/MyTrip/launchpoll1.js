@@ -13,11 +13,14 @@ import '../Home/HomeCss/styles.css';
       question: "",
       options: [  {count: 0}],
       userId: null,
-      tripId:null
+      tripId:null,
+      finalResult: null,
+      //winner: null
   
       //votes: [],
     };
     this.handleSubmit = this.handleSubmit.bind(this); // to read properties of state
+    this.handleClosePoll = this.handleClosePoll.bind(this);
   }
 
   componentDidMount() {
@@ -39,6 +42,9 @@ import '../Home/HomeCss/styles.css';
     const pollId = params.get('pollId');
     console.log(pollId);
     this.setState({ pollId: pollId});
+
+
+
     // Fetch poll data from server
     fetch(`http://localhost:5000/getpollsbypollId`, {
       method: "POST",
@@ -111,34 +117,67 @@ import '../Home/HomeCss/styles.css';
     })
       .then((res) => res.json())
       .then((data) => {
-        // if (data.status === "OK!") {
-        //   const poll = data.polls.find((p) => p._id === pollId);
-        //   this.setState({
-        //     votes: poll.votes,
-        //     options: poll.options,
-        //   });
-        // } else {
-        //   alert("Error! Something went wrong!");
-        // }
-
         if (data._id === pollId) {
-          this.setState({
-            votes: data.votes,
-            options: data.options,
-          });
+          if (data.finalResult) {
+            this.setState({
+              finalResult: data.finalResult,
+            });
+          } else {
+            this.setState({
+              votes: data.votes,
+              options: data.options,
+            });
+          }
         }
-        
       })
       .catch((error) => {
         console.error(error);
         alert("An error occurred while submitting your vote");
       });
   }
+
+  handleClosePoll() {
+    const { pollId } = this.state;
+    //const { finalResult } = this.state;
+  
+    fetch(`http://localhost:5000/closepoll`, {
+      method: 'PUT',
+      crossDomain: true,
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+        'Access-Control-Allow-Origin': '*',
+      },
+      body: JSON.stringify({
+        pollId: pollId,
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        // Handle the response
+        console.log(data);
+        if (data.message === 'Final result') {
+          //this.setState({ winner: data.winner });
+          window.location.href = `http://localhost:3000/pollresult?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}&pollId=${encodeURIComponent(this.state.pollId)}`;
+        }
+      })
+    
+      
+      .catch((error) => {
+        console.error(error);
+        alert('An error occurred while closing the poll');
+      });
+  }
+  
   
 
 render(){
     const { question, options, options: { count } } = this.state;
+
+   
   return (
+
+
 
     <div class="deetailplan">
 
@@ -202,6 +241,7 @@ render(){
         <header>Question: {question}</header>
         <div className="poll-area">
           {/* <ul>{pollOptions}</ul> */}
+        
           <ul>
 
 
@@ -219,10 +259,12 @@ render(){
     )
   ))}
   <button class="pollbtn1" type="submit">Submit</button>
+  
+
 </form>
  
 
-
+<button class="pollbtn1" type="button" onClick={this.handleClosePoll}>Close</button>
 
 
 
@@ -231,9 +273,7 @@ render(){
 
 
 </ul>
-          {/* <button className="btnncreatepoll"> 
-            Close Polling
-          </button> */}
+        
         </div>
       </div>
       <div class="pphead">
