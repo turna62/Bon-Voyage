@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./style.css";
+//import './style.css';
 
 function Places() {
   const [from, setFrom] = useState("");
@@ -36,7 +36,10 @@ function Places() {
         directionsDisplay.setDirections(result);
       } else {
         directionsDisplay.setDirections({ routes: [] });
-        map.setCenter({ lat: 38.3460, lng: -0.4907 });
+        //center map in London
+        map.setCenter({ lat:  23.777176, lng: 90.399452 });
+
+        //show error message
         setOutput(
           "<div class='alert-danger'><i class='fas fa-exclamation-triangle'></i> Could not retrieve driving distance.</div>"
         );
@@ -55,7 +58,7 @@ function Places() {
     };
 
     window.initMap = () => {
-      const myLatLng = { lat: 38.3460, lng: -0.4907 };
+      const myLatLng = { lat: 23.777176, lng: 90.399452 };
       const mapOptions = {
         center: myLatLng,
         zoom: 7,
