@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
-import './style.css';
+import "./style.css";
 
 function Places() {
-  
   const [from, setFrom] = useState("");
   const [to, setTo] = useState("");
   const [map, setMap] = useState(null);
@@ -10,52 +9,34 @@ function Places() {
   const [directionsService, setDirectionsService] = useState(null);
   const [output, setOutput] = useState("");
 
-  const handlePlaceSelect = (place) => {
-    console.log(place);
-  };
-  const handleFromChange = (event) => {
-    setFrom(event.target.value);
-  };
-
-  const handleToChange = (event) => {
-    setTo(event.target.value);
+  const handlePlaceSelect = (place, inputType) => {
+    const formattedAddress = place.formatted_address;
+    if (inputType === "from") {
+      setFrom(formattedAddress);
+    } else if (inputType === "to") {
+      setTo(formattedAddress);
+    }
   };
 
   const handleCalcRoute = () => {
     if (!directionsService || !directionsDisplay) return;
-    //create request
+
     const request = {
       origin: from,
       destination: to,
-      travelMode: window.google.maps.TravelMode.DRIVING, //WALKING, BYCYCLING, TRANSIT
+      travelMode: window.google.maps.TravelMode.DRIVING,
       unitSystem: window.google.maps.UnitSystem.IMPERIAL,
     };
 
-    //pass the request to the route method
     directionsService.route(request, function (result, status) {
       if (status === window.google.maps.DirectionsStatus.OK) {
-        //Get distance and time
         setOutput(
-          "<div class='alert-info'>From: " +
-            from +
-            ".<br />To: " +
-            to +
-            ".<br /> Driving distance <i class='fas fa-road'></i> : " +
-            result.routes[0].legs[0].distance.text +
-            ".<br />Duration <i class='fas fa-hourglass-start'></i> : " +
-            result.routes[0].legs[0].duration.text +
-            ".</div>"
+          `<div class='alert-info'>From: ${from}.<br />To: ${to}.<br /> Driving distance <i class='fas fa-road'></i> : ${result.routes[0].legs[0].distance.text}.<br />Duration <i class='fas fa-hourglass-start'></i> : ${result.routes[0].legs[0].duration.text}.</div>`
         );
-
-        //display route
         directionsDisplay.setDirections(result);
       } else {
-        //delete route from map
         directionsDisplay.setDirections({ routes: [] });
-        //center map in London
         map.setCenter({ lat: 38.3460, lng: -0.4907 });
-
-        //show error message
         setOutput(
           "<div class='alert-danger'><i class='fas fa-exclamation-triangle'></i> Could not retrieve driving distance.</div>"
         );
@@ -64,14 +45,13 @@ function Places() {
   };
 
   useEffect(() => {
-    //load google map script
-    const loadScript = (url) => {
-      const index = window.document.getElementsByTagName("script")[0];
-      const script = window.document.createElement("script");
+    const loadScript = (url, callback) => {
+      const script = document.createElement("script");
       script.src = url;
       script.async = true;
       script.defer = true;
-      index.parentNode.insertBefore(script, index);
+      script.onload = callback;
+      document.body.appendChild(script);
     };
 
     window.initMap = () => {
@@ -82,23 +62,19 @@ function Places() {
         mapTypeId: window.google.maps.MapTypeId.ROADMAP,
       };
 
-      //create map
       const newMap = new window.google.maps.Map(
         document.getElementById("googleMap"),
         mapOptions
       );
       setMap(newMap);
 
-      //create a DirectionsService object to use the route method and get a result for our request
       const newDirectionsService = new window.google.maps.DirectionsService();
       setDirectionsService(newDirectionsService);
 
-      //create a DirectionsRenderer object which we will use to display the route
       const newDirectionsDisplay = new window.google.maps.DirectionsRenderer();
       newDirectionsDisplay.setMap(newMap);
       setDirectionsDisplay(newDirectionsDisplay);
 
-      //create autocomplete objects for the from and to input fields
       const fromAutocomplete = new window.google.maps.places.Autocomplete(
         document.getElementById("from")
       );
@@ -106,27 +82,28 @@ function Places() {
         document.getElementById("to")
       );
 
-      //bind the map bounds to the autocomplete results
       fromAutocomplete.bindTo("bounds", newMap);
       toAutocomplete.bindTo("bounds", newMap);
 
-      //define a listener for the from place changed event
       fromAutocomplete.addListener("place_changed", function () {
         const place = fromAutocomplete.getPlace();
         if (!place.geometry) return;
-        setFrom(place.formatted_address);
+        handlePlaceSelect(place, "from");
       });
 
-      //define a listener for the to place changed event
       toAutocomplete.addListener("place_changed", function () {
         const place = toAutocomplete.getPlace();
         if (!place.geometry) return;
-        setTo(place.formatted_address);
+        handlePlaceSelect(place, "to");
       });
     };
 
+    const apiKey = "AIzaSyAz2_MkHBuMmmgsKwwVnp1tF-qOVm0B9Oo";
     loadScript(
-      `https://maps.googleapis.com/maps/api/js?key=AIzaSyAz2_MkHBuMmmgsKwwVnp1tF-qOVm0B9Oo&callback=initMap`
+      `https://maps.googleapis.com/maps/api/js?key=${apiKey}&libraries=places&callback=initMap`,
+      () => {
+        // Script loaded callback
+      }
     );
   }, []);
 
@@ -134,44 +111,32 @@ function Places() {
     <div>
       <div className="input-group mb-3">
         <input
-      apiKey="AIzaSyAz2_MkHBuMmmgsKwwVnp1tF-qOVm0B9Oo"
-      onPlaceSelected={handlePlaceSelect}
-      types={['(regions)']}
-      id="from"
+          id="from"
           type="text"
           className="form-control"
-          placeholder="Enter origin"
-          onChange={handleFromChange}
+          placeholder="Enter starting location"
+          onChange={(event) => setFrom(event.target.value)}
           value={from}
-    />
+        />
       </div>
       <div className="input-group mb-3">
         <input
-      apiKey="AIzaSyAz2_MkHBuMmmgsKwwVnp1tF-qOVm0B9Oo"
-      onPlaceSelected={handlePlaceSelect}
-      types={['(regions)']}
-      id="to"
-      type="text"
-      className="form-control"
-      placeholder="Enter destination"
-      onChange={handleToChange}
-      value={to}
-    />
+          id="to"
+          type="text"
+          className="form-control"
+          placeholder="Enter destination"
+          onChange={(event) => setTo(event.target.value)}
+          value={to}
+        />
       </div>
-      <button
-        className="btn btn-primary"
-        type="button"
-        onClick={handleCalcRoute}
-      >
+      <button className="btn btn-primary" type="button" onClick={handleCalcRoute}>
         Calculate route
       </button>
-      <div
-        className="mt-3"
-        dangerouslySetInnerHTML={{ __html: output }}
-      ></div>
+      <div className="mt-3" dangerouslySetInnerHTML={{ __html: output }}></div>
       <div id="googleMap" style={{ height: "500px", marginTop: "20px" }}></div>
     </div>
   );
 }
 
 export default Places;
+
