@@ -68,7 +68,7 @@ export default function CreatePollD() {
 
 				</form>
 
-				<p class="back"><a href="http://localhost:3000/polls"><u>Back</u> </a></p>
+				<p class="back"><a href="http://localhost:3000/polls?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}"><u>Back</u> </a></p>
 			</div>
 		</div>
     </div>

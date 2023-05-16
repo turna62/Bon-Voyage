@@ -40,7 +40,6 @@
   background-color: #69737471;
   color: rgb(14, 44, 44);
   border: 2px solid rgb(14, 44, 44);
-  
 }
 
 .option-label label:after {
@@ -55,7 +54,7 @@
 
   position: relative;
   left: 240px;
-  bottom: 20px;
+  bottom: 22px;
 }
 
 /* .no-votes {
@@ -105,9 +104,9 @@
 }
 .tmm-form-element-icon{
   color: rgb(14, 44, 44);
-  font-size: 20px;
+  font-size: 10px;
   position: relative;
-  left: 95px;
+  left: 170px;
   top: 30px;
 }
 .tm-form-element-icon{
@@ -236,7 +235,7 @@ hr {
 
 .logo{
     color: white;
-    font-family: 'Times New Roman', Times, serif;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-weight: 600;
     position: relative;
     left: 18px;
@@ -341,15 +340,14 @@ top: 200px;
           color: rgb(14, 44, 44);
           font-family: sans-serif;
           position: relative;
-          right: 20px;
           }
 
           .pheaddate{
             color: rgb(14, 44, 44);
             font-family: sans-serif;
             position: relative;
-            top: 40px;
-            left: 150px;
+            top: 20px;
+            left: 110px;
         }
 
         .pheaddate p{
@@ -372,7 +370,7 @@ top: 200px;
             position: relative;
             left: 350px;
             overflow-x: hidden;
-            top: 20px;
+            top: 35px;
         } 
         
         .btn-solid-lg:hover {
@@ -580,7 +578,7 @@ top: 200px;
             visibility: visible !important;
             position: relative;
             top: 30px;
-          }
+          } 
           .texti:focus, .textt:valid {
             box-shadow: none;
             outline: none;
@@ -688,7 +686,7 @@ top: 200px;
   background-color: rgb(22, 55, 55);
   color: #fff;
   text-decoration: none;
-}
+} 
 
 .date{
   position: relative;
@@ -696,9 +694,7 @@ top: 200px;
   background-color: white;
   left: 120px;
 }
-.fa-calendar{
-  color: rgb(14, 44, 44);
-}
+
 .tmm-form-element-2{
   position: relative;
   left: 200px;
@@ -1083,6 +1079,12 @@ top: 200px;
   bottom: 500px;
   left: 200px;
 }
+.datebody{
+    background: linear-gradient(rgba(150, 223, 240, 0.397), rgba(121, 198, 231, 0.366)), url(hill5.jpg) center center no-repeat;
+    background-size: cover;  
+    height: 100vh;  
+    overflow: hidden;
+ }
 
 .actbody{
   display: flex;
@@ -1355,12 +1357,22 @@ font-size: 19px;
 .form-controll{
   position: relative;
   left: 210px;
-  top: 30px;
+  top: 10px;
 }
 .form-controlll{
   position: relative;
   left: 210px;
   top: 8px;
+}
+.startdate{
+  position: relative;
+  top: 52px;
+  left: 120px;
+}
+.enddate{
+  position: relative;
+  top: 70px;
+  left: 120px;
 }
 
 .inputsubmitt {
@@ -1494,7 +1506,7 @@ border: solid 3px rgba(14, 44, 44, 0.805);
   position: relative;
   top: 15px;
   color: white;
-  background: linear-gradient(rgba(14, 128, 122, 0.178), rgba(11, 120, 113, 0.209)), url(hill4.jpg) center center no-repeat;
+  background: linear-gradient(rgba(134, 227, 222, 0.178), rgba(122, 239, 231, 0.209)), url(hill4.jpg) center center no-repeat;
   background-size: cover;  
   height: 100vh;  
   overflow: hidden;
@@ -1523,4 +1535,82 @@ border: solid 3px rgba(14, 44, 44, 0.805);
 .descripfix{
   position: relative;
   bottom: 60px;
+}
+
+.enddesinput{
+  font-size: 1.1em;
+    color: #2f2b2b;
+    font-weight: 100;
+    width: 40%;
+    display: block;
+    border: solid 1px rgba(128, 128, 128, 0.702);
+    font-family: 'Roboto', sans-serif;
+    height: 6.2vh;
+    position: relative;
+    top: 50px;
+    left: 76px;
+    margin: 3px 3px;
+}
+
+.startdesinput{
+  font-size: 1.1em;
+    color: #2f2b2b;
+    font-weight: 100;
+    width: 40%;
+    display: block;
+    border: solid 1px rgba(128, 128, 128, 0.702);
+    font-family: 'Roboto', sans-serif;
+    height: 6.2vh;
+    position: relative;
+    top: 50px;
+    left: 70px;
+    margin: 3px 3px;
+}
+
+.destxt{
+  position: relative;
+  top: 55px;
+  left: 50px;
+}
+
+#googleMap{
+  position: relative;
+  top: 50px;
+}
+.routebtn {
+  display: inline-block;
+  padding: 1.375rem 1.125rem 1.375rem 1.125rem;
+  background-color: rgb(14, 44, 44);
+  color: #fff;
+  font: 700 0.75rem/0 "Montserrat", sans-serif;
+  text-decoration: none;
+  transition: all 0.2s;
+  font-size: 16px;
+  font-family: 'Times New Roman', Times, serif;
+  position: relative;
+  left: 140px;
+  overflow-x: hidden;
+  top: 50px;
+  margin-right: 0.5rem;
+  margin-bottom: 1.25rem;
+  letter-spacing: 2px;
+} 
+.destinationinfo{
+  position: relative;
+  top: 40px;
+  height: 130px;
+  background-color: rgba(167, 235, 218, 0.637);
+}
+.alertdest{
+  position: relative;
+  left: 60px;
+  top: 14px;
+}
+
+.alert-danger{
+  position: relative;top: 35px;
+}
+.danger{
+  position: relative;
+  left: 60px;
 }
