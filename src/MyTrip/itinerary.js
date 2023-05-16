@@ -78,9 +78,6 @@ class Itinerary extends React.Component{
             }
         });
 
-
-
-
       }
 
       handleSubmit(e){

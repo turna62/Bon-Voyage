@@ -1,24 +1,31 @@
-import React, { useState, useEffect } from "react";
+import React, { Component } from "react";
 //import './style.css';
 
-function Places() {
-  const [from, setFrom] = useState("");
-  const [to, setTo] = useState("");
-  const [map, setMap] = useState(null);
-  const [directionsDisplay, setDirectionsDisplay] = useState(null);
-  const [directionsService, setDirectionsService] = useState(null);
-  const [output, setOutput] = useState("");
+class Places extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      from: "",
+      to: "",
+      map: null,
+      directionsDisplay: null,
+      directionsService: null,
+      output: ""
+    };
+  }
 
-  const handlePlaceSelect = (place, inputType) => {
+  handlePlaceSelect = (place, inputType) => {
     const formattedAddress = place.formatted_address;
     if (inputType === "from") {
-      setFrom(formattedAddress);
+      this.setState({ from: formattedAddress });
     } else if (inputType === "to") {
-      setTo(formattedAddress);
+      this.setState({ to: formattedAddress });
     }
   };
 
-  const handleCalcRoute = () => {
+  handleCalcRoute = () => {
+    const { directionsService, directionsDisplay, from, to, map } = this.state;
+
     if (!directionsService || !directionsDisplay) return;
 
     const request = {
@@ -28,26 +35,24 @@ function Places() {
       unitSystem: window.google.maps.UnitSystem.IMPERIAL,
     };
 
-    directionsService.route(request, function (result, status) {
+    directionsService.route(request, (result, status) => {
       if (status === window.google.maps.DirectionsStatus.OK) {
-        setOutput(
-          `<div class='alert-info'>From: ${from}.<br />To: ${to}.<br /> Driving distance <i class='fas fa-road'></i> : ${result.routes[0].legs[0].distance.text}.<br />Duration <i class='fas fa-hourglass-start'></i> : ${result.routes[0].legs[0].duration.text}.</div>`
-        );
+        const output = `<div class='alert-info'>From: ${from}.<br />To: ${to}.<br /> Driving distance <i class='fas fa-road'></i> : ${result.routes[0].legs[0].distance.text}.<br />Duration <i class='fas fa-hourglass-start'></i> : ${result.routes[0].legs[0].duration.text}.</div>`;
+        this.setState({ output });
         directionsDisplay.setDirections(result);
       } else {
         directionsDisplay.setDirections({ routes: [] });
         //center map in London
-        map.setCenter({ lat:  23.777176, lng: 90.399452 });
+        map.setCenter({ lat: 23.777176, lng: 90.399452 });
 
         //show error message
-        setOutput(
-          "<div class='alert-danger'><i class='fas fa-exclamation-triangle'></i> Could not retrieve driving distance.</div>"
-        );
+        const output = "<div class='alert-danger'><i class='fas fa-exclamation-triangle'></i> Could not retrieve driving distance.</div>";
+        this.setState({ output });
       }
     });
   };
 
-  useEffect(() => {
+  componentDidMount() {
     const loadScript = (url, callback) => {
       const script = document.createElement("script");
       script.src = url;
@@ -69,14 +74,14 @@ function Places() {
         document.getElementById("googleMap"),
         mapOptions
       );
-      setMap(newMap);
+      this.setState({ map: newMap });
 
       const newDirectionsService = new window.google.maps.DirectionsService();
-      setDirectionsService(newDirectionsService);
+      this.setState({ directionsService: newDirectionsService });
 
       const newDirectionsDisplay = new window.google.maps.DirectionsRenderer();
       newDirectionsDisplay.setMap(newMap);
-      setDirectionsDisplay(newDirectionsDisplay);
+      this.setState({ directionsDisplay: newDirectionsDisplay });
 
       const fromAutocomplete = new window.google.maps.places.Autocomplete(
         document.getElementById("from")
@@ -88,19 +93,19 @@ function Places() {
       fromAutocomplete.bindTo("bounds", newMap);
       toAutocomplete.bindTo("bounds", newMap);
 
-      fromAutocomplete.addListener("place_changed", function () {
+      fromAutocomplete.addListener("place_changed", () => {
         const place = fromAutocomplete.getPlace();
         if (!place.geometry) return;
-        handlePlaceSelect(place, "from");
+        this.handlePlaceSelect(place, "from");
       });
 
-      toAutocomplete.addListener("place_changed", function () {
+      toAutocomplete.addListener("place_changed", () => {
         const place = toAutocomplete.getPlace();
         if (!place.geometry) return;
-        handlePlaceSelect(place, "to");
+        this.handlePlaceSelect(place, "to");
       });
     };
-
+    
     const apiKey = "AIzaSyAz2_MkHBuMmmgsKwwVnp1tF-qOVm0B9Oo";
     loadScript(
       `https://maps.googleapis.com/maps/api/js?key=${apiKey}&libraries=places&callback=initMap`,
@@ -108,8 +113,11 @@ function Places() {
         // Script loaded callback
       }
     );
-  }, []);
+  }
 
+  render() {
+  const { from, to, output } = this.state;
+  
   return (
     <div>
       <div className="input-group mb-3">
@@ -118,7 +126,7 @@ function Places() {
           type="text"
           className="form-control"
           placeholder="Enter starting location"
-          onChange={(event) => setFrom(event.target.value)}
+          onChange={(event) => this.setState({ from: event.target.value })}
           value={from}
         />
       </div>
@@ -128,18 +136,18 @@ function Places() {
           type="text"
           className="form-control"
           placeholder="Enter destination"
-          onChange={(event) => setTo(event.target.value)}
+          onChange={(event) => this.setState({ to: event.target.value })}
           value={to}
         />
       </div>
-      <button className="btn btn-primary" type="button" onClick={handleCalcRoute}>
+      <button className="btn btn-primary" type="button" onClick={this.handleCalcRoute}>
         Calculate route
       </button>
       <div className="mt-3" dangerouslySetInnerHTML={{ __html: output }}></div>
-      <div id="googleMap" style={{ height: "500px", marginTop: "20px" }}></div>
+      <div id="googleMap" style={{ height: "100vh", marginTop: "20px" }}></div>
     </div>
   );
 }
+}
 
-export default Places;
-
+export default Places;  
