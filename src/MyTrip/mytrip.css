@@ -162,22 +162,7 @@
 	background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('camp.png') center center no-repeat;
 	background-size: cover;
 }
-.pollclick{
-  position: relative;
-  left: 800px;
-  font-family: sans-serif;
-  color: rgb(14, 44, 44);
-  bottom: 1000px;
-  font-size: 20px;
-}
 
-.quespoll{
-  position: relative;
-  left: 830px;
-  font-family: sans-serif;
-  color: rgb(14, 44, 44);
-  
-}
 .tripname{
     font-family:'Times New Roman', Times, serif;
     font-weight: 800;
@@ -368,9 +353,9 @@ top: 200px;
             font-size: 18px;
             font-family: 'Times New Roman', Times, serif;
             position: relative;
-            left: 350px;
             overflow-x: hidden;
-            top: 35px;
+            left: 200px;
+            top: 40px;
         } 
         
         .btn-solid-lg:hover {
@@ -1612,5 +1597,34 @@ border: solid 3px rgba(14, 44, 44, 0.805);
 }
 .danger{
   position: relative;
-  left: 60px;
+  left: 60px; 
+}
+.pollquessec{
+  background-color: #85b5bd7d;
+  width: 35%;
+  margin: 3em auto;
+  background-size: cover;
+  position: relative;
+  height: 100vh;
+  left: 410px;
+  bottom: 200px;
+  }
+
+.pollclick{
+  position: relative;
+  left: 30px;
+  font-family: sans-serif;
+  color: rgb(14, 44, 44);
+  font-size: 22px;
+  top: 65px;
+  font-weight: 500;
+}
+
+.quespoll{
+  position: relative;
+  left: 50px;
+  font-family: sans-serif;
+  color: rgb(14, 44, 44);
+  font-size: 16px;
+  top: 70px;
 }

@@ -260,7 +260,12 @@ const {myPolls} = this.state;
     <h3>Polls</h3>
 <p>Create a poll to help your group narrow down options or answer key questions.</p> 
 
-</div> <p class="pollclick">Click on these polls to cast your votes!</p>
+<a class="btn-solid-lg page-scroll" href={`http://localhost:3000/createpoll?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}`}>Create Poll</a>
+
+</div> 
+
+<div class="pollquessec">
+  <p class="pollclick">Click on these polls to cast your votes!</p>
 
 <div class="quespoll">
       {myPolls.map((poll, index) => (
@@ -271,10 +276,9 @@ const {myPolls} = this.state;
         </div>
       ))}
     </div>
- 
+    </div>
 
 
-<a class="btn-solid-lg page-scroll" href={`http://localhost:3000/createpoll?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}`}>Create Poll</a>
 
 </div>
         
