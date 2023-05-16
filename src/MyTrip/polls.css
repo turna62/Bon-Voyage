@@ -213,6 +213,14 @@ input[type="checkbox"] {
     font-weight: 600;
 }
 
+.resulthead{
+    color: rgb(14, 44, 44);
+    font-size: 30px;
+    font-weight: 600;
+    position: relative;
+    bottom: 180px;
+    right: 260px;
+}
 .pollbtn {
     display: inline-block;
     padding: 1.375rem 2.125rem 1.375rem 2.125rem;
@@ -252,7 +260,7 @@ input[type="checkbox"] {
     font-family: 'Times New Roman', Times, serif;
     position: relative;
     overflow-x: hidden;
-    right: 100px;
+    right: 35px;
     top: 30px;
 } 
 
