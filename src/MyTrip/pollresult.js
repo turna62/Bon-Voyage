@@ -1,9 +1,6 @@
-
-
 import React from 'react';
 import { useParams, Link } from "react-router-dom";
 import './mytrip.css';
-
 
 class PollResult extends React.Component{
 
@@ -68,10 +65,7 @@ class PollResult extends React.Component{
     // Handle error
   });
 
-       
-
-        
-        
+          
         fetch("http://localhost:5000/notifications",{
             method: "POST",
             headers: {
@@ -140,15 +134,10 @@ class PollResult extends React.Component{
         });
 
           // Fetch polls data
- 
-
-         
-    
-    
 
       }
 
-      updateAllIsRead = () => {
+      updateAllIsRead = () => { 
         const params = new URLSearchParams(window.location.search);
        const userId = params.get('userId');
        const tripId = params.get('tripId');
@@ -190,24 +179,86 @@ const { question, options, winner } = this.state;
         return(
 
     <div class="deetailplan">
-
-
       
+
+      <nav class="navbar navbar-expand-md navbar-dark navbar-custom fixed-top">
+                <h3 class="logo">Bon VOYAGE!</h3>
+                <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link page-scroll" href="http://localhost:3000">HOME <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link page-scroll" href="#intro">LOG OUT</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link page-scroll" href="http://localhost:3000/myprofile">MY PROFILE</a>
+                        </li>
+                       
+                        
+                  </ul>
+
+              </div>
+         </nav>
+
+         <header id="header" class="headerr">
+                <div class="header-content">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="text-container">
+                                    <h1>Let's Plan!</h1>
+                                    {/* <p class="p-heading p-large">The journey of a thousand miles begins with a single step.</p> */}
+
+
+                                </div>
+                            </div> 
+                        </div> 
+                    </div>
+                </div> 
+            </header> 
+
+
+     <div>
+
+        <h4 class="tripname">Trip Name</h4><hr></hr>
+        <a class="btnaddmembers" href="http://localhost:3000/addmembers">+ Add Members</a>
+        <ul class="ul">
+        <li class="li"><a href="http://localhost:3000/overview">Overview</a></li>
+        <li class="ovwli"><a href="http://localhost:3000/polls">Polls</a></li>
+        <li class="li"><a href="http://localhost:3000/date">Date</a></li>
+        <li class="li"><a href="http://localhost:3000/destination">Destination</a></li>
+        <li class="li"><a href="http://localhost:3000/route">Route</a></li>
+        <li class="li"><a href="http://localhost:3000/itinerary">Itinerary</a></li>
+     </ul>
+
+     </div> 
 
        
-          
-<p>Question: {question}</p>
-        <p>Winner:{winner} </p>
-      
+    <div className="pollbodyy">
+    
+      <div className="wrapperr">
+        <header>Question: {question}</header>
+        <div className="poll-area">
+        
+                  <p>Winner:{winner} </p>
+                  <a class="btn-solid-lgresult page-scroll" href={`http://localhost:3000/polls?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}`}>Back</a>
 
+        
+        </div>
+      </div>
+    <h3 class="resulthead">Polling Result: </h3>
+
+    </div>
+</div>
+     
 
 
 
      
         
-            </div>
 
-        )
+        );
 
     }
 }
