@@ -54,29 +54,35 @@ handleDownload = () => {
     format: "a4",
   });
 
-  const img = new Image();
-  img.src = "" ; 
-  img.onload = function() {
-    const canvas = document.createElement("canvas");
-    canvas.width = img.width;
-    canvas.height = img.height;
-    const ctx = canvas.getContext("2d");
-    ctx.drawImage(img, 0, 0);
-    const dataUrl = canvas.toDataURL("image/jpeg");
+  //const img = new Image();
+  //img.src = "" ; 
+  //img.onload = function() {
+    // const canvas = document.createElement("canvas");
+    // canvas.width = img.width;
+    // canvas.height = img.height;
+    // const ctx = canvas.getContext("2d");
+    // ctx.drawImage(img, 0, 0);
+    // const dataUrl = canvas.toDataURL("image/jpeg");
 
-    // Add image as background
-    doc.addImage(dataUrl, "JPEG", 0, 0, doc.internal.pageSize.width, doc.internal.pageSize.height);
+    // // Add image as background
+    // doc.addImage(dataUrl, "JPEG", 0, 0, doc.internal.pageSize.width, doc.internal.pageSize.height);
 
-    const destinationLabel = "Destination: ";
-    const destination = itineraryData.destination;
-    const data = destinationLabel + destination;
+    itineraryData.days.forEach((day, index) => {
+      const yOffset = index * 30 + 20; // Adjust the y-offset as needed
+      doc.text(`Day ${day.day}`, 20, yOffset);
+      doc.text(`Spots: ${day.spots.join(", ")}`, 20, yOffset + 30);
+      doc.text(`Activities: ${day.activities.join(", ")}`, 20, yOffset + 20);
+      
+      doc.text(`Description: ${day.description}`, 20, yOffset + 10);
+    });
+
 
     doc.setFontSize(12);
     doc.setTextColor(255, 255, 255); // Set text color to white
-    doc.text(data, 20, 20); // Add your text on top of the image
+    //doc.text(data, 20, 20); // Add your text on top of the image
 
     doc.save(fileName);
-  }
+  //}
 }
 
 
