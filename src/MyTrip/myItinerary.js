@@ -81,17 +81,33 @@ handleDownload = () => {
 
 
   render() {
+    const { itineraryData } = this.state;
+
     return (
       <div>
-        {this.state.itineraryData ? (
-          <div>
-            <p>{this.state.itineraryData.destination}</p>
-            <button style={{ backgroundColor: 'red', color: 'white' }} onClick={this.handleDownload}>Download Itinerary</button>
-          </div>
-        ) : (
-          <p>Loading itinerary...</p>
-        )}
-      </div>
+      {itineraryData ? (
+        <div>
+          {itineraryData.days.map((day, index) => (
+            <div key={index}>
+              <p>Day {day.day}</p>
+            
+              <p>Spots:</p>
+              <ul>
+                  {day.spots.map((spot, spotIndex) => (
+                    <li key={spotIndex}>{spot}</li>
+                  ))}
+                </ul>
+                <p>Activities: {day.activities.join(', ')}</p>
+                <p>Description: {day.description}</p>
+
+            </div>
+          ))}
+          <button style={{ backgroundColor: 'red', color: 'white' }} onClick={this.handleDownload}>Download Itinerary</button>
+        </div>
+      ) : (
+        <p>Loading itinerary...</p>
+      )}
+    </div>
     );
   }
 }

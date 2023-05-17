@@ -146,7 +146,7 @@ import usePlacesAutocomplete, {
                     
                     alert('submitted Successfully!');
                     window.localStorage.setItem('itineraryId', data.itineraryId);
-                    //window.location.href = `http://localhost:3000/myitinerary?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}&itineraryId=${data.itineraryId}`;
+                    window.location.href = `http://localhost:3000/myitinerary?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}&itineraryId=${data.itineraryId}`;
     
                 } else {
                   alert(`went wrong: ${data.status}`);
@@ -398,29 +398,6 @@ import usePlacesAutocomplete, {
         }}
       />
       <span className="activitiespan">Wildlife Safari</span>
-    </label>
-
-    <label className="aclabel">
-      <input
-        className="accinput"
-        type="checkbox"
-        name={`activities${index}`}
-        value="Paragliding"
-        onChange={(e) => {
-          const { checked, value } = e.target;
-
-          const updatedDays = [...this.state.days];
-          const activities = checked
-            ? [...updatedDays[index].activities, value]
-            : updatedDays[index].activities.filter(
-                (activity) => activity !== value
-              );
-          updatedDays[index] = { ...updatedDays[index], activities };
-
-          this.setState({ days: updatedDays });
-        }}
-      />
-      <span className="activitiespan">Paragliding</span>
     </label>
 
     <p className="descripfix">
