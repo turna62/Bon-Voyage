@@ -29,7 +29,7 @@ import usePlacesAutocomplete, {
           itineraryId: null,
           days: [
             {
-              day: 1,
+              day: 2,
               description: '',
               activities: [],
               spots:[]
