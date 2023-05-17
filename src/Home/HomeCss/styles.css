@@ -186,8 +186,8 @@ Colors:
 	
 	.logo{
 		color: white;
-		font-family: 'Times New Roman', Times, serif;
-		font-weight: 600;
+		font-family:'Times New Roman', Times, serif;
+		font-weight: 800;
 		position: relative;
 		left: 15px;
 		top: 5px;
@@ -857,9 +857,9 @@ Colors:
 	/*    04. Header     */
 	/*********************/
 	.header {
-		background: linear-gradient(rgba(0, 0, 0, 0.606), rgba(0, 0, 0, 0.637)), url('../img/sundarban.jpg') center center no-repeat;
+		background: linear-gradient(rgba(0, 0, 0, 0.606), rgba(0, 0, 0, 0.637)), url('../img/c1.jpg') center center no-repeat;
 		background-size: cover;  
-		height: 150vh;  
+		height: 120vh;  
 		overflow: hidden;
 		position: relative;
 		top: 50px;
@@ -938,8 +938,9 @@ Colors:
 		transition: all 0.3s;
 		position: relative;
 		left: 150px;
-		height: 400px;
+		height: 370px;
 		width: 430px;
+		top: 40px;
 		}
 	
 	.basic-1 .image-container:hover img {
@@ -993,16 +994,11 @@ Colors:
 		left: 30px;
 	}
 	
-	.cards-1 .card-body {
-		padding: 0;
-	}
-	
-	.card-bodyy p{
+	.card-bodyy {
 		position: relative;
-		top: 20px;
-		right: 40px;
+		top: 40px;
+		right: 20px;
 	}
-	
 	.cards-1 .fa-stackk {
 		width: 6rem;
 		height: 6rem;
@@ -1047,9 +1043,20 @@ Colors:
 		right: 30px;
 	}
 	
-	.cards-1 .card-body p{
+	.cards-1 .card-body {
 		position: relative;
-		right: 400px;
+		right: 0px;
+		bottom: 0px;
+	}
+	.cards-1 .card-body h6 {
+		position: relative;
+		right: 30px;
+		top: 10px;
+	}
+	.cards-1 .card-bodyy h6 {
+		position: relative;
+		right: 0px;
+		top: 10px;
 	}
 	
 	.testimonial{
@@ -1313,9 +1320,10 @@ Colors:
 	
 			padding: 0.375rem 2rem 0.375rem 2rem;
 			box-shadow: 0 0.0625rem 0.375rem 0 rgba(0, 0, 0, 0.1);
-			background-color: rgb(10, 44, 44);
+			background-color: rgb(10, 37, 37);
 			color: white;
-			font-size: 17px;
+			font-size: 16px;
+			height: 11vh;
 		}
 		
 		
@@ -1348,9 +1356,9 @@ Colors:
 		}
 
 		.nav-item a{
-			font-size: larger;
+			font-size: medium;
 			color: white;
-			font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+			font-family:sans-serif;
 			position: relative;
 			right: 20px;
 		}
@@ -1946,7 +1954,7 @@ Colors:
 	  }
 	  
 	  #gtco-features {
-		background: #14bf98;
+		background: rgb(14, 44, 44);
 	  }
 	  #gtco-features .gtco-heading h2 {
 		color: #fff;
@@ -2116,3 +2124,4 @@ Colors:
 	  .js-rotating {
 		animation: blink 2.5s infinite;
 	  }
+	  

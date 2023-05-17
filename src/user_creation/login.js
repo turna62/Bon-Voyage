@@ -1,5 +1,3 @@
-
-
 import React, { useState, useEffect } from 'react';
 import './ucstyles.css';
 
@@ -47,6 +45,7 @@ export default function LogIn(props) {
       const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
       password.setAttribute('type', type);
       this.classList.toggle('bi-eye');
+      this.classList.toggle('bi-eye-slash');
     });
 
     const form = document.querySelector('form');
@@ -70,16 +69,18 @@ export default function LogIn(props) {
                 required=""
                 onInput={(e) => setEmail(e.target.value)}
               />
-              <input
-                class="text inputp"
-                type="password"
-                name="password"
-                placeholder="Password"
-                required=""
-                id="password"
-                onInput={(e) => setPassword(e.target.value)}
-              />
-              <i class="bi bi-eye-slash" id="togglePassword"></i>
+              <div class="password-container">
+                <input
+                  class="text inputp"
+                  type="password"
+                  name="password"
+                  placeholder="Password"
+                  required=""
+                  id="password"
+                  onInput={(e) => setPassword(e.target.value)}
+                />
+                <i class="bi bi-eye-slash" id="togglePassword"></i>
+              </div>
               <input class="inputsubmit" type="submit" value="LOGIN" />
             </form>
             <p>
