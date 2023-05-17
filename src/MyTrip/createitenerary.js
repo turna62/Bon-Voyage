@@ -41,6 +41,55 @@ import usePlacesAutocomplete, {
       this.setState({ userId: userId });
       this.setState({ tripId: tripId });
 
+      fetch("http://localhost:5000/tripData",{
+        method: "POST",
+        crossDomain: true,
+        headers:{
+            "Content-Type":"application/json",
+            Accept: "application/json",
+            "Access-Control-Allow-Origin": "*",
+        },
+        body: JSON.stringify({
+            
+            tripId: tripId,
+        
+        }),
+    })
+    .then((res) => res.json()) // convert data into JSON
+    .then((data) => {
+        console.log(data, "tripData");
+        this.setState({tripData: data.data});
+        if(data.data == 'Token Expired!'){
+            alert("Token expired! Kindly login again."); 
+            window.localStorage.clear();
+            window.location.href = "./sign-in";
+        }
+    });
+
+    fetch("http://localhost:5000/userData",{
+        method: "POST",
+        crossDomain: true,
+        headers:{
+            "Content-Type":"application/json",
+            Accept: "application/json",
+            "Access-Control-Allow-Origin": "*",
+        },
+        body: JSON.stringify({
+            token: window.localStorage.getItem("token"),
+            userId: userId,
+        
+        }),
+    })
+    .then((res) => res.json()) // convert data into JSON
+    .then((data) => {
+        console.log(data, "userData");
+        this.setState({userData: data.data});
+        if(data.data == 'Token Expired!'){
+            alert("Token expired! Kindly login again."); 
+            window.localStorage.clear();
+            window.location.href = "./sign-in";
+        }
+    });
      
       }
 
@@ -76,7 +125,7 @@ import usePlacesAutocomplete, {
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="text-container">
-                                <h1>Let's Plan,!</h1>
+                                <h1>Let's Plan, {this.state.userData.username}!</h1>
 
                                 </div>
                             </div> 
@@ -86,7 +135,7 @@ import usePlacesAutocomplete, {
             </header> 
      <div>
 
-        <h4 class="tripname">trip name</h4><hr></hr>
+        <h4 class="tripname">{this.state.tripData.tripName}</h4><hr></hr>
         <a class="btnaddmembers" href="http://localhost:3000/addmembers">+ Add Members</a>
         <ul class="ul">
         <li class="li"><a href="http://localhost:3000/overview">Overview</a></li>
