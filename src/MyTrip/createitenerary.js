@@ -28,13 +28,14 @@ import usePlacesAutocomplete, {
           userData:"",
           days: [
             {
-              // 
               day: 1,
               description: '',
+              activities: []
             },
           ],
-          
         };
+          
+        
         this.handleSubmit = this.handleSubmit.bind(this); // to read properties of state
       }
 
@@ -109,6 +110,16 @@ import usePlacesAutocomplete, {
             const { days, userId, tripId } = this.state;
             
             console.log(days, userId, tripId);
+
+            const requestBody = {
+              userId,
+              tripId,
+              days: days.map((day) => ({
+                description: day.description,
+                activities: day.activities,
+                day: day.day
+              }))
+            };
             fetch("http://localhost:5000/itinerary", {
               method: "POST",
               crossDomain: true,
@@ -119,13 +130,7 @@ import usePlacesAutocomplete, {
                 authorization: localStorage.getItem("userId") ,
               //  authorization: localStorage.getItem("email") ,
               },
-              body: JSON.stringify({
-                days: this.state.days,
-                userId,
-                tripId,
-              
-                
-              }),
+              body: JSON.stringify(requestBody),
             })
               .then((res) => res.json())
               .then((data) => {
@@ -223,36 +228,11 @@ import usePlacesAutocomplete, {
     <div class="icard">
       <form  onSubmit = {this.handleSubmit}>
     
-      {/* 
+      {/* {/* 
 <div>
     <label htmlFor="spots">Spots:</label>
     <Map />
-  </div>
-
-      <p>Activities: </p>
-      <label class="aclabel">
-			<input class="accinput" type="checkbox" name="activities" value="Paragliding" onInput = {e=>this.setState({activities:e.target.value})} />
-			<span class="activitiespan">Paragliding</span>
-      </label>
-      <label class="aclabel">
-			<input class="accinput" type="checkbox" name="activities" value="Hiking" onInput = {e=>this.setState({activities:e.target.value})}/>
-			<span class="activitiespan">Hiking</span></label>
-      <label class="aclabel">
-			<input class="accinput" type="checkbox" name="activities" value="Boating"  onInput = {e=>this.setState({activities:e.target.value})}/>
-			<span class="activitiespan">Boating</span></label>
-      <label class="aclabel">
-			<input class="accinput" type="checkbox" name="activities" value="Cycling"  onInput = {e=>this.setState({activities:e.target.value})}/>
-			<span class="activitiespan">Cycling</span></label>
-      <label class="aclabel">
-			<input class="accinput" type="checkbox" name="activities" value="Horse Riding"  onInput = {e=>this.setState({activities:e.target.value})}/>
-			<span class="activitiespan">Horse Riding</span></label>
-      <label class="aclabel">
-			<input class="accinput" type="checkbox" name="activities" value="Wildlife Safari"  onInput = {e=>this.setState({activities:e.target.value})}/>
-			<span class="activitiespan">Wildlife Safari</span></label> */}
-      
-
-  
-      
+  </div> */}
       
       {this.state.days.map((day, index) => (
   <div key={index}>
@@ -271,6 +251,169 @@ import usePlacesAutocomplete, {
       
     </select></p>
 
+    
+    <p> Activities:</p>
+    <label className="aclabel">
+      <input
+        className="accinput"
+        type="checkbox"
+        name={`activities${index}`}
+        value="Paragliding"
+        onChange={(e) => {
+          const { checked, value } = e.target;
+
+          const updatedDays = [...this.state.days];
+          const activities = checked
+            ? [...updatedDays[index].activities, value]
+            : updatedDays[index].activities.filter(
+                (activity) => activity !== value
+              );
+          updatedDays[index] = { ...updatedDays[index], activities };
+
+          this.setState({ days: updatedDays });
+        }}
+      />
+      <span className="activitiespan">Paragliding</span>
+    </label>
+
+    <label className="aclabel">
+      <input
+        className="accinput"
+        type="checkbox"
+        name={`activities${index}`}
+        value="Hiking"
+        onChange={(e) => {
+          const { checked, value } = e.target;
+
+          const updatedDays = [...this.state.days];
+          const activities = checked
+            ? [...updatedDays[index].activities, value]
+            : updatedDays[index].activities.filter(
+                (activity) => activity !== value
+              );
+          updatedDays[index] = { ...updatedDays[index], activities };
+
+          this.setState({ days: updatedDays });
+        }}
+      />
+      <span className="activitiespan">Hiking</span>
+    </label>
+
+    <label className="aclabel">
+      <input
+        className="accinput"
+        type="checkbox"
+        name={`activities${index}`}
+        value="Boating"
+        onChange={(e) => {
+          const { checked, value } = e.target;
+
+          const updatedDays = [...this.state.days];
+          const activities = checked
+            ? [...updatedDays[index].activities, value]
+            : updatedDays[index].activities.filter(
+                (activity) => activity !== value
+              );
+          updatedDays[index] = { ...updatedDays[index], activities };
+
+          this.setState({ days: updatedDays });
+        }}
+      />
+      <span className="activitiespan">Boating</span>
+    </label>
+
+    <label className="aclabel">
+      <input
+        className="accinput"
+        type="checkbox"
+        name={`activities${index}`}
+        value="Cycling"
+        onChange={(e) => {
+          const { checked, value } = e.target;
+
+          const updatedDays = [...this.state.days];
+          const activities = checked
+            ? [...updatedDays[index].activities, value]
+            : updatedDays[index].activities.filter(
+                (activity) => activity !== value
+              );
+          updatedDays[index] = { ...updatedDays[index], activities };
+
+          this.setState({ days: updatedDays });
+        }}
+      />
+      <span className="activitiespan">Cycling</span>
+    </label>
+
+    <label className="aclabel">
+      <input
+        className="accinput"
+        type="checkbox"
+        name={`activities${index}`}
+        value="Horse Riding"
+        onChange={(e) => {
+          const { checked, value } = e.target;
+
+          const updatedDays = [...this.state.days];
+          const activities = checked
+            ? [...updatedDays[index].activities, value]
+            : updatedDays[index].activities.filter(
+                (activity) => activity !== value
+              );
+          updatedDays[index] = { ...updatedDays[index], activities };
+
+          this.setState({ days: updatedDays });
+        }}
+      />
+      <span className="activitiespan">Horse Riding</span>
+    </label>
+
+    <label className="aclabel">
+      <input
+        className="accinput"
+        type="checkbox"
+        name={`activities${index}`}
+        value="Wildlife Safari"
+        onChange={(e) => {
+          const { checked, value } = e.target;
+
+          const updatedDays = [...this.state.days];
+          const activities = checked
+            ? [...updatedDays[index].activities, value]
+            : updatedDays[index].activities.filter(
+                (activity) => activity !== value
+              );
+          updatedDays[index] = { ...updatedDays[index], activities };
+
+          this.setState({ days: updatedDays });
+        }}
+      />
+      <span className="activitiespan">Wildlife Safari</span>
+    </label>
+
+    <label className="aclabel">
+      <input
+        className="accinput"
+        type="checkbox"
+        name={`activities${index}`}
+        value="Paragliding"
+        onChange={(e) => {
+          const { checked, value } = e.target;
+
+          const updatedDays = [...this.state.days];
+          const activities = checked
+            ? [...updatedDays[index].activities, value]
+            : updatedDays[index].activities.filter(
+                (activity) => activity !== value
+              );
+          updatedDays[index] = { ...updatedDays[index], activities };
+
+          this.setState({ days: updatedDays });
+        }}
+      />
+      <span className="activitiespan">Paragliding</span>
+    </label>
+
     <p className="descripfix">
       Description:
       <input
@@ -286,10 +429,10 @@ import usePlacesAutocomplete, {
         }}
       />
     </p>
+
+
   </div>
 ))}
-
-
 
 
       
