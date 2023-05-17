@@ -30,13 +30,19 @@ import usePlacesAutocomplete, {
             {
               day: 1,
               description: '',
-              activities: []
+              activities: [],
+              spots:[]
             },
           ],
         };
-          
+        this.setDays = this.setDays.bind(this);
+      
         
         this.handleSubmit = this.handleSubmit.bind(this); // to read properties of state
+      }
+
+      setDays(newDays) {
+        this.setState({ days: newDays });
       }
 
       componentDidMount(){
@@ -117,7 +123,8 @@ import usePlacesAutocomplete, {
               days: days.map((day) => ({
                 description: day.description,
                 activities: day.activities,
-                day: day.day
+                day: day.day,
+                spots: day.spots
               }))
             };
             fetch("http://localhost:5000/itinerary", {
@@ -236,7 +243,7 @@ import usePlacesAutocomplete, {
       
       {this.state.days.map((day, index) => (
   <div key={index}>
-    <p htmlFor={`day${index}`}>Day&nbsp; 
+    <p htmlFor={`day${index}`}><b>Day:&nbsp; </b>
     <select
       name={`day${index}`}
       value={day.day !== null ? day.day.toString() : ""}
@@ -251,6 +258,8 @@ import usePlacesAutocomplete, {
       
     </select></p>
 
+    <p htmlFor="spots">Spots:</p>
+    <Map days={this.state.days} />
     
     <p> Activities:</p>
     <label className="aclabel">
@@ -458,7 +467,7 @@ import usePlacesAutocomplete, {
                 }
               }
             
-              function Map() {
+              function Map({days }) {
                 const [selectedSpots, setSelectedSpots] = useState([]);
               
                 const { isLoaded } = useLoadScript({
@@ -468,11 +477,14 @@ import usePlacesAutocomplete, {
               
                 if (!isLoaded) return <div>Loading...</div>;
               
+                
+
                 const handleSelect = (spot, index) => {
-                  const updatedSpots = [...selectedSpots];
-                  updatedSpots[index] = spot;
-                  setSelectedSpots(updatedSpots);
+                  const updatedDays = [...days];
+                  updatedDays[0].spots[index] = spot.address; // Assuming you always update the spots for the first day
+                  this.state.setDays(updatedDays);
                 };
+                
               
                 return (
                   <>
@@ -494,7 +506,7 @@ import usePlacesAutocomplete, {
                 );
               }
               
-              const PlacesAutocomplete = ({ onSelect, index }) => {
+              const PlacesAutocomplete = ({ onSelect, index, days }) => {
                 const {
                   ready,
                   value,
@@ -510,6 +522,10 @@ import usePlacesAutocomplete, {
                   const results = await getGeocode({ address });
                   const { lat, lng } = await getLatLng(results[0]);
                   onSelect({ address, lat, lng }, index);
+
+                  const updatedDays = [...days];
+    updatedDays[0].spots[index] = address;
+    this.state.setDays(updatedDays);
                 };
               
                 return (
