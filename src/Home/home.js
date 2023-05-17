@@ -9,7 +9,7 @@ class HomePage extends React.Component{
         return(
 
 
-<body class="homebody">
+<body class="homebody"> 
             
             <nav class="navbar navbar-expand-md navbar-dark navbar-custom fixed-top">
              <h3 class="logo">Bon VOYAGE!</h3>
@@ -18,18 +18,18 @@ class HomePage extends React.Component{
                 <div class="collapse navbar-collapse" id="navbarsExampleDefault">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link page-scroll" href="#header">HOME <span class="sr-only">(current)</span></a>
+                            <a class="nav-link page-scroll" href="#header"><i class="fa fa-home"></i> HOME <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link page-scroll" href="#intro">INTRO</a>
+                            <a class="nav-link page-scroll" href="#intro"><i class="fa fa-anchor"></i> INTRO</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link page-scroll" href="#services">SERVICES</a>
+                            <a class="nav-link page-scroll" href="#services"><i class="fa fa-gear"></i> SERVICES</a>
                         </li>
-                        
+                         
         
                         <li class="nav-item">
-                            <a class="nav-link" href="http://localhost:3000/sign-in">LOG IN</a>
+                            <a class="nav-link" href="http://localhost:3000/sign-in"><i class="fa fa-sign-in"></i> LOG IN</a>
                             
                         </li>
 
@@ -37,7 +37,7 @@ class HomePage extends React.Component{
 
                         <li class="nav-item">
                           
-                        <a class="nav-link" href="http://localhost:3000/search">SEARCH</a>
+                        <a class="nav-link" href="http://localhost:3000/search"><i class="fa fa-search"></i> SEARCH</a>
  
                     
                       </li>

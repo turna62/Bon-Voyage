@@ -63,7 +63,7 @@ export default class SignUp extends Component {
 	<div class="main-w3layouts wrapper">
 		<div class="main-agileinfo1">
 			<div class="agileits-top">
-            <h1>Sign Up</h1>
+            <h1><i class="fa fa-user"></i> Sign Up</h1>
 				<form onSubmit = {this.handleSubmit}>
 					<input class="text inputtext" type="text" name="username" placeholder="Username" required="" onInput = {e=>this.setState({username:e.target.value})}/>
 					<input class="text inputmail email" type="email" name="email" placeholder="Email" required="" onInput = {e=>this.setState({email:e.target.value})}/>

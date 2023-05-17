@@ -27,19 +27,19 @@ class MyTrip extends React.Component{
                 <div class="collapse navbar-collapse" id="navbarsExampleDefault">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link page-scroll" href="http://localhost:3000">HOME <span class="sr-only">(current)</span></a>
+                            <a class="nav-link page-scroll" href="http://localhost:3000"><i class="fa fa-home"></i> HOME <span class="sr-only">(current)</span></a>
                         </li>
                       
                         <li class="nav-item">
-                            <a class="nav-link page-scroll"  href={`http://localhost:3000/myprofile?userId=${encodeURIComponent(this.state.userId)}`}>MY PROFILE</a>
+                            <a class="nav-link page-scroll"  href={`http://localhost:3000/myprofile?userId=${encodeURIComponent(this.state.userId)}`}><i class='fas fa-user-circle'></i> MY PROFILE</a>
                         </li>
                        
                         <li class="nav-item">
-                            <a class="nav-link" href="http://localhost:3000/reset">RESET PASSWORD</a>
+                            <a class="nav-link" href="http://localhost:3000/reset"><i class="fa fa-home"></i> RESET PASSWORD</a>
                             
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link page-scroll" href="#intro">LOG OUT</a>
+                            <a class="nav-link page-scroll" href="#intro"><i class="fa fa-sign-out"></i> LOG OUT</a>
                         </li>
                         
                   </ul>

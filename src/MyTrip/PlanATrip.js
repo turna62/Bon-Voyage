@@ -74,10 +74,10 @@ import React from 'react';
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link page-scroll" href="http://localhost:3000">HOME <span class="sr-only">(current)</span></a>
+                    <a class="nav-link page-scroll" href="http://localhost:3000"><i class="fa fa-home"></i> HOME <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link page-scroll" href="http://localhost:3000">LOG OUT <span class="sr-only">(current)</span></a>
+                    <a class="nav-link page-scroll" href="http://localhost:3000"><i class="fa fa-sign-out"></i> LOG OUT <span class="sr-only">(current)</span></a>
                 </li>
                 
             </ul>
