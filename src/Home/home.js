@@ -169,8 +169,8 @@ class HomePage extends React.Component{
 						<span class="icon">
 							<i>3</i>
 						</span>
-						<h3>Routes, Sight-seeing Suggestions and Overall Itinerary</h3>
-						<p>Suitable routes, nearby places can be viewed. Finally an itinerary can be downloaded. </p>
+						<h3>Routes viewing, Creating Itinerary</h3>
+						<p>Suitable routes, time, distance can be viewed. Finally an itinerary can be downloaded. </p>
 					</div>
 				</div>
 				
