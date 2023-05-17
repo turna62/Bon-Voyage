@@ -1497,7 +1497,7 @@ border: solid 3px rgba(14, 44, 44, 0.805);
   overflow: hidden;
 }
 .footerbody{
-  display: flex;
+    display: flex;
     align-items: center;
     justify-content: center;
     background: linear-gradient(rgba(0, 0, 0, 0.116), rgba(0, 0, 0, 0.137)), url(hill32.jpg) center center no-repeat;

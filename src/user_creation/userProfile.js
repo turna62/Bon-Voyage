@@ -55,7 +55,7 @@ constructor(props) {
       <body className="profilebody">
         <div className="deetailplan">
           <nav className="navbar navbar-expand-md navbar-dark navbar-custom fixed-top">
-            <h3 className="logo">Bon VOYAGE!</h3>
+            <h3 className="logo"><i class="fa fa-anchor"></i> Bon VOYAGE!</h3>
             <div className="collapse navbar-collapse" id="navbarsExampleDefault">
               <ul className="navbar-nav ml-auto">
                 <li className="nav-item">

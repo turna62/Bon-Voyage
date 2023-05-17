@@ -228,7 +228,7 @@ class Places extends React.Component {
     <div class="deetailplan">
  
          <nav class="navbar navbar-expand-md navbar-dark navbar-custom fixed-top">
-                <h3 class="logo">Bon VOYAGE!</h3>
+                <h3 class="logo"><i class="fa fa-anchor"></i> Bon VOYAGE!</h3>
                 <div class="collapse navbar-collapse" id="navbarsExampleDefault">
                     <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
@@ -302,7 +302,7 @@ class Places extends React.Component {
           onChange={(event) => this.setState({ to: event.target.value })}
           value={to}
         />
-         <button className="routebtn" type="button" onClick={this.handleCalcRoute}>View   
+         <button className="routebtn" type="button" onClick={this.handleCalcRoute}>Calculate   
       </button>
      
       </div>

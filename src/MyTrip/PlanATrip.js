@@ -69,7 +69,7 @@ import React from 'react';
              <div class="planbody">
     
     <nav class="navbar navbar-expand-md navbar-dark navbar-custom fixed-top">
-    <h3 class="logo">Bon VOYAGE!</h3>
+    <h3 class="logo"><i class="fa fa-anchor"></i> Bon VOYAGE!</h3>
 
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
             <ul class="navbar-nav ml-auto">

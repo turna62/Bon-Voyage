@@ -12,7 +12,7 @@ class HomePage extends React.Component{
 <body class="homebody"> 
             
             <nav class="navbar navbar-expand-md navbar-dark navbar-custom fixed-top">
-             <h3 class="logo">Bon VOYAGE!</h3>
+             <h3 class="logo"><i class="fa fa-anchor"></i> Bon VOYAGE!</h3>
 
                 
                 <div class="collapse navbar-collapse" id="navbarsExampleDefault">
@@ -50,12 +50,12 @@ class HomePage extends React.Component{
         
         
             <header id="header" class="header">
-                <div class="header-content">
+                <div class="header-content"> 
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="text-container">
-                                    <h1>Bon <span id="js-rotating">VOYAGE!</span></h1>
+                                    <h1>Bon <span class="js-rotating">VOYAGE!</span></h1>
                                     <p class="p-heading p-large">The journey of a thousand miles begins with a single step.</p>
                                     <a class="btnhome" href="http://localhost:3000/sign-up">START PLANNING</a>
 

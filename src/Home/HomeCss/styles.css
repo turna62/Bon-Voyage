@@ -857,8 +857,15 @@ Colors:
 	/*    04. Header     */
 	/*********************/
 	.header {
-		background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('../images/header-background.jpg') center center no-repeat;
-		background-size: cover;
+		background: linear-gradient(rgba(0, 0, 0, 0.606), rgba(0, 0, 0, 0.637)), url('../img/sundarban.jpg') center center no-repeat;
+		background-size: cover;  
+		height: 150vh;  
+		overflow: hidden;
+		position: relative;
+		top: 50px;
+    align-items: center;
+    justify-content: center;
+    
 	}
 	
 	.header .header-content {
@@ -866,9 +873,10 @@ Colors:
 		padding-bottom: 2.125rem;
 		text-align: center;
 	}
-	
 	.header .text-container {
-		margin-bottom: 3rem;
+		margin-top: 6.5rem;
+		position: relative;
+		bottom: 130px;
 	}
 	
 	.header h1 {
@@ -1517,9 +1525,6 @@ Colors:
 			padding-bottom: 15rem;
 		}
 	
-		.header .text-container {
-			margin-top: 6.5rem;
-		}
 		/* end of header */
 	
 	
@@ -2094,4 +2099,20 @@ Colors:
 		left: 520px;
 		color: rgb(10, 44, 44);
 		top: 50px;
+	  }
+
+	  @keyframes blink {
+		0% {
+		  opacity: 1;
+		}
+		50% {
+		  opacity: 0.1;
+		}
+		100% {
+		  opacity: 1;
+		}
+	  }
+
+	  .js-rotating {
+		animation: blink 2.5s infinite;
 	  }
