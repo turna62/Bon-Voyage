@@ -33,6 +33,9 @@ import Places1 from "./MyTrip/routes";
 import TripSection from "./MyTrip/TripSection";
 import MyItinerary from "./MyTrip/myItinerary";
 import CreateItenerary from "./MyTrip/createitenerary";
+import CreateItenerary1 from "./MyTrip/createitenary1";
+import CreateItenerary2 from "./MyTrip/createitenerary2";
+import CreateItenerary3 from "./MyTrip/createitenerary3";
 import MyItinerary1 from "./MyTrip/myItinerary1";
 import PollResult from "./MyTrip/pollresult";
 
@@ -73,7 +76,10 @@ function App() {
         <Route path = "/route" element = {<Places/>}/>   
         <Route path = "/tripsection" element = {<TripSection/>}/>  
         <Route path = "/myitinerary" element = {<MyItinerary/>}/>  
-        <Route path = "/createitenerary" element = {<CreateItenerary/>}/>  
+        <Route path = "/createitenerary" element = {<CreateItenerary/>}/> 
+        <Route path = "/createitenerary1" element = {<CreateItenerary1/>}/>  
+        <Route path = "/createitenerary2" element = {<CreateItenerary2/>}/>  
+        <Route path = "/createitenerary3" element = {<CreateItenerary3/>}/>   
         <Route path = "/myitinerary1" element = {<MyItinerary1/>}/>
         <Route path = "/route1" element = {<Places1/>}/>  
         <Route path = "/pollresult" element = {<PollResult/>}/>  

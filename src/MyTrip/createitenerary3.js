@@ -17,7 +17,7 @@ import usePlacesAutocomplete, {
 
 
 
-    export default class CreateItenerary extends React.Component {
+    export default class CreateItenerary3 extends React.Component {
       constructor(props) {
         super(props);
         this.state = {
@@ -160,7 +160,7 @@ import usePlacesAutocomplete, {
 <div class="pheadd1">
     <h3>Add Next</h3>
 <p>Click on the 'Add' button to add information of next days.</p> 
-<a class="btnit" href={`http://localhost:3000/createitenerary1`}>Next</a>
+<a class="btnit" href={`http://localhost:3000/createitenerary`}>Next</a>
 <a class="btnit" href={`http://localhost:3000/itinerary`}>Submit</a>
 
 </div> 
@@ -173,7 +173,7 @@ import usePlacesAutocomplete, {
 <div class="dropdown">
   <span> Select Days</span>
   <div class="dropdown-content">
-  <p>1</p>
+  <p>4</p>
   </div>
 </div></h6>
       <p>Spot:<Map/></p>
