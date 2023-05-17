@@ -216,7 +216,7 @@ import usePlacesAutocomplete, {
 
 
 </div>
-
+//AIzaSyAz2_MkHBuMmmgsKwwVnp1tF-qOVm0B9Oo
      
      </div>
                     );
@@ -225,61 +225,77 @@ import usePlacesAutocomplete, {
               }
             
               function Map() {
-                const [setSelected] = useState(null);
-
+                const [selectedSpots, setSelectedSpots] = useState([]);
+              
                 const { isLoaded } = useLoadScript({
                   googleMapsApiKey: "AIzaSyAz2_MkHBuMmmgsKwwVnp1tF-qOVm0B9Oo",
                   libraries: ["places"],
                 });
-          
               
-                if (!isLoaded) return <div>Loading...</div>;  
+                if (!isLoaded) return <div>Loading...</div>;
+              
+                const handleSelect = (spot, index) => {
+                  const updatedSpots = [...selectedSpots];
+                  updatedSpots[index] = spot;
+                  setSelectedSpots(updatedSpots);
+                };
               
                 return (
                   <>
                     <div className="places-container">
-                      <PlacesAutocomplete setSelected={setSelected} />
+                    <div className="spot-input">
+                     <PlacesAutocomplete onSelect={handleSelect} index={0} />
+                     </div>
+                      <div className="spot-input">
+                     <PlacesAutocomplete onSelect={handleSelect} index={1} />
                     </div>
-              
-                   </>
+                     <div className="spot-input">
+                         <PlacesAutocomplete onSelect={handleSelect} index={2} />
+                         </div>
+                       <div className="spot-input">
+                 <PlacesAutocomplete onSelect={handleSelect} index={3} />
+                     </div>
+      </div>
+                  </>
                 );
               }
               
-        const PlacesAutocomplete = ({ setSelected }) => {
-            const {
-              ready,
-              value,
-              setValue,
-              suggestions: { status, data },
-              clearSuggestions,
-            } = usePlacesAutocomplete();
-          
-            const handleSelect = async (address) => {
-              setValue(address, false);
-              clearSuggestions();
-          
-              const results = await getGeocode({ address });
-              const { lat, lng } = await getLatLng(results[0]);
-              setSelected({ lat, lng });
-            };
-          
-            return (
-              <Combobox onSelect={handleSelect}>
-                <ComboboxInput
-                  value={value}
-                  onChange={(e) => setValue(e.target.value)}
-                  disabled={!ready}
-                  className="combobox-iinput"
-                  placeholder="Select a spot.."
-                />
-                <ComboboxPopover>
-                  <ComboboxList>
-                    {status === "OK" &&
-                      data.map(({ place_id, description }) => (
-                        <ComboboxOption key={place_id} value={description} />
-                      ))}
-                  </ComboboxList>
-                </ComboboxPopover>
-              </Combobox>
-            );
-          };
+              const PlacesAutocomplete = ({ onSelect, index }) => {
+                const {
+                  ready,
+                  value,
+                  setValue,
+                  suggestions: { status, data },
+                  clearSuggestions,
+                } = usePlacesAutocomplete();
+              
+                const handleSelect = async (address) => {
+                  setValue(address, false);
+                  clearSuggestions();
+              
+                  const results = await getGeocode({ address });
+                  const { lat, lng } = await getLatLng(results[0]);
+                  onSelect({ address, lat, lng }, index);
+                };
+              
+                return (
+                  <Combobox onSelect={handleSelect}>
+                    <ComboboxInput
+                      value={value}
+                      onChange={(e) => setValue(e.target.value)}
+                      disabled={!ready}
+                      className="combobox-input"
+                      placeholder={`Select spot ${index + 1}...`}
+                    />
+                    <ComboboxPopover>
+                      <ComboboxList>
+                        {status === "OK" &&
+                          data.map(({ place_id, description }) => (
+                            <ComboboxOption key={place_id} value={description} />
+                          ))}
+                      </ComboboxList>
+                    </ComboboxPopover>
+                  </Combobox>
+                );
+              }
+              
