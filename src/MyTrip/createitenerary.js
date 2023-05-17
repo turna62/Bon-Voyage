@@ -25,10 +25,17 @@ import usePlacesAutocomplete, {
           userId: null, 
           tripId: null,
           tripData:"",
-          userData:""
+          userData:"",
+          days: [
+            {
+              // 
+              day: 1,
+              description: '',
+            },
+          ],
           
         };
-        //this.handleSubmit = this.handleSubmit.bind(this); // to read properties of state
+        this.handleSubmit = this.handleSubmit.bind(this); // to read properties of state
       }
 
       componentDidMount(){
@@ -90,9 +97,54 @@ import usePlacesAutocomplete, {
             window.location.href = "./sign-in";
         }
     });
+
+
+    
      
       }
 
+
+      handleSubmit(e){
+            e.preventDefault();
+            const { days, userId, tripId } = this.state;
+            
+            console.log(days, userId, tripId);
+            fetch("http://localhost:5000/itinerary", {
+              method: "POST",
+              crossDomain: true,
+              headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json",
+                "Access-Control-Allow-Origin": "*",
+                authorization: localStorage.getItem("userId") ,
+              //  authorization: localStorage.getItem("email") ,
+              },
+              body: JSON.stringify({
+                days: this.state.days,
+                userId,
+                tripId,
+              
+                
+              }),
+            })
+              .then((res) => res.json())
+              .then((data) => {
+                console.log(data, "itinerarySubmit");
+                if (data.status === "OK!") {
+                    
+                    alert('submitted Successfully!');
+                    window.localStorage.setItem('itineraryId', data.itineraryId);
+                    //window.location.href = `http://localhost:3000/myitinerary?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}&itineraryId=${data.itineraryId}`;
+    
+                } else {
+                  alert(`went wrong: ${data.status}`);
+                }
+              })
+              .catch((error) => {
+                console.error(error);
+                alert("Error! Something went wrong while calling the API.");
+              });
+          }
         
           
         render(){
@@ -169,49 +221,88 @@ import usePlacesAutocomplete, {
      <div class="icolumn">
   <div class="irow">
     <div class="icard">
-    <h5><b>Day:</b></h5>
-<div class="dropdown">
- <select>
-    <option value="1" selected>1</option>
-    <option value="2">2</option>
-    <option value="3">3</option>
-    <option value="4">4</option>
-  </select>
-  
-</div>
+      <form  onSubmit = {this.handleSubmit}>
+    
+      {/* 
+<div>
+    <label htmlFor="spots">Spots:</label>
+    <Map />
+  </div>
 
-
-
-
-  
-      <p>Spot:<Map/></p>
       <p>Activities: </p>
       <label class="aclabel">
-			<input class="accinput" type="checkbox" name="checkbox4"/>
+			<input class="accinput" type="checkbox" name="activities" value="Paragliding" onInput = {e=>this.setState({activities:e.target.value})} />
 			<span class="activitiespan">Paragliding</span>
       </label>
       <label class="aclabel">
-			<input class="accinput" type="checkbox" name="checkbox4"/>
+			<input class="accinput" type="checkbox" name="activities" value="Hiking" onInput = {e=>this.setState({activities:e.target.value})}/>
 			<span class="activitiespan">Hiking</span></label>
       <label class="aclabel">
-			<input class="accinput" type="checkbox" name="checkbox4"/>
+			<input class="accinput" type="checkbox" name="activities" value="Boating"  onInput = {e=>this.setState({activities:e.target.value})}/>
 			<span class="activitiespan">Boating</span></label>
       <label class="aclabel">
-			<input class="accinput" type="checkbox" name="checkbox4"/>
+			<input class="accinput" type="checkbox" name="activities" value="Cycling"  onInput = {e=>this.setState({activities:e.target.value})}/>
 			<span class="activitiespan">Cycling</span></label>
       <label class="aclabel">
-			<input class="accinput" type="checkbox" name="checkbox4"/>
+			<input class="accinput" type="checkbox" name="activities" value="Horse Riding"  onInput = {e=>this.setState({activities:e.target.value})}/>
 			<span class="activitiespan">Horse Riding</span></label>
       <label class="aclabel">
-			<input class="accinput" type="checkbox" name="checkbox4"/>
-			<span class="activitiespan">Wildlife Safari</span></label>
-      <p class="descripfix">Description: <input class="accinputt" type="text" id="fname" name="description" placeholder="Description.."/></p>
+			<input class="accinput" type="checkbox" name="activities" value="Wildlife Safari"  onInput = {e=>this.setState({activities:e.target.value})}/>
+			<span class="activitiespan">Wildlife Safari</span></label> */}
+      
+
+  
+      
+      
+      {this.state.days.map((day, index) => (
+  <div key={index}>
+    <p htmlFor={`day${index}`}>Day&nbsp; 
+    <select
+      name={`day${index}`}
+      value={day.day !== null ? day.day.toString() : ""}
+      onChange={(e) => {
+        const newDays = [...this.state.days];
+        newDays[index].day = e.target.value !== "" ? parseInt(e.target.value) : null;
+        this.setState({ days: newDays });
+      }}
+    >
+      <option value="1">1</option>
+      <option value="2">2</option>
+      
+    </select></p>
+
+    <p className="descripfix">
+      Description:
+      <input
+        className="accinputt"
+        type="text"
+        name={`description${index}`}
+        placeholder="Description.."
+        value={day.description}
+        onInput={(e) => {
+          const newDays = [...this.state.days];
+          newDays[index].description = e.target.value;
+          this.setState({ days: newDays });
+        }}
+      />
+    </p>
+  </div>
+))}
+
+
+
+
+      
+      <input class="savedesbtn" type="submit" value="Add"/>
+      </form>
     </div>
+
   </div>
 
-  {/* <input class="savedesbtn" type="submit" value="Add"/> */}
-  
+ 
+
 </div>
+
  
 
 
