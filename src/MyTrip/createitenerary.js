@@ -1,271 +1,330 @@
-import React, { Component, useState, useEffect } from 'react';
+import React from 'react';
+import { useState} from "react";
+import {useLoadScript } from "@react-google-maps/api";
 import './mytrip.css';
 import usePlacesAutocomplete, {
-  getGeocode,
-  getLatLng,
-} from "use-places-autocomplete";
-import {
-  Combobox,
-  ComboboxInput,
-  ComboboxPopover,
-  ComboboxList,
-  ComboboxOption,
-} from "@reach/combobox";
-import "@reach/combobox/styles.css";
+    getGeocode,
+    getLatLng,
+  } from "use-places-autocomplete";
+  import {
+    Combobox,
+    ComboboxInput,
+    ComboboxPopover,
+    ComboboxList,
+    ComboboxOption,
+  } from "@reach/combobox";
+  import "@reach/combobox/styles.css";  
 
-const useGoogleMapsLoadScript = (libraries) => {
-  const [isLoaded, setIsLoaded] = useState(false);
 
-  useEffect(() => {
-    const script = document.createElement('script');
-    script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyAz2_MkHBuMmmgsKwwVnp1tF-qOVm0B9Oo&libraries=${libraries.join(',')}`;
-    script.async = true;
-    script.onload = () => {
-      setIsLoaded(true);
-    };
 
-    document.body.appendChild(script);
+    export default class CreateItenerary extends React.Component {
+      constructor(props) {
+        super(props);
+        this.state = {
+          
+          userId: null, 
+          tripId: null,
+          tripData:"",
+          userData:""
+          
+        };
+        //this.handleSubmit = this.handleSubmit.bind(this); // to read properties of state
+      }
 
-    return () => {
-      document.body.removeChild(script);
-    };
-  }, [libraries]);
+      componentDidMount(){
+      const params = new URLSearchParams(window.location.search);
+      const userId = params.get('userId');
+      const tripId = params.get('tripId');
+      
+      console.log(userId); 
+      console.log(tripId);
+      this.setState({ userId: userId });
+      this.setState({ tripId: tripId });
 
-  return isLoaded;
-};
+      fetch("http://localhost:5000/tripData",{
+        method: "POST",
+        crossDomain: true,
+        headers:{
+            "Content-Type":"application/json",
+            Accept: "application/json",
+            "Access-Control-Allow-Origin": "*",
+        },
+        body: JSON.stringify({
+            
+            tripId: tripId,
+        
+        }),
+    })
+    .then((res) => res.json()) // convert data into JSON
+    .then((data) => {
+        console.log(data, "tripData");
+        this.setState({tripData: data.data});
+        if(data.data == 'Token Expired!'){
+            alert("Token expired! Kindly login again."); 
+            window.localStorage.clear();
+            window.location.href = "./sign-in";
+        }
+    });
 
-class CreateItinerary extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      setSelected: null
-    };
-  }
+    fetch("http://localhost:5000/userData",{
+        method: "POST",
+        crossDomain: true,
+        headers:{
+            "Content-Type":"application/json",
+            Accept: "application/json",
+            "Access-Control-Allow-Origin": "*",
+        },
+        body: JSON.stringify({
+            token: window.localStorage.getItem("token"),
+            userId: userId,
+        
+        }),
+    })
+    .then((res) => res.json()) // convert data into JSON
+    .then((data) => {
+        console.log(data, "userData");
+        this.setState({userData: data.data});
+        if(data.data == 'Token Expired!'){
+            alert("Token expired! Kindly login again."); 
+            window.localStorage.clear();
+            window.location.href = "./sign-in";
+        }
+    });
+     
+      }
 
-  Map = () => {
-    const { setSelected } = this.state;
+        
+          
+        render(){
+                return(
+                    <div class="deetailplan">
+ 
+         <nav class="navbar navbar-expand-md navbar-dark navbar-custom fixed-top">
+                <h3 class="logo">Bon VOYAGE!</h3>
+                <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link page-scroll" href="http://localhost:3000">HOME <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link page-scroll" href="#intro">LOG OUT</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link page-scroll" href="http://localhost:3000/myprofile">MY PROFILE</a>
+                        </li>
+                       
+                        
+                  </ul>
 
-    return (
-      <>
-        <div className="places-container">
-          <PlacesAutocomplete setSelected={setSelected} />
-        </div>
-      </>
-    );
-  };
+              </div>
+         </nav>
 
-  render() {
+         <header id="header" class="headerr">
+                <div class="header-content">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="text-container">
+                                <h1>Let's Plan, {this.state.userData.username}!</h1>
+
+                                </div>
+                            </div> 
+                        </div> 
+                    </div>
+                </div> 
+            </header> 
+     <div>
+
+        <h4 class="tripname">{this.state.tripData.tripName}</h4><hr></hr>
+        <a class="btnaddmembers" href="http://localhost:3000/addmembers">+ Add Members</a>
+        <ul class="ul">
+        <li class="li"><a href="http://localhost:3000/overview">Overview</a></li>
+        <li class="li"><a href="http://localhost:3000/polls">Polls</a></li>
+        <li class="li"><a href="http://localhost:3000/date">Date</a></li>
+        <li class="li"><a href="http://localhost:3000/destination">Destination</a></li>
+        <li class="li"><a href="http://localhost:3000/route">Route</a></li>
+        <li class="ovwli"><a href="http://localhost:3000/itinerary">Itinerary</a></li>
+     </ul>
    
-    return (
-      <div className="deetailplan">
-        <nav className="navbar navbar-expand-md navbar-dark navbar-custom fixed-top">
-          <h3 className="logo">Bon VOYAGE!</h3>
-          <div className="collapse navbar-collapse" id="navbarsExampleDefault">
-            <ul className="navbar-nav ml-auto">
-              <li className="nav-item">
-                <a className="nav-link page-scroll" href="http://localhost:3000">HOME <span className="sr-only">(current)</span></a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link page-scroll" href="#intro">LOG OUT</a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link page-scroll" href="http://localhost:3000/myprofile">MY PROFILE</a>
-              </li>
-            </ul>
-          </div>
-        </nav>
+     </div>
 
-        <header id="header" className="headerr">
-          <div className="header-content">
-            <div className="container">
-              <div className="row">
-                <div className="col-lg-12">
-                  <div className="text-container">
-                    <h1>Let's Plan,!</h1>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </header>
-        <div>
-          <h4 className="tripname">trip name</h4>
-          <hr></hr>
-          <a className="btnaddmembers" href="http://localhost:3000/addmembers">+ Add Members</a>
-          <ul className="ul">
-            <li className="li"><a href="http://localhost:3000/overview">Overview</a></li>
-            <li className="li"><a href="http://localhost:3000/polls">Polls</a></li>
-            <li className="li"><a href="http://localhost:3000/date">Date</a></li>
-            <li className="li"><a href="http://localhost:3000/destination">Destination</a></li>
-            <li className="li"><a href="http://localhost:3000/route">Route</a></li>
-            <li className="ovwli"><a href="http://localhost:3000/itinerary">Itinerary</a></li>
-          </ul>
-        </div>
-        <div className="ibody">
-          <div className="pheadd">
-            <h3>Itinerary</h3>
-            <p>Add your preferred activities, location and build your suitable itinerary.</p>
-          </div>
-          <div className="pheadd1">
-            <h3>Preview Itinerary:</h3>
-            <p>Click on the 'View' button to see your itinerary.</p>
-            <a className="btnit" href={`http://localhost:3000/myitinerary`}>View</a>
-          </div>
-          <div className="icolumn">
-            <div className="irow">
-              <div className="icard">
-                <h3>Day 1</h3>
-                <p>Spot: <this.Map /></p>
-                <p>Activities: </p>
-                <label className="aclabel">
-                  <input className="accinput" type="checkbox" name="checkbox4" />
-                  <span className="activitiespan">Paragliding</span>
-                </label>
-                <label className="aclabel">
-                  <input className="accinput" type="checkbox" name="checkbox4" />
-                  <span className="activitiespan">Hiking</span>
-                </label>
-                <label className="aclabel">
-                  <input className="accinput" type="checkbox" name="checkbox4" />
-                  <span className="activitiespan">Boating</span>
-                </label>
-                <label className="aclabel">
-                  <input className="accinput" type="checkbox" name="checkbox4" />
-                  <span className="activitiespan">Cycling</span>
-                </label>
-                <label className="aclabel">
-                  <input className="accinput" type="checkbox" name="checkbox4" />
-                  <span className="activitiespan">Horse Riding</span>
-                </label>
-                <label className="aclabel">
-                  <input className="accinput" type="checkbox" name="checkbox4" />
-                  <span className="activitiespan">Wildlife Safari</span>
-                </label>
-                <p className="descripfix">Description: <input className="accinputt" type="text" id="fname" name="description" placeholder="Description.." /></p>
-              </div>
-            </div>
+     
 
-            <div className="irow">
-              <div className="icard">
-                <h3>Day 2</h3>
-                <p>Spot: <this.Map /></p>
-                <p>Activities: </p>
-                <label className="aclabel">
-                  <input className="accinput" type="checkbox" name="checkbox4" />
-                  <span className="activitiespan">Paragliding</span>
-                </label>
-                <label className="aclabel">
-                  <input className="accinput" type="checkbox" name="checkbox4" />
-                  <span className="activitiespan">Hiking</span>
-                </label>
-                <label className="aclabel">
-                  <input className="accinput" type="checkbox" name="checkbox4" />
-                  <span className="activitiespan">Boating</span>
-                </label>
-                <label className="aclabel">
-                  <input className="accinput" type="checkbox" name="checkbox4" />
-                  <span className="activitiespan">Cycling</span>
-                </label>
-                <label className="aclabel">
-                  <input className="accinput" type="checkbox" name="checkbox4" />
-                  <span className="activitiespan">Horse Riding</span>
-                </label>
-                <label className="aclabel">
-                  <input className="accinput" type="checkbox" name="checkbox4" />
-                  <span className="activitiespan">Wildlife Safari</span>
-                </label>
-                <p className="descripfix">Description: <input className="accinputt" type="text" id="fname" name="description" placeholder="Description.." /></p>
-              </div>
-            </div>
+     <div class="ibody">
 
-            <div className="irow">
-              <div className="icard">
-                <h3>Day 3</h3>
-                <p>Spot: <this.Map /></p>
-                <p>Activities: </p>
-                <label className="aclabel">
-                  <input className="accinput" type="checkbox" name="checkbox4" />
-                  <span className="activitiespan">Paragliding</span>
-                </label>
-                <label className="aclabel">
-                  <input className="accinput" type="checkbox" name="checkbox4" />
-                  <span className="activitiespan">Hiking</span>
-                </label>
-                <label className="aclabel">
-                  <input className="accinput" type="checkbox" name="checkbox4" />
-                  <span className="activitiespan">Boating</span>
-                </label>
-                <label className="aclabel">
-                  <input className="accinput" type="checkbox" name="checkbox4" />
-                  <span className="activitiespan">Cycling</span>
-                </label>
-                <label className="aclabel">
-                  <input className="accinput" type="checkbox" name="checkbox4" />
-                  <span className="activitiespan">Horse Riding</span>
-                </label>
-                <label className="aclabel">
-                  <input className="accinput" type="checkbox" name="checkbox4" />
-                  <span className="activitiespan">Wildlife Safari</span>
-                </label>
-                <p className="descripfix">Description: <input className="accinputt" type="text" id="fname" name="description" placeholder="Description.." /></p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="footerbody"></div>
-      </div>
-    );
-  }
-}
+     <div class="pheadd">
+    <h3>Itinerary</h3>
+<p>Add your preffered activities, location and build your suitable itinerary.</p> 
 
-class PlacesAutocomplete extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      ready: false,
-      value: "",
-      suggestions: { status: null, data: [] },
-    };
-  }
+</div>  
+<div class="pheadd1">
+    <h3>Preview Itinerary:</h3>
+<p>Click on the 'View' button to see your itinerary.</p> 
+<a class="btnit" href={`http://localhost:3000/myitinerary`}>View</a>
 
-  handleSelect = async (address) => {
-    const { setValue, clearSuggestions, setSelected } = this.props;
-    setValue(address, false);
-    clearSuggestions();
+</div> 
 
-    const results = await getGeocode({ address });
-    const { lat, lng } = await getLatLng(results[0]);
-    setSelected({ lat, lng });
-  };
 
-  handleChange = (e) => {
-    const { setValue } = this.props;
-    setValue(e.target.value);
-  };
+     <div class="icolumn">
+  <div class="irow">
+    <div class="icard">
+      <h3>Day </h3>
+      <p>Spot:<Map/></p>
+      <p>Activities: </p>
+      <label class="aclabel">
+			<input class="accinput" type="checkbox" name="checkbox4"/>
+			<span class="activitiespan">Paragliding</span>
+      </label>
+      <label class="aclabel">
+			<input class="accinput" type="checkbox" name="checkbox4"/>
+			<span class="activitiespan">Hiking</span></label>
+      <label class="aclabel">
+			<input class="accinput" type="checkbox" name="checkbox4"/>
+			<span class="activitiespan">Boating</span></label>
+      <label class="aclabel">
+			<input class="accinput" type="checkbox" name="checkbox4"/>
+			<span class="activitiespan">Cycling</span></label>
+      <label class="aclabel">
+			<input class="accinput" type="checkbox" name="checkbox4"/>
+			<span class="activitiespan">Horse Riding</span></label>
+      <label class="aclabel">
+			<input class="accinput" type="checkbox" name="checkbox4"/>
+			<span class="activitiespan">Wildlife Safari</span></label>
+      <p class="descripfix">Description: <input class="accinputt" type="text" id="fname" name="description" placeholder="Description.."/></p>
+    </div>
+  </div>
 
-  render() {
-    const { ready, value, suggestions } = this.state;
+  <div class="irow">
+    <div class="icard">
+      <h3>Day </h3>
+      <p>Spot:<Map/></p>
+      <p>Activities: </p>
+      <label class="aclabel">
+			<input class="accinput" type="checkbox" name="checkbox4"/>
+			<span class="activitiespan">Paragliding</span>
+      </label>
+      <label class="aclabel">
+			<input class="accinput" type="checkbox" name="checkbox4"/>
+			<span class="activitiespan">Hiking</span></label>
+      <label class="aclabel">
+			<input class="accinput" type="checkbox" name="checkbox4"/>
+			<span class="activitiespan">Boating</span></label>
+      <label class="aclabel">
+			<input class="accinput" type="checkbox" name="checkbox4"/>
+			<span class="activitiespan">Cycling</span></label>
+      <label class="aclabel">
+			<input class="accinput" type="checkbox" name="checkbox4"/>
+			<span class="activitiespan">Horse Riding</span></label>
+      <label class="aclabel">
+			<input class="accinput" type="checkbox" name="checkbox4"/>
+			<span class="activitiespan">Wildlife Safari</span></label>
+      <p class="descripfix">Description: <input class="accinputt" type="text" id="fname" name="description" placeholder="Description.."/></p>
+    </div>
+  </div>
 
-    return (
-      <Combobox onSelect={this.handleSelect}>
-        <ComboboxInput
-          value={value}
-          onChange={this.handleChange}
-          disabled={!ready}
-          className="combobox-iinput"
-          placeholder="Select a spot.."
-        />
-        <ComboboxPopover>
-          <ComboboxList>
-            {suggestions.status === "OK" &&
-              suggestions.data.map(({ place_id, description }) => (
-                <ComboboxOption key={place_id} value={description} />
-              ))}
-          </ComboboxList>
-        </ComboboxPopover>
-      </Combobox>
-    );
-  }
-}
+  <div class="irow">
+    <div class="icard">
+      <h3>Day </h3>
+      <p>Spot:<Map/></p>
+      <p>Activities: </p>
+      <label class="aclabel">
+			<input class="accinput" type="checkbox" name="checkbox4"/>
+			<span class="activitiespan">Paragliding</span>
+      </label>
+      <label class="aclabel">
+			<input class="accinput" type="checkbox" name="checkbox4"/>
+			<span class="activitiespan">Hiking</span></label>
+      <label class="aclabel">
+			<input class="accinput" type="checkbox" name="checkbox4"/>
+			<span class="activitiespan">Boating</span></label>
+      <label class="aclabel">
+			<input class="accinput" type="checkbox" name="checkbox4"/>
+			<span class="activitiespan">Cycling</span></label>
+      <label class="aclabel">
+			<input class="accinput" type="checkbox" name="checkbox4"/>
+			<span class="activitiespan">Horse Riding</span></label>
+      <label class="aclabel">
+			<input class="accinput" type="checkbox" name="checkbox4"/>
+			<span class="activitiespan">Wildlife Safari</span></label>
+      <p class="descripfix">Description: <input class="accinputt" type="text" id="fname" name="description" placeholder="Description.."/></p>
+    </div>
+  </div>
 
-export default CreateItinerary;
+  {/* <input class="savedesbtn" type="submit" value="Add"/> */}
+  
+</div>
+ 
+
+
+</div>
+
+<div class="footerbody">
+         
+    </div> 
+    
+     
+     </div>
+                    );
+
+                }
+              }
+            
+              function Map() {
+                const [setSelected] = useState(null);
+
+                const { isLoaded } = useLoadScript({
+                  googleMapsApiKey: "AIzaSyAz2_MkHBuMmmgsKwwVnp1tF-qOVm0B9Oo",
+                  libraries: ["places"],
+                });
+          
+              
+                if (!isLoaded) return <div>Loading...</div>;  
+              
+                return (
+                  <>
+                    <div className="places-container">
+                      <PlacesAutocomplete setSelected={setSelected} />
+                    </div>
+              
+                   </>
+                );
+              }
+              
+        const PlacesAutocomplete = ({ setSelected }) => {
+            const {
+              ready,
+              value,
+              setValue,
+              suggestions: { status, data },
+              clearSuggestions,
+            } = usePlacesAutocomplete();
+          
+            const handleSelect = async (address) => {
+              setValue(address, false);
+              clearSuggestions();
+          
+              const results = await getGeocode({ address });
+              const { lat, lng } = await getLatLng(results[0]);
+              setSelected({ lat, lng });
+            };
+          
+            return (
+              <Combobox onSelect={handleSelect}>
+                <ComboboxInput
+                  value={value}
+                  onChange={(e) => setValue(e.target.value)}
+                  disabled={!ready}
+                  className="combobox-iinput"
+                  placeholder="Select a spot.."
+                />
+                <ComboboxPopover>
+                  <ComboboxList>
+                    {status === "OK" &&
+                      data.map(({ place_id, description }) => (
+                        <ComboboxOption key={place_id} value={description} />
+                      ))}
+                  </ComboboxList>
+                </ComboboxPopover>
+              </Combobox>
+            );
+          };

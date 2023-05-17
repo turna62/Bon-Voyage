@@ -137,9 +137,11 @@ import '../Home/HomeCss/styles.css';
   }
 
   handleClosePoll() {
+    const confirmClose = window.confirm('Are you sure you want to close this poll? This action will close the poll for everyone on your trip and prevent further voting.');
+
     const { pollId } = this.state;
     //const { finalResult } = this.state;
-  
+  if (confirmClose){
     fetch(`http://localhost:5000/closepoll`, {
       method: 'PUT',
       crossDomain: true,
@@ -167,6 +169,7 @@ import '../Home/HomeCss/styles.css';
         console.error(error);
         alert('An error occurred while closing the poll');
       });
+    }
   }
   
   
