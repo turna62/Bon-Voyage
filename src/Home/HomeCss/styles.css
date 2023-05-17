@@ -994,16 +994,11 @@ Colors:
 		left: 30px;
 	}
 	
-	.cards-1 .card-body {
-		padding: 0;
-	}
-	
-	.card-bodyy p{
+	.card-bodyy {
 		position: relative;
-		top: 20px;
-		right: 40px;
+		top: 40px;
+		right: 20px;
 	}
-	
 	.cards-1 .fa-stackk {
 		width: 6rem;
 		height: 6rem;
@@ -1048,9 +1043,20 @@ Colors:
 		right: 30px;
 	}
 	
-	.cards-1 .card-body p{
+	.cards-1 .card-body {
 		position: relative;
-		right: 400px;
+		right: 0px;
+		bottom: 0px;
+	}
+	.cards-1 .card-body h6 {
+		position: relative;
+		right: 30px;
+		top: 10px;
+	}
+	.cards-1 .card-bodyy h6 {
+		position: relative;
+		right: 0px;
+		top: 10px;
 	}
 	
 	.testimonial{

@@ -240,7 +240,7 @@ class HomePage extends React.Component{
                                 </span>
                                 <div class="card-bodyy">
                                     <h4 class="card-tittle">Creating an Itinerary</h4>
-                                    <p>Our system will give scope to download an itinerary once the planning is set.</p>
+                                    <h6>Our system will give scope to download an itinerary once the planning is set.</h6>
                                 </div>
                             </div>
                     
@@ -253,7 +253,7 @@ class HomePage extends React.Component{
                                 </span>
                                 <div class="card-body">
                                     <h4 class="card-title">Suitable Routes</h4>
-                                    <p>After the destination of the trip is confirmed, suitable routes for that destination will be viewed.</p>
+                                    <h6 id="jhamela">After the destination of the trip is confirmed, suitable routes for that destination will be viewed.</h6>
                                 </div>
                             </div>
                             
@@ -268,7 +268,7 @@ class HomePage extends React.Component{
                                 </span>
                                 <div class="card-bodyy">
                                     <h4 class="card-tittle">Collaborative Planning</h4>
-                                    <p>Trip planners can plan collaboratively in a planning slot.</p>
+                                    <h6>Trip planners can plan collaboratively in a planning slot.</h6>
                                 </div>
                                 
                             </div>
