@@ -4,12 +4,16 @@ import React from 'react';
  import './HomeCss/bootstrap.min.css';
 
 class HomePage extends React.Component{
+
+    
     render(){
 
         return(
 
 
 <body class="homebody"> 
+
+<header id="header" class="header">
             
             <nav class="navbar navbar-expand-md navbar-dark navbar-custom fixed-top">
              <h3 class="logo"><i class="fa fa-anchor"></i> Bon VOYAGE!</h3>
@@ -49,7 +53,7 @@ class HomePage extends React.Component{
          </nav> 
         
         
-            <header id="header" class="header">
+            
                 <div class="header-content"> 
                     <div class="container">
                         <div class="row">
@@ -81,6 +85,7 @@ class HomePage extends React.Component{
                             </div>
                         </div> 
                         <div class="col-lg-7">
+                            
                             <div class="image-container">
                                 <img class="img-fluid" src="images/project-6.jpg" alt="alternative"/>
                             </div> 

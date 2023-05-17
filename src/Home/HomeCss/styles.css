@@ -857,9 +857,9 @@ Colors:
 	/*    04. Header     */
 	/*********************/
 	.header {
-		background: linear-gradient(rgba(0, 0, 0, 0.606), rgba(0, 0, 0, 0.637)), url('../img/sundarban.jpg') center center no-repeat;
+		background: linear-gradient(rgba(0, 0, 0, 0.606), rgba(0, 0, 0, 0.637)), url('../img/c1.jpg') center center no-repeat;
 		background-size: cover;  
-		height: 150vh;  
+		height: 120vh;  
 		overflow: hidden;
 		position: relative;
 		top: 50px;
@@ -938,8 +938,9 @@ Colors:
 		transition: all 0.3s;
 		position: relative;
 		left: 150px;
-		height: 400px;
+		height: 370px;
 		width: 430px;
+		top: 40px;
 		}
 	
 	.basic-1 .image-container:hover img {
@@ -1315,7 +1316,8 @@ Colors:
 			box-shadow: 0 0.0625rem 0.375rem 0 rgba(0, 0, 0, 0.1);
 			background-color: rgb(10, 44, 44);
 			color: white;
-			font-size: 17px;
+			font-size: 16px;
+			height: 14vh;
 		}
 		
 		
@@ -2116,3 +2118,4 @@ Colors:
 	  .js-rotating {
 		animation: blink 2.5s infinite;
 	  }
+	  
