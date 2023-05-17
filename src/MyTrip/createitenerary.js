@@ -169,16 +169,20 @@ import usePlacesAutocomplete, {
      <div class="icolumn">
   <div class="irow">
     <div class="icard">
-    <h5> Day:</h5> <h6>
+    <h5><b>Day:</b></h5>
 <div class="dropdown">
-  <span> Select Days</span>
-  <select class="dropdown-content" name="days" id="days">
-    <option value="1">1</option>
+ <select>
+    <option value="1" selected>1</option>
     <option value="2">2</option>
     <option value="3">3</option>
     <option value="4">4</option>
-  </select>  
-</div></h6>
+  </select>
+  
+</div>
+
+
+
+
   
       <p>Spot:<Map/></p>
       <p>Activities: </p>
