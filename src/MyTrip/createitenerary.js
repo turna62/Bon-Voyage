@@ -157,6 +157,53 @@ import usePlacesAutocomplete, {
                 alert("Error! Something went wrong while calling the API.");
               });
           }
+
+          handleNext= () =>{
+            
+            const { days, userId, tripId } = this.state;
+            
+            console.log(days, userId, tripId);
+
+            const requestBody = {
+              userId,
+              tripId,
+              days: days.map((day) => ({
+                description: day.description,
+                activities: day.activities,
+                day: day.day,
+                spots: day.spots
+              }))
+            };
+            fetch("http://localhost:5000/itinerary", {
+              method: "POST",
+              crossDomain: true,
+              headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json",
+                "Access-Control-Allow-Origin": "*",
+                authorization: localStorage.getItem("userId") ,
+              //  authorization: localStorage.getItem("email") ,
+              },
+              body: JSON.stringify(requestBody),
+            })
+              .then((res) => res.json())
+              .then((data) => {
+                console.log(data, "itinerarySubmit");
+                if (data.status === "OK!") {
+                    
+                    alert('submitted Successfully!');
+                    window.localStorage.setItem('itineraryId', data.itineraryId);
+                    window.location.href = `http://localhost:3000/createitenerary1?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}&itineraryId=${data.itineraryId}`;
+    
+                } else {
+                  alert(`went wrong: ${data.status}`);
+                }
+              })
+              .catch((error) => {
+                console.error(error);
+                alert("Error! Something went wrong while calling the API.");
+              });
+          }
         
           
         render(){
@@ -224,8 +271,8 @@ import usePlacesAutocomplete, {
 <div class="pheadd1">
     <h3>Add Next</h3>
 <p>Click on the 'Add' button to add information of next days.</p> 
-<a class="btnit" href={`http://localhost:3000/createitenerary1`}>Next</a>
-<a class="btnit" href={`http://localhost:3000/itinerary`}>Submit</a>
+
+<button class="pollbtn1" type="button" onClick={this.handleNext}>Next</button>
 
 </div> 
 
