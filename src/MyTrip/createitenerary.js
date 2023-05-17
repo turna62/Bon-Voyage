@@ -172,10 +172,14 @@ import usePlacesAutocomplete, {
     <h5> Day:</h5> <h6>
 <div class="dropdown">
   <span> Select Days</span>
-  <div class="dropdown-content">
-  <p>1</p>
-  </div>
+  <select class="dropdown-content" name="days" id="days">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+  </select>  
 </div></h6>
+  
       <p>Spot:<Map/></p>
       <p>Activities: </p>
       <label class="aclabel">
