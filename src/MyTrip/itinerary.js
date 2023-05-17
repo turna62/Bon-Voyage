@@ -12,7 +12,7 @@ class Itinerary extends React.Component{
           userData:"",
           destination: ""
         };
-        this.handleSubmit = this.handleSubmit.bind(this); // to read properties of state
+        //this.handleSubmit = this.handleSubmit.bind(this); // to read properties of state
       }
     
       componentDidMount() {
@@ -80,46 +80,46 @@ class Itinerary extends React.Component{
 
       }
 
-      handleSubmit(e){
-        e.preventDefault();
-        const { destination, userId, tripId } = this.state;
+    //   handleSubmit(e){
+    //     e.preventDefault();
+    //     const { destination, userId, tripId } = this.state;
         
-        console.log(destination, userId, tripId);
-        fetch("http://localhost:5000/itinerary", {
-          method: "POST",
-          crossDomain: true,
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json",
-            "Access-Control-Allow-Origin": "*",
-            authorization: localStorage.getItem("userId") ,
-          //  authorization: localStorage.getItem("email") ,
-          },
-          body: JSON.stringify({
-            destination,
-            userId,
-            tripId
+    //     console.log(destination, userId, tripId);
+    //     fetch("http://localhost:5000/itinerary", {
+    //       method: "POST",
+    //       crossDomain: true,
+    //       headers: {
+    //         "Content-Type": "application/json",
+    //         Accept: "application/json",
+    //         "Access-Control-Allow-Origin": "*",
+    //         authorization: localStorage.getItem("userId") ,
+    //       //  authorization: localStorage.getItem("email") ,
+    //       },
+    //       body: JSON.stringify({
+    //         destination,
+    //         userId,
+    //         tripId
             
-          }),
-        })
-          .then((res) => res.json())
-          .then((data) => {
-            console.log(data, "itinerarySubmit");
-            if (data.status === "OK!") {
+    //       }),
+    //     })
+    //       .then((res) => res.json())
+    //       .then((data) => {
+    //         console.log(data, "itinerarySubmit");
+    //         if (data.status === "OK!") {
                 
-                alert('submitted Successfully!');
-                window.localStorage.setItem('itineraryId', data.itineraryId);
-                window.location.href = `http://localhost:3000/myitinerary?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}&itineraryId=${data.itineraryId}`;
+    //             alert('submitted Successfully!');
+    //             window.localStorage.setItem('itineraryId', data.itineraryId);
+    //             window.location.href = `http://localhost:3000/myitinerary?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}&itineraryId=${data.itineraryId}`;
 
-            } else {
-              alert(`went wrong: ${data.status}`);
-            }
-          })
-          .catch((error) => {
-            console.error(error);
-            alert("Error! Something went wrong while calling the API.");
-          });
-      }
+    //         } else {
+    //           alert(`went wrong: ${data.status}`);
+    //         }
+    //       })
+    //       .catch((error) => {
+    //         console.error(error);
+    //         alert("Error! Something went wrong while calling the API.");
+    //       });
+    //   }
     
     render(){
 
@@ -184,7 +184,7 @@ class Itinerary extends React.Component{
     <h3>Itinerary</h3>
 <p>Build an itinerary to start organizing your destinations, stays, and activities by day.</p> 
 
-</div> <a class="btn-solid-lg1 page-scroll" href={`http://localhost:3000/createitenerary`}>Create Itinerary</a>
+</div> <a class="btn-solid-lg1 page-scroll" href={`http://localhost:3000/createitenerary?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}`}>Create Itinerary</a>
 
 
 {/* <form onSubmit = {this.handleSubmit}>

@@ -17,15 +17,36 @@ import usePlacesAutocomplete, {
 
 
 
-    export default function CreateItenerary() {
-        const { isLoaded } = useLoadScript({
-            googleMapsApiKey: "AIzaSyAz2_MkHBuMmmgsKwwVnp1tF-qOVm0B9Oo",
-            libraries: ["places"],
-          });
-        
-          if (!isLoaded) return <div>Loading...</div>;   
+    export default class CreateItenerary extends React.Component {
+      constructor(props) {
+        super(props);
+        this.state = {
           
+          userId: null, 
+          tripId: null,
+          tripData:"",
+          userData:""
+          
+        };
+        //this.handleSubmit = this.handleSubmit.bind(this); // to read properties of state
+      }
+
+      componentDidMount(){
+      const params = new URLSearchParams(window.location.search);
+      const userId = params.get('userId');
+      const tripId = params.get('tripId');
+      
+      console.log(userId); 
+      console.log(tripId);
+      this.setState({ userId: userId });
+      this.setState({ tripId: tripId });
+
+     
+      }
+
         
+          
+        render(){
                 return(
                     <div class="deetailplan">
  
@@ -126,7 +147,7 @@ import usePlacesAutocomplete, {
 
   <div class="irow">
     <div class="iicard">
-      <h3>Day 1</h3>
+      <h3>Day 2</h3>
       <p>Spot:<Map/></p>
       <p>Activities: </p>
       <label class="aclabel">
@@ -154,7 +175,7 @@ import usePlacesAutocomplete, {
 
   <div class="irow">
     <div class="iicard">
-      <h3>Day 1</h3>
+      <h3>Day 3</h3>
       <p>Spot:<Map/></p>
       <p>Activities: </p>
       <label class="aclabel">
@@ -194,55 +215,64 @@ import usePlacesAutocomplete, {
                     );
 
                 }
+              }
             
-                function Map() {
-                    const [setSelected] = useState(null);
-                  
-                    return (
-                      <>
-                        <div className="places-container">
-                          <PlacesAutocomplete setSelected={setSelected} />
-                        </div>
-                  
-                       </>
-                    );
-                  }
-                  
-            const PlacesAutocomplete = ({ setSelected }) => {
-                const {
-                  ready,
-                  value,
-                  setValue,
-                  suggestions: { status, data },
-                  clearSuggestions,
-                } = usePlacesAutocomplete();
+              function Map() {
+                const [setSelected] = useState(null);
+
+                const { isLoaded } = useLoadScript({
+                  googleMapsApiKey: "AIzaSyAz2_MkHBuMmmgsKwwVnp1tF-qOVm0B9Oo",
+                  libraries: ["places"],
+                });
+          
               
-                const handleSelect = async (address) => {
-                  setValue(address, false);
-                  clearSuggestions();
-              
-                  const results = await getGeocode({ address });
-                  const { lat, lng } = await getLatLng(results[0]);
-                  setSelected({ lat, lng });
-                };
+                if (!isLoaded) return <div>Loading...</div>;  
               
                 return (
-                  <Combobox onSelect={handleSelect}>
-                    <ComboboxInput
-                      value={value}
-                      onChange={(e) => setValue(e.target.value)}
-                      disabled={!ready}
-                      className="combobox-iinput"
-                      placeholder="Select a spot.."
-                    />
-                    <ComboboxPopover>
-                      <ComboboxList>
-                        {status === "OK" &&
-                          data.map(({ place_id, description }) => (
-                            <ComboboxOption key={place_id} value={description} />
-                          ))}
-                      </ComboboxList>
-                    </ComboboxPopover>
-                  </Combobox>
+                  <>
+                    <div className="places-container">
+                      <PlacesAutocomplete setSelected={setSelected} />
+                    </div>
+              
+                   </>
                 );
-              };
+              }
+              
+        const PlacesAutocomplete = ({ setSelected }) => {
+            const {
+              ready,
+              value,
+              setValue,
+              suggestions: { status, data },
+              clearSuggestions,
+            } = usePlacesAutocomplete();
+          
+            const handleSelect = async (address) => {
+              setValue(address, false);
+              clearSuggestions();
+          
+              const results = await getGeocode({ address });
+              const { lat, lng } = await getLatLng(results[0]);
+              setSelected({ lat, lng });
+            };
+          
+            return (
+              <Combobox onSelect={handleSelect}>
+                <ComboboxInput
+                  value={value}
+                  onChange={(e) => setValue(e.target.value)}
+                  disabled={!ready}
+                  className="combobox-iinput"
+                  placeholder="Select a spot.."
+                />
+                <ComboboxPopover>
+                  <ComboboxList>
+                    {status === "OK" &&
+                      data.map(({ place_id, description }) => (
+                        <ComboboxOption key={place_id} value={description} />
+                      ))}
+                  </ComboboxList>
+                </ComboboxPopover>
+              </Combobox>
+            );
+          };
