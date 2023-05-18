@@ -59,7 +59,7 @@ class Activities extends React.Component{
                             <a class="nav-link page-scroll" href="http://localhost:3000">HOME <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link page-scroll" href="#intro">LOG OUT</a>
+                             <a class="nav-link page-scroll" href="#intro">LOG OUT</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link page-scroll" href="http://localhost:3000/myprofile">MY PROFILE</a>

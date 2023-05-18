@@ -69,11 +69,11 @@ handleDownload = () => {
 
     itineraryData.days.forEach((day, index) => {
       const yOffset = index * 30 + 20; // Adjust the y-offset as needed
-      doc.text(`Day ${day.day}`, 20, yOffset);
-      doc.text(`Spots: ${day.spots.join(", ")}`, 20, yOffset + 30);
-      doc.text(`Activities: ${day.activities.join(", ")}`, 20, yOffset + 20);
-      
-      doc.text(`Description: ${day.description}`, 20, yOffset + 10);
+      doc.text(`My Itenerary`, 90, yOffset);
+      doc.text(`Day ${day.day}`, 20, yOffset + 10);
+      doc.text(`Spots: ${day.spots.join(", ")}`, 20, yOffset + 20);
+      doc.text(`Activities: ${day.activities.join(", ")}`, 20, yOffset + 30);    
+      doc.text(`Description: ${day.description}`, 20, yOffset + 40);
     });
 
 
@@ -91,29 +91,36 @@ handleDownload = () => {
 
     return (
       <div>
-      {itineraryData ? (
-        <div>
+      <div class="download">
+      <div class="iheading">
+     <h3><i class="fa fa-anchor"></i> Bon Voyage!</h3>
+     <h5>My Itinerary</h5>          
+     </div>
+      {itineraryData ? ( 
+        <div class="itinfo">
           {itineraryData.days.map((day, index) => (
             <div key={index}>
+              
               <p>Day {day.day}</p>
             
-              <p>Spots:</p>
-              <ul>
+              <p>Spots: 
                   {day.spots.map((spot, spotIndex) => (
-                    <li key={spotIndex}>{spot}</li>
+                    <div class="dspot" key={spotIndex}>{spot}</div>
                   ))}
-                </ul>
-                <p>Activities: {day.activities.join(', ')}</p>
-                <p>Description: {day.description}</p>
+                
+              </p>
+                <div class="dact">Activities: {day.activities.join(', ')}</div>
+                <div class="dact1">Description: {day.description}</div>
 
             </div>
           ))}
-          <button style={{ backgroundColor: 'red', color: 'white' }} onClick={this.handleDownload}>Download Itinerary</button>
+<button style={{ backgroundColor: 'rgb(14,44,44)', color: 'white', position: 'relative', right: '20px' }} onClick={this.handleDownload}>Download</button>
+
         </div>
       ) : (
         <p>Loading itinerary...</p>
       )}
-    </div>
+    </div></div>
     );
   }
 }
