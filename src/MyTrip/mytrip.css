@@ -137,7 +137,7 @@
   position: relative;
   display: flex;
   align-items: center;
-  margin-top: -10px;
+  margin-top: -13px;
   
 }
 
@@ -156,6 +156,8 @@
   justify-content: center;
   align-items: center;
 }
+
+
 
 .nav-link button {
   background-color: transparent;
@@ -503,7 +505,7 @@ top: 200px;
             background: rgba(14, 44, 44, 0.182);
             background-size: cover;
             position: relative;
-            top: 60px;
+            top: 90px;
             border-style: ridge;
             box-shadow: #363333;      
           }
@@ -1360,6 +1362,13 @@ font-size: 19px;
   position: relative;
   top: 10px;
 }
+
+.cpoll{
+  position: relative;
+  top: 5px;
+  left: 8px;
+}
+
 .ccpolll{
   position: relative;
   top: 10px;
