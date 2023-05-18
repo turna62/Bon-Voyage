@@ -10,11 +10,22 @@ class AddMembers extends React.Component{
         this.state = {
           email: "",
           tripId: props.tripId,
-          //userId: props.userId
+          userId: null
         };
         this.handleSubmit = this.handleSubmit.bind(this); // to read properties of state
       }
 
+
+      componentDidMount() {
+        const params = new URLSearchParams(window.location.search);
+        const userId = params.get('userId');
+        
+        
+        console.log(userId); 
+        
+        this.setState({ userId: userId });
+     
+      }
       handleSubmit(e){
         e.preventDefault();
         console.log("Form submitted!"); 
@@ -71,11 +82,13 @@ class AddMembers extends React.Component{
                         <li class="nav-item">
                             <a class="nav-link page-scroll" href="http://localhost:3000">HOME <span class="sr-only">(current)</span></a>
                         </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link page-scroll" href={`http://localhost:3000/myprofile?userId=${encodeURIComponent(this.state.userId)}`}>MY PROFILE</a>
+                        </li>
+
                         <li class="nav-item">
                             <a class="nav-link page-scroll" href="#intro">LOG OUT</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link page-scroll" href="http://localhost:3000/myprofile">MY PROFILE</a>
                         </li>
                        
                         
