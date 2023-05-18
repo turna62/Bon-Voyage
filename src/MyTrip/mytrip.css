@@ -1215,12 +1215,12 @@ top: 200px;
 .trips .tjoined{
   position: relative;
   left: 400px;
-  bottom: 230px; 
+  bottom: 294px; 
 }
  .thead{
   position: relative;
   bottom: 450px;
-  left: 100px;
+  left: -20px;
   color: rgb(14, 44, 44);
   font-family: 'Times New Roman', Times, serif;
  }
@@ -1228,6 +1228,7 @@ top: 200px;
  .thead1{
   position: relative;
   top: 10px;
+  left: 2px;
   color: rgb(14, 44, 44);
   font-family: 'Times New Roman', Times, serif;
  }
