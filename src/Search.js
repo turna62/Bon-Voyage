@@ -3,7 +3,7 @@ import "./searchstyle.css";
 import placesData from "./places_data.json";
 import spotsData from "./spots_data.json";
 
-function Search() {
+function Search() { 
     const [searchTerm, setSearchTerm] = useState("");
     const filteredplacesData = placesData.filter(
       (val) =>
@@ -21,17 +21,17 @@ function Search() {
       <div class="sbody">
 
       <nav class="navbar navbar-expand-md navbar-dark navbar-custom fixed-top">
-      <h3 class="logo">Bon VOYAGE!</h3>
+      <h3 class="logo"><i class="fa fa-anchor"></i> Bon VOYAGE!</h3>
 
                 
                 <div class="collapse navbar-collapse" id="navbarsExampleDefault">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link page-scroll" href="http://localhost:3000">HOME <span class="sr-only">(current)</span></a>
+                            <a class="nav-link page-scroll" href="http://localhost:3000"><i class="fa fa-home"></i> HOME <span class="sr-only">(current)</span></a>
                         </li>
         
                         <li class="nav-item">
-                            <a class="nav-link" href="http://localhost:3000/sign-up">SIGN UP</a>
+                            <a class="nav-link" href="http://localhost:3000/sign-up"><i class="fa fa-sign-up"></i> SIGN UP</a>
                             
                         </li>
 
