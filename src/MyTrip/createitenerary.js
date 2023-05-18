@@ -25,10 +25,24 @@ import usePlacesAutocomplete, {
           userId: null, 
           tripId: null,
           tripData:"",
-          userData:""
-          
+          userData:"",
+          days: [
+            {
+              day: 1,
+              description: '',
+              activities: [],
+              spots:[]
+            },
+          ],
         };
-        //this.handleSubmit = this.handleSubmit.bind(this); // to read properties of state
+        this.setDays = this.setDays.bind(this);
+      
+        
+        this.handleSubmit = this.handleSubmit.bind(this); // to read properties of state
+      }
+
+      setDays(newDays) {
+        this.setState({ days: newDays });
       }
 
       componentDidMount(){
@@ -90,9 +104,106 @@ import usePlacesAutocomplete, {
             window.location.href = "./sign-in";
         }
     });
+
+
+    
      
       }
 
+
+      handleSubmit(e){
+            e.preventDefault();
+            const { days, userId, tripId } = this.state;
+            
+            console.log(days, userId, tripId);
+
+            const requestBody = {
+              userId,
+              tripId,
+              days: days.map((day) => ({
+                description: day.description,
+                activities: day.activities,
+                day: day.day,
+                spots: day.spots
+              }))
+            };
+            fetch("http://localhost:5000/itinerary", {
+              method: "POST",
+              crossDomain: true,
+              headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json",
+                "Access-Control-Allow-Origin": "*",
+                authorization: localStorage.getItem("userId") ,
+              //  authorization: localStorage.getItem("email") ,
+              },
+              body: JSON.stringify(requestBody),
+            })
+              .then((res) => res.json())
+              .then((data) => {
+                console.log(data, "itinerarySubmit");
+                if (data.status === "OK!") {
+                    
+                    alert('submitted Successfully!');
+                    window.localStorage.setItem('itineraryId', data.itineraryId);
+                    window.location.href = `http://localhost:3000/myitinerary?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}&itineraryId=${data.itineraryId}`;
+    
+                } else {
+                  alert(`went wrong: ${data.status}`);
+                }
+              })
+              .catch((error) => {
+                console.error(error);
+                alert("Error! Something went wrong while calling the API.");
+              });
+          }
+
+          handleNext= () =>{
+            
+            const { days, userId, tripId } = this.state;
+            
+            console.log(days, userId, tripId);
+
+            const requestBody = {
+              userId,
+              tripId,
+              days: days.map((day) => ({
+                description: day.description,
+                activities: day.activities,
+                day: day.day,
+                spots: day.spots
+              }))
+            };
+            fetch("http://localhost:5000/itinerary", {
+              method: "POST",
+              crossDomain: true,
+              headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json",
+                "Access-Control-Allow-Origin": "*",
+                authorization: localStorage.getItem("userId") ,
+              //  authorization: localStorage.getItem("email") ,
+              },
+              body: JSON.stringify(requestBody),
+            })
+              .then((res) => res.json())
+              .then((data) => {
+                console.log(data, "itinerarySubmit");
+                if (data.status === "OK!") {
+                    
+                    alert('submitted Successfully!');
+                    window.localStorage.setItem('itineraryId', data.itineraryId);
+                    window.location.href = `http://localhost:3000/createitenerary1?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}&itineraryId=${data.itineraryId}`;
+    
+                } else {
+                  alert(`went wrong: ${data.status}`);
+                }
+              })
+              .catch((error) => {
+                console.error(error);
+                alert("Error! Something went wrong while calling the API.");
+              });
+          }
         
           
         render(){
@@ -160,8 +271,8 @@ import usePlacesAutocomplete, {
 <div class="pheadd1">
     <h3>Add Next</h3>
 <p>Click on the 'Add' button to add information of next days.</p> 
-<a class="btnit" href={`http://localhost:3000/createitenerary1`}>Next</a>
-<a class="btnit" href={`http://localhost:3000/itinerary`}>Submit</a>
+
+<button class="pollbtn1" type="button" onClick={this.handleNext}>Next</button>
 
 </div> 
 
@@ -169,49 +280,205 @@ import usePlacesAutocomplete, {
      <div class="icolumn">
   <div class="irow">
     <div class="icard">
-    <h5><b>Day:</b></h5>
-<div class="dropdown">
- <select>
-    <option value="1" selected>1</option>
-    <option value="2">2</option>
-    <option value="3">3</option>
-    <option value="4">4</option>
-  </select>
-  
-</div>
+      <form  onSubmit = {this.handleSubmit}>
+    
+      {/* {/* 
+<div>
+    <label htmlFor="spots">Spots:</label>
+    <Map />
+  </div> */}
+      
+      {this.state.days.map((day, index) => (
+  <div key={index}>
+    <p htmlFor={`day${index}`}><b>Day:&nbsp; </b>
+    <select
+      name={`day${index}`}
+      value={day.day !== null ? day.day.toString() : ""}
+      onChange={(e) => {
+        const newDays = [...this.state.days];
+        newDays[index].day = e.target.value !== "" ? parseInt(e.target.value) : null;
+        this.setState({ days: newDays });
+      }}
+    >
+      <option value="1">1</option>
+      <option value="2">2</option>
+      
+    </select></p>
+
+    <p htmlFor="spots">Spots:</p>
+    <Map days={this.state.days} />
+    
+    <p> Activities:</p>
+    <label className="aclabel">
+      <input
+        className="accinput"
+        type="checkbox"
+        name={`activities${index}`}
+        value="Paragliding"
+        onChange={(e) => {
+          const { checked, value } = e.target;
+
+          const updatedDays = [...this.state.days];
+          const activities = checked
+            ? [...updatedDays[index].activities, value]
+            : updatedDays[index].activities.filter(
+                (activity) => activity !== value
+              );
+          updatedDays[index] = { ...updatedDays[index], activities };
+
+          this.setState({ days: updatedDays });
+        }}
+      />
+      <span className="activitiespan">Paragliding</span>
+    </label>
+
+    <label className="aclabel">
+      <input
+        className="accinput"
+        type="checkbox"
+        name={`activities${index}`}
+        value="Hiking"
+        onChange={(e) => {
+          const { checked, value } = e.target;
+
+          const updatedDays = [...this.state.days];
+          const activities = checked
+            ? [...updatedDays[index].activities, value]
+            : updatedDays[index].activities.filter(
+                (activity) => activity !== value
+              );
+          updatedDays[index] = { ...updatedDays[index], activities };
+
+          this.setState({ days: updatedDays });
+        }}
+      />
+      <span className="activitiespan">Hiking</span>
+    </label>
+
+    <label className="aclabel">
+      <input
+        className="accinput"
+        type="checkbox"
+        name={`activities${index}`}
+        value="Boating"
+        onChange={(e) => {
+          const { checked, value } = e.target;
+
+          const updatedDays = [...this.state.days];
+          const activities = checked
+            ? [...updatedDays[index].activities, value]
+            : updatedDays[index].activities.filter(
+                (activity) => activity !== value
+              );
+          updatedDays[index] = { ...updatedDays[index], activities };
+
+          this.setState({ days: updatedDays });
+        }}
+      />
+      <span className="activitiespan">Boating</span>
+    </label>
+
+    <label className="aclabel">
+      <input
+        className="accinput"
+        type="checkbox"
+        name={`activities${index}`}
+        value="Cycling"
+        onChange={(e) => {
+          const { checked, value } = e.target;
+
+          const updatedDays = [...this.state.days];
+          const activities = checked
+            ? [...updatedDays[index].activities, value]
+            : updatedDays[index].activities.filter(
+                (activity) => activity !== value
+              );
+          updatedDays[index] = { ...updatedDays[index], activities };
+
+          this.setState({ days: updatedDays });
+        }}
+      />
+      <span className="activitiespan">Cycling</span>
+    </label>
+
+    <label className="aclabel">
+      <input
+        className="accinput"
+        type="checkbox"
+        name={`activities${index}`}
+        value="Horse Riding"
+        onChange={(e) => {
+          const { checked, value } = e.target;
+
+          const updatedDays = [...this.state.days];
+          const activities = checked
+            ? [...updatedDays[index].activities, value]
+            : updatedDays[index].activities.filter(
+                (activity) => activity !== value
+              );
+          updatedDays[index] = { ...updatedDays[index], activities };
+
+          this.setState({ days: updatedDays });
+        }}
+      />
+      <span className="activitiespan">Horse Riding</span>
+    </label>
+
+    <label className="aclabel">
+      <input
+        className="accinput"
+        type="checkbox"
+        name={`activities${index}`}
+        value="Wildlife Safari"
+        onChange={(e) => {
+          const { checked, value } = e.target;
+
+          const updatedDays = [...this.state.days];
+          const activities = checked
+            ? [...updatedDays[index].activities, value]
+            : updatedDays[index].activities.filter(
+                (activity) => activity !== value
+              );
+          updatedDays[index] = { ...updatedDays[index], activities };
+
+          this.setState({ days: updatedDays });
+        }}
+      />
+      <span className="activitiespan">Wildlife Safari</span>
+    </label>
+
+    <p className="descripfix">
+      Description:
+      <input
+        className="accinputt"
+        type="text"
+        name={`description${index}`}
+        placeholder="Description.."
+        value={day.description}
+        onInput={(e) => {
+          const newDays = [...this.state.days];
+          newDays[index].description = e.target.value;
+          this.setState({ days: newDays });
+        }}
+      />
+    </p>
 
 
+  </div>
+))}
 
 
-  
-      <p>Spot:<Map/></p>
-      <p>Activities: </p>
-      <label class="aclabel">
-			<input class="accinput" type="checkbox" name="checkbox4"/>
-			<span class="activitiespan">Paragliding</span>
-      </label>
-      <label class="aclabel">
-			<input class="accinput" type="checkbox" name="checkbox4"/>
-			<span class="activitiespan">Hiking</span></label>
-      <label class="aclabel">
-			<input class="accinput" type="checkbox" name="checkbox4"/>
-			<span class="activitiespan">Boating</span></label>
-      <label class="aclabel">
-			<input class="accinput" type="checkbox" name="checkbox4"/>
-			<span class="activitiespan">Cycling</span></label>
-      <label class="aclabel">
-			<input class="accinput" type="checkbox" name="checkbox4"/>
-			<span class="activitiespan">Horse Riding</span></label>
-      <label class="aclabel">
-			<input class="accinput" type="checkbox" name="checkbox4"/>
-			<span class="activitiespan">Wildlife Safari</span></label>
-      <p class="descripfix">Description: <input class="accinputt" type="text" id="fname" name="description" placeholder="Description.."/></p>
+      
+      <input class="savedesbtn" type="submit" value="Add"/>
+      </form>
     </div>
+
   </div>
 
-  {/* <input class="savedesbtn" type="submit" value="Add"/> */}
-  
+ 
+
 </div>
+
  
 
 
@@ -224,7 +491,7 @@ import usePlacesAutocomplete, {
                 }
               }
             
-              function Map() {
+              function Map({days }) {
                 const [selectedSpots, setSelectedSpots] = useState([]);
               
                 const { isLoaded } = useLoadScript({
@@ -234,11 +501,14 @@ import usePlacesAutocomplete, {
               
                 if (!isLoaded) return <div>Loading...</div>;
               
+                
+
                 const handleSelect = (spot, index) => {
-                  const updatedSpots = [...selectedSpots];
-                  updatedSpots[index] = spot;
-                  setSelectedSpots(updatedSpots);
+                  const updatedDays = [...days];
+                  updatedDays[0].spots[index] = spot.address; // Assuming you always update the spots for the first day
+                  this.state.setDays(updatedDays);
                 };
+                
               
                 return (
                   <>
@@ -260,7 +530,7 @@ import usePlacesAutocomplete, {
                 );
               }
               
-              const PlacesAutocomplete = ({ onSelect, index }) => {
+              const PlacesAutocomplete = ({ onSelect, index, days }) => {
                 const {
                   ready,
                   value,
@@ -276,6 +546,10 @@ import usePlacesAutocomplete, {
                   const results = await getGeocode({ address });
                   const { lat, lng } = await getLatLng(results[0]);
                   onSelect({ address, lat, lng }, index);
+
+                  const updatedDays = [...days];
+    updatedDays[0].spots[index] = address;
+    this.state.setDays(updatedDays);
                 };
               
                 return (
