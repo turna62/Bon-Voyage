@@ -78,7 +78,7 @@ handleDownload = () => {
 
 
     doc.setFontSize(12);
-    doc.setTextColor(255, 255, 255); // Set text color to white
+    doc.setTextColor(10, 44, 44); // Set text color to white
     //doc.text(data, 20, 20); // Add your text on top of the image
 
     doc.save(fileName);
