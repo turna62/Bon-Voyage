@@ -92,7 +92,7 @@ class TripSection extends React.Component {
                     
                     
                      
-               </ul>
+               </ul> 
 
            </div>
       </nav>
