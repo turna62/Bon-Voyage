@@ -1227,7 +1227,7 @@ top: 200px;
 .trips .tjoined{
   position: relative;
   left: 400px;
-  bottom: 294px; 
+  bottom: 293px; 
 }
  .thead{
   position: relative;
@@ -1612,7 +1612,7 @@ border: solid 3px rgba(14, 44, 44, 0.805);
   position: relative;
   left: 140px;
   overflow-x: hidden;
-  top: 50px;
+  top: 30px;
   margin-right: 0.5rem;
   margin-bottom: 1.25rem;
   letter-spacing: 2px;
@@ -1625,7 +1625,7 @@ border: solid 3px rgba(14, 44, 44, 0.805);
 }
 .alertdest{
   position: relative;
-  left: 60px;
+  left: 50px;
   top: 14px;
 }
 
