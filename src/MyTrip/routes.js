@@ -43,7 +43,7 @@ class Places extends React.Component {
 
     directionsService.route(request, (result, status) => {
       if (status === window.google.maps.DirectionsStatus.OK) {
-        const output = `<div class='destinationinfo'><div class='alertdest'>From: ${from}.<br />To: ${to}.<br /> Driving distance <i class='fas fa-road'></i> : ${result.routes[0].legs[0].distance.text}.<br />Duration <i class='fas fa-hourglass-start'></i> : ${result.routes[0].legs[0].duration.text}.</div></div>`;
+        const output = `<div class='destinationinfo'><div class='alertdest'>Start Destination (A): ${from}.<br />End Destination (B): ${to}.<br /> Driving distance <i class='fas fa-road'></i> : ${result.routes[0].legs[0].distance.text}.<br />Duration <i class='fas fa-hourglass-start'></i> : ${result.routes[0].legs[0].duration.text}.</div></div>`;
         this.setState({ output });
         directionsDisplay.setDirections(result);
       } else {
