@@ -230,7 +230,7 @@ import usePlacesAutocomplete, {
 </div>  
 <div class="pheadd1">
 <h3>Add Next</h3>
-<p>Click on the 'Add' button to add information of next days.</p> 
+<p>Click on the 'Save' button to save the itinerary or click 'Next' button to add information of next days.</p> 
 
 <button class="pollbtn1" type="button" onClick={this.handleNext}>Next</button>
 
@@ -429,7 +429,7 @@ onInput={(e) => {
 
 
 
-<input class="savedesbtn" type="submit" value="Add"/>
+<input class="savedesbtn" type="submit" value="Save"/>
 </form>
 </div>
 

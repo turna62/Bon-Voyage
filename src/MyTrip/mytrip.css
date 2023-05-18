@@ -139,7 +139,6 @@
   align-items: center;
   margin-top: -10px;
   
-  /* margin-top: 8.9rem; */
 }
 
 .notif-count {
@@ -1249,10 +1248,10 @@ top: 200px;
 .icolumn {
   margin: 0 -5px;
   position: relative;
-  top: 140px;
+  top: 180px;
   right: 640px;
   float: left;
-  width: 65%;
+  width: 90%;
   height: 20vh;
 }
 
@@ -1287,6 +1286,15 @@ top: 200px;
   left: 240px;
   top: 150px;
 }
+.pheadd1 h3{
+  position: relative;
+  left: 110px;
+}
+.pheadd1 p{
+  position: relative;
+  left: 110px;
+}
+
 .pheadd p{
 color: rgb(14, 44, 44);
 font-family: sans-serif;

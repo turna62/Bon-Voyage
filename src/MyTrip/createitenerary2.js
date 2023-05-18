@@ -158,8 +158,9 @@ import usePlacesAutocomplete, {
 
 </div>  
 <div class="pheadd1">
-    <h3>Add Next</h3>
-<p>Click on the 'Add' button to add information of next days.</p> 
+<h3>Add Next</h3>
+<p>Click on the 'Save' button to save the itinerary or click 'Next' button to add information of next days.</p> 
+
 <a class="btnit" href={`http://localhost:3000/createitenerary3`}>Next</a>
 <a class="btnit" href={`http://localhost:3000/itinerary`}>Submit</a>
 
@@ -205,7 +206,7 @@ import usePlacesAutocomplete, {
     </div>
   </div>
 
-  {/* <input class="savedesbtn" type="submit" value="Add"/> */}
+  <input class="savedesbtn" type="submit" value="Save"/>
   
 </div>
  
