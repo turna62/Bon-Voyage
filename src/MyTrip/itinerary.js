@@ -164,7 +164,7 @@ class Itinerary extends React.Component{
      <div>
 
         <h4 class="tripname">{this.state.tripData.tripName}</h4><hr></hr>
-        <a class="btnaddmembers" href="http://localhost:3000/addmembers"><i class='fas fa-user-plus'></i> Add Members</a>
+        <a class="btnaddmembers" href="http://localhost:3000/addmembers">+ Add Members</a>
 
         <ul class="ul">
         <li class="li"> <a href={`http://localhost:3000/overview?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}`}>Overview</a></li>

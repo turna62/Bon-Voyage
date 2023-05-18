@@ -222,7 +222,7 @@ const { question, options, winner } = this.state;
      <div>
 
         <h4 class="tripname">Trip Name</h4><hr></hr>
-        <a class="btnaddmembers" href="http://localhost:3000/addmembers"><i class='fas fa-user-plus'></i> Add Members</a>
+        <a class="btnaddmembers" href="http://localhost:3000/addmembers">+ Add Members</a>
         <ul class="ul">
         <li class="li"><a href="http://localhost:3000/overview">Overview</a></li>
         <li class="ovwli"><a href="http://localhost:3000/polls">Polls</a></li>
