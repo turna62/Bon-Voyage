@@ -104,7 +104,7 @@ import React from 'react';
                         <div class="row">
                             <div class="col-xs-12 ml-auto mr-auto ie-container-width-fix">
                                 <form onSubmit = {this.handleSubmit}  class="tm-search-form tm-section-pad-2" >
-                                            <input name="tripName" type="text" class=" tripinput" id="inputCity" placeholder="Trip Name" onInput = {e=>this.setState({tripName:e.target.value})}/>
+                                            <input name="tripName" type="text" class=" tripinput" id="inputCity" placeholder="Enter your trip name" onInput = {e=>this.setState({tripName:e.target.value})}/>
                                         
                             <input class="btn-solid-lllg" type="submit" value="CONTINUE"/>
                                         

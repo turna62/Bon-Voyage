@@ -597,6 +597,19 @@ top: 200px;
             position: relative;
             top: 30px;
           }
+
+          .tripinput:focus::-webkit-input-placeholder, .tripinput:valid::-webkit-input-placeholder {
+            color: rgba(49, 47, 47, 0.7);
+            font-size: .9em;
+            -webkit-transform: translateY(-30px);
+            -moz-transform: translateY(-30px);
+            -o-transform: translateY(-30px);
+            -ms-transform: translateY(-30px);
+            transform: translateY(-30px);
+            visibility: visible !important;
+            position: relative;
+            top: 30px;
+          } 
           ::-webkit-input-placeholder {
             color: #282525;
             font-weight: 100;
@@ -1215,12 +1228,12 @@ top: 200px;
 .trips .tjoined{
   position: relative;
   left: 400px;
-  bottom: 230px; 
+  bottom: 294px; 
 }
  .thead{
   position: relative;
   bottom: 450px;
-  left: 100px;
+  left: -20px;
   color: rgb(14, 44, 44);
   font-family: 'Times New Roman', Times, serif;
  }
@@ -1228,6 +1241,7 @@ top: 200px;
  .thead1{
   position: relative;
   top: 10px;
+  left: 2px;
   color: rgb(14, 44, 44);
   font-family: 'Times New Roman', Times, serif;
  }

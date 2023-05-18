@@ -101,38 +101,38 @@ class TripSection extends React.Component {
 
       <div class="trips">
 <div class="tcreated">
-        <h4>Created Trips:</h4><hr class="hr1"></hr>
-        <ul className="mytrip1">
+        <h4>Created Trips: ({myTrips.filter(trip => !trip.deleted).length})</h4><hr class="hr1"></hr>
+        <p className="mytrip1">
   {myTrips.filter(trip => !trip.deleted).reverse().map((trip, index) => {
     let count = index + 1; // start count at 1
     return (
-      <li key={trip._id}>
+      <p key={trip._id}>
         <Link to={`/overview?userId=${this.state.userId}&tripId=${trip._id}`} className="no-underline">
           {count}. {trip.tripName}
         </Link>
-      </li>
+      </p>
     );
   })}
-</ul>
+</p>
 </div>
 
 
    <div class="tjoined">    
   
-        <h4>Joined Trips:</h4>
+        <h4>Joined Trips: ({joinedTrips.filter(trip => !trip.deleted).length})</h4>
         <hr class="hr1"></hr>
-        <ul class="joinedtrip">
+        <p class="joinedtrip">
         {joinedTrips.filter(trip => !trip.deleted).reverse().map((trip, index) => {
     let count = index + 1; // start count at 1
     return (
-      <li key={trip._id}>
+      <p key={trip._id}>
         <Link to={`/overview?userId=${this.state.userId}&tripId=${trip._id}`} className="no-underline">
           {count}. {trip.tripName}
         </Link>
-      </li>
+      </p>
     );
   })}
-</ul></div>
+</p></div>
 
         </div>
 
