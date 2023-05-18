@@ -76,8 +76,8 @@ constructor(props) {
         <div className="container mt-4 mb-4 p-3 d-flex justify-content-center">
           <div className="card p-4">
             <div className="image d-flex flex-column justify-content-center align-items-center">
-              <span className="name mt-3">{this.state.userData.username}</span>
-              <span className="idd">{this.state.userData.email}</span>
+              <span className="name mt-3">Name: {this.state.userData.username}</span>
+              <span className="idd">Email: {this.state.userData.email}</span>
   
              <span>   <a href="" className="btn1">
                   Edit Profile
