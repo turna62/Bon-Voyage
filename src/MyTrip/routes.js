@@ -15,8 +15,10 @@ class Places extends React.Component {
           tripId: null,
           tripData:"",
           userData:"",
-          destination: ""
+          destination: "",
+          notifsData:[],
     };
+    this.updateAllIsRead = this.updateAllIsRead.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this); // to read properties of state
   }
 
@@ -59,6 +61,8 @@ class Places extends React.Component {
   };
 
   componentDidMount() {
+
+    
     const loadScript = (url, callback) => {
       const script = document.createElement("script");
       script.src = url;
@@ -121,6 +125,26 @@ class Places extends React.Component {
         this.setState({ userId: userId });
         this.setState({ tripId: tripId });
 
+
+        fetch("http://localhost:5000/notifications",{
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          tripId: tripId,
+          userId: userId
+        }),
+      })
+      .then((res) => res.json()) // convert data into JSON
+      .then((data) => {
+        console.log(data, "notifsData");
+        this.setState({notifsData: data});
+      });
+
+
+
         fetch("http://localhost:5000/tripData",{
             method: "POST",
             crossDomain: true,
@@ -179,6 +203,8 @@ class Places extends React.Component {
       }
     );
   }
+
+
   handleSubmit(e){
     e.preventDefault();
     const { destination, userId, tripId } = this.state;
@@ -220,6 +246,39 @@ class Places extends React.Component {
       });
   }
 
+  updateAllIsRead = () => {
+    const params = new URLSearchParams(window.location.search);
+   const userId = params.get('userId');
+   const tripId = params.get('tripId');
+   
+   console.log(userId); 
+   console.log(tripId);
+   this.setState({ userId: userId });
+   this.setState({ tripId: tripId });
+   const unreadNotifs = this.state.notifsData.filter((notif) => !notif.isRead);
+   const unreadNotifIds = unreadNotifs.map((notif) => notif._id);
+
+ 
+   fetch('http://localhost:5000/notifications/read', {
+     method: 'PUT',
+     headers: {
+       'Content-Type': 'application/json',
+       Accept: 'application/json',
+     },
+     body: JSON.stringify({ userId:userId, tripId:tripId }),
+   })
+     .then((res) => res.json())
+     .then((data) => {
+       // Update the notifsData state to mark all notifications as read
+       const updatedNotifsData = this.state.notifsData.map((notif) => ({
+         ...notif,
+         isRead: true,
+       }));
+       this.setState({ notifsData: updatedNotifsData });
+     })
+     .catch((error) => console.error(error));
+ };
+
   render() {
   const { from, to, output } = this.state;
   
@@ -231,14 +290,46 @@ class Places extends React.Component {
                 <h3 class="logo"><i class="fa fa-anchor"></i> Bon VOYAGE!</h3>
                 <div class="collapse navbar-collapse" id="navbarsExampleDefault">
                     <ul class="navbar-nav ml-auto">
+                      
+                    <li class="nav-item">
+                        
+
+                        <a class="nav-link page-scroll">
+  <button onClick={this.updateAllIsRead}>
+    <span class="notif-icon">
+      <i class="fas fa-bell"></i>
+      {this.state.notifsData.filter(notif => !notif.isRead).length > 0 && (
+        <span class="notif-count">
+          {this.state.notifsData.filter(notif => !notif.isRead).length}
+        </span>
+      )}
+    </span>
+  </button>
+</a> 
+<div class="notifications-container">
+  <ul>
+    {this.state.notifsData.map((notif, index) => (
+      <li key={index}>
+        <p>{notif.message}</p>
+        <p>{notif.createdAt}</p>
+      </li>
+    ))}
+  </ul>
+</div>
+ 
+  
+  
+</li>
                     <li class="nav-item">
                             <a class="nav-link page-scroll" href="http://localhost:3000"><i class="fa fa-home"></i> HOME <span class="sr-only">(current)</span></a>
                         </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link page-scroll" href={`http://localhost:3000/myprofile?userId=${encodeURIComponent(this.state.userId)}`}> <i class='fas fa-user-circle'></i> MY PROFILE</a>
+                        </li>
+
                         <li class="nav-item">
                             <a class="nav-link page-scroll" href="#intro"><i class="fa fa-sign-out"></i> LOG OUT</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link page-scroll" href={`http://localhost:3000/myprofile`}> <i class='fas fa-user-circle'></i> MY PROFILE</a>
                         </li>
                     
                     
@@ -266,7 +357,7 @@ class Places extends React.Component {
      <div>
 
         <h4 class="tripname">{this.state.tripData.tripName}</h4><hr></hr>
-        <a class="btnaddmembers" href="http://localhost:3000/addmembers">+ Add Members</a>
+        <a class="btnaddmembers" href={`http://localhost:3000/addmembers?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}`}>+ Add Members</a>
 
         <ul class="ul">
         <li class="li"> <a href={`http://localhost:3000/overview?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}`}>Overview</a></li>

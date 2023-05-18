@@ -28,10 +28,7 @@ class Overview extends React.Component{
         this.setState({ userId: userId });
         this.setState({ tripId: tripId });
         
-    //     fetch(`http://localhost:5000/notifications`)
-    //   .then(response => response.json())
-    //   .then(data => this.setState({ notifications: data }))
-    //   .catch(error => console.error(error));
+  
 
     
   
