@@ -191,6 +191,7 @@ Colors:
 		position: relative;
 		left: 15px;
 		top: 5px;
+		overflow: hidden;
 	}
 	
 	.search {

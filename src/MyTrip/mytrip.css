@@ -1728,7 +1728,73 @@ border: solid 3px rgba(14, 44, 44, 0.805);
 .dropdown:hover .dropdown-content {
   display: block;
 }
-
-.pollunder{
-  right:110px;
+.download {
+  overflow: hidden;
+  height: 100vh;
 }
+
+.iheading {
+  position: relative;
+  font-family: 'Times New Roman', Times, serif;
+  left: 550px;
+  top: 50px;
+  overflow: hidden;
+}
+
+.iheading h5 {
+  position: relative;
+  left: 50px;
+  overflow: hidden;
+}
+
+.itinfo{
+  background-color: #c8d5dc81;
+  position: relative;
+  position: relative;
+  overflow: hidden;
+  top: 100px;
+  left: 160px;
+  height: 35vh;
+  width: 160vh;
+  border-radius: 15px;
+}
+.itinfo p{
+  position: relative;
+  left: 70px;
+  top: 30px;
+}
+
+.itinfo .dspot{
+  position: relative;
+  left: 53px;
+  bottom: 23px;
+}
+.itinfo .dact{
+  position: relative;
+  left: 70px;
+}
+.itinfo .dact1{
+  position: relative;
+  left: 70px;
+  top: 10px;
+}
+
+.btndown {
+  display: inline-block;
+  padding: 1.375rem 1.125rem 1.375rem 1.125rem;
+  background-color: rgb(14, 44, 44);
+  color: #fff;
+  font: 700 0.75rem/0 "Montserrat", sans-serif;
+  text-decoration: none;
+  transition: all 0.2s;
+  font-size: 16px;
+  font-family: 'Times New Roman', Times, serif;
+  position: relative;
+  overflow-x: hidden;
+  top: 100px;
+  margin-right: 0.5rem;
+  margin-bottom: 1.25rem;
+  letter-spacing: 2px;top: 70px;
+  right: 300px;
+  border-radius: 4px;
+} 
