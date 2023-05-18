@@ -260,8 +260,8 @@ input[type="checkbox"] {
     font-family: 'Times New Roman', Times, serif;
     position: relative;
     overflow-x: hidden;
-    right: 35px;
-    top: 30px;
+    right: 80px;
+    top: 20px;
 } 
 
 .pollbtn1:hover {
