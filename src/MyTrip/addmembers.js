@@ -10,11 +10,22 @@ class AddMembers extends React.Component{
         this.state = {
           email: "",
           tripId: props.tripId,
-          //userId: props.userId
+          userId: null
         };
         this.handleSubmit = this.handleSubmit.bind(this); // to read properties of state
       }
 
+
+      componentDidMount() {
+        const params = new URLSearchParams(window.location.search);
+        const userId = params.get('userId');
+        
+        
+        console.log(userId); 
+        
+        this.setState({ userId: userId });
+     
+      }
       handleSubmit(e){
         e.preventDefault();
         console.log("Form submitted!"); 
@@ -71,11 +82,13 @@ class AddMembers extends React.Component{
                         <li class="nav-item">
                             <a class="nav-link page-scroll" href="http://localhost:3000"><i class="fa fa-home"></i> HOME <span class="sr-only">(current)</span></a>
                         </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link page-scroll" href={`http://localhost:3000/myprofile?userId=${encodeURIComponent(this.state.userId)}`}><i class='fas fa-user-circle'></i> MY PROFILE</a>
+                        </li>
+
                         <li class="nav-item">
                             <a class="nav-link page-scroll" href="#intro"><i class="fa fa-sign-out"></i> LOG OUT</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link page-scroll" href="http://localhost:3000/myprofile"><i class="fa fa-user-circle"></i> MY PROFILE</a>
                         </li>
                        
                         
@@ -87,10 +100,10 @@ class AddMembers extends React.Component{
     <div class="mainn-w3layouts wrapper">
 		<div class="mainn-agileinfo">
 			<div class="agileitss-top">
-            <h3 class="cpoll">Share this Trip</h3>
-            <h5 class="ccpolll">Invite friends to suggest, comment, and vote on trip details.</h5> <hr></hr>
+            <h3 class="cpoll">Share this Trip <i class="fas fa-share"></i></h3>
+            <h5 class="ccpolll">Invite friends to suggest, create polls and vote on trip details.</h5> <hr></hr>
 				<form ref={form => this.form = form} onSubmit = {this.handleSubmit}>
-                   <h5 class="ccplll">Invite by email </h5>
+                   <h5 class="ccplll">Invite via email <i class="fas fa-envelope"></i> </h5>
 
 					<input class="textt" type="text" name="email" placeholder="Add email" required=""  onInput = {e=>this.setState({email:e.target.value})}  title="Please enter the email addresses of users who have verified accounts on our site!"/>
 

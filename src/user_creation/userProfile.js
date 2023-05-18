@@ -59,13 +59,11 @@ constructor(props) {
             <div className="collapse navbar-collapse" id="navbarsExampleDefault">
               <ul className="navbar-nav ml-auto">
                 <li className="nav-item">
-                  <a className="nav-link page-scroll" href="http://localhost:3000">
-                    HOME <span className="sr-only">(current)</span>
+                  <a className="nav-link page-scroll" href="http://localhost:3000"><i class="fa fa-home"></i> HOME <span className="sr-only">(current)</span>
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link page-scroll" href="#intro">
-                    LOG OUT
+                  <a className="nav-link page-scroll" href="#intro"><i class="fa fa-sign-out"></i> LOG OUT
                   </a>
                 </li>
               </ul>

@@ -30,12 +30,7 @@ class HomePage extends React.Component{
                         <li class="nav-item">
                             <a class="nav-link page-scroll" href="#services"><i class="fa fa-gear"></i> SERVICES</a>
                         </li>
-                         
-        
-                        <li class="nav-item">
-                            <a class="nav-link" href="http://localhost:3000/sign-in"><i class="fa fa-sign-in"></i> LOG IN</a>
-                            
-                        </li>
+                        
 
                         
 
@@ -45,6 +40,11 @@ class HomePage extends React.Component{
  
                     
                       </li>
+
+                      <li class="nav-item">
+                            <a class="nav-link" href="http://localhost:3000/sign-in"><i class="fa fa-sign-in"></i> LOG IN</a>
+                            
+                        </li>
 
                       
                   </ul>
