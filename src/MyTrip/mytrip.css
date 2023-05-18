@@ -337,10 +337,11 @@ top: 200px;
             left: 150px;
         }
 
-        .phead p{
-          color: rgb(14, 44, 44);
+        .phead h3{
+          color: black;
           font-family: sans-serif;
           position: relative;
+          right: -10px;
           }
 
           .pheaddate{
@@ -1726,4 +1727,8 @@ border: solid 3px rgba(14, 44, 44, 0.805);
 
 .dropdown:hover .dropdown-content {
   display: block;
+}
+
+.pollunder{
+  right:110px;
 }

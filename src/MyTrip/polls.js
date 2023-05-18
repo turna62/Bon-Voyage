@@ -214,11 +214,13 @@ const {myPolls} = this.state;
 <li class="nav-item">
                             <a class="nav-link page-scroll" href="http://localhost:3000"><i class="fa fa-home"></i> HOME <span class="sr-only">(current)</span></a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link page-scroll" href="#intro"><i class="fa fa-sign-out"></i> LOG OUT</a>
-                        </li>
+                       
                         <li class="nav-item">
                             <a class="nav-link page-scroll" href={`http://localhost:3000/myprofile?userId=${encodeURIComponent(this.state.userId)}`}> <i class='fas fa-user-circle'></i> MY PROFILE</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link page-scroll" href="#intro"><i class="fa fa-sign-out"></i> LOG OUT</a>
                         </li>
                     
                         
@@ -248,7 +250,7 @@ const {myPolls} = this.state;
      <div>
 
         <h4 class="tripname">{this.state.tripData.tripName}</h4><hr></hr>
-        <a class="btnaddmembers"  href={`http://localhost:3000/addmembers?tripId=${encodeURIComponent(this.state.tripId)}`}>+ Add Members</a>
+        <a class="btnaddmembers"  href={`http://localhost:3000/addmembers?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}`}>+ Add Members</a>
 
         <ul class="ul">
         <li class="li"> <a href={`http://localhost:3000/overview?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}`}>Overview</a></li>
