@@ -411,7 +411,7 @@ render(){
 <button class="pollbtn1" type="button" onClick={this.handleClosePoll}>Close</button>
 
 
-<button class="pollbtn1" type="button" onClick={this.handleEdit}>Edit</button>
+<button class="pollbtn1" type="button" onClick={this.handleEdit}>Change</button>
 
 
 
