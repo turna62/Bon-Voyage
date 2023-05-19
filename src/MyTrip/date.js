@@ -133,6 +133,13 @@ class Date extends React.Component{
             if (data.status === "OK!") {
                 
                 alert('Saved succesfully!');
+                
+                const updatedTripData = {
+                  ...this.state.tripData,
+                  startDate: formattedStartDate,
+                  endDate: formattedEndDate,
+                };
+                this.setState({ tripData: updatedTripData });
              
                 this.form.reset();
 
