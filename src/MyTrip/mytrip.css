@@ -707,7 +707,7 @@ top: 200px;
   font-family: 'Times New Roman', Times, serif;
   position: relative;
   left: 270px;
-  top: 20px;
+  top: 5px;
   overflow-x: hidden;
 }
 
@@ -1420,7 +1420,7 @@ font-size: 19px;
 }
 .enddate{
   position: relative;
-  top: 70px;
+  top: 61px;
   left: 120px;
 }
 
