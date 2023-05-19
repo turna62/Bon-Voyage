@@ -1078,7 +1078,7 @@ app.post("/adddate", async (req, res) => {
     res.status(500).json({ status: "na!" });
   }
 });
-
+//gtygyt
 app.put('/vote/change', async (req, res) => {
   const { pollId, optionId, userId, tripId } = req.body;
   
