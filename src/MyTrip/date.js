@@ -16,8 +16,7 @@ class Date extends React.Component{
         };
         this.updateAllIsRead = this.updateAllIsRead.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.handleStartDateChange = this.handleStartDateChange.bind(this);
-    this.handleEndDateChange = this.handleEndDateChange.bind(this);
+       
       }
     
       componentDidMount() {
