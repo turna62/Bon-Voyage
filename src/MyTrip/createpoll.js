@@ -104,13 +104,15 @@ class CreatePoll extends React.Component{
                 <div class="collapse navbar-collapse" id="navbarsExampleDefault">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link page-scroll" href="http://localhost:3000">HOME <span class="sr-only">(current)</span></a>
+                            <a class="nav-link page-scroll" href="http://localhost:3000"><i class="fa fa-home"></i> HOME <span class="sr-only">(current)</span></a>
                         </li>
+                        
                         <li class="nav-item">
-                            <a class="nav-link page-scroll" href="#intro">LOG OUT</a>
+                            <a class="nav-link page-scroll"  href={`http://localhost:3000/myprofile?userId=${encodeURIComponent(this.state.userId)}`}> <i class='fas fa-user-circle'></i> MY PROFILE</a>
                         </li>
+
                         <li class="nav-item">
-                            <a class="nav-link page-scroll" href="http://localhost:3000/myprofile">MY PROFILE</a>
+                            <a class="nav-link page-scroll" href="#intro"><i class="fa fa-sign-out"></i> LOG OUT</a>
                         </li>
                        
                         
@@ -125,8 +127,8 @@ class CreatePoll extends React.Component{
             <h3 class="cpoll">Create Poll</h3><hr></hr>
             <h5 class="ccpoll">Write a custom question with up to 05 answers travelers can choose from.</h5>
 				<form onSubmit={(e) => this.handleSubmit(e, this.props.isTripOwner)}>
-					<input class="texti" type="text" name="question" placeholder="Write your question....*" required="" onInput = {e=>this.setState({question:e.target.value})} />
-                   <h5 class="ccpll">Answer (Add up to 05)</h5>
+					<input class="texti" type="text" name="question" placeholder="Write your question" required="" onInput = {e=>this.setState({question:e.target.value})} style={{ color: 'black' }}/>
+                   <h5 class="ccpll">Options (Add up to 05)</h5>
 
                    {/* <input class="textt" type="text" name="option1" placeholder="Answer 1" required="" onInput={e => this.setState({options: { ...this.state.options, 0: e.target.value }})} />
                   <input class="textt" type="text" name="option2" placeholder="Answer 2" required="" onInput={e => this.setState({options: { ...this.state.options, 1: e.target.value }})} />
@@ -141,7 +143,7 @@ class CreatePoll extends React.Component{
   class="textt"
   type="text"
   name="options"
-  placeholder="Answer 1"
+  placeholder="Option 1"
   required=""
   onInput={(e) =>
     this.setState({
@@ -156,7 +158,7 @@ class CreatePoll extends React.Component{
   class="textt"
   type="text"
   name="options"
-  placeholder="Answer 2"
+  placeholder="Option 2"
   required=""
   onInput={(e) =>
     this.setState({
@@ -171,7 +173,7 @@ class CreatePoll extends React.Component{
   class="textt"
   type="text"
   name="options"
-  placeholder="Answer 3"
+  placeholder="Option 3"
   required=""
   onInput={(e) =>
     this.setState({
@@ -186,7 +188,7 @@ class CreatePoll extends React.Component{
   class="textt"
   type="text"
   name="options"
-  placeholder="Answer 4"
+  placeholder="Option 4"
   required=""
   onInput={(e) =>
     this.setState({
@@ -200,7 +202,7 @@ class CreatePoll extends React.Component{
   class="textt"
   type="text"
   name="options"
-  placeholder="Answer 5"
+  placeholder="Option 5"
   required=""
   onInput={(e) =>
     this.setState({
