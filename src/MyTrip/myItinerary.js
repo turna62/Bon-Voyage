@@ -71,20 +71,20 @@ class MyItinerary extends React.Component {
       // const description = itineraryData.day.description;
       // const data = destinationLabel + description;
 
-      const dayIndex = 0; // Assuming you want to access the description of the first day
-  const description = itineraryData.days[dayIndex].description;
-  const day = itineraryData.days[dayIndex].day;
-  const spots = itineraryData.days[dayIndex].spots;
-  const activities = itineraryData.days[dayIndex].activities;
 
-  const data =  description + ""+ day + "" + spots +"" +activities;
+      const day = itineraryData.days.map(day => day.day);
+      const spots = itineraryData.days.map(day => day.spots.join('\n'));
+      const activities = itineraryData.days.map(day => day.activities);
+      const description = itineraryData.days.map(day => day.description);
+      
+      const data = day.map((d, index) => `Day: ${d}\n\nSpots:\n${spots[index]}\n\nActivities: ${activities[index]}\n\nDescription: ${description[index]}`).join('\n\n');
+      
+doc.setFontSize(16);
+doc.setTextColor(40,41, 41); // Set text color to white
+doc.text(data, 20, 20); // Add your text on top of the image
 
-  
-      doc.setFontSize(12);
-      doc.setTextColor(255, 255, 255); // Set text color to white
-      doc.text(data, 20, 20); // Add your text on top of the image
-  
-      doc.save(fileName);
+doc.save(fileName);
+
     }
   }
   
