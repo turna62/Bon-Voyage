@@ -67,7 +67,7 @@ constructor(props) {
                   </a>
                 </li>
               </ul>
-            </div>
+            </div> 
           </nav>
         </div>
   
@@ -77,7 +77,7 @@ constructor(props) {
               <span className="name mt-3">Name: {this.state.userData.username}</span>
               <span className="idd">Email: {this.state.userData.email}</span>
   
-             <span>   <a href="" className="btn1">
+             <span>   <a href="http://localhost:3000/reset" className="btn1">
                   Edit Profile
                 </a>
                 <a

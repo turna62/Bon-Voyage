@@ -54,15 +54,6 @@ export default function CreatePollD() {
 				<form>
                    <h5 class="ccpll1">Add up to 05 places:</h5>
 
-                   {/* <input class="textt" type="text" name="option1" placeholder="Answer 1" required="" onInput={e => this.setState({options: { ...this.state.options, 0: e.target.value }})} />
-                  <input class="textt" type="text" name="option2" placeholder="Answer 2" required="" onInput={e => this.setState({options: { ...this.state.options, 1: e.target.value }})} />
-                   <input class="textt" type="text" name="option3" placeholder="Answer 3" required="" onInput={e => this.setState({options: { ...this.state.options, 2: e.target.value }})} />
-                      <input class="textt" type="text" name="option4" placeholder="Answer 4" required="" onInput={e => this.setState({options: { ...this.state.options, 3: e.target.value }})} />
-                      <input class="textt" type="text" name="option5" placeholder="Answer 5" required="" onInput={e => this.setState({options: { ...this.state.options, 4: e.target.value }})} /> */}
-
-
-                    {/* <a class="btncreatepoll" href="http://localhost:3000/launchpoll1">LAUNCH POLL</a> */}
-
                     <Map/>
                     <input class="btncdestination" type="submit" value="LAUNCH POLL"/>
 
@@ -138,70 +129,90 @@ export default function CreatePollD() {
         );
     
 }
-function Map() {
-    const [selectedSpots, setSelectedSpots] = useState(Array(5).fill(null));
-  
-    const handleSelect = (index, spot) => {
-      const newSelectedSpots = [...selectedSpots];
-      newSelectedSpots[index] = spot;
-      setSelectedSpots(newSelectedSpots);
-    };
-  
-    return (
-      <>
-        {Array(5)
-          .fill()
-          .map((_, index) => (
-            <div key={index} className="placesF-container">
-              <PlacesAutocomplete
-                setSelected={(spot) => handleSelect(index, spot)}
-                value={selectedSpots[index]}
-              />
-            </div>
-          ))}
-      </>
-    );
-  }
-       
-const PlacesAutocomplete = ({ setSelected }) => {
-    const {
-      ready,
-      value,
-      setValue,
-      suggestions: { status, data },
-      clearSuggestions,
-    } = usePlacesAutocomplete();
-  
-    const handleSelect = async (address) => {
-      setValue(address, false);
-      clearSuggestions();
-  
-      const results = await getGeocode({ address });
-      const { lat, lng } = await getLatLng(results[0]);
-      setSelected({ lat, lng });
-    };
-  
-    return (
-      <Combobox onSelect={handleSelect}>
-        <ComboboxInput
-          value={value}
-          onChange={(e) => setValue(e.target.value)}
-          disabled={!ready}
-          className="combobox-dinput"
-          placeholder="Select a spot.."
-        />
-        <ComboboxPopover>
-          <ComboboxList>
-            {status === "OK" &&
-              data.map(({ place_id, description }) => (
-                <ComboboxOption key={place_id} value={description} />
-              ))}
-          </ComboboxList>
-        </ComboboxPopover>
-      </Combobox>
-      
-    );
-    
-  };
+
+function Map({days }) {
+  const [selectedSpots, setSelectedSpots] = useState([]);
+
+  const { isLoaded } = useLoadScript({
+    googleMapsApiKey: "AIzaSyAz2_MkHBuMmmgsKwwVnp1tF-qOVm0B9Oo",
+    libraries: ["places"],
+  });
+
+  if (!isLoaded) return <div>Loading...</div>;
 
   
+
+  const handleSelect = (spot, index) => {
+    const updatedDays = [...days];
+    updatedDays[0].spots[index] = spot.address; // Assuming you always update the spots for the first day
+    this.state.setDays(updatedDays);
+  };
+  
+
+  return (
+    <>
+      <div className="places-container">
+      <div className="spot-input">
+       <PlacesAutocomplete onSelect={handleSelect} index={0} />
+       </div>
+        <div className="spot-input">
+       <PlacesAutocomplete onSelect={handleSelect} index={1} />
+      </div>
+       <div className="spot-input">
+           <PlacesAutocomplete onSelect={handleSelect} index={2} />
+           </div>
+         <div className="spot-input">
+   <PlacesAutocomplete onSelect={handleSelect} index={3} />
+       </div>
+       <div className="spot-input">
+   <PlacesAutocomplete onSelect={handleSelect} index={4} />
+       </div>
+</div>
+    </>
+  );
+}
+
+const PlacesAutocomplete = ({ onSelect, index, days }) => {
+  const {
+    ready,
+    value,
+    setValue,
+    suggestions: { status, data },
+    clearSuggestions,
+  } = usePlacesAutocomplete();
+
+  const handleSelect = async (address) => {
+    setValue(address, false);
+    clearSuggestions();
+
+    const results = await getGeocode({ address });
+    const { lat, lng } = await getLatLng(results[0]);
+    onSelect({ address, lat, lng }, index);
+
+    const updatedDays = [...days];
+updatedDays[0].spots[index] = address;
+this.state.setDays(updatedDays);
+  };
+
+
+return (
+<Combobox onSelect={handleSelect}>
+  <ComboboxInput
+    value={value}
+    onChange={(e) => setValue(e.target.value)}
+    disabled={!ready}
+    className="combobox-dinput1"
+    placeholder="Select a spot.."
+  />
+  
+  <ComboboxPopover>
+    <ComboboxList>
+      {status === "OK" &&
+        data.map(({ place_id, description }) => (
+          <ComboboxOption key={place_id} value={description} />
+        ))}
+    </ComboboxList>
+  </ComboboxPopover>
+</Combobox>
+);
+};
