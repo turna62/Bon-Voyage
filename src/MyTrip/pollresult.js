@@ -241,7 +241,7 @@ const { question, options, winner } = this.state;
         <header>Question: {question}</header>
         <div className="poll-area">
         
-                  <p>Winner:{winner} </p>
+                  <p>Winning Option: {winner} </p>
                   <a class="btn-solid-lgresult page-scroll" href={`http://localhost:3000/polls?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}`}>Back</a>
 
         

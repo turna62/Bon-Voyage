@@ -14,7 +14,7 @@ class DPollResult extends React.Component{
           myPolls:[], 
           notifsData:[],
           pollId: null,
-          question: "Start Voting",
+          question: "Destination Poll",
           //options: [  {count: 0}],
           winner:[]
         };
@@ -241,8 +241,8 @@ const { question, options, winner } = this.state;
         <header>{question}</header>
         <div className="poll-area">
         
-                  <p>Winner:{winner} </p>
-                  <a class="btn-solid-lgresult page-scroll" href={`http://localhost:3000/polls?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}`}>Back</a>
+                  <p>Winning option: {winner} </p>
+                  <a class="btn-solid-lgresult page-scroll" href={`http://localhost:3000/destination?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}`}>Back</a>
 
         
         </div>
