@@ -581,6 +581,9 @@ top: 200px;
             position: relative;
             top: 30px;
           } 
+          .texti::placeholder {
+            color: rgba(49, 47, 47, 0.7); /* Change the placeholder color to black */
+          }
           .texti:focus, .textt:valid {
             box-shadow: none;
             outline: none;
@@ -1362,6 +1365,7 @@ font-size: 19px;
 .ccpoll{
   position: relative;
   top: 10px;
+  
 }
 
 .cpoll{
