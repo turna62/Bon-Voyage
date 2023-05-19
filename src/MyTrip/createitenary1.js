@@ -18,7 +18,7 @@ import usePlacesAutocomplete, {
 
 
     export default class CreateItenerary1 extends React.Component {
-      constructor(props) {
+      constructor(props) { 
         super(props);
         this.state = {
           
@@ -151,8 +151,8 @@ import usePlacesAutocomplete, {
             if (data.status === "OK!") {
                 
                 alert('submitted Successfully!');
-                //window.localStorage.setItem('itineraryId', data.itineraryId);
-                //window.location.href = `http://localhost:3000/myitinerary?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}&itineraryId=${data.itineraryId}`;
+                window.localStorage.setItem('itineraryId', data.itineraryId);
+                window.location.href = `http://localhost:3000/myitinerary1?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}&itineraryId=${data.itineraryId}&itineraryId=${data.itineraryId}`;
 
             } else {
               alert(`went wrong: ${data.status}`);
@@ -165,6 +165,54 @@ import usePlacesAutocomplete, {
       }
 
         
+
+      handleNext= () =>{
+            
+        const { days, userId, tripId } = this.state;
+        
+        console.log(days, userId, tripId);
+
+        const requestBody = {
+          userId,
+          tripId,
+          days: days.map((day) => ({
+            description: day.description,
+            activities: day.activities,
+            day: day.day,
+            spots: day.spots
+          }))
+        };
+        fetch("http://localhost:5000/itinerary", {
+          method: "POST",
+          crossDomain: true,
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+            "Access-Control-Allow-Origin": "*",
+            authorization: localStorage.getItem("userId") ,
+          //  authorization: localStorage.getItem("email") ,
+          },
+          body: JSON.stringify(requestBody),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data, "itinerarySubmit");
+            if (data.status === "OK!") {
+                
+                alert('submitted Successfully!');
+                window.localStorage.setItem('itineraryId', data.itineraryId);
+                window.location.href = `http://localhost:3000/createitenerary2?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}&itineraryId=${data.itineraryId}`;
+
+            } else {
+              alert(`went wrong: ${data.status}`);
+            }
+          })
+          .catch((error) => {
+            console.error(error);
+            alert("Error! Something went wrong while calling the API.");
+          });
+      }
+    
           
       render(){
         return(

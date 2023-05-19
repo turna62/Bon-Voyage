@@ -499,7 +499,7 @@ import usePlacesAutocomplete, {
               
                 if (!isLoaded) return <div>Loading...</div>;
               
-                
+              
 
                 const handleSelect = (spot, index) => {
                   const updatedDays = [...days];
