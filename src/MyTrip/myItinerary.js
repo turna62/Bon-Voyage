@@ -78,7 +78,7 @@ handleDownload = () => {
 
 
     doc.setFontSize(12);
-    doc.setTextColor(255, 255, 255); // Set text color to white
+    doc.setTextColor(10, 44, 44); // Set text color to white
     //doc.text(data, 20, 20); // Add your text on top of the image
 
     doc.save(fileName);
@@ -114,7 +114,7 @@ handleDownload = () => {
 
             </div>
           ))}
-<button style={{ backgroundColor: 'rgb(14,44,44)', color: 'white', position: 'relative', right: '20px' }} onClick={this.handleDownload}>Download</button>
+<button style={{ backgroundColor: 'rgb(14,44,44)', color: 'white', position: 'relative', right: '10px', bottom:'10px' }} onClick={this.handleDownload}>Download</button>
 
         </div>
       ) : (
