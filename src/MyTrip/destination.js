@@ -21,7 +21,7 @@ import usePlacesAutocomplete, {
     constructor(props) {
         super(props);
         this.state = {
-          userId: null,
+          userId: null, 
           tripId: null,
           tripData:"",
           userData:"",
@@ -133,7 +133,7 @@ import usePlacesAutocomplete, {
           if (data.status === 'OK!') {
             this.setState({ myPolls: data.polls });
           } else {
-            alert('Error! Something went wrong!');
+            //alert('Error! Something went wrong!');
           }
         })
         .catch((error) => {
@@ -274,10 +274,14 @@ import usePlacesAutocomplete, {
          <p>Launch poll to decide destinations through voting.</p> 
     </div>
 
-    <div class="quespoll">
+    <div class="pollaunch1">
+    <h3>Access poll here:</h3>
+    </div>
+
+    <div class="quespoll1">
       {myPolls.map((poll, index) => (
         <div key={poll._id}>
-          
+           
           <Link to={`/dlaunchpoll?pollId=${poll._id}&userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}`}className="no">{index + 1}.{poll.question}</Link>
           
         </div>

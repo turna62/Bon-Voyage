@@ -136,13 +136,13 @@ import '../Home/HomeCss/styles.css';
             alert("Error! Something went wrong!");
           }
         })
-        .catch((error) => {
+        .catch((error) => { 
           console.error(error);
           alert("An error occurred while retrieving poll data");
         });
   }
 
-
+ 
   handleSubmit(e) {
     e.preventDefault();
     const selectedOption = document.querySelector('input[name="count"]:checked');
@@ -363,7 +363,7 @@ render(){
 <button class="pollbtn1" type="button" onClick={this.handleClosePoll}>Close</button>
 
 
-<button class="pollbtn1" type="button" onClick={this.handleEdit}>Edit</button>
+<button class="changebtn" type="button" onClick={this.handleEdit}>Change Vote</button>
 
 
 
@@ -372,11 +372,14 @@ render(){
         
         </div>
       </div>
+
       <div class="pphead">
     <h3 class="head">Vote Here!</h3>
-<p class= "uheadp">Cast your votes here to complete polling.</p> 
+<p class= "uhead">Cast your votes here to complete polling</p> 
+<p class= "uhead1"> You can also click 'Change Vote' button to change your vote.</p> 
 
-</div> 
+</div>
+ 
 
 {/* <a class="pollbtn page-scroll" href="http://localhost:3000/createpoll">Create Poll</a> */}
 

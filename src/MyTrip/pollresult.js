@@ -11,7 +11,7 @@ class PollResult extends React.Component{
           tripId: null,
           tripData:"",
           userData:"",
-          myPolls:[], 
+          myPolls:[],  
           notifsData:[],
           pollId: null,
           question: "",
@@ -251,12 +251,7 @@ const { question, options, winner } = this.state;
 
     </div>
 </div>
-     
-
-
-
-     
-        
+         
 
         );
 

@@ -387,7 +387,7 @@ render(){
           {/* <ul>{pollOptions}</ul> */}
         
           <ul>
-
+ 
 
  
           <form onSubmit={this.handleSubmit}>
@@ -419,7 +419,9 @@ render(){
 </ul>
         
         </div>
+
       </div>
+      
       <div class="pphead">
     <h3 class="head">Vote Here!</h3>
 <p class= "uhead">Cast your votes here to complete polling</p> 

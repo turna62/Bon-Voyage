@@ -777,8 +777,8 @@ top: 200px;
   font-family: 'Times New Roman', Times, serif;
   position: relative;
   overflow-x: hidden;
-  top: 50px;
   left: 300px;
+  bottom: 190px;
   border: 3px solid rgb(14, 44, 44);
 }
 
@@ -896,6 +896,15 @@ top: 200px;
             left: 780px;
             height: 200px;
 }
+.pollaunch1{
+  color: rgb(14, 44, 44);
+            font-family: sans-serif;
+            position: relative;
+            bottom: 100px;
+            left: 780px;
+            height: 200px;
+}
+
 .btnopnvote{
   display: inline-block;
   padding: 1.175rem 1.125rem 1.175rem 1.125rem;
@@ -909,7 +918,7 @@ top: 200px;
   font-family: 'Times New Roman', Times, serif;
   position: relative;
   left: 880px;
-  bottom: 200px;
+  bottom: 440px;
   overflow-x: hidden;
 
 }
@@ -1241,7 +1250,7 @@ top: 200px;
 .trips .tjoined{
   position: relative;
   left: 400px;
-  bottom: 158px; 
+  bottom: 293px; 
 }
  .thead{
   position: relative;
@@ -1286,19 +1295,13 @@ top: 200px;
     top: 20px;
  }
 
- .pheadd{
-  color: rgb(14, 44, 44);
-  font-family: sans-serif;
-  position: relative;
-  top: 40px;
-  left: 90px;
-}
+ 
 .pheadd1{
   color: rgb(14, 44, 44);
   font-family: sans-serif;
   position: relative;
   left: 240px;
-  top: 150px;
+  top: 50px;
 }
 .pheadd1 h3{
   position: relative;
@@ -1315,6 +1318,13 @@ font-family: sans-serif;
 position: relative;
 right: 20px;
 font-size: 19px;
+}
+.pheadd{
+  color: rgb(14, 44, 44);
+  font-family: sans-serif;
+  position: relative;
+  top: 40px;
+  left: 90px;
 }
 .combobox-iinput{
   position: relative;
@@ -1838,3 +1848,25 @@ left: 30px;
   right: 300px;
   border-radius: 4px;
 } 
+.datefinalhead{
+  position: relative;
+  color: rgb(14, 44, 44);
+  font-size: 25px;
+  font-weight: 510;
+  position: relative;
+  top: 70px;
+  left: 90px;
+}
+.fetchdate{
+  position: relative;
+  left: 85px;
+  top: 70px;
+}
+.quespoll1{
+  position: relative;
+  left: 790px;
+  bottom: 250px;
+  font-family: sans-serif;
+  color: rgb(14, 44, 44);
+  font-size: 16px;
+}

@@ -237,7 +237,7 @@ const { question, options, winner } = this.state;
        
     <div className="pollbodyy">
     
-      <div className="wrapperr">
+      <div className="rwrapperr">
         <header>{question}</header>
         <div className="poll-area">
         
@@ -251,7 +251,7 @@ const { question, options, winner } = this.state;
 
     </div>
 </div>
-     
+      
         );
 
     }

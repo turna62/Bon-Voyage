@@ -7,7 +7,7 @@ const bodyParser = require('body-parser');
 const bcrypt = require("bcryptjs");
 //const { v4: uuidv4 } = require("uuid");
 //const axios = require('axios');
-
+ 
 const crypto = require('crypto');
 const jwt = require("jsonwebtoken");
 const JWT_SECRET = "ndvbfrt6ipybmdrfpicdlrebvek@)(dd205683dnnc{mcdk]?";
@@ -62,6 +62,8 @@ require("./trip_plan")
 require("./poll_schema")
 require("./itinerary_schema")
 require("./notifs_schema")
+require("./dpoll_schema")
+
 
 // require("./places_schema")
 
@@ -71,6 +73,7 @@ const TripStart = mongoose.model("TripPlan");
 const PollStart = mongoose.model("Poll");
 const ItineraryStart = mongoose.model("Itinerary");
 const NotificationStart = mongoose.model("Notification");
+const DPollStart = mongoose.model("dPoll");
 
 
 function restrictionPassword(password) {
