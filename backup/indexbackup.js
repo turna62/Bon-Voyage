@@ -1056,6 +1056,64 @@ app.put('/notifications/read', async (req, res) => {
   }
 });
 
+app.post("/adddate", async (req, res) => {
+  const { tripId, startDate, endDate } = req.body;
+
+  try {
+    
+    const trip = await TripStart.findById(tripId);
+
+    if (!trip) {
+      return res.status(404).json({ error: "Trip not found" });
+    }
+
+    trip.startDate = new Date(startDate).toLocaleDateString();
+    trip.endDate = new Date(endDate).toLocaleDateString();
+
+    await trip.save();
+
+    res.status(200).json({ status: "OK!", updatedTrip: trip });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ status: "na!" });
+  }
+});
+//gtygyt
+app.put('/vote/change', async (req, res) => {
+  const { pollId, optionId, userId, tripId } = req.body;
+  
+  try {
+    const poll = await PollStart.findById(pollId);
+    const trip = await TripStart.findById(tripId);
+    const user = await User.findById(userId);
+
+    if (!poll) {
+      return res.status(404).json({ error: 'Poll not found' });
+    }
+
+    const existingVoteIndex = poll.votes.findIndex((v) => v.userId.toString() === userId.toString());
+    if (existingVoteIndex === -1) {
+      return res.status(400).json({ error: 'User has not voted yet' });
+    }
+
+    const existingOptionId = poll.votes[existingVoteIndex].option;
+    const existingOption = poll.options.find((o) => o.id === existingOptionId);
+    if (existingOption) {
+      existingOption.count--; // Decrease the count for the existing option
+    }
+
+    poll.votes.splice(existingVoteIndex, 1); // Remove the vote for the existing option
+
+    await poll.save();
+
+  
+    res.json({ message: 'Vote changed successfully!' }); 
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Server error' });
+  }
+});
+
 
 app.listen(port, () => {
 console.log(`Server is running on port: ${port}`);

@@ -244,8 +244,8 @@ class Overview extends React.Component{
   <p  class="overviewdetail" key={index}>Added Member  {index + 1}: {collaborator}</p>
 ))}
 <hr class="hr"></hr> 
-<p class="overviewdetail">Starting Date:</p>
-<p class="overviewdetail">Ending Date:</p>
+<p class="overviewdetail">Starting Date: {new Date(this.state.tripData.startDate).toLocaleDateString()}</p>
+<p class="overviewdetail">Ending Date: {new Date(this.state.tripData.endDate).toLocaleDateString()}</p>
 <hr class="hr"></hr>
 
 <p class="overviewdetail">Final Destination:</p>
