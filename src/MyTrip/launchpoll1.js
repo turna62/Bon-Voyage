@@ -239,31 +239,77 @@ import '../Home/HomeCss/styles.css';
     }
     const selectedOptionId = parseInt(selectedOption.value, 10);
     console.log(selectedOptionId);
-    const { pollId, userId, tripId } = this.state; // Assuming you have the required data in the component's state
-    
+    const { pollId, userId, tripId } = this.state; // 
+  
     fetch(`http://localhost:5000/vote/change`, {
       method: 'PUT',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify({
         pollId: pollId,
         optionId: selectedOptionId,
         userId: userId,
-        tripId: tripId
+        tripId: tripId,
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        // Handle the response message
+        alert(data.message); // Display the response message to the user
+        
+    fetch(`http://localhost:5000/getpollsbypollId`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        pollId: pollId
       })
     })
-    .then((res) => res.json())
-    .then((data) => {
-      // Handle the response message
-      alert(data.message); // Display the response message to the user
-    })
+      .then((res) => res.json())
+      .then((data) => {
+        // Check if the response is successful
+        if (data.status === 'OK!') {
+          // Access the retrieved polls data
+          const polls = data.polls;
+
+          // Find the poll with the matching pollId
+          const poll = polls.find((p) => p._id === pollId);
+          if (poll) {
+            // Find the option with the matching optionId
+            const option = poll.options.find((o) => o.id === selectedOptionId);
+            if (option) {
+              // Update the count of the selected option
+       
+
+              // Update the state with the updated count
+              this.setState({ options: [...poll.options] });
+            } else {
+              console.error('Option not found');
+              alert('An error occurred while updating the vote count');
+            }
+          } else {
+            console.error('Poll not found');
+            alert('An error occurred while updating the vote count');
+          }
+        } else {
+          // Handle the error response
+          console.error(data.message);
+          alert('An error occurred while retrieving poll data');
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+        alert('An error occurred while fetching poll data');
+      });
+  
+      })
       .catch((error) => {
         console.error(error);
         alert('An error occurred while editing the vote');
       });
   };
-  
   
   
 
