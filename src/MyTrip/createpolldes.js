@@ -88,7 +88,7 @@ class CreatePollD extends Component {
         if (data.status === "OK!") {
           alert("Poll created!");
           console.log(tripId);
-          window.location.href = `http://localhost:3000/launchpoll?userId=${encodeURIComponent(
+          window.location.href = `http://localhost:3000/destination?userId=${encodeURIComponent(
                 this.state.userId
               )}&tripId=${encodeURIComponent(this.state.tripId)}`;
          
@@ -132,11 +132,11 @@ class CreatePollD extends Component {
                 <h5 className="ccpll1">Add up to 04 places:</h5>
                 <Map options={this.state.options} setOptions={this.setOptions} />                <input className="btncdestination" type="submit" value="LAUNCH POLL" />
               </form>
-              <p className="back">
+              {/* <p className="back">
                 <a href={`http://localhost:3000/destination?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}`}>
                   <u>Back</u>
                 </a>
-              </p>
+              </p> */}
             </div>
           </div>
         </div>

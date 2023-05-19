@@ -1,6 +1,7 @@
 import React from 'react';
 import './mytrip.css';
 import { useState} from "react";
+import { useParams, Link } from "react-router-dom";
 import {useLoadScript } from "@react-google-maps/api";
 import usePlacesAutocomplete, {
     getGeocode,
@@ -25,6 +26,8 @@ import usePlacesAutocomplete, {
           tripData:"",
           userData:"",
           notifsData:[],
+          myPolls:[], 
+          notifsData:[]
           
         };
         this.updateAllIsRead = this.updateAllIsRead.bind(this);
@@ -111,6 +114,32 @@ import usePlacesAutocomplete, {
             }
         });
 
+        fetch("http://localhost:5000/dgetpolls",{
+          method: "POST",
+          crossDomain: true,
+          headers:{
+              "Content-Type":"application/json",
+              Accept: "application/json",
+              "Access-Control-Allow-Origin": "*",
+          },
+          body: JSON.stringify({
+            tripId: tripId,
+          }),
+        })
+        .then((res) => res.json()) // convert data into JSON
+        .then((data) => {
+          console.log(data, 'my polls');
+         
+          if (data.status === 'OK!') {
+            this.setState({ myPolls: data.polls });
+          } else {
+            alert('Error! Something went wrong!');
+          }
+        })
+        .catch((error) => {
+          console.error(error);
+          alert("ok");
+        });
       }
     
 
@@ -149,7 +178,7 @@ import usePlacesAutocomplete, {
 
     render(){
     
-    
+      const {myPolls} = this.state;
 
         return(
             <div class="deetailplan">
@@ -243,6 +272,16 @@ import usePlacesAutocomplete, {
     <div class="pollaunch">
     <h3>Or Open voting</h3>
          <p>Launch poll to decide destinations through voting.</p> 
+    </div>
+
+    <div class="quespoll">
+      {myPolls.map((poll, index) => (
+        <div key={poll._id}>
+          
+          <Link to={`/dlaunchpoll?pollId=${poll._id}&userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}`}className="no">{index + 1}.{poll.question}</Link>
+          
+        </div>
+      ))}
     </div>
 
     <div class="dbtnfix">

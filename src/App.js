@@ -38,6 +38,7 @@ import CreateItenerary2 from "./MyTrip/createitenerary2";
 import CreateItenerary3 from "./MyTrip/createitenerary3";
 import MyItinerary1 from "./MyTrip/myItinerary1";
 import PollResult from "./MyTrip/pollresult";
+import DLaunchPoll from "./MyTrip/dlaunchpoll";
 
 function App() {
   // const isLoggedIn = window.localStorage.getItem("loggedIn");
@@ -83,6 +84,7 @@ function App() {
         <Route path = "/myitinerary1" element = {<MyItinerary1/>}/>
         <Route path = "/route1" element = {<Places1/>}/>  
         <Route path = "/pollresult" element = {<PollResult/>}/>  
+        <Route path="/dlaunchpoll" element={<DLaunchPoll/>} />
 
       </Routes>
     </Router>
