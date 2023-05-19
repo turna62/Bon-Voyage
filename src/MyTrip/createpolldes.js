@@ -18,17 +18,88 @@ class CreatePollD extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      days: [],
+      options: [],
+      tripId: props.tripId,
+      userId: props.userId
     };
+    this.setOptions = this.setOptions.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this); // to read properties of state
   }
 
-  handleSelect = (spot, index) => {
-    const { days } = this.state;
-    const updatedDays = [...days];
-    updatedDays[0].spots[index] = spot.address; // Assuming you always update the spots for the first day
-    this.setState({ days: updatedDays });
-  };
+   setOptions(newOptions) {
+        this.setState({ options: newOptions });
+      }
 
+  componentDidMount() {
+    const params = new URLSearchParams(window.location.search);
+    const userId = params.get('userId');
+    const tripId = params.get('tripId');
+    
+    console.log(userId); 
+    console.log(tripId);
+    this.setState({ userId: userId });
+    this.setState({ tripId: tripId });
+
+    const loadScript = (url, callback) => {
+      const script = document.createElement("script");
+      script.src = url;
+      script.async = true;
+      script.defer = true;
+      script.onload = callback;
+      document.body.appendChild(script);
+    };
+
+  }
+  
+  handleSubmit(e, isTripOwner) {
+    e.preventDefault();
+    const {options, tripId, userId } = this.state;
+    console.log (tripId, userId, options);
+  
+    // Set the addedMembers data based on the user role
+    let addedMembers;
+    if (isTripOwner) {
+      addedMembers = null; // Trip owner has no added members
+    } else {
+      addedMembers = [userId]; // Added member is the current user
+    }
+  
+    console.log( addedMembers);
+  
+      fetch("http://localhost:5000/dcreatepoll", {
+      method: "POST",
+      crossDomain: true,
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        "Access-Control-Allow-Origin": "*",
+        authorization: localStorage.getItem("userId"),
+      },
+      body: JSON.stringify({
+        options,
+        tripId,
+        userId,
+        addedMembers,
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data, "pollSubmit");
+        if (data.status === "OK!") {
+          alert("Poll created!");
+          console.log(tripId);
+         
+        } else {
+          alert(`went wrong: ${data.status}`);
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+        alert("Error! Something went wrong while calling the API.");
+      });
+  }
+ 
+  
   render() {
     return (
       <div className="deetailplan">
@@ -54,16 +125,15 @@ class CreatePollD extends Component {
             <div className="agileitss-top">
               <h3 className="cpoll">Create Poll</h3><hr></hr>
               <h5 className="ccpoll1">Add up to five places to create a poll and vote to finalize the destination.</h5>
-              <form>
+              <form  onSubmit={(e) => this.handleSubmit(e, this.props.isTripOwner)}>
                 <h5 className="ccpll1">Add up to 05 places:</h5>
-                <Map handleSelect={this.handleSelect} days={this.state.days} />
-                <input className="btncdestination" type="submit" value="LAUNCH POLL" />
+                <Map options={this.state.options} setOptions={this.setOptions} />                <input className="btncdestination" type="submit" value="LAUNCH POLL" />
               </form>
-              <p className="back">
+              {/* <p className="back">
                 <a href={`http://localhost:3000/polls?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}`}>
                   <u>Back</u>
                 </a>
-              </p>
+              </p> */}
             </div>
           </div>
         </div>
@@ -133,7 +203,7 @@ class CreatePollD extends Component {
   }
 }
 
-function Map({days }) {
+function Map({options, setOptions  }) {
 
   const { isLoaded } = useLoadScript({
     googleMapsApiKey: "AIzaSyAz2_MkHBuMmmgsKwwVnp1tF-qOVm0B9Oo",
@@ -142,15 +212,13 @@ function Map({days }) {
 
   if (!isLoaded) return <div>Loading...</div>;
 
-  
-
-  const handleSelect = (spot, index) => {
-    const updatedDays = [...days];
-    updatedDays[0].spots[index] = spot.address; // Assuming you always update the spots for the first day
-    this.state.setDays(updatedDays);
+  const handleSelect = (option, index) => {
+    const updatedOptions = [...options];
+    updatedOptions[index] = option.address;
+    setOptions(updatedOptions); // Use setOptions function passed as a prop
   };
-  
 
+  
   return (
     <>
       <div className="places-container">
@@ -158,13 +226,13 @@ function Map({days }) {
        <PlacesAutocomplete onSelect={handleSelect} index={0} />
        </div>
         <div className="spot-input">
-       <PlacesAutocomplete onSelect={handleSelect} index={1} />
+       <PlacesAutocomplete onSelect={handleSelect} index={1}   />
       </div>
        <div className="spot-input">
            <PlacesAutocomplete onSelect={handleSelect} index={2} />
            </div>
          <div className="spot-input">
-   <PlacesAutocomplete onSelect={handleSelect} index={3} />
+   <PlacesAutocomplete onSelect={handleSelect} index={3}  />
        </div>
 
 </div>
@@ -172,7 +240,7 @@ function Map({days }) {
   );
 }
 
-const PlacesAutocomplete = ({ onSelect, index, days }) => {
+const PlacesAutocomplete = ({ onSelect, index, options, setOptions }) => {
   const {
     ready,
     value,
@@ -189,9 +257,10 @@ const PlacesAutocomplete = ({ onSelect, index, days }) => {
     const { lat, lng } = await getLatLng(results[0]);
     onSelect({ address, lat, lng }, index);
 
-    const updatedDays = [...days];
-updatedDays[0].spots[index] = address;
-this.state.setDays(updatedDays);
+   onSelect({ address, lat, lng }, index);
+    const updatedOptions = [...options];
+    updatedOptions[index] = address;
+    setOptions(updatedOptions); 
   };
 
   return (

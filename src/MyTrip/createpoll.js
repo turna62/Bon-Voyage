@@ -78,9 +78,9 @@ class CreatePoll extends React.Component{
           .then((data) => {
             console.log(data, "pollSubmit");
             if (data.status === "OK!") {
-              alert("gese");
+              alert("Poll created!");
               console.log(tripId);
-              window.location.href = `http://localhost:3000/polls?userId=${encodeURIComponent(
+              window.location.href = `http://localhost:3000/dlaunchpoll?userId=${encodeURIComponent(
                 this.state.userId
               )}&tripId=${encodeURIComponent(this.state.tripId)}`;
             } else {
