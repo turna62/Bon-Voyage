@@ -1078,7 +1078,8 @@ app.post("/adddate", async (req, res) => {
     res.status(500).json({ status: "na!" });
   }
 });
-//gtygyt
+
+
 app.put('/vote/change', async (req, res) => {
   const { pollId, optionId, userId, tripId } = req.body;
   
@@ -1119,3 +1120,202 @@ app.listen(port, () => {
 console.log(`Server is running on port: ${port}`);
 });
 
+/// destination poll //lamia
+
+app.post('/dcreatepoll', async (req, res) => {
+  const { options, tripId, userId, addedMembers } = req.body;
+  console.log(options, tripId, userId, addedMembers);
+
+  try {
+    const trip = await TripStart.findById(tripId);
+    const users = trip.addedMembers;
+    const user = await User.findById(userId);
+
+    // const existingPoll = await DPollStart.findOne({ tripId });
+    // if (existingPoll) {
+    //   res.json({ status: "Poll already exists!" });
+    //   return;
+    // }
+
+    const poll = new DPollStart({
+      options: options.map((option, index) => ({ value: option, id: index, count: 0 })),
+      tripId: tripId,
+      createdBy: userId,
+    });
+
+    const savedPoll = await poll.save();
+    console.log(savedPoll);
+
+    const notification = new NotificationStart({
+      message: `${user.username} has created a poll to select a destination!`,
+      tripId: tripId,
+      users: users,
+      username: user.username,
+      userId: userId
+    });
+
+    await notification.save();
+
+    res.json({ status: "OK!" });
+  } catch (error) {
+    console.error(error);
+    res.json({ status: "Error saving poll!" });
+  }
+});
+
+app.listen(port, () => {
+console.log(`Server is running on port: ${port}`);
+});
+
+//getpoll destination
+
+app.post('/dgetpolls', async (req, res) => {
+  try {
+    const tripId = req.body.tripId;
+    // Find all trips created by the specified user
+    const polls = await DPollStart.find({ tripId: tripId });
+
+    // Send the retrieved trips data as a response
+    res.send({ status: "OK!", polls: polls });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Internal server error' });
+  }
+});
+
+app.post('/dgetpollsbypollId', async (req, res) => {
+  try {
+    const pollId = req.body.pollId;
+    // Find all trips created by the specified user
+    const polls = await DPollStart.find({ pollId: pollId });
+
+    // Send the retrieved trips data as a response
+    res.send({ status: "OK!", polls: polls });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Internal server error' });
+  }
+});
+
+/// destination voting part
+
+app.post('/dvote', async (req, res) => {
+  const { pollId, optionId, userId , tripId} = req.body;
+  console.log(tripId);
+  try {
+    const poll = await DPollStart.findById(pollId);
+    const trip = await TripStart.findById(tripId);
+    console.log(tripId);
+    const users = trip.addedMembers;
+     const user = await User.findById(userId);
+    
+    if (!poll) {
+      return res.status(404).json({ error: 'Poll not found' });
+    }
+
+    // Check if user has already voted
+    const hasVoted = poll.votes.some((v) => v.userId.toString() === userId.toString());
+    if (hasVoted) {
+      return res.status(400).json({ error: 'User has already voted' });
+    }
+
+    const option = poll.options.find((o) => o.id === optionId);
+
+    if (!option) {
+      return res.status(400).json({ error: 'Option not found' });
+    }
+
+    const vote = { userId: userId, option: optionId, username: user.username };
+    poll.votes.push(vote);
+    option.count++;
+
+    await poll.save();
+
+    
+    const notification = new NotificationStart({
+      message: `${user.username} has cast their vote on poll: "${poll.question}"!`,
+        tripId: tripId,
+        users: users,
+        username: user.username,
+        userId: userId
+    });
+    await notification.save();
+    
+    res.json(poll);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Server error' });
+  }
+});
+
+app.put('/dclosepoll', async (req, res) => {
+  try {
+    const pollId = req.body.pollId;
+    const poll = await DPollStart.findById(pollId);
+    
+
+    if (!poll) {
+      return res.status(404).json({ error: 'Poll not found' });
+    }
+
+    if (poll.closed) {
+      return res.status(400).json({ error: 'Poll is already closed' });
+    }
+
+    poll.closed = true;
+    await poll.save();
+
+    // Calculate final result based on highest votes
+    const options = poll.options;
+    const sortedOptions = options.sort((a, b) => b.count - a.count); // Sort options by count in descending order
+
+    if (sortedOptions.length >= 2 && sortedOptions[0].count === sortedOptions[1].count) {
+      // There's a tie between the top two options, ask users to vote again
+      poll.closed = false; // Open the poll for voting again
+      await poll.save();
+
+      return res.json({ message: 'Tie between top options. Please vote again.' });
+    } else {
+      // Single winner or clear majority
+      const finalOption = sortedOptions[0];
+      poll.winner = finalOption.value; // Set the winner value in the poll document
+      await poll.save();
+
+      return res.json({ message: 'Final result', winner: finalOption });
+    }
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ error: 'Server error' });
+  }
+});
+
+//destination get winner
+
+app.post('/dgetwinner', async (req, res) => {
+  try {
+    const pollId = req.body.pollId;
+    const poll = await DPollStart.findById(pollId);
+
+    if (!poll) {
+      return res.status(404).json({ error: 'Poll not found' });
+    }
+
+    const closed = poll.closed;
+    if (!closed) {
+      return res.status(400).json({ error: 'Poll is still open' });
+    }
+
+    if (!poll.winner) {
+      return res.status(404).json({ error: 'Winner not determined yet' });
+    }
+
+    const winner = poll.winner;
+    const question = poll.question;
+    return res.json({ closed, winner, question });
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ error: 'Server error' });
+  }
+});
+
+// see 1200th line
