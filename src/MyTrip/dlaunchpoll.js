@@ -10,7 +10,7 @@ import '../Home/HomeCss/styles.css';
     super(props);
     this.state = {
       pollId: null,
-      question: "Start Voting",
+      question: "Destination Poll",
       options: [  {count: 0}],
       userId: null,
       tripId:null,
