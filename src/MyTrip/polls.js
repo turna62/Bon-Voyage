@@ -281,12 +281,12 @@ const {myPolls} = this.state;
 
 <a class="btn-solid-lg page-scroll" href={`http://localhost:3000/createpoll?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}`}>Create Poll</a>
 
-</div> 
+</div>  
 
 <div class="pollquessec">
-  <p class="pollclick">Click on these polls to cast your votes!</p>
+  <h3 class="pollclick">Click on these polls to cast your votes!</h3>
 
-  <div>
+  <div> 
   <h5 style={{ marginBottom: '40px' }}>Open Polls: ({this.state.openPolls.length})</h5>
   {this.state.openPolls.slice().reverse().map((poll, index) => {
     const count = index + 1; // start count at 1
@@ -334,4 +334,4 @@ const {myPolls} = this.state;
     }
 }
 
-export default Polls;
+export default Polls; 
