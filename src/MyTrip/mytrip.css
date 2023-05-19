@@ -777,8 +777,8 @@ top: 200px;
   font-family: 'Times New Roman', Times, serif;
   position: relative;
   overflow-x: hidden;
-  top: 50px;
   left: 300px;
+  bottom: 190px;
   border: 3px solid rgb(14, 44, 44);
 }
 
@@ -896,6 +896,15 @@ top: 200px;
             left: 780px;
             height: 200px;
 }
+.pollaunch1{
+  color: rgb(14, 44, 44);
+            font-family: sans-serif;
+            position: relative;
+            bottom: 100px;
+            left: 780px;
+            height: 200px;
+}
+
 .btnopnvote{
   display: inline-block;
   padding: 1.175rem 1.125rem 1.175rem 1.125rem;
@@ -909,7 +918,7 @@ top: 200px;
   font-family: 'Times New Roman', Times, serif;
   position: relative;
   left: 880px;
-  bottom: 200px;
+  bottom: 440px;
   overflow-x: hidden;
 
 }
@@ -1838,3 +1847,25 @@ left: 30px;
   right: 300px;
   border-radius: 4px;
 } 
+.datefinalhead{
+  position: relative;
+  color: rgb(14, 44, 44);
+  font-size: 25px;
+  font-weight: 510;
+  position: relative;
+  top: 70px;
+  left: 90px;
+}
+.fetchdate{
+  position: relative;
+  left: 85px;
+  top: 70px;
+}
+.quespoll1{
+  position: relative;
+  left: 790px;
+  bottom: 250px;
+  font-family: sans-serif;
+  color: rgb(14, 44, 44);
+  font-size: 16px;
+}

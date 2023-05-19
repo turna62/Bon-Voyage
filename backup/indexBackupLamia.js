@@ -62,6 +62,7 @@ require("./trip_plan")
 require("./poll_schema")
 require("./itinerary_schema")
 require("./notifs_schema")
+require("./dpoll_schema")
 
 // require("./places_schema")
 
@@ -71,6 +72,7 @@ const TripStart = mongoose.model("TripPlan");
 const PollStart = mongoose.model("Poll");
 const ItineraryStart = mongoose.model("Itinerary");
 const NotificationStart = mongoose.model("Notification");
+const DPollStart = mongoose.model("dPoll");
 
 
 function restrictionPassword(password) {
@@ -1330,4 +1332,4 @@ app.post('/dgetwinner', async (req, res) => {
 
 app.listen(port, () => {
 console.log(`Server is running on port: ${port}`);
-});
+}); 
