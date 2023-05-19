@@ -15,6 +15,8 @@ import '../Home/HomeCss/styles.css';
       userId: null,
       tripId:null,
       finalResult: null,
+      userData:"",
+      tripData:""
       //winner: null
   
       //votes: [],
@@ -43,6 +45,56 @@ import '../Home/HomeCss/styles.css';
     console.log(pollId);
     this.setState({ pollId: pollId});
 
+
+    fetch("http://localhost:5000/tripData",{
+      method: "POST",
+      crossDomain: true,
+      headers:{
+          "Content-Type":"application/json",
+          Accept: "application/json",
+          "Access-Control-Allow-Origin": "*",
+      },
+      body: JSON.stringify({
+          
+          tripId: tripId,
+      
+      }),
+  })
+  .then((res) => res.json()) // convert data into JSON
+  .then((data) => {
+      console.log(data, "tripData");
+      this.setState({tripData: data.data});
+      if(data.data == 'Token Expired!'){
+          alert("Token expired! Kindly login again."); 
+          window.localStorage.clear();
+          window.location.href = "./sign-in";
+      }
+  });
+
+  fetch("http://localhost:5000/userData",{
+      method: "POST",
+      crossDomain: true,
+      headers:{
+          "Content-Type":"application/json",
+          Accept: "application/json",
+          "Access-Control-Allow-Origin": "*",
+      },
+      body: JSON.stringify({
+          token: window.localStorage.getItem("token"),
+          userId: userId,
+      
+      }),
+  })
+  .then((res) => res.json()) // convert data into JSON
+  .then((data) => {
+      console.log(data, "userData");
+      this.setState({userData: data.data});
+      if(data.data == 'Token Expired!'){
+          alert("Token expired! Kindly login again."); 
+          window.localStorage.clear();
+          window.location.href = "./sign-in";
+      }
+  });
 
 
     // Fetch poll data from server
@@ -189,13 +241,15 @@ render(){
                 <div class="collapse navbar-collapse" id="navbarsExampleDefault">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link page-scroll" href="http://localhost:3000">HOME <span class="sr-only">(current)</span></a>
+                            <a class="nav-link page-scroll" href="http://localhost:3000"><i class="fa fa-home"></i> HOME <span class="sr-only">(current)</span></a>
                         </li>
+                        
                         <li class="nav-item">
-                            <a class="nav-link page-scroll" href="#intro">LOG OUT</a>
+                            <a class="nav-link page-scroll"  href={`http://localhost:3000/myprofile?userId=${encodeURIComponent(this.state.userId)}`}> <i class='fas fa-user-circle'></i> MY PROFILE</a>
                         </li>
+
                         <li class="nav-item">
-                            <a class="nav-link page-scroll" href="http://localhost:3000/myprofile">MY PROFILE</a>
+                            <a class="nav-link page-scroll" href="#intro"><i class="fa fa-sign-out"></i> LOG OUT</a>
                         </li>
                        
                         
@@ -210,7 +264,7 @@ render(){
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="text-container">
-                                    <h1>Let's Plan!</h1>
+                                    <h1>Let's Plan, {this.state.userData.username}!</h1>
                                     {/* <p class="p-heading p-large">The journey of a thousand miles begins with a single step.</p> */}
 
 
@@ -224,15 +278,15 @@ render(){
 
      <div>
 
-        <h4 class="tripname">Trip Name</h4><hr></hr>
-        <a class="btnaddmembers" href="http://localhost:3000/addmembers">+ Add Members</a>
+        <h4 class="tripname">{this.state.tripData.tripName}</h4><hr></hr>
+        <a class="btnaddmembers"  href={`http://localhost:3000/addmembers?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}`}>+ Add Members</a>
         <ul class="ul">
-        <li class="li"><a href="http://localhost:3000/overview">Overview</a></li>
-        <li class="ovwli"><a href="http://localhost:3000/polls">Polls</a></li>
-        <li class="li"><a href="http://localhost:3000/date">Date</a></li>
-        <li class="li"><a href="http://localhost:3000/destination">Destination</a></li>
-        <li class="li"><a href="http://localhost:3000/route">Route</a></li>
-        <li class="li"><a href="http://localhost:3000/itinerary">Itinerary</a></li>
+        <li class="li"><a href={`http://localhost:3000/overview?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}`}>Overview</a></li>
+        <li class="ovwli"> <a href={`http://localhost:3000/polls?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}`}>Polls</a></li>
+        <li class="li"> <a href={`http://localhost:3000/date?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}`}>Date</a></li>
+        <li class="li"> <a href={`http://localhost:3000/destination?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}`}>Destination</a></li>
+        <li class="li"> <a href={`http://localhost:3000/route?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}`}>Route</a></li>
+        <li class="li"> <a href={`http://localhost:3000/itinerary?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}`}>Itinerary</a></li>
      </ul>
 
      </div> 
@@ -280,8 +334,8 @@ render(){
         </div>
       </div>
       <div class="pphead">
-    <h3 class="head">Vote Here</h3>
-<p>Cast your votes here to complete polling!</p> 
+    <h3 class="head">Vote Here!</h3>
+<p class= "uheadp">Cast your votes here to complete polling.</p> 
 
 </div> 
 

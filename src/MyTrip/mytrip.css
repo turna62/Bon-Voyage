@@ -37,6 +37,7 @@
   position: relative;
   right: 35px;
   width: 360px;
+
 }
 
 .option-label:hover {
@@ -45,8 +46,12 @@
 }
 .option-label label{
   border: 2px solid rgb(14, 44, 44);
+  
+
 
 }
+
+
 .option-label input[type="radio"] {
   border: 2px solid rgb(14, 44, 44);
   }
@@ -584,6 +589,12 @@ top: 200px;
           .texti::placeholder {
             color: rgba(49, 47, 47, 0.7); /* Change the placeholder color to black */
           }
+
+          .uheadp{
+            left: 2px;
+          }
+
+
           .texti:focus, .textt:valid {
             box-shadow: none;
             outline: none;
