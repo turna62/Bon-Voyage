@@ -12,7 +12,7 @@ class Places extends React.Component {
       directionsService: null,
       output: "",
       userId: null, 
-          tripId: null,
+          tripId: null, 
           tripData:"",
           userData:"",
           destination: "",
@@ -194,7 +194,7 @@ class Places extends React.Component {
                 window.location.href = "./sign-in";
             }
         });
-        
+         
     const apiKey = "AIzaSyAz2_MkHBuMmmgsKwwVnp1tF-qOVm0B9Oo";
     loadScript(
       `https://maps.googleapis.com/maps/api/js?key=${apiKey}&libraries=places&callback=initMap`,

@@ -1458,6 +1458,17 @@ font-size: 19px;
   margin: 5px;
   top: 40px;
 }
+.combobox-dinput1{
+  position: relative;
+  border: solid 1px rgba(14, 44, 44, 0.473);
+  left: 110px;
+  background-color: white;
+  border-radius: 4px;
+  width:400px;
+  height: 40px;
+  margin: 5px;
+  top: 160px;
+}
 .banner{
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 width: 500px;

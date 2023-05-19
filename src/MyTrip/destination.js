@@ -9,7 +9,7 @@ import usePlacesAutocomplete, {
   import {
     Combobox,
     ComboboxInput,
-    ComboboxPopover,
+    ComboboxPopover, 
     ComboboxList, 
     ComboboxOption,
   } from "@reach/combobox";
@@ -245,11 +245,10 @@ import usePlacesAutocomplete, {
          <p>Launch poll to decide destinations through voting.</p> 
     </div>
 
-    {/* <a class="btndestination" href="http://localhost:3000/adddestination">Select Destination</a> */}
     <div class="dbtnfix">
     <input class="btndestination" type="submit" value="SELECT"/></div>
 
-    <a class="btnopnvote" href="http://localhost:3000/createpolldes">Open Voting</a>
+    <a class="btnopnvote" href={`http://localhost:3000/createpolldes?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}`}>Open Voting</a>
 
          <div class="footer">
         <div class="container">
@@ -354,7 +353,7 @@ const PlacesAutocomplete = ({ setSelected }) => {
   
       const results = await getGeocode({ address });
       const { lat, lng } = await getLatLng(results[0]);
-      setSelected({ lat, lng });
+      setSelected({ lat, lng }); 
     };
   
     return (

@@ -1,5 +1,3 @@
-
-
 import React from 'react';
 import './mytrip.css';
 
@@ -31,6 +29,16 @@ class CreatePoll extends React.Component{
         console.log(tripId);
         this.setState({ userId: userId });
         this.setState({ tripId: tripId });
+
+        const loadScript = (url, callback) => {
+          const script = document.createElement("script");
+          script.src = url;
+          script.async = true;
+          script.defer = true;
+          script.onload = callback;
+          document.body.appendChild(script);
+        };
+    
       }
       
 
@@ -145,7 +153,7 @@ class CreatePoll extends React.Component{
     })
   }
 />
-
+ 
 <input
   class="textt"
   type="text"
