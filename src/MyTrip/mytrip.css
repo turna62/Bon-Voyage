@@ -1250,7 +1250,7 @@ top: 200px;
 .trips .tjoined{
   position: relative;
   left: 400px;
-  bottom: 158px; 
+  bottom: 293px; 
 }
  .thead{
   position: relative;
@@ -1295,19 +1295,13 @@ top: 200px;
     top: 20px;
  }
 
- .pheadd{
-  color: rgb(14, 44, 44);
-  font-family: sans-serif;
-  position: relative;
-  top: 40px;
-  left: 90px;
-}
+ 
 .pheadd1{
   color: rgb(14, 44, 44);
   font-family: sans-serif;
   position: relative;
   left: 240px;
-  top: 150px;
+  top: 50px;
 }
 .pheadd1 h3{
   position: relative;
@@ -1324,6 +1318,13 @@ font-family: sans-serif;
 position: relative;
 right: 20px;
 font-size: 19px;
+}
+.pheadd{
+  color: rgb(14, 44, 44);
+  font-family: sans-serif;
+  position: relative;
+  top: 40px;
+  left: 90px;
 }
 .combobox-iinput{
   position: relative;
