@@ -15,7 +15,10 @@ class Polls extends React.Component{
           tripData:"",
           userData:"",
           myPolls:[], 
-          notifsData:[]
+          notifsData:[],
+          openPolls : [],
+          closedPolls : []
+
         };
         this.updateAllIsRead = this.updateAllIsRead.bind(this);
       } 
@@ -29,6 +32,8 @@ class Polls extends React.Component{
         console.log(tripId);
         this.setState({ userId: userId });
         this.setState({ tripId: tripId });
+
+   
         
         
         fetch("http://localhost:5000/notifications",{
@@ -118,19 +123,26 @@ class Polls extends React.Component{
       .then((data) => {
         console.log(data, 'my polls');
         if (data.status === 'OK!') {
-          const pollsWithClosed = data.polls.map(poll => ({
-            ...poll,
-            closed: poll.closed // Assuming the API response includes the "closed" property
-          }));
-          this.setState({ myPolls: pollsWithClosed });
-        } else {
-          alert('Error! Something went wrong!');
+          const openPolls = [];
+          const closedPolls = [];
+          data.polls.forEach(poll => {
+            if (poll.closed) {
+              closedPolls.push(poll);
+            } else {
+              openPolls.push(poll);
+            }
+          });
+          this.setState({
+            openPolls: openPolls,
+            closedPolls: closedPolls
+          });
         }
       })
       .catch((error) => {
         console.error(error);
-        alert("ok");
+        alert("Error! Something went wrong!");
       });
+      
 
 
       
@@ -276,24 +288,41 @@ const {myPolls} = this.state;
 <div class="pollquessec">
   <p class="pollclick">Click on these polls to cast your votes!</p>
 
-<div class="quespoll">
-{myPolls.map((poll, index) => (
-  <div key={poll._id}>
-    {poll.closed ? (
-      // Poll is closed, redirect to pollresult
-      <Link to={`/pollresult?pollId=${poll._id}&userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}`} className="no">
-        {index + 1}. {poll.question}
-      </Link>
-    ) : (
-      // Poll is open, redirect to launchpoll1
-      <Link to={`/launchpoll1?pollId=${poll._id}&userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}`} className="no">
-        {index + 1}. {poll.question}
-      </Link>
-    )}
-  </div>
-))}
+  <div>
+  <h5 style={{ marginBottom: '40px' }}>Open Polls: ({this.state.openPolls.length})</h5>
+  {this.state.openPolls.slice().reverse().map((poll, index) => {
+    const count = index + 1; // start count at 1
+    return (
+      <div key={poll._id} className="poll-q-result">
+        <Link to={`/launchpoll1?pollId=${poll._id}&userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}`} className="no">
+          {count}. {poll.question}
+        </Link>
+      </div>
+    );
+  })}
+</div>
 
-    </div>
+<div>
+  <h5 style={{ marginBottom: '40px' }}>Closed Polls: ({this.state.closedPolls.length})</h5>
+  {this.state.closedPolls.slice().reverse().map((poll, index) => {
+    const count = index + 1; // start count at 1
+    return (
+      <div key={poll._id} className="poll-q-result">
+        <Link to={`/pollresult?pollId=${poll._id}&userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}`} className="no">
+          {count}. {poll.question}
+        </Link>
+      </div>
+    );
+  })}
+</div>
+
+
+
+
+
+
+
+
     </div>
 
 
