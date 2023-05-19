@@ -7,7 +7,7 @@ import '../Home/HomeCss/styles.css';
 
 
   constructor(props) {
-    super(props);
+    super(props); 
     this.state = {
       pollId: null,
       question: "",
@@ -133,7 +133,7 @@ import '../Home/HomeCss/styles.css';
               alert("Error! Poll not found!");
             }
           } else {
-            alert("Error! tSomething went wrong!");
+            alert("Error! Something went wrong!");
           }
         })
         .catch((error) => {

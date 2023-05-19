@@ -10,7 +10,7 @@ import '../Home/HomeCss/styles.css';
     super(props);
     this.state = {
       pollId: null,
-      question: "Start Votind",
+      question: "Start Voting",
       options: [  {count: 0}],
       userId: null,
       tripId:null,
@@ -105,7 +105,7 @@ import '../Home/HomeCss/styles.css';
 
 
     // Fetch poll data from server
-    fetch(`http://localhost:5000/getpollsbypollId`, {
+    fetch(`http://localhost:5000/dgetpollsbypollId`, {
       method: "POST",
       crossDomain: true,
       headers: {
@@ -133,7 +133,7 @@ import '../Home/HomeCss/styles.css';
               alert("Error! Poll not found!");
             }
           } else {
-            alert("Error! tSomething went wrong!");
+            alert("Error! Something went wrong!");
           }
         })
         .catch((error) => {
@@ -156,7 +156,7 @@ import '../Home/HomeCss/styles.css';
  
     const count = options[0].count;
 
-    fetch(`http://localhost:5000/vote`, {
+    fetch(`http://localhost:5000/dvote`, {
       method: "POST",
       crossDomain: true,
       headers: {
@@ -201,7 +201,7 @@ import '../Home/HomeCss/styles.css';
     const { pollId } = this.state;
     //const { finalResult } = this.state;
   if (confirmClose){
-    fetch(`http://localhost:5000/closepoll`, {
+    fetch(`http://localhost:5000/dclosepoll`, {
       method: 'PUT',
       crossDomain: true,
       headers: {
@@ -219,7 +219,7 @@ import '../Home/HomeCss/styles.css';
         console.log(data);
         if (data.message === 'Final result') {
           //this.setState({ winner: data.winner });
-          window.location.href = `http://localhost:3000/pollresult?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}&pollId=${encodeURIComponent(this.state.pollId)}`;
+          window.location.href = `http://localhost:3000/dpollresult?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}&pollId=${encodeURIComponent(this.state.pollId)}`;
         }
       })
     
@@ -241,7 +241,7 @@ import '../Home/HomeCss/styles.css';
     console.log(selectedOptionId);
     const { pollId, userId, tripId } = this.state; // Assuming you have the required data in the component's state
     
-    fetch(`http://localhost:5000/vote/change`, {
+    fetch(`http://localhost:5000/vote/dchange`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json'
@@ -336,13 +336,11 @@ render(){
     <div className="pollbodyy">
     
       <div className="wrapperr">
-        <header>Question: {question}</header>
+        <header>{question}</header>
         <div className="poll-area">
           {/* <ul>{pollOptions}</ul> */}
         
           <ul>
-
-
  
           <form onSubmit={this.handleSubmit}>
   {options.map((option) => (
