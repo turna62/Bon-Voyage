@@ -15,6 +15,7 @@ import '../Home/HomeCss/styles.css';
       userId: null,
       tripId:null,
       finalResult: null,
+      voteId: null,
       userData:"",
       tripData:""
       //winner: null
@@ -23,6 +24,7 @@ import '../Home/HomeCss/styles.css';
     };
     this.handleSubmit = this.handleSubmit.bind(this); // to read properties of state
     this.handleClosePoll = this.handleClosePoll.bind(this);
+    this.handleEdit = this.handleEdit.bind(this);
   }
 
   componentDidMount() {
@@ -44,6 +46,11 @@ import '../Home/HomeCss/styles.css';
     const pollId = params.get('pollId');
     console.log(pollId);
     this.setState({ pollId: pollId});
+   
+    
+
+// Find the vote with the desired pollId
+
 
 
     fetch("http://localhost:5000/tripData",{
@@ -223,6 +230,40 @@ import '../Home/HomeCss/styles.css';
       });
     }
   }
+
+  handleEdit = () => {
+    const selectedOption = document.querySelector('input[name="count"]:checked');
+    if (!selectedOption) {
+      alert('Please select an option');
+      return;
+    }
+    const selectedOptionId = parseInt(selectedOption.value, 10);
+    console.log(selectedOptionId);
+    const { pollId, userId, tripId } = this.state; // Assuming you have the required data in the component's state
+    
+    fetch(`http://localhost:5000/vote/change`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        pollId: pollId,
+        optionId: selectedOptionId,
+        userId: userId,
+        tripId: tripId
+      })
+    })
+    .then((res) => res.json())
+    .then((data) => {
+      // Handle the response message
+      alert(data.message); // Display the response message to the user
+    })
+      .catch((error) => {
+        console.error(error);
+        alert('An error occurred while editing the vote');
+      });
+  };
+  
   
   
 
@@ -324,7 +365,7 @@ render(){
 <button class="pollbtn1" type="button" onClick={this.handleClosePoll}>Close</button>
 
 
-
+<button class="pollbtn1" type="button" onClick={this.handleEdit}>Edit</button>
 
 
 
