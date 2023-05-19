@@ -15,7 +15,7 @@ require('dotenv').config();
 
 const app = express();
 const port = process.env.PORT || 5000;
-const helmet = require("helmet"); 
+const helmet = require("helmet");
 
 app.use(helmet());
 
@@ -265,6 +265,21 @@ app.post("/tripData", async (req, res) =>{
   }
 });
 
+app.post('/tripData2', (req, res) => {
+  const { tripId } = req.body;
+
+  // Find the trip with the matching tripId
+  const trip = TripStart.find((trip) => trip.tripId === tripId);
+
+  if (!trip) {
+    return res.status(404).json({ message: 'Trip not found' });
+  }
+
+  const { startDate, endDate } = trip;
+  res.json({ startDate, endDate });
+});
+
+
 
 
 
@@ -421,6 +436,30 @@ app.post("/insert", async (req, res) => {
     await newNotification.save();
 
     res.status(200).json({ status: "OK!", tripId: savedTripPlan._id });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ status: "na!" });
+  }
+});
+
+
+app.post("/adddate", async (req, res) => {
+  const { tripId, startDate, endDate } = req.body;
+
+  try {
+    
+    const trip = await TripStart.findById(tripId);
+
+    if (!trip) {
+      return res.status(404).json({ error: "Trip not found" });
+    }
+
+    trip.startDate = new Date(startDate).toLocaleDateString();
+    trip.endDate = new Date(endDate).toLocaleDateString();
+
+    await trip.save();
+
+    res.status(200).json({ status: "OK!", updatedTrip: trip });
   } catch (error) {
     console.log(error);
     res.status(500).json({ status: "na!" });
@@ -675,6 +714,9 @@ app.get("/getDestination", async (req, res) => {
 
 
 
+
+
+
 app.post('/trips', async (req, res) => {
   try {
     const userId = req.body.userId;
@@ -781,7 +823,7 @@ app.post('/getpollsbypollId', async (req, res) => {
   }
 });
 
-
+ 
 
 app.post('/vote', async (req, res) => {
   const { pollId, optionId, userId , tripId} = req.body;
@@ -831,6 +873,48 @@ app.post('/vote', async (req, res) => {
     res.status(500).json({ error: 'Server error' });
   }
 });
+
+
+app.put('/vote/change', async (req, res) => {
+  const { pollId, optionId, userId, tripId } = req.body;
+  
+  try {
+    const poll = await PollStart.findById(pollId);
+    const trip = await TripStart.findById(tripId);
+    const user = await User.findById(userId);
+
+    if (!poll) {
+      return res.status(404).json({ error: 'Poll not found' });
+    }
+
+    const existingVoteIndex = poll.votes.findIndex((v) => v.userId.toString() === userId.toString());
+    if (existingVoteIndex === -1) {
+      return res.status(400).json({ error: 'User has not voted yet' });
+    }
+
+    const existingOptionId = poll.votes[existingVoteIndex].option;
+    const existingOption = poll.options.find((o) => o.id === existingOptionId);
+    if (existingOption) {
+      existingOption.count--; // Decrease the count for the existing option
+    }
+
+    poll.votes.splice(existingVoteIndex, 1); // Remove the vote for the existing option
+
+    await poll.save();
+
+  
+    res.json({ message: 'Vote changed successfully!' }); 
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Server error' });
+  }
+});
+
+
+
+
+
+
 
 app.put('/closepoll', async (req, res) => {
   try {
@@ -1056,65 +1140,6 @@ app.put('/notifications/read', async (req, res) => {
   }
 });
 
-app.post("/adddate", async (req, res) => {
-  const { tripId, startDate, endDate } = req.body;
-
-  try {
-    
-    const trip = await TripStart.findById(tripId);
-
-    if (!trip) {
-      return res.status(404).json({ error: "Trip not found" });
-    }
-
-    trip.startDate = new Date(startDate).toLocaleDateString();
-    trip.endDate = new Date(endDate).toLocaleDateString();
-
-    await trip.save();
-
-    res.status(200).json({ status: "OK!", updatedTrip: trip });
-  } catch (error) {
-    console.log(error);
-    res.status(500).json({ status: "na!" });
-  }
-});
-
- 
-app.put('/vote/change', async (req, res) => {
-  const { pollId, optionId, userId, tripId } = req.body;
-  
-  try {
-    const poll = await PollStart.findById(pollId);
-    const trip = await TripStart.findById(tripId);
-    const user = await User.findById(userId);
-
-    if (!poll) {
-      return res.status(404).json({ error: 'Poll not found' });
-    }
-
-    const existingVoteIndex = poll.votes.findIndex((v) => v.userId.toString() === userId.toString());
-    if (existingVoteIndex === -1) {
-      return res.status(400).json({ error: 'User has not voted yet' });
-    }
-
-    const existingOptionId = poll.votes[existingVoteIndex].option;
-    const existingOption = poll.options.find((o) => o.id === existingOptionId);
-    if (existingOption) {
-      existingOption.count--; // Decrease the count for the existing option
-    }
-
-    poll.votes.splice(existingVoteIndex, 1); // Remove the vote for the existing option
-
-    await poll.save();
-
-  
-    res.json({ message: 'Vote changed successfully!' }); 
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: 'Server error' });
-  }
-});
-
 /// destination poll //lamia
 
 app.post('/dcreatepoll', async (req, res) => {
@@ -1125,12 +1150,6 @@ app.post('/dcreatepoll', async (req, res) => {
     const trip = await TripStart.findById(tripId);
     const users = trip.addedMembers;
     const user = await User.findById(userId);
-
-    // const existingPoll = await DPollStart.findOne({ tripId });
-    // if (existingPoll) {
-    //   res.json({ status: "Poll already exists!" });
-    //   return;
-    // }
 
     const poll = new DPollStart({
       options: options.map((option, index) => ({ value: option, id: index, count: 0 })),
@@ -1156,10 +1175,6 @@ app.post('/dcreatepoll', async (req, res) => {
     console.error(error);
     res.json({ status: "Error saving poll!" });
   }
-});
-
-app.listen(port, () => {
-console.log(`Server is running on port: ${port}`);
 });
 
 //getpoll destination
@@ -1316,6 +1331,3 @@ app.post('/dgetwinner', async (req, res) => {
 app.listen(port, () => {
 console.log(`Server is running on port: ${port}`);
 });
-
-
-// see 1200th line

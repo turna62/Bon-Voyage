@@ -404,14 +404,14 @@ render(){
   ))}
   <button class="pollbtn1" type="submit">Submit</button>
   
-
+ 
 </form>
  
 
 <button class="pollbtn1" type="button" onClick={this.handleClosePoll}>Close</button>
 
 
-<button class="pollbtn1" type="button" onClick={this.handleEdit}>Change</button>
+<button class="changebtn" type="button" onClick={this.handleEdit}>Change Vote</button>
 
 
 
@@ -422,9 +422,10 @@ render(){
       </div>
       <div class="pphead">
     <h3 class="head">Vote Here!</h3>
-<p class= "uheadp">Cast your votes here to complete polling.</p> 
+<p class= "uhead">Cast your votes here to complete polling</p> 
+<p class= "uhead1"> You can also click 'Change Vote' button to change your vote.</p> 
 
-</div> 
+</div>
 
 {/* <a class="pollbtn page-scroll" href="http://localhost:3000/createpoll">Create Poll</a> */}
 

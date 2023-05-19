@@ -252,12 +252,6 @@ const { question, options, winner } = this.state;
     </div>
 </div>
      
-
-
-
-     
-        
-
         );
 
     }
