@@ -7,7 +7,7 @@ import '../Home/HomeCss/styles.css';
 
 
   constructor(props) {
-    super(props);
+    super(props); 
     this.state = {
       pollId: null,
       question: "",

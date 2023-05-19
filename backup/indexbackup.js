@@ -15,7 +15,7 @@ require('dotenv').config();
 
 const app = express();
 const port = process.env.PORT || 5000;
-const helmet = require("helmet");
+const helmet = require("helmet"); 
 
 app.use(helmet());
 
@@ -1115,11 +1115,6 @@ app.put('/vote/change', async (req, res) => {
   }
 });
 
-
-app.listen(port, () => {
-console.log(`Server is running on port: ${port}`);
-});
-
 /// destination poll //lamia
 
 app.post('/dcreatepoll', async (req, res) => {
@@ -1317,5 +1312,10 @@ app.post('/dgetwinner', async (req, res) => {
     return res.status(500).json({ error: 'Server error' });
   }
 });
+
+app.listen(port, () => {
+console.log(`Server is running on port: ${port}`);
+});
+
 
 // see 1200th line
