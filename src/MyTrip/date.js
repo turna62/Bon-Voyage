@@ -16,6 +16,7 @@ class Date extends React.Component{
         };
         this.updateAllIsRead = this.updateAllIsRead.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+       
       }
     
       componentDidMount() {
@@ -103,6 +104,10 @@ class Date extends React.Component{
         e.preventDefault();
         console.log("Form submitted!"); 
         const { startDate, endDate, tripId} = this.state;
+
+        
+        const formattedStartDate = startDate.substring(0, 10); // Extract date portion
+        const formattedEndDate = endDate.substring(0, 10); // Extract date portion
         
         console.log(startDate, endDate, tripId);
         fetch("http://localhost:5000/adddate", {
@@ -116,8 +121,8 @@ class Date extends React.Component{
           //  authorization: localStorage.getItem("email") ,
           },
           body: JSON.stringify({
-            startDate,
-            endDate,
+            startDate: formattedStartDate, // Use formatted start date
+        endDate: formattedEndDate,
             tripId
             
           }),
@@ -128,6 +133,13 @@ class Date extends React.Component{
             if (data.status === "OK!") {
                 
                 alert('Saved succesfully!');
+                
+                const updatedTripData = {
+                  ...this.state.tripData,
+                  startDate: formattedStartDate,
+                  endDate: formattedEndDate,
+                };
+                this.setState({ tripData: updatedTripData });
              
                 this.form.reset();
 
@@ -140,6 +152,8 @@ class Date extends React.Component{
             alert("Error! Something went wrong while calling the API.");
           });
       }
+
+
 
       updateAllIsRead = () => {
         const params = new URLSearchParams(window.location.search);
@@ -183,6 +197,8 @@ class Date extends React.Component{
       console.log('tripData:', tripData); 
    // Check if a date has already been set
   if (tripData.startDate && tripData.endDate) {
+    const formattedStartDate = tripData.startDate.substring(0, 10); // Extract date portion
+    const formattedEndDate = tripData.endDate.substring(0, 10); 
     
     return (
       <div class="deetailplan">
@@ -272,9 +288,8 @@ class Date extends React.Component{
 
      <div class="datebody">
      <h4> Finalized dates:</h4>
-     <p>Starting date: {tripData.startDate}</p>
-        <p>Ending date: {tripData.endDate}</p>
-
+     <p>Starting date: {formattedStartDate}</p>
+          <p>Ending date: {formattedEndDate}</p>
      </div>
      </div>  
 
