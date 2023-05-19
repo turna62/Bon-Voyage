@@ -133,7 +133,7 @@ import '../Home/HomeCss/styles.css';
               alert("Error! Poll not found!");
             }
           } else {
-            alert("Error! tSomething went wrong!");
+            alert("Error! Something went wrong!");
           }
         })
         .catch((error) => {

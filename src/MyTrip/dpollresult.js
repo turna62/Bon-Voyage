@@ -2,9 +2,9 @@ import React from 'react';
 import { useParams, Link } from "react-router-dom";
 import './mytrip.css';
 
-class PollResult extends React.Component{
+class DPollResult extends React.Component{
 
-    constructor(props) { 
+    constructor(props) {
         super(props);
         this.state = {
           userId: null,
@@ -14,7 +14,7 @@ class PollResult extends React.Component{
           myPolls:[], 
           notifsData:[],
           pollId: null,
-          question: "",
+          question: "Start Voting",
           //options: [  {count: 0}],
           winner:[]
         };
@@ -35,7 +35,7 @@ class PollResult extends React.Component{
         console.log(pollId);
         this.setState({ pollId: pollId});
 
-        fetch(`http://localhost:5000/getwinner`, {
+        fetch(`http://localhost:5000/dgetwinner`, {
   method: 'POST',
   headers: {
     "Content-Type": "application/json",
@@ -238,7 +238,7 @@ const { question, options, winner } = this.state;
     <div className="pollbodyy">
     
       <div className="wrapperr">
-        <header>Question: {question}</header>
+        <header>{question}</header>
         <div className="poll-area">
         
                   <p>Winner:{winner} </p>
@@ -263,4 +263,4 @@ const { question, options, winner } = this.state;
     }
 }
 
-export default PollResult;
+export default DPollResult;
