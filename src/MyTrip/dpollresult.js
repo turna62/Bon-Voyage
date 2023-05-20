@@ -206,11 +206,8 @@ const { question, options, winner } = this.state;
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-12">
-                                <div class="text-container">
-                                    <h1>Let's Plan!</h1>
-                                    {/* <p class="p-heading p-large">The journey of a thousand miles begins with a single step.</p> */}
-
-
+                            <div class="text-container">
+                                    <h1 ><div class="lets">Let's Plan,</div><div class="js-rotating"> {this.state.userData.username}!</div></h1>
                                 </div>
                             </div> 
                         </div> 
