@@ -370,7 +370,7 @@ class Places extends React.Component {
 
     <div class="routebody">
       <div className="input-group mb-3">
-      <p class="startdestext destxt">Start Destination:</p>
+      <p class="startdestext destxt"><i className="fas fa-map-marker-alt"></i> Start Destination:</p>
 
         <input
           id="from"
@@ -382,7 +382,7 @@ class Places extends React.Component {
         />
       </div>
       <div className="input-group mb-3">
-        <p class="enddestext destxt">End Destination:</p>
+        <p class="enddestext destxt">  <i className="fas fa-flag-checkered"></i>End Destination:</p>
         <input
           id="to"
           type="text"
