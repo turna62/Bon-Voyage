@@ -381,7 +381,7 @@ import usePlacesAutocomplete, {
                   </ul>
 
               </div>
-         </nav>
+         </nav> 
 
          <header id="header" class="headerr">
                 <div class="header-content">

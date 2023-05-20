@@ -250,7 +250,7 @@ class Date extends React.Component{
                   </ul>
 
               </div>
-         </nav>
+         </nav> 
 
          <header id="header" class="headerr">
                 <div class="header-content">
