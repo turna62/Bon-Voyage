@@ -196,7 +196,7 @@ import '../Home/HomeCss/styles.css';
   }
 
   handleClosePoll() {
-    const confirmClose = window.confirm('Are you sure you want to close this poll? This action will close the poll for everyone on your trip and prevent further voting.');
+    const confirmClose = window.confirm('Are you sure you want to close this poll? This action will close the poll for everyone on your trip & prevent further voting & set the result as final destination.');
 
     const { pollId } = this.state;
     //const { finalResult } = this.state;
