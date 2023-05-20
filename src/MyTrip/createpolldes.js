@@ -132,7 +132,8 @@ class CreatePollD extends Component {
               <h5 className="ccpoll1">Add up to four places to create a poll and vote to finalize the destination.</h5>
               <form  onSubmit={(e) => this.handleSubmit(e, this.props.isTripOwner)}>
                 <h5 className="ccpll1">Add up to 04 places:</h5>
-                <Map options={this.state.options} setOptions={this.setOptions} />                <input className="btncdestination" type="submit" value="LAUNCH POLL" />
+                <Map options={this.state.options} setOptions={this.setOptions} />                
+                <input className="btncdestination" type="submit" value="LAUNCH POLL" />
               </form>
               <p className="back">
                 <a href={`http://localhost:3000/destination?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}`}>

@@ -34,14 +34,14 @@ import usePlacesAutocomplete, {
 
           
         };
-        this.setDestination = this.setDestination.bind(this);
         this.updateAllIsRead = this.updateAllIsRead.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this); // to read properties of state
+        this.setDestination = this.setDestination.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
       }
-      setDestination(newDestination) {
-        this.setState({ destination: newDestination });
-      }
-
+      setDestination = (address) => {
+        this.setState({ destination: address }); // Update the destination state
+      };
+    
       componentDidMount() {
         const params = new URLSearchParams(window.location.search);
         const userId = params.get('userId');
@@ -166,7 +166,7 @@ import usePlacesAutocomplete, {
           },
           body: JSON.stringify({
             destination,
-            tripId,
+            tripId
           }),
         })
         .then((res) => res.json())
@@ -222,8 +222,8 @@ import usePlacesAutocomplete, {
 
     render(){
     
-      const {myPolls} = this.state;
-      const { destination } = this.state;
+      const { myPolls } = this.state;
+  const { destination } = this.state;
 
         return(
             <div class="deetailplan">
@@ -312,10 +312,10 @@ import usePlacesAutocomplete, {
      <div class="phead">  
          <h3>Let's fix destination</h3>
          <p>Search destinations and then select it by clicking on 'Select' button.</p> 
-         <form onSubmit={this.handleSubmit}>
-         < Map destination={destination} setDestination={this.setDestination} />
-         <input class="btndestination" type="submit" value="SELECT"/>
-         </form>
+         <form onSubmit={(e) => this.handleSubmit(e)}>
+        <Map destination={this.state.destination} setDestination={this.setDestination} />
+        <input className="btndestination" type="submit" value="SELECT" />
+      </form>
     </div>
     <div class="pollaunch">
     <h3>Or Open voting</h3>
@@ -416,8 +416,9 @@ import usePlacesAutocomplete, {
     }
 }
 
+function Map({ destination, setDestination, setSelected }) {
 
-function Map({ destination, setDestination }) {
+
   const { isLoaded } = useLoadScript({
     googleMapsApiKey: "AIzaSyAz2_MkHBuMmmgsKwwVnp1tF-qOVm0B9Oo",
     libraries: ["places"],
@@ -425,27 +426,32 @@ function Map({ destination, setDestination }) {
 
   if (!isLoaded) return <div>Loading...</div>;
 
-  const handleSelect = (address) => {
-    setDestination(address);
+  const handleSelect = (selectedDestination) => {
+    const updatedDestination = [...destination];
+    updatedDestination[0] = selectedDestination.address;
+    setDestination(updatedDestination);
+    setSelected(selectedDestination.address);
   };
-
+  
   return (
     <>
       <div className="places-container">
         <PlacesAutocomplete
-          handleSelect={handleSelect}
           destination={destination}
+          setDestination={setDestination}
+          setSelected={setSelected}
+          index={0} // Add the index prop here with the desired value
         />
       </div>
     </>
   );
 }
 
-
 const PlacesAutocomplete = ({
   destination,
   setDestination,
   setSelected,
+  index
 }) => {
   const {
     ready,
@@ -461,7 +467,13 @@ const PlacesAutocomplete = ({
 
     const results = await getGeocode({ address });
     const { lat, lng } = await getLatLng(results[0]);
-    setDestination({ lat, lng });
+    setDestination({ address });
+
+    setDestination(updatedDestination, index); // Pass the index to setDestination
+    const updatedDestination = [...destination];
+    updatedDestination[index] = address;
+    setSelected(updatedDestination);
+
   };
 
 return (
