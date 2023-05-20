@@ -285,9 +285,9 @@ class Date extends React.Component{
 
      <div class="datebody">
       <div class="datefetch">
-     <h4 class="datefinalhead"><i class="fa fa-calendar"></i> Finalized dates:</h4>
-     <div class="fetchdate"><p>Starting date: {formattedStartDate}</p>
-          <p>Ending date: {formattedEndDate}</p></div>
+     <h4 class="datefinalhead"><i class="fa fa-calendar"></i> Finalized Dates:</h4>
+     <div class="fetchdate"><p><b>Starting Date: {formattedStartDate}</b></p>
+          <p><b>Ending Date: {formattedEndDate}</b></p></div>
      </div></div>
      </div>  
 
