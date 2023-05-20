@@ -1316,6 +1316,8 @@ app.post('/dgetwinner', async (req, res) => {
   }
 });
 
+///add destination
+
 app.post("/adddestination", async (req, res) => {
   const { tripId, destination } = req.body;
 console.log(destination, tripId);

@@ -107,7 +107,7 @@ import '../Home/HomeCss/styles.css';
     // Fetch poll data from server
     fetch(`http://localhost:5000/dgetpollsbypollId`, {
       method: "POST",
-      crossDomain: true,
+      crossDomain: true, 
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
