@@ -57,9 +57,9 @@ export default function LogIn(props) {
   return (
     <body class="signinbody">
       <div class="main-w3layouts wrapper">
-        <div class="main-agileinfo">
+        <div class="main-agileinfo"> 
           <div class="agileits-top">
-            <h1><i class="fa fa-user"></i> Log In</h1>
+            <h3><i class="fa fa-user"></i> Log In</h3>
             <form onSubmit={handleSubmit}>
               <input
                 class="text inputmail"

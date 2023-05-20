@@ -79,7 +79,7 @@ class CreatePollD extends Component {
         options,
         tripId,
         userId,
-        addedMembers,
+        addedMembers, 
       }),
     })
       .then((res) => res.json())
