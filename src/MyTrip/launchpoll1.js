@@ -147,8 +147,8 @@ import '../Home/HomeCss/styles.css';
     e.preventDefault();
     const selectedOption = document.querySelector('input[name="count"]:checked');
     if (!selectedOption) {
-      alert('Please select an option');
-      return;
+      const errorContainer = document.getElementById('error-container');
+          errorContainer.innerHTML = `<div class="alert alert-danger custom-alert" role = "alert" >Please select an option!</div>`;
     }
     const selectedOptionId = parseInt(selectedOption.value, 10);
     console.log(selectedOptionId);
@@ -176,7 +176,13 @@ import '../Home/HomeCss/styles.css';
     })
       .then((res) => res.json())
       .then((data) => {
-        if (data._id === pollId) {
+        if (data.error) {
+       
+          const errorContainer = document.getElementById('error-container');
+          errorContainer.innerHTML = `<div class="alert alert-danger custom-alert" role = "alert" >${data.error}</div>`;
+          
+        }
+        else if (data._id === pollId) {
           if (data.finalResult) {
             this.setState({
               finalResult: data.finalResult,
@@ -191,45 +197,43 @@ import '../Home/HomeCss/styles.css';
       })
       .catch((error) => {
         console.error(error);
-        alert("An error occurred while submitting your vote");
+        //alert("An error occurred while submitting your vote");
       });
   }
 
   handleClosePoll() {
     const confirmClose = window.confirm('Are you sure you want to close this poll? This action will close the poll for everyone on your trip and prevent further voting.');
-
+  
     const { pollId } = this.state;
-    //const { finalResult } = this.state;
-  if (confirmClose){
-    fetch(`http://localhost:5000/closepoll`, {
-      method: 'PUT',
-      crossDomain: true,
-      headers: {
-        'Content-Type': 'application/json',
-        Accept: 'application/json',
-        'Access-Control-Allow-Origin': '*',
-      },
-      body: JSON.stringify({
-        pollId: pollId,
-      }),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        // Handle the response
-        console.log(data);
-        if (data.message === 'Final result') {
-          //this.setState({ winner: data.winner });
-          window.location.href = `http://localhost:3000/pollresult?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}&pollId=${encodeURIComponent(this.state.pollId)}`;
-        }
+  
+    if (confirmClose) {
+      fetch(`http://localhost:5000/closepoll`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          pollId: pollId,
+        }),
       })
-    
-      
-      .catch((error) => {
-        console.error(error);
-        alert('An error occurred while closing the poll');
-      });
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.error) {
+            const errorContainer = document.getElementById('error-container');
+            errorContainer.innerHTML = `<div class="alert alert-danger custom-alert" role="alert">${data.error}</div>`;
+          } else if (data.message === 'Final result') {
+            // Handle final result, redirect or display messages as needed
+            //this.setState({ winner: data.winner });
+            window.location.href = `http://localhost:3000/pollresult?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}&pollId=${encodeURIComponent(this.state.pollId)}`;
+          }
+        })
+        .catch((error) => {
+          console.error(error);
+          alert('An error occurred while closing the poll');
+        });
     }
   }
+  
 
   handleEdit = () => {
     const selectedOption = document.querySelector('input[name="count"]:checked');
@@ -255,8 +259,15 @@ import '../Home/HomeCss/styles.css';
     })
       .then((res) => res.json())
       .then((data) => {
+        if (data.error) {
+       
+          const errorContainer = document.getElementById('error-container');
+          errorContainer.innerHTML = `<div class="alert alert-danger custom-alert" role = "alert" >${data.error}</div>`;
+          
+        }
+        
         // Handle the response message
-        alert(data.message); // Display the response message to the user
+       // alert(data.message); // Display the response message to the user
         
     fetch(`http://localhost:5000/getpollsbypollId`, {
       method: 'POST',
@@ -375,10 +386,12 @@ render(){
 
      </div> 
 
+     
        
     <div className="pollbodyy">
-    
+   
       <div className="wrapperr">
+      <div id="error-container"></div>
         <header>Question: {question}</header>
         <div className="poll-area">
           {/* <ul>{pollOptions}</ul> */}

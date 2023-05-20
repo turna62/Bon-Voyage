@@ -78,25 +78,14 @@ class CreatePoll extends React.Component{
           .then((data) => {
            // console.log(data, "pollSubmit");
            if (data.error) {
-            // Handle error
-            // alert('Error: '+ data.error);
-            // const error = data.error;
-            // if (error) {
-            //   const errorContainer = document.getElementById('error-container');
-            //   errorContainer.innerHTML = `
-            //     <div class="alert alert-danger" role="alert">
-            //       ${error}
-            //     </div>
-            //   `;
-            // }
-            // this.form.reset();
+           
             const errorContainer = document.getElementById('error-container');
             errorContainer.innerHTML = `<div class="alert alert-danger custom-alert" role = "alert" >${data.error}</div>`;
-            this.form.reset();
+            this.form.reset(); 
           }
             
             else if (data.status === "OK!") {
-              alert("Poll created successfully!");
+              //alert("Poll created successfully!");
               console.log(tripId);
               window.location.href = `http://localhost:3000/polls?userId=${encodeURIComponent(
                 this.state.userId
