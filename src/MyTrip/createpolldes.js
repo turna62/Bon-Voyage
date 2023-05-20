@@ -19,6 +19,7 @@ class CreatePollD extends Component {
     super(props);
     this.state = {
       options: [],
+      question:"Destination Poll",
       tripId: props.tripId,
       userId: props.userId
     };
@@ -53,8 +54,8 @@ class CreatePollD extends Component {
   
   handleSubmit(e, isTripOwner) {
     e.preventDefault();
-    const {options, tripId, userId } = this.state;
-    console.log (tripId, userId, options);
+    const {options, tripId, userId, question } = this.state;
+    console.log (tripId, userId, options, question);
   
     // Set the addedMembers data based on the user role
     let addedMembers;
@@ -80,6 +81,7 @@ class CreatePollD extends Component {
         tripId,
         userId,
         addedMembers,
+        question
       }),
     })
       .then((res) => res.json())
