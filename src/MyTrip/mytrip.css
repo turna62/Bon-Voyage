@@ -777,8 +777,8 @@ top: 200px;
   font-family: 'Times New Roman', Times, serif;
   position: relative;
   overflow-x: hidden;
-  left: 300px;
-  bottom: 190px;
+  left: 175px;
+  top: 10px;
   border: 3px solid rgb(14, 44, 44);
 }
 
@@ -892,15 +892,20 @@ top: 200px;
   color: rgb(14, 44, 44);
             font-family: sans-serif;
             position: relative;
-            bottom: 60px;
+            bottom: 100px;
             left: 780px;
             height: 200px;
 }
-.pollaunch1{
+
+.pollaunch h3{
+  font-family: sans-serif;
+}
+
+.pollaunch1 h3{
   color: rgb(14, 44, 44);
             font-family: sans-serif;
             position: relative;
-            bottom: 100px;
+            bottom: 150px;
             left: 780px;
             height: 200px;
 }
@@ -918,7 +923,7 @@ top: 200px;
   font-family: 'Times New Roman', Times, serif;
   position: relative;
   left: 880px;
-  bottom: 400px;
+  bottom: 290px;
   overflow-x: hidden;
 
 }
@@ -1864,11 +1869,12 @@ left: 30px;
 }
 .quespoll1{
   position: relative;
-  left: 790px;
-  bottom: 250px;
+  left: 785px;
+  bottom: 320px;
   font-family: sans-serif;
   color: rgb(14, 44, 44);
-  font-size: 16px;
+  font-size: 20px;
+  color: rgb(14, 44, 44);
 }
 
 .error-message {
