@@ -321,7 +321,7 @@ import usePlacesAutocomplete, {
       {myPolls.map((poll, index) => (
         <div key={poll._id}>
            
-          <Link to={`/dlaunchpoll?pollId=${poll._id}&userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}`}className="no">{index + 1}.{poll.question}</Link>
+          <Link to={`/dlaunchpoll?pollId=${poll._id}&userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}`}className="no">{poll.question}</Link>
           
         </div>
       ))}
