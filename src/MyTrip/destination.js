@@ -27,10 +27,12 @@ import usePlacesAutocomplete, {
           userData:"",
           notifsData:[],
           myPolls:[], 
-          notifsData:[]
+          notifsData:[],
+          destination: ""
           
         };
         this.updateAllIsRead = this.updateAllIsRead.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this); // to read properties of state
       }
 
       componentDidMount() {
@@ -141,6 +143,40 @@ import usePlacesAutocomplete, {
           alert("ok");
         });
       }
+
+      handleSubmit(e) {
+        e.preventDefault();
+        const {tripId, destination} = this.state;
+        console.log (tripId, destination);
+          fetch("http://localhost:5000/adddestination", {
+          method: "POST",
+          crossDomain: true,
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+            "Access-Control-Allow-Origin": "*",
+           // authorization: localStorage.getItem("userId"),
+          },
+          body: JSON.stringify({
+            destination,
+            tripId,
+          }),
+        })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data, "userSubmit");
+          if (data.status === "OK!") {
+              alert('Submitted successfully!');
+              this.form.reset();
+          } else {
+            alert(`went wrong: ${data.status}`);
+          }
+        })
+        .catch((error) => {
+          console.error(error);
+          alert("Error! Something went wrong while calling the API.");
+        });
+    }
     
 
       updateAllIsRead = () => {
@@ -178,7 +214,7 @@ import usePlacesAutocomplete, {
 
     render(){
     
-      const {myPolls} = this.state;
+      const {myPolls, destination} = this.state;
 
         return(
             <div class="deetailplan">
@@ -267,7 +303,9 @@ import usePlacesAutocomplete, {
      <div class="phead">  
          <h3>Let's fix destination</h3>
          <p>Search destinations and then select it by clicking on 'Select' button.</p> 
-         < Map/>
+         <form ref={form => this.form = form} onSubmit={this.handleSubmit}>
+         < Map  />
+         </form>
     </div>
     <div class="pollaunch">
     <h3>Or Open voting</h3>
@@ -360,62 +398,63 @@ import usePlacesAutocomplete, {
 }
 
 
-    function Map() {
-        const [setSelected] = useState(null);
-
-        const { isLoaded } = useLoadScript({
-            googleMapsApiKey: "AIzaSyAz2_MkHBuMmmgsKwwVnp1tF-qOVm0B9Oo",
-            libraries: ["places"],
-          });
-        
-          if (!isLoaded) return <div>Loading...</div>;   
     
-      
-        return (
-          <>
-            <div className="places-container">
-              <PlacesAutocomplete setSelected={setSelected} />
-            </div>
-      
-           </>
-        );
-      }
-      
+function Map() {
+  const [setSelected] = useState(null);
+
+  const { isLoaded } = useLoadScript({
+      googleMapsApiKey: "AIzaSyAz2_MkHBuMmmgsKwwVnp1tF-qOVm0B9Oo",
+      libraries: ["places"],
+    });
+  
+    if (!isLoaded) return <div>Loading...</div>;   
+
+
+  return (
+    <>
+      <div className="places-container">
+        <PlacesAutocomplete setSelected={setSelected} />
+      </div>
+
+     </>
+  );
+}
+
 const PlacesAutocomplete = ({ setSelected }) => {
-    const {
-      ready,
-      value,
-      setValue,
-      suggestions: { status, data },
-      clearSuggestions,
-    } = usePlacesAutocomplete();
-  
-    const handleSelect = async (address) => {
-      setValue(address, false);
-      clearSuggestions();
-  
-      const results = await getGeocode({ address });
-      const { lat, lng } = await getLatLng(results[0]);
-      setSelected({ lat, lng }); 
-    };
-  
-    return (
-      <Combobox onSelect={handleSelect}>
-        <ComboboxInput
-          value={value}
-          onChange={(e) => setValue(e.target.value)}
-          disabled={!ready}
-          className="combobox-sinput"
-          placeholder="Select a spot.."
-        />
-        <ComboboxPopover>
-          <ComboboxList>
-            {status === "OK" &&
-              data.map(({ place_id, description }) => (
-                <ComboboxOption key={place_id} value={description} />
-              ))}
-          </ComboboxList>
-        </ComboboxPopover>
-      </Combobox>
-    );
-  };
+const {
+ready,
+value,
+setValue,
+suggestions: { status, data },
+clearSuggestions,
+} = usePlacesAutocomplete();
+
+const handleSelect = async (address) => {
+setValue(address, false);
+clearSuggestions();
+
+const results = await getGeocode({ address });
+const { lat, lng } = await getLatLng(results[0]);
+setSelected({ lat, lng }); 
+};
+
+return (
+<Combobox onSelect={handleSelect}>
+  <ComboboxInput
+    value={value}
+    onChange={(e) => setValue(e.target.value)}
+    disabled={!ready}
+    className="combobox-sinput"
+    placeholder="Select a spot.."
+  />
+  <ComboboxPopover>
+    <ComboboxList>
+      {status === "OK" &&
+        data.map(({ place_id, description }) => (
+          <ComboboxOption key={place_id} value={description} />
+        ))}
+    </ComboboxList>
+  </ComboboxPopover>
+</Combobox>
+);
+};
