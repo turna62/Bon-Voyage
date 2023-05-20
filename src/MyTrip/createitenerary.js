@@ -144,17 +144,17 @@ import usePlacesAutocomplete, {
                 console.log(data, "itinerarySubmit");
                 if (data.status === "OK!") {
                     
-                    alert('submitted Successfully!');
+                   // alert('submitted Successfully!');
                     window.localStorage.setItem('itineraryId', data.itineraryId);
                     window.location.href = `http://localhost:3000/myitinerary?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}&itineraryId=${data.itineraryId}`;
     
                 } else {
-                  alert(`went wrong: ${data.status}`);
+                  //alert(`went wrong: ${data.status}`);
                 }
               })
               .catch((error) => {
                 console.error(error);
-                alert("Error! Something went wrong while calling the API.");
+                //alert("Error! Something went wrong while calling the API.");
               });
           }
 
@@ -191,17 +191,17 @@ import usePlacesAutocomplete, {
                 console.log(data, "itinerarySubmit");
                 if (data.status === "OK!") {
                     
-                    alert('submitted Successfully!');
+                    //alert('submitted Successfully!');
                     window.localStorage.setItem('itineraryId', data.itineraryId);
                     window.location.href = `http://localhost:3000/createitenerary1?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}&itineraryId=${data.itineraryId}`;
     
                 } else {
-                  alert(`went wrong: ${data.status}`);
+                  //alert(`went wrong: ${data.status}`);
                 }
               })
               .catch((error) => {
                 console.error(error);
-                alert("Error! Something went wrong while calling the API.");
+                //alert("Error! Something went wrong while calling the API.");
               });
           }
         
@@ -271,7 +271,7 @@ import usePlacesAutocomplete, {
 
 </div>  
 <div class="pheadd1">
-    <h3>Note</h3>
+    <h3>Note</h3> 
 <p>Click on the 'Save' button to save the itinerary or click 'Next' button to add information of next days.</p> 
 
 <button class="pollbtn1" type="button" onClick={this.handleNext}>Next</button>

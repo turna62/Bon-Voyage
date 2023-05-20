@@ -150,17 +150,17 @@ import usePlacesAutocomplete, {
             console.log(data, "itinerarySubmit");
             if (data.status === "OK!") {
                 
-                alert('submitted Successfully!');
+                //alert('submitted Successfully!');
                 window.localStorage.setItem('itineraryId', data.itineraryId);
-                window.location.href = `http://localhost:3000/myitinerary1?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}&itineraryId=${data.itineraryId}&itineraryId=${data.itineraryId}`;
+                window.location.href = `http://localhost:3000/myitinerary1?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}&itineraryId=${data.itineraryId}`;
 
             } else {
-              alert(`went wrong: ${data.status}`);
+              //alert(`went wrong: ${data.status}`);
             }
           })
           .catch((error) => {
-            console.error(error);
-            alert("Error! Something went wrong while calling the API.");
+            console.error(error); 
+            //alert("Error! Something went wrong while calling the API.");
           });
       }
 
@@ -199,17 +199,17 @@ import usePlacesAutocomplete, {
             console.log(data, "itinerarySubmit");
             if (data.status === "OK!") {
                 
-                alert('submitted Successfully!');
+                //alert('submitted Successfully!');
                 window.localStorage.setItem('itineraryId', data.itineraryId);
                 window.location.href = `http://localhost:3000/createitenerary2?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}&itineraryId=${data.itineraryId}`;
 
             } else {
-              alert(`went wrong: ${data.status}`);
+              //alert(`went wrong: ${data.status}`);
             }
           })
           .catch((error) => {
             console.error(error);
-            alert("Error! Something went wrong while calling the API.");
+            //alert("Error! Something went wrong while calling the API.");
           });
       }
     
