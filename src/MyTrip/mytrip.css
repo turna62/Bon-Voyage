@@ -1034,7 +1034,7 @@ top: 200px;
   color: white;
   height:80vh;
   background-size: cover;  
-  background: linear-gradient(rgba(1, 27, 30, 0.723), rgba(1, 27, 30, 0.668)), url(hill6.jpg) center center no-repeat;
+  background: linear-gradient(rgba(1, 30, 10, 0.596), rgba(0, 31, 14, 0.62)), url(hill3.jpg) center center no-repeat;
 }
 .detailhead{
   font-size: 20px;
