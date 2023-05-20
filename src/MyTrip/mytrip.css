@@ -1870,3 +1870,13 @@ left: 30px;
   color: rgb(14, 44, 44);
   font-size: 16px;
 }
+
+.error-message {
+  color: rgb(185, 12, 12);
+  font-weight: bold;
+  top: 110px;
+  justify-content: center;
+  font-family: 'Times New Roman', Times, serif;
+  text-align: center;
+}
+

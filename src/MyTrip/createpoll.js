@@ -76,20 +76,30 @@ class CreatePoll extends React.Component{
         })
           .then((res) => res.json())
           .then((data) => {
-            console.log(data, "pollSubmit");
-            if (data.status === "OK!") {
-              alert("Poll created!");
+           // console.log(data, "pollSubmit");
+           if (data.error) {
+            // Handle error
+            // alert('Error: '+ data.error);
+
+            const errorContainer = document.getElementById('error-container');
+            errorContainer.innerHTML = `<p class="error-message" >${data.error}</p>`;
+            this.form.reset();
+          }
+            
+            else if (data.status === "OK!") {
+              alert("Poll created successfully!");
               console.log(tripId);
               window.location.href = `http://localhost:3000/polls?userId=${encodeURIComponent(
                 this.state.userId
               )}&tripId=${encodeURIComponent(this.state.tripId)}`;
             } else {
               alert(`went wrong: ${data.status}`);
+              this.form.reset();
             }
           })
           .catch((error) => {
             console.error(error);
-            alert("Error! Something went wrong while calling the API.");
+            //alert("Error! Something went wrong while calling the API.");
           });
       }
       
@@ -120,13 +130,16 @@ class CreatePoll extends React.Component{
 
               </div>
          </nav>
+<div class = "errorstyle">
+         <div id="error-container"></div>
+</div>
 
     <div class="mainn-w3layouts wrapper">
 		<div class="mainn-agileinfo">
 			<div class="agileitss-top">
             <h3 class="cpoll">Create Poll</h3><hr></hr>
             <h5 class="ccpoll">Write a custom question with up to 05 answers travelers can choose from.</h5>
-				<form onSubmit={(e) => this.handleSubmit(e, this.props.isTripOwner)}>
+				<form ref={form => this.form = form} onSubmit={(e) => this.handleSubmit(e, this.props.isTripOwner)}>
 					<input class="texti" type="text" name="question" placeholder="Write your question" required="" onInput = {e=>this.setState({question:e.target.value})} style={{ color: 'black' }}/>
                    <h5 class="ccpll">Options (Add up to 05)</h5>
 
