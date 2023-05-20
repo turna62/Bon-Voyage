@@ -26,7 +26,6 @@
 
 
 
-
 .option-label {
    align-items: center;
   justify-content: space-between;
@@ -979,9 +978,9 @@ top: 200px;
   font-size: 15px;
   font-family: 'Times New Roman', Times, serif;
   position: relative;
-  left: 250px;
+  left: 250px; 
   overflow-x: hidden;
-
+  border: 3px solid rgb(14, 44, 44);
 }
 
 .headerr .savedesbtn {

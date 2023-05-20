@@ -300,6 +300,7 @@ input[type="checkbox"] {
     top: 25px;
     margin-right: 0.5rem;
     margin-bottom: 1.25rem;
+    border: 3px solid rgb(14, 44, 44);
 } 
 
 .pollbtn1:hover {

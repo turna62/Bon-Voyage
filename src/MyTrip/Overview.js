@@ -186,7 +186,7 @@ class Overview extends React.Component{
                         <li class="nav-item">
                         
 
-                        <a class="nav-link page-scroll">
+<a class="nav-link page-scroll">
   <button onClick={this.updateAllIsRead}>
     <span class="notif-icon">
       <i class="fas fa-bell"></i>
@@ -208,7 +208,6 @@ class Overview extends React.Component{
     ))}
   </ul>
 </div>
- 
   
   
 </li>

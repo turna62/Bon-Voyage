@@ -103,17 +103,18 @@ import usePlacesAutocomplete, {
                 <h3 class="logo"><i class="fa fa-anchor"></i> Bon VOYAGE!</h3>
                 <div class="collapse navbar-collapse" id="navbarsExampleDefault">
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <a class="nav-link page-scroll" href="http://localhost:3000">HOME <span class="sr-only">(current)</span></a>
+                    <li class="nav-item">
+                            <a class="nav-link page-scroll" href="http://localhost:3000"><i class="fa fa-home"></i> HOME <span class="sr-only">(current)</span></a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link page-scroll" href="#intro">LOG OUT</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link page-scroll" href="http://localhost:3000/myprofile">MY PROFILE</a>
-                        </li>
-                       
                         
+                        <li class="nav-item">
+                            <a class="nav-link page-scroll" href={`http://localhost:3000/myprofile?userId=${encodeURIComponent(this.state.userId)}`}> <i class='fas fa-user-circle'></i> MY PROFILE</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link page-scroll" href="#intro"><i class="fa fa-sign-out"></i> LOG OUT</a>
+                        </li>
+                    
                   </ul>
 
               </div>
@@ -134,17 +135,18 @@ import usePlacesAutocomplete, {
             </header> 
      <div>
 
-        <h4 class="tripname">{this.state.tripData.tripName}</h4><hr></hr>
-        <a class="btnaddmembers" href="http://localhost:3000/addmembers">+ Add Members</a>
+     <h4 class="tripname">{this.state.tripData.tripName}</h4><hr></hr>
+        <a class="btnaddmembers" href={`http://localhost:3000/addmembers?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}`}>+ Add Members</a>
+
         <ul class="ul">
-        <li class="li"><a href="http://localhost:3000/overview">Overview</a></li>
-        <li class="li"><a href="http://localhost:3000/polls">Polls</a></li>
-        <li class="li"><a href="http://localhost:3000/date">Date</a></li>
-        <li class="li"><a href="http://localhost:3000/destination">Destination</a></li>
-        <li class="li"><a href="http://localhost:3000/route">Route</a></li>
-        <li class="ovwli"><a href="http://localhost:3000/itinerary">Itinerary</a></li>
+        <li class="li"> <a href={`http://localhost:3000/overview?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}`}>Overview</a></li>
+        <li class="li"> <a href={`http://localhost:3000/polls?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}`}>Polls</a></li>
+        <li class="li"> <a href={`http://localhost:3000/date?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}`}>Date</a></li>
+        <li class="li"> <a href={`http://localhost:3000/destination?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}`}>Destination</a></li>
+        <li class="li"> <a href={`http://localhost:3000/route?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}`}>Route</a></li>
+        <li class="ovwli"> <a href={`http://localhost:3000/itinerary?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}`}>Itinerary</a></li>
      </ul>
-   
+
      </div>
 
      

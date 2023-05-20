@@ -341,7 +341,7 @@ class Places extends React.Component {
 
          <header id="header" class="headerr">
                 <div class="header-content">
-                    <div class="container">
+                    <div class="container"> 
                         <div class="row">
                             <div class="col-lg-12">
                             <div class="text-container">
