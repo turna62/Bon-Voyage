@@ -305,6 +305,7 @@ import usePlacesAutocomplete, {
          <p>Search destinations and then select it by clicking on 'Select' button.</p> 
          <form ref={form => this.form = form} onSubmit={this.handleSubmit}>
          < Map  />
+         <input class="btndestination" type="submit" value="SELECT"/>
          </form>
     </div>
     <div class="pollaunch">
