@@ -327,8 +327,8 @@ import usePlacesAutocomplete, {
       ))}
     </div>
 
-    <div class="dbtnfix">
-    <input class="btndestination" type="submit" value="SELECT"/></div>
+    {/* <div class="dbtnfix">
+    <input class="btndestination" type="submit" value="SELECT"/></div> */}
 
     <a class="btnopnvote" href={`http://localhost:3000/createpolldes?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}`}>Open Voting</a>
 
