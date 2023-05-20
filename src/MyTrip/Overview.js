@@ -13,6 +13,7 @@ class Overview extends React.Component{
           tripData:"",
           userData:"",
           notifsData:[],
+          dpollsData:[]
           
         };
         this.updateAllIsRead = this.updateAllIsRead.bind(this);
@@ -74,6 +75,37 @@ class Overview extends React.Component{
                 window.location.href = "./sign-in";
             }
         });
+
+
+        fetch("http://localhost:5000/dgetpolls", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+    Accept: "application/json",
+    "Access-Control-Allow-Origin": "*",
+  },
+  body: JSON.stringify({
+    tripId: tripId,
+  }),
+})
+  .then((res) => res.json()) // convert data into JSON
+  .then((data) => {
+    console.log(data, "dpollsData");
+    this.setState({dpollsData: data.polls});
+    // Process the retrieved polls data
+    // Set the winner's destination or perform other operations
+    
+    if (data.polls === 'Token Expired!') {
+      alert("Token expired! Kindly login again.");
+      window.localStorage.clear();
+      window.location.href = "./sign-in";
+    }
+  })
+  .catch((error) => {
+    console.error(error);
+    // Handle error
+  });
+
 
         fetch("http://localhost:5000/userData",{
             method: "POST",
@@ -140,6 +172,8 @@ class Overview extends React.Component{
       
     render(){
 
+      const{dpollsData} = this.state;
+      console.log(dpollsData);
         return(
             <div class="deetailplan">
 
@@ -254,10 +288,13 @@ class Overview extends React.Component{
 
 <hr class="hr"></hr>
 
-<p class="overviewdetail">Final Destination:</p>
+<p className="overviewdetail">Final Destination: {this.state.dpollsData.map((poll, index) => (
+  <span key={index}>{poll.winner}</span>
+))}
+</p>
+
 <hr class="hr"></hr>
-<p class="overviewdetail">Preferred Activities:</p>
-<hr class="hr"></hr>
+
 </div>
      </div>  
      

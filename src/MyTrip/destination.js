@@ -330,7 +330,7 @@ import usePlacesAutocomplete, {
       </Link>
     ) : (
       // Poll is open, redirect to launchpoll1
-      <Link to={`/dlaunchpoll1?pollId=${poll._id}&userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}`} className="no">
+      <Link to={`/dlaunchpoll?pollId=${poll._id}&userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}`} className="no">
          {poll.question}
       </Link>
     )}
