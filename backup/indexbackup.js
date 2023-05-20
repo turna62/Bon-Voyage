@@ -1316,6 +1316,28 @@ app.post('/dgetwinner', async (req, res) => {
   }
 });
 
+app.post("/adddestination", async (req, res) => {
+  const { tripId, destination } = req.body;
+console.log(destination, tripId);
+  try {
+    
+    const trip = await TripStart.findById(tripId);
+
+    if (!trip) {
+      return res.status(404).json({ error: "Trip not found" });
+    }
+
+trip.destination = destination;
+
+    await trip.save();
+
+    res.status(200).json({ status: "OK!", updatedTrip: trip });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ status: "na!" });
+  }
+});
+
 app.listen(port, () => {
 console.log(`Server is running on port: ${port}`);
 });
