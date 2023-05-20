@@ -13,6 +13,7 @@ class Overview extends React.Component{
           tripData:"",
           userData:"",
           notifsData:[],
+          dpollsData:[]
           
         };
         this.updateAllIsRead = this.updateAllIsRead.bind(this);
@@ -74,6 +75,37 @@ class Overview extends React.Component{
                 window.location.href = "./sign-in";
             }
         });
+
+
+        fetch("http://localhost:5000/dgetpolls", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+    Accept: "application/json",
+    "Access-Control-Allow-Origin": "*",
+  },
+  body: JSON.stringify({
+    tripId: tripId,
+  }),
+})
+  .then((res) => res.json()) // convert data into JSON
+  .then((data) => {
+    console.log(data, "dpollsData");
+    this.setState({dpollsData: data.polls});
+    // Process the retrieved polls data
+    // Set the winner's destination or perform other operations
+    
+    if (data.polls === 'Token Expired!') {
+      alert("Token expired! Kindly login again.");
+      window.localStorage.clear();
+      window.location.href = "./sign-in";
+    }
+  })
+  .catch((error) => {
+    console.error(error);
+    // Handle error
+  });
+
 
         fetch("http://localhost:5000/userData",{
             method: "POST",
@@ -140,6 +172,8 @@ class Overview extends React.Component{
       
     render(){
 
+      const{dpollsData} = this.state;
+      console.log(dpollsData);
         return(
             <div class="deetailplan">
 
@@ -187,7 +221,7 @@ class Overview extends React.Component{
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link page-scroll" href={`http://localhost:3000/planatrip?userId=${encodeURIComponent(this.state.userId)}`}> <i class="fas fa-umbrella-beach"></i> ADD TRIP</a>
+                            <a class="nav-link page-scroll" href={`http://localhost:3000/planatrip?userId=${encodeURIComponent(this.state.userId)}`}> <i class="fas fa-umbrella-beach"></i> NEW TRIP</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link page-scroll" href="#intro"><i class="fa fa-sign-out"></i> LOG OUT</a>
@@ -239,25 +273,28 @@ class Overview extends React.Component{
      </ul>
 
      <div class="detailfix">
-<p class="detailhead">A brief overview of your trip, {this.state.tripData.tripName} is shown below:</p>
+<p class="detailhead">A brief overview of your trip titled: {this.state.tripData.tripName} is shown below:</p>
 
 
-<p class="overviewdetail">Created by: {this.state.tripData.createdBy} </p>
+<p class="overviewdetail"><i class="fas fa-user"></i> Created by: {this.state.tripData.createdBy} </p>
 <hr class="hr"></hr>
-<p class="overviewdetail">List of Added Trip Members:</p>
+<p class="overviewdetail"><i class="fas fa-users"></i> List of Added Trip Members:</p>
      {Array.isArray(this.state.tripData.collaborators) && this.state.tripData.collaborators.map((collaborator, index) => (
   <p  class="overviewdetail" key={index}>Added Member  {index + 1}: {collaborator}</p>
 ))}
 <hr class="hr"></hr> 
-<p class="overviewdetail">Starting Date: {this.state.tripData.startDate ? new Date(this.state.tripData.startDate).toLocaleDateString() : ''}</p>
-<p class="overviewdetail">Ending Date: {this.state.tripData.endDate ? new Date(this.state.tripData.endDate).toLocaleDateString() : ''}</p>
+<p class="overviewdetail"><i class="far fa-calendar-alt"></i> Starting Date: {this.state.tripData.startDate ? new Date(this.state.tripData.startDate).toLocaleDateString() : ''}</p>
+<p class="overviewdetail"><i class="far fa-calendar-check"></i> Ending Date: {this.state.tripData.endDate ? new Date(this.state.tripData.endDate).toLocaleDateString() : ''}</p>
 
 <hr class="hr"></hr>
 
-<p class="overviewdetail">Final Destination:</p>
+<p className="overviewdetail"><i class="fas fa-map-marker-alt"></i> Final Destination: {this.state.dpollsData.map((poll, index) => (
+  <span key={index}>{poll.winner}</span>
+))}
+</p>
+
 <hr class="hr"></hr>
-<p class="overviewdetail">Preferred Activities:</p>
-<hr class="hr"></hr>
+
 </div>
      </div>  
      

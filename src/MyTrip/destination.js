@@ -28,7 +28,10 @@ import usePlacesAutocomplete, {
           notifsData:[],
           myPolls:[], 
           notifsData:[],
-          destination: ""
+          destination: "",
+          openPolls : [],
+          closedPolls : []
+
           
         };
         this.setDestination = this.setDestination.bind(this);
@@ -324,13 +327,21 @@ import usePlacesAutocomplete, {
     </div>
 
     <div class="quespoll1">
-      {myPolls.map((poll, index) => (
-        <div key={poll._id}>
-           
-          <Link to={`/dlaunchpoll?pollId=${poll._id}&userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}`}className="no">{poll.question}</Link>
-          
-        </div>
-      ))}
+    {myPolls.map((poll, index) => (
+  <div key={poll._id}>
+    {poll.closed ? (
+      // Poll is closed, redirect to pollresult
+      <Link to={`/dpollresult?pollId=${poll._id}&userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}`} className="no">
+         {poll.question}
+      </Link>
+    ) : (
+      // Poll is open, redirect to launchpoll1
+      <Link to={`/dlaunchpoll?pollId=${poll._id}&userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}`} className="no">
+         {poll.question}
+      </Link>
+    )}
+  </div>
+))}
     </div>
 
     {/* <div class="dbtnfix">
