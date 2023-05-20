@@ -31,8 +31,12 @@ import usePlacesAutocomplete, {
           destination: ""
           
         };
+        this.setDestination = this.setDestination.bind(this);
         this.updateAllIsRead = this.updateAllIsRead.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this); // to read properties of state
+      }
+      setDestination(newDestination) {
+        this.setState({ destination: newDestination });
       }
 
       componentDidMount() {
@@ -167,7 +171,8 @@ import usePlacesAutocomplete, {
           console.log(data, "userSubmit");
           if (data.status === "OK!") {
               alert('Submitted successfully!');
-              this.form.reset();
+              console.log(destination);
+              //this.form.reset();
           } else {
             alert(`went wrong: ${data.status}`);
           }
@@ -214,7 +219,8 @@ import usePlacesAutocomplete, {
 
     render(){
     
-      const {myPolls, destination} = this.state;
+      const {myPolls} = this.state;
+      const { destination } = this.state;
 
         return(
             <div class="deetailplan">
@@ -303,8 +309,8 @@ import usePlacesAutocomplete, {
      <div class="phead">  
          <h3>Let's fix destination</h3>
          <p>Search destinations and then select it by clicking on 'Select' button.</p> 
-         <form ref={form => this.form = form} onSubmit={this.handleSubmit}>
-         < Map  />
+         <form onSubmit={this.handleSubmit}>
+         < Map destination={destination} setDestination={this.setDestination} />
          <input class="btndestination" type="submit" value="SELECT"/>
          </form>
     </div>
@@ -329,7 +335,7 @@ import usePlacesAutocomplete, {
 
     {/* <div class="dbtnfix">
     <input class="btndestination" type="submit" value="SELECT"/></div> */}
-    
+
 <div class="dbtnfix">
     <a class="btnopnvote" href={`http://localhost:3000/createpolldes?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}`}>Open Voting</a></div>
 
@@ -400,55 +406,62 @@ import usePlacesAutocomplete, {
 }
 
 
-    
-function Map() {
-  const [setSelected] = useState(null);
-
+function Map({ destination, setDestination }) {
   const { isLoaded } = useLoadScript({
-      googleMapsApiKey: "AIzaSyAz2_MkHBuMmmgsKwwVnp1tF-qOVm0B9Oo",
-      libraries: ["places"],
-    });
-  
-    if (!isLoaded) return <div>Loading...</div>;   
+    googleMapsApiKey: "AIzaSyAz2_MkHBuMmmgsKwwVnp1tF-qOVm0B9Oo",
+    libraries: ["places"],
+  });
 
+  if (!isLoaded) return <div>Loading...</div>;
+
+  const handleSelect = (address) => {
+    setDestination(address);
+  };
 
   return (
     <>
       <div className="places-container">
-        <PlacesAutocomplete setSelected={setSelected} />
+        <PlacesAutocomplete
+          handleSelect={handleSelect}
+          destination={destination}
+        />
       </div>
-
-     </>
+    </>
   );
 }
 
-const PlacesAutocomplete = ({ setSelected }) => {
-const {
-ready,
-value,
-setValue,
-suggestions: { status, data },
-clearSuggestions,
-} = usePlacesAutocomplete();
 
-const handleSelect = async (address) => {
-setValue(address, false);
-clearSuggestions();
+const PlacesAutocomplete = ({
+  destination,
+  setDestination,
+  setSelected,
+}) => {
+  const {
+    ready,
+    value,
+    suggestions: { status, data },
+    setValue,
+    clearSuggestions,
+  } = usePlacesAutocomplete();
 
-const results = await getGeocode({ address });
-const { lat, lng } = await getLatLng(results[0]);
-setSelected({ lat, lng }); 
-};
+  const handleSelect = async (address) => {
+    setValue(address, false);
+    clearSuggestions();
+
+    const results = await getGeocode({ address });
+    const { lat, lng } = await getLatLng(results[0]);
+    setDestination({ lat, lng });
+  };
 
 return (
 <Combobox onSelect={handleSelect}>
-  <ComboboxInput
-    value={value}
-    onChange={(e) => setValue(e.target.value)}
-    disabled={!ready}
-    className="combobox-sinput"
-    placeholder="Select a spot.."
-  />
+      <ComboboxInput
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
+        disabled={!ready}
+        className="combobox-sinput"
+        placeholder="Select a spot.."
+      />
   <ComboboxPopover>
     <ComboboxList>
       {status === "OK" &&
