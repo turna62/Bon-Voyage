@@ -7,7 +7,7 @@ class MyItinerary extends React.Component {
     super(props);
     this.state = {
       userId: null,
-      tripId: null,
+      tripId: null, 
       itineraryId: null,
       itineraryData: null
     };
@@ -106,7 +106,7 @@ doc.save(fileName);
           {itineraryData.days.map((day, index) => (
             <div key={index}>
               
-              <p>Day {day.day}</p>
+              <p class="iday">Day {day.day} <i class="fa fa-calendar"></i></p><hr></hr>
             
               <p>Spots: 
                   {day.spots.map((spot, spotIndex) => (

@@ -1035,7 +1035,7 @@ top: 200px;
   color: white;
   height:80vh;
   background-size: cover;  
-  background: linear-gradient(rgba(1, 30, 10, 0.596), rgba(0, 31, 14, 0.62)), url(hill3.jpg) center center no-repeat;
+  background: linear-gradient(rgba(1, 27, 30, 0.723), rgba(1, 27, 30, 0.668)), url(hill6.jpg) center center no-repeat;
 }
 .detailhead{
   font-size: 20px;
@@ -1119,13 +1119,6 @@ top: 200px;
   bottom: 500px;
   left: 200px;
 }
-.datebody{
-    background: linear-gradient(rgba(150, 223, 240, 0.397), rgba(121, 198, 231, 0.366)), url(hill5.jpg) center center no-repeat;
-    background-size: cover;  
-    height: 100vh;  
-    overflow: hidden;
- }
-
 .actbody{
   display: flex;
     align-items: center;
@@ -1786,6 +1779,8 @@ left: 30px;
 .download {
   overflow: hidden;
   height: 100vh;
+  background: linear-gradient(rgba(150, 223, 240, 0.058), rgba(121, 198, 231, 0.113)), url(hilliti.jpg) center center no-repeat;
+  background-size: cover;  
 }
 
 .iheading {
@@ -1794,16 +1789,28 @@ left: 30px;
   left: 550px;
   top: 50px;
   overflow: hidden;
+  color: rgb(14, 44, 44);
 }
 
 .iheading h5 {
   position: relative;
   left: 50px;
   overflow: hidden;
+  font-family: 'Times New Roman', Times, serif;
+  color: rgb(14, 44, 44);
+}
+.iheading h3 {
+  position: relative;
+  left: 15px;
+  overflow: hidden;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: 600;
+  top: 10px;
+  color: rgb(14, 44, 44);
 }
 
 .itinfo{
-  background-color: #c8d5dc81;
+  background-color: #edf2f4db;
   position: relative;
   position: relative;
   overflow: hidden;
@@ -1812,6 +1819,7 @@ left: 30px;
   height: 35vh;
   width: 160vh;
   border-radius: 15px;
+  border: 3px solid rgb(184, 192, 192);
 }
 .itinfo p{
   position: relative;
@@ -1853,20 +1861,6 @@ left: 30px;
   right: 300px;
   border-radius: 4px;
 } 
-.datefinalhead{
-  position: relative;
-  color: rgb(14, 44, 44);
-  font-size: 25px;
-  font-weight: 510;
-  position: relative;
-  top: 70px;
-  left: 90px;
-}
-.fetchdate{
-  position: relative;
-  left: 85px;
-  top: 70px;
-}
 .quespoll1{
   position: relative;
   left: 785px;
@@ -1895,3 +1889,85 @@ left: 30px;
   text-align: center;
 }
 
+.datefetch{
+  width: 30%;
+    margin: 3em auto;
+    background: white;
+    background-size: cover;
+    position: relative;
+    height: 35vh; 
+    top: 20px;  
+    border: 3px solid rgb(14, 29, 44);
+}
+
+.datebody{
+  background: linear-gradient(rgba(150, 223, 240, 0.397), rgba(121, 198, 231, 0.366)), url(hill5.jpg) center center no-repeat;
+  background-size: cover;  
+  height: 100vh;  
+  overflow: hidden;
+}
+
+.datefinalhead{
+  position: relative;
+  color: rgb(14, 44, 44);
+  font-size: 25px;
+  font-weight: 510;
+  position: relative;
+  top: 50px;
+  left: 70px;
+}
+.fetchdate{
+  position: relative;
+  left: 85px;
+  top: 55px;
+}
+
+.itinfo2{
+  background-color: #edf2f4db;
+  position: relative;
+  position: relative;
+  overflow: hidden;
+  top: 100px;
+  left: 160px;
+  height: 60vh;
+  width: 160vh;
+  border-radius: 15px;
+  border: 3px solid rgb(184, 192, 192);
+}
+.itinfo2 p{
+  position: relative;
+  left: 70px;
+  top: 10px;
+}
+
+.itinfo2 .dspot{
+  position: relative;
+  left: 53px;
+  bottom: 23px;
+}
+.itinfo2 .dact{
+  position: relative;
+  left: 70px;
+  bottom: 20px;
+}
+.itinfo2 .dact1{
+  position: relative;
+  left: 70px;
+  bottom: 10px;
+}
+
+.itinfo2 hr{
+  top: 15px;
+  position: relative;
+}
+
+.itinfo2 .iday{
+  top: 25px;
+  position: relative;
+
+}
+
+.itinfo hr{
+  top: 25px;
+  position: relative;
+}

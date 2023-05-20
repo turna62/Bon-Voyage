@@ -27,7 +27,7 @@ class MyItinerary1 extends React.Component {
         "Content-Type": "application/json",
         "Accept": "application/json",
       },
-      body: JSON.stringify({
+      body: JSON.stringify({ 
         itineraryId,
       }),
     })
@@ -102,14 +102,13 @@ doc.save(fileName);
      <h5>My Itinerary</h5>          
      </div>
       {itineraryData ? ( 
-         <div > 
+         <div class = "itinfo2"> 
       {/* class = itinfo */} 
       {/* removed this so that i can see details */}
-            
           {itineraryData.days.map((day, index) => (
             <div key={index}>
               
-              <p>Day {day.day}</p>
+              <p class="iday">Day {day.day} <i class="fa fa-calendar"></i></p><hr></hr>
             
               <p>Spots: 
                   {day.spots.map((spot, spotIndex) => (
@@ -122,7 +121,7 @@ doc.save(fileName);
 
             </div>
           ))}
-<button style={{ backgroundColor: 'rgb(14,44,44)', color: 'white', position: 'relative', right: '10px', bottom:'10px' }} onClick={this.handleDownload}>Download</button>
+<button style={{ backgroundColor: 'rgb(14,44,44)', color: 'white', position: 'relative', right: '15px', bottom:'35px' }} onClick={this.handleDownload}>Download</button>
 
         </div>
       ) : (

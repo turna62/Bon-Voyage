@@ -284,13 +284,14 @@ class Date extends React.Component{
         <li class="li"> <a href={`http://localhost:3000/itinerary?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}`}>Itinerary</a></li>
      </ul>
 
-     </div> 
+     </div>  
 
      <div class="datebody">
-     <h4 class="datefinalhead"> Finalized dates:</h4>
+      <div class="datefetch">
+     <h4 class="datefinalhead"><i class="fa fa-calendar"></i> Finalized dates:</h4>
      <div class="fetchdate"><p>Starting date: {formattedStartDate}</p>
           <p>Ending date: {formattedEndDate}</p></div>
-     </div>
+     </div></div>
      </div>  
 
      
