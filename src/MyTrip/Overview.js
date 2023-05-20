@@ -284,10 +284,17 @@ class Overview extends React.Component{
 
 <hr class="hr"></hr>
 
-<p className="overviewdetail"><i class="fas fa-map-marker-alt"></i> Final Destination: {this.state.dpollsData.map((poll, index) => (
-  <span key={index}>{poll.winner}</span>
-))}
+<p className="overviewdetail">
+  <i className="fas fa-map-marker-alt"></i> Final Destination:
+  {this.state.dpollsData.length > 0 ? (
+    this.state.dpollsData.map((poll, index) => (
+      <span key={index}>{poll.winner}</span>
+    ))
+  ) :  (
+    ' ' + this.state.tripData.destination
+  )}
 </p>
+
 
 <hr class="hr"></hr>
 

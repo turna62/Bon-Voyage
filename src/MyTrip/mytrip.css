@@ -1915,9 +1915,24 @@ left: 30px;
   top: 50px;
   left: 70px;
 }
+
+.desfinalhead{
+  position: relative;
+  color: rgb(14, 44, 44);
+  font-size: 25px;
+  font-weight: 510;
+  position: relative;
+  top: 50px;
+  left: 60px;
+}
 .fetchdate{
   position: relative;
-  left: 85px;
+  left: 89px;
+  top: 55px;
+}
+.fetchdes{
+  position: relative;
+  left: 77px;
   top: 55px;
 }
 
