@@ -7,7 +7,7 @@ const bodyParser = require('body-parser');
 const bcrypt = require("bcryptjs");
 //const { v4: uuidv4 } = require("uuid");
 //const axios = require('axios');
-
+ 
 const crypto = require('crypto');
 const jwt = require("jsonwebtoken");
 const JWT_SECRET = "ndvbfrt6ipybmdrfpicdlrebvek@)(dd205683dnnc{mcdk]?";
@@ -913,11 +913,6 @@ app.put('/vote/change', async (req, res) => {
 });
 
 
-
-
-
-
-
 app.put('/closepoll', async (req, res) => {
   try {
     const pollId = req.body.pollId;
@@ -1145,7 +1140,7 @@ app.put('/notifications/read', async (req, res) => {
 /// destination poll //lamia
 
 app.post('/dcreatepoll', async (req, res) => {
-  const { options, tripId, userId, addedMembers } = req.body;
+  const { question, options, tripId, userId, addedMembers } = req.body;
   console.log(options, tripId, userId, addedMembers);
 
   try {
@@ -1157,13 +1152,14 @@ app.post('/dcreatepoll', async (req, res) => {
       options: options.map((option, index) => ({ value: option, id: index, count: 0 })),
       tripId: tripId,
       createdBy: userId,
+      question: question
     });
 
     const savedPoll = await poll.save();
     console.log(savedPoll);
 
     const notification = new NotificationStart({
-      message: `${user.username} has created a poll to select a destination!`,
+      message: `${user.username} has created a poll titled: ${savedPoll.question} to select a destination!`,
       tripId: tripId,
       users: users,
       username: user.username,
@@ -1330,6 +1326,66 @@ app.post('/dgetwinner', async (req, res) => {
   }
 });
 
+app.put('/vote/dchange', async (req, res) => {
+  const { pollId, optionId, userId, tripId } = req.body;
+  
+  try {
+    const poll = await DPollStart.findById(pollId);
+    const trip = await TripStart.findById(tripId);
+    const user = await User.findById(userId);
+
+    if (!poll) {
+      return res.status(404).json({ error: 'Poll not found' });
+    }
+
+    const existingVoteIndex = poll.votes.findIndex((v) => v.userId.toString() === userId.toString());
+    if (existingVoteIndex === -1) {
+      return res.status(400).json({ error: 'User has not voted yet' });
+    }
+
+    const existingOptionId = poll.votes[existingVoteIndex].option;
+    const existingOption = poll.options.find((o) => o.id === existingOptionId);
+    if (existingOption) {
+      existingOption.count--; // Decrease the count for the existing option
+    }
+
+    poll.votes.splice(existingVoteIndex, 1); // Remove the vote for the existing option
+
+    await poll.save();
+
+  
+    res.json({ message: 'Vote changed successfully!' }); 
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Server error' });
+  }
+});
+
+///add destination
+
+app.post("/adddestination", async (req, res) => {
+  const { tripId, destination } = req.body;
+console.log(destination, tripId);
+  try {
+    
+    const trip = await TripStart.findById(tripId);
+
+    if (!trip) {
+      return res.status(404).json({ error: "Trip not found" });
+    }
+
+trip.destination = destination;
+
+    await trip.save(); 
+
+    res.status(200).json({ status: "OK!", updatedTrip: trip });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ status: "na!" });
+  }
+});
+
 app.listen(port, () => {
 console.log(`Server is running on port: ${port}`);
-}); 
+});
+
