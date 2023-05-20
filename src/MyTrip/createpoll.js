@@ -80,9 +80,18 @@ class CreatePoll extends React.Component{
            if (data.error) {
             // Handle error
             // alert('Error: '+ data.error);
-
+            // const error = data.error;
+            // if (error) {
+            //   const errorContainer = document.getElementById('error-container');
+            //   errorContainer.innerHTML = `
+            //     <div class="alert alert-danger" role="alert">
+            //       ${error}
+            //     </div>
+            //   `;
+            // }
+            // this.form.reset();
             const errorContainer = document.getElementById('error-container');
-            errorContainer.innerHTML = `<p class="error-message" >${data.error}</p>`;
+            errorContainer.innerHTML = `<div class="alert alert-danger custom-alert" role = "alert" >${data.error}</div>`;
             this.form.reset();
           }
             
@@ -130,13 +139,17 @@ class CreatePoll extends React.Component{
 
               </div>
          </nav>
-<div class = "errorstyle">
-         <div id="error-container"></div>
-</div>
+
+        
+
 
     <div class="mainn-w3layouts wrapper">
+   
 		<div class="mainn-agileinfo">
+   
 			<div class="agileitss-top">
+
+      <div id="error-container"></div>
             <h3 class="cpoll">Create Poll</h3><hr></hr>
             <h5 class="ccpoll">Write a custom question with up to 05 answers travelers can choose from.</h5>
 				<form ref={form => this.form = form} onSubmit={(e) => this.handleSubmit(e, this.props.isTripOwner)}>
