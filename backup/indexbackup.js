@@ -954,7 +954,7 @@ app.put('/vote/change', async (req, res) => {
 
     if (existingOptionId !== optionId && existingOptionId !== undefined) {
       // The user is attempting to change their vote to a different option
-      return res.status(400).json({ error: "You cannot change your vote for a different option!" });
+      return res.status(400).json({ error: "You cannot change your vote for a different option or other's vote!" });
     }
    
 
@@ -1371,7 +1371,7 @@ app.put('/dvote/change', async (req, res) => {
 
     if (existingOptionId !== optionId && existingOptionId !== undefined) {
       // The user is attempting to change their vote to a different option
-      return res.status(400).json({ error: "You cannot change your vote for a different option!" });
+      return res.status(400).json({ error: "You cannot change your vote for a different option or other's vote!" });
     }
    
     
