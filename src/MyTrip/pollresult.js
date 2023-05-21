@@ -216,7 +216,7 @@ const { question, options, winner } = this.state;
             </header> 
 
 
-     <div>
+     <div> 
 
      <h4 class="tripname">{this.state.tripData.tripName}</h4><hr></hr>
         <a class="btnaddmembers" href={`http://localhost:3000/addmembers?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}`}>+ Add Members</a>

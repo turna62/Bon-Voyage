@@ -818,75 +818,6 @@ top: 200px;
   text-decoration: none;
 }
 
-.opollaunch{
-  color: rgb(14, 44, 44);
-            font-family: sans-serif;
-            position: relative;
-            bottom: 20px;
-            left: 800px;
-            height: 200px;
-            opacity: 0.5;
-}
-.obtnopnvote{
-  display: inline-block;
-  padding: 1.175rem 1.125rem 1.175rem 1.125rem;
-  border-radius: 0.25rem;
-  background-color: rgb(14, 44, 44);
-  color: #fff;
-  font: 700 0.75rem/0 "Montserrat", sans-serif;
-  text-decoration: none;
-  transition: all 0.2s;
-  font-size: 15px;
-  font-family: 'Times New Roman', Times, serif;
-  position: relative;
-  left: 800px;
-  bottom: 120px;
-  overflow-x: hidden;
-  opacity: 0.5;
-
-}
-
-.headerr .obtnopnvote {
-	margin-right: 0.5rem;
-	margin-bottom: 1.25rem;
-}
-
-.obtnopnvote:hover {
-  background-color: rgb(22, 55, 55);
-  color: #fff;
-  text-decoration: none;
-}
-.obtnclsvote{
-  display: inline-block;
-  padding: 1.175rem 1.125rem 1.175rem 1.125rem;
-  border-radius: 0.25rem;
-  background-color: rgb(14, 44, 44);
-  color: #fff;
-  font: 700 0.75rem/0 "Montserrat", sans-serif;
-  text-decoration: none;
-  transition: all 0.2s;
-  font-size: 15px;
-  font-family: 'Times New Roman', Times, serif;
-  position: relative;
-  left: 850px;
-  bottom: 120px;
-  overflow-x: hidden;
-  opacity: 0.5;
- 
-}
-
-.headerr .obtnclsvote {
-	margin-right: 0.5rem;
-	margin-bottom: 1.25rem;
-}
-
-.obtnclsvote:hover {
-  background-color: rgb(22, 55, 55);
-  color: #fff;
-  text-decoration: none;
-}
-
-/* hjbyu */
 .pollaunch{
   color: rgb(14, 44, 44);
             font-family: sans-serif;
@@ -904,7 +835,7 @@ top: 200px;
   color: rgb(14, 44, 44);
             font-family: sans-serif;
             position: relative;
-            bottom: 150px;
+            bottom: 130px;
             left: 780px;
             height: 200px;
 }
@@ -922,7 +853,7 @@ top: 200px;
   font-family: 'Times New Roman', Times, serif;
   position: relative;
   left: 840px;
-  bottom: 260px;
+  bottom: 270px;
   overflow-x: hidden;
 
 }
@@ -1741,10 +1672,9 @@ left: 30px;
   position: relative;
   left: 120px; 
   overflow-x: hidden;
-  top: 0px;
   margin-right: 0.5rem;
   margin-bottom: 1.25rem;
-  top: 20px;
+  top: 15px;
   letter-spacing: 2px;
 } 
 
