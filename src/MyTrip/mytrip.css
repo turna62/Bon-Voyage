@@ -1202,13 +1202,13 @@ top: 200px;
  .trips{
     width: 50%;
     position: relative;
-    height: 60vh;
+    height: 80vh;
     padding: 16px;
   background-color: #cee9e9f9;
   margin: 15px;
   border-radius: 6px;
   border: 3px solid rgb(139, 192, 193);
-  bottom: 200px;
+  bottom: 145px;
   right: 200px;
     } 
 .trips .tjoined{

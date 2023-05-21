@@ -939,7 +939,7 @@ app.put('/vote/change', async (req, res) => {
 
     const existingVoteIndex = poll.votes.findIndex((v) => v.userId.toString() === userId.toString());
     if (existingVoteIndex === -1) {
-      return res.status(400).json({ error: "Please select an option! Reminder: You can not change other's vote!" });
+      return res.status(400).json({ error: "Please vote at first to change! Reminder: You can not change other's vote!" });
     }
 
     // if (poll.votes[existingVoteIndex].userId.toString() !== userId.toString()) {
@@ -1005,7 +1005,7 @@ app.put('/closepoll', async (req, res) => {
       await poll.save();
 
     
-      return res.status(400).json({ error: 'Tie between top options. Please try to change your vote to decide!' });
+      return res.status(400).json({ error: 'Tie! Please try to change vote to decide!' });
     } else {
       // Single winner or clear majority
       const finalOption = sortedOptions[0];
@@ -1352,7 +1352,7 @@ app.put('/dvote/change', async (req, res) => {
 
     const existingVoteIndex = poll.votes.findIndex((v) => v.userId.toString() === userId.toString());
     if (existingVoteIndex === -1) {
-      return res.status(400).json({ error: "You have to vote first to change! Reminder: You can not change other's vote!" });
+      return res.status(400).json({ error: "Please vote at first to change! Reminder: You can not change other's vote!" });
     }
 
     // if (poll.votes[existingVoteIndex].userId.toString() !== userId.toString()) {
