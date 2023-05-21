@@ -11,7 +11,8 @@ import React from 'react';
             destination:"",
             startDate:"",
             endDate:"",
-            members:""
+            members:"",
+            userData:""
         };
         //console.log(this.props.userId);
         this.handleSubmit = this.handleSubmit.bind(this); // to read properties of state
@@ -21,6 +22,31 @@ import React from 'react';
     componentDidMount() {
         const userId = localStorage.getItem("userId");
         this.setState({ userId });
+
+        fetch("http://localhost:5000/userData",{
+            method: "POST",
+            crossDomain: true,
+            headers:{
+                "Content-Type":"application/json",
+                Accept: "application/json",
+                "Access-Control-Allow-Origin": "*",
+            },
+            body: JSON.stringify({
+                token: window.localStorage.getItem("token"),
+                userId: userId,
+            
+            }),
+        })
+        .then((res) => res.json()) // convert data into JSON
+        .then((data) => {
+            console.log(data, "userData");
+            this.setState({userData: data.data});
+            if(data.data == 'Token Expired!'){
+                alert("Token expired! Kindly login again."); 
+                window.localStorage.clear();
+                window.location.href = "./sign-in";
+            }
+        });
       }
         
 
@@ -78,7 +104,7 @@ import React from 'react';
                 </li>
                 
                 <li class="nav-item">
-                            <a class="nav-link page-scroll" href={`http://localhost:3000/myprofile?userId=${encodeURIComponent(this.state.userId)}`}><i class='fas fa-user-circle'></i> MY PROFILE</a>
+                            <a class="nav-link page-scroll" href={`http://localhost:3000/myprofile?userId=${encodeURIComponent(this.state.userId)}`}><i class='fas fa-user-circle'></i> {this.state.userData.username}</a>
                         </li>
 
                         <li class="nav-item">

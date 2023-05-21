@@ -216,7 +216,7 @@ class Overview extends React.Component{
                         </li>
                         
                         <li class="nav-item">
-                            <a class="nav-link page-scroll" href={`http://localhost:3000/myprofile?userId=${encodeURIComponent(this.state.userId)}`}> <i class='fas fa-user-circle'></i> MY PROFILE</a>
+                            <a class="nav-link page-scroll" href={`http://localhost:3000/myprofile?userId=${encodeURIComponent(this.state.userId)}`}> <i class='fas fa-user-circle'></i> {this.state.userData.username}</a>
                         </li>
 
                         <li class="nav-item">

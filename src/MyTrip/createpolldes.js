@@ -21,7 +21,8 @@ class CreatePollD extends Component {
       options: [],
       question:"Destination Poll",
       tripId: props.tripId,
-      userId: props.userId
+      userId: props.userId,
+      userData:""
     };
     this.setOptions = this.setOptions.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this); // to read properties of state
@@ -49,6 +50,32 @@ class CreatePollD extends Component {
       script.onload = callback;
       document.body.appendChild(script);
     };
+
+    
+    fetch("http://localhost:5000/userData",{
+      method: "POST",
+      crossDomain: true,
+      headers:{
+          "Content-Type":"application/json",
+          Accept: "application/json",
+          "Access-Control-Allow-Origin": "*",
+      },
+      body: JSON.stringify({
+          token: window.localStorage.getItem("token"),
+          userId: userId,
+      
+      }),
+  })
+  .then((res) => res.json()) // convert data into JSON
+  .then((data) => {
+      console.log(data, "userData");
+      this.setState({userData: data.data});
+      if(data.data == 'Token Expired!'){
+          alert("Token expired! Kindly login again."); 
+          window.localStorage.clear();
+          window.location.href = "./sign-in";
+      }
+  });
 
   }
   
@@ -120,11 +147,11 @@ class CreatePollD extends Component {
           <div className="collapse navbar-collapse" id="navbarsExampleDefault">
             <ul className="navbar-nav ml-auto">
               <li className="nav-item">
-                <a className="nav-link page-scroll" href="http://localhost:3000">HOME <span className="sr-only">(current)</span></a>
+                <a className="nav-link page-scroll" href="http://localhost:3000"><i class="fa fa-home"></i> HOME <span className="sr-only">(current)</span></a>
               </li>
             
               <li className="nav-item">
-                <a className="nav-link page-scroll" href="http://localhost:3000/myprofile">MY PROFILE</a>
+                <a className="nav-link page-scroll"  href={`http://localhost:3000/myprofile?userId=${encodeURIComponent(this.state.userId)}`}><i class='fas fa-user-circle'></i> {this.state.userData.username}</a>
               </li>
 
               <li class="nav-item">

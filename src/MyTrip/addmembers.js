@@ -10,7 +10,8 @@ class AddMembers extends React.Component{
         this.state = {
           email: "",
           tripId: props.tripId,
-          userId: null
+          userId: null,
+          userData:""
         };
         this.handleSubmit = this.handleSubmit.bind(this); // to read properties of state
       }
@@ -24,6 +25,34 @@ class AddMembers extends React.Component{
         console.log(userId); 
         
         this.setState({ userId: userId });
+
+        
+        fetch("http://localhost:5000/userData",{
+            method: "POST",
+            crossDomain: true,
+            headers:{
+                "Content-Type":"application/json",
+                Accept: "application/json",
+                "Access-Control-Allow-Origin": "*",
+            },
+            body: JSON.stringify({
+                token: window.localStorage.getItem("token"),
+                userId: userId,
+            
+            }),
+        })
+        .then((res) => res.json()) // convert data into JSON
+        .then((data) => {
+            console.log(data, "userData");
+            this.setState({userData: data.data});
+            if(data.data == 'Token Expired!'){
+                alert("Token expired! Kindly login again."); 
+                window.localStorage.clear();
+                window.location.href = "./sign-in";
+            }
+        });
+
+
      
       }
       handleSubmit(e){
@@ -79,6 +108,8 @@ class AddMembers extends React.Component{
       
 
     render(){
+        const{userData} = this.state;
+        console.log(userData);
 
         return(
             <div class="deetailplan">
@@ -92,7 +123,7 @@ class AddMembers extends React.Component{
                         </li>
                         
                         <li class="nav-item">
-                            <a class="nav-link page-scroll" href={`http://localhost:3000/myprofile?userId=${encodeURIComponent(this.state.userId)}`}><i class='fas fa-user-circle'></i> MY PROFILE</a>
+                            <a class="nav-link page-scroll" href={`http://localhost:3000/myprofile?userId=${encodeURIComponent(this.state.userId)}`}><i class='fas fa-user-circle'></i> {this.state.userData.username}</a>
                         </li>
 
                         <li class="nav-item">

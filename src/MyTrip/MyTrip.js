@@ -7,7 +7,8 @@ class MyTrip extends React.Component{
     constructor(props) {
         super(props);
         this.state = {
-          userId: null
+          userId: null,
+          userData:""
         }; 
       }
     
@@ -15,6 +16,31 @@ class MyTrip extends React.Component{
         const params = new URLSearchParams(window.location.search);
         const userId = params.get('userId');
         this.setState({ userId: userId });
+
+        fetch("http://localhost:5000/userData",{
+            method: "POST",
+            crossDomain: true,
+            headers:{
+                "Content-Type":"application/json",
+                Accept: "application/json",
+                "Access-Control-Allow-Origin": "*",
+            },
+            body: JSON.stringify({
+                token: window.localStorage.getItem("token"),
+                userId: userId,
+            
+            }),
+        })
+        .then((res) => res.json()) // convert data into JSON
+        .then((data) => {
+            console.log(data, "userData");
+            this.setState({userData: data.data});
+            if(data.data == 'Token Expired!'){
+                alert("Token expired! Kindly login again."); 
+                window.localStorage.clear();
+                window.location.href = "./sign-in";
+            }
+        });
       }
 
     render(){
@@ -31,7 +57,7 @@ class MyTrip extends React.Component{
                         </li>
                       
                         <li class="nav-item">
-                            <a class="nav-link page-scroll"  href={`http://localhost:3000/myprofile?userId=${encodeURIComponent(this.state.userId)}`}><i class='fas fa-user-circle'></i> MY PROFILE</a>
+                            <a class="nav-link page-scroll"  href={`http://localhost:3000/myprofile?userId=${encodeURIComponent(this.state.userId)}`}><i class='fas fa-user-circle'></i> {this.state.userData.username}</a>
                         </li>
                        
                         <li class="nav-item">
