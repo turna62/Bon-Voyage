@@ -421,6 +421,8 @@ import usePlacesAutocomplete, {
         <input className="btndestination" type="submit" value="SELECT" />
       </form>
     </div>
+
+    <div class="pollquessec1">
     <div class="pollaunch">
     <h3>Or Open voting</h3>
          <p>Launch poll to decide destinations through voting.</p> 
@@ -447,13 +449,13 @@ import usePlacesAutocomplete, {
   </div>
 ))}
     </div>
-
+    
     {/* <div class="dbtnfix">
     <input class="btndestination" type="submit" value="SELECT"/></div> */}
 
 <div class="dbtnfix">
     <a class="btnopnvote" href={`http://localhost:3000/createpolldes?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}`}>Open Voting</a></div>
-
+    </div>
          <div class="footer">
         <div class="container">
             <div class="row">

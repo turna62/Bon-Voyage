@@ -8,7 +8,7 @@ class Itinerary extends React.Component{
         this.state = {
           userId: null,
           tripId: null,
-          tripData:"",
+          tripData:"", 
           userData:"",
           destination: "",
           notifsData:[],

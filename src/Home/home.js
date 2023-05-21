@@ -59,7 +59,7 @@ class HomePage extends React.Component{
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="text-container">
-                                    <h1>Bon <span class="js-rotating">VOYAGE!</span></h1>
+                                    <h1>Bon <span class="js-rotating1">VOYAGE!</span></h1>
                                     <p class="p-heading p-large">The journey of a thousand miles begins with a single step.</p>
                                     <a class="btnhome" href="http://localhost:3000/sign-up">START PLANNING</a>
 
