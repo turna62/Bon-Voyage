@@ -288,7 +288,7 @@ class Overview extends React.Component{
   <i className="fas fa-map-marker-alt"></i> Final Destination:
   {this.state.dpollsData.length > 0 ? (
     this.state.dpollsData.map((poll, index) => (
-      <span key={index}>{poll.winner}</span>
+      <span key={index}> {' '} {poll.winner}</span>
     ))
   ) :  (
     ' ' + this.state.tripData.destination

@@ -191,7 +191,7 @@ import usePlacesAutocomplete, {
               };
               this.setState({ tripData: updatedTripData });
            
-              this.form.reset();
+              window.location.href=  `http://localhost:3000/overview?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}`;
               
           } else {
             alert(`went wrong: ${data.status}`);
