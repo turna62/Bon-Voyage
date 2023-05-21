@@ -181,7 +181,7 @@ import usePlacesAutocomplete, {
         .then((data) => {
           console.log(data, "userSubmit");
           if (data.status === "OK!") {
-              alert('Submitted successfully!');
+              //alert('Submitted successfully!');
               console.log(destination);
 
               const updatedTripData = {

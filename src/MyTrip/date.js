@@ -132,7 +132,7 @@ class Date extends React.Component{
             console.log(data, "userSubmit");
             if (data.status === "OK!") {
                 
-                alert('Saved succesfully!');
+                //alert('Saved succesfully!');
                 
                 const updatedTripData = {
                   ...this.state.tripData,
