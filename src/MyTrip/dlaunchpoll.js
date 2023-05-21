@@ -223,7 +223,7 @@ import '../Home/HomeCss/styles.css';
           } else if (data.message === 'Final result') {
             // Handle final result, redirect or display messages as needed
             //this.setState({ winner: data.winner });
-            window.location.href = `http://localhost:3000/dpollresult?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}&pollId=${encodeURIComponent(this.state.pollId)}`;
+            window.location.href = `http://localhost:3000/destination?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}&pollId=${encodeURIComponent(this.state.pollId)}`;
           }
         })
         .catch((error) => {
@@ -344,6 +344,10 @@ render(){
                         <li class="nav-item">
                             <a class="nav-link page-scroll"  href={`http://localhost:3000/myprofile?userId=${encodeURIComponent(this.state.userId)}`}> <i class='fas fa-user-circle'></i> MY PROFILE</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link page-scroll" href={`http://localhost:3000/planatrip?userId=${encodeURIComponent(this.state.userId)}`}> <i class="fas fa-umbrella-beach"></i> NEW TRIP</a>
+                        </li>
+                        
 
                         <li class="nav-item">
                             <a class="nav-link page-scroll" href="#intro"><i class="fa fa-sign-out"></i> LOG OUT</a>

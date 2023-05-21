@@ -8,7 +8,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
 
     <!-- Libraries Stylesheet -->
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="fontawesome-free-6.4.0-web/css/all.css" rel="stylesheet">
     <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
@@ -34,27 +34,7 @@
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
 
-    <script>
-      const togglePassword = document.querySelector("#togglePassword");
-      const password = document.querySelector("#password");
-
-      togglePassword.addEventListener("click", function () {
-          // toggle the type attribute
-          const type = password.getAttribute("type") === "password" ? "text" : "password";
-          password.setAttribute("type", type);
-          
-          // toggle the icon
-          this.classList.toggle("bi-eye");
-      });
-
-      // prevent form submit
-      const form = document.querySelector("form");
-      form.addEventListener('submit', function (e) {
-          e.preventDefault();
-      });
-  </script>
-
-    <!--
+   <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
 
