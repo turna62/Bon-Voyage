@@ -159,7 +159,8 @@ html, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, 
     letter-spacing: 4px;
     height: 40px;
     position: relative;
-    top: 7px;
+    top: 20px;
+    left: 3px;
   }
   
   .inputsubmit:hover {
