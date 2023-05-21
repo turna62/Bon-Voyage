@@ -223,7 +223,7 @@ import '../Home/HomeCss/styles.css';
           } else if (data.message === 'Final result') {
             // Handle final result, redirect or display messages as needed
             //this.setState({ winner: data.winner });
-            window.location.href = `http://localhost:3000/destination?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}&pollId=${encodeURIComponent(this.state.pollId)}`;
+            window.location.href = `http://localhost:3000/destination?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}`;
           }
         })
         .catch((error) => {
