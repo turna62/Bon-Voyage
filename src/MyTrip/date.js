@@ -398,15 +398,15 @@ class Date extends React.Component{
          <p>Set a starting and an ending date of your trip.</p> 
     </div>
 
-    <div class="pollquessecd">
+    
     <div class="pollaunchd">
     <h3>Or Open voting</h3>
-         <p>Launch poll to decide datess through voting.</p> 
+         <p>Launch poll to decide dates through voting.</p> 
     </div>
 
-    </div>
-    <div class="dbtnfixd">
-    <a class="btnopnvoted" href={`http://localhost:3000/createpoll`}>Open Voting</a></div>
+    
+
+    <a class="abc" href={`http://localhost:3000/createpoll`}>Open Voting</a>
 
  
 <form class="dateinput" ref={form => this.form = form} onSubmit = {this.handleSubmit}>

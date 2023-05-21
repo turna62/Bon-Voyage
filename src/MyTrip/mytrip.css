@@ -1351,7 +1351,30 @@ font-size: 19px;
   top: 10px;
   
 }
+.abc{
+  position: relative;
+  left: 790px;
+  bottom: 20px;
+  
+    display: inline-block;
+    padding: 1.175rem 1.125rem 1.175rem 1.125rem;
+    border-radius: 0.25rem;
+    background-color: rgb(14, 29, 44);
+    color: #fff;
+    font: 700 0.75rem/0 "Montserrat", sans-serif;
+    text-decoration: none;
+    transition: all 0.2s;
+    font-size: 15px;
+    font-family: 'Times New Roman', Times, serif;
+    position: relative;
+    overflow-x: hidden;
+    letter-spacing: 1px;
+  }
+  .abc a{
+    text-decoration: none;
 
+  }
+  
 .cpoll{
   position: relative;
   top: 5px;
