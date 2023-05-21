@@ -5,8 +5,8 @@ const mongoose = require('mongoose');
 const fs = require('fs');
 const bodyParser = require('body-parser');
 const bcrypt = require("bcryptjs");
-//const { v4: uuidv4 } = require("uuid");
-//const axios = require('axios');
+const { v4: uuidv4 } = require("uuid");
+const axios = require('axios');
 
 const crypto = require('crypto');
 const jwt = require("jsonwebtoken");
