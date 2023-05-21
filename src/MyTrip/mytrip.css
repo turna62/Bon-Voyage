@@ -1357,13 +1357,14 @@ font-size: 19px;
 }
 .abc{
   position: relative;
-  left: 790px;
-  bottom: 20px;
-  
+  left: 2px;
+  bottom: 3px;
+  /* left: 700px;
+  bottom: 30px; */
     display: inline-block;
     padding: 1.175rem 1.125rem 1.175rem 1.125rem;
     border-radius: 0.25rem;
-    background-color: rgb(14, 29, 44);
+    background-color: rgb(14, 44, 44);
     color: #fff;
     font: 700 0.75rem/0 "Montserrat", sans-serif;
     text-decoration: none;
@@ -1374,10 +1375,13 @@ font-size: 19px;
     overflow-x: hidden;
     letter-spacing: 1px;
   }
-  .abc a{
-    text-decoration: none;
+ 
 
+  .abc:hover{
+    color: white;
+    text-decoration: none;
   }
+  
   
 .cpoll{
   position: relative;

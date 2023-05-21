@@ -5,7 +5,7 @@ import './mytrip.css';
 class Date extends React.Component{
     constructor(props) {
         super(props);
-        this.state = {
+        this.state = { 
           userId: null,
           tripId: null,
           tripData:"",
@@ -399,14 +399,16 @@ class Date extends React.Component{
     </div>
 
     
-    <div class="pollaunchd">
-    <h3>Or Open voting</h3>
-         <p>Launch poll to decide dates through voting.</p> 
-    </div>
+    {/* 
+     */}
+   <div class="pollaunchd">
+    <h3><a class="abc" href={`http://localhost:3000/createpolldate?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}`}>Or Open Voting</a></h3>
+    <p>Launch poll to decide dates through voting.</p>
+</div>
 
     
 
-    <a class="abc" href={`http://localhost:3000/createpoll`}>Open Voting</a>
+    {/* <a class="abc" href={`http://localhost:3000/createpoll`}>Open Voting</a> */}
 
  
 <form class="dateinput" ref={form => this.form = form} onSubmit = {this.handleSubmit}>
