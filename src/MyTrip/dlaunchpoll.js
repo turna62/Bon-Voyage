@@ -416,12 +416,12 @@ render(){
   
 
 </form>
- 
+  
 
 <button class="pollbtn1" type="button" onClick={this.handleClosePoll}>Close</button>
 
 
-<button class="changebtn" type="button" onClick={this.handleEdit}>Change Vote</button>
+<button class="changebtndes" type="button" onClick={this.handleEdit}>Change Vote</button>
 
 
 
