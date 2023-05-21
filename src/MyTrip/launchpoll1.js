@@ -196,7 +196,7 @@ import '../Home/HomeCss/styles.css';
         }
       })
       .catch((error) => {
-        console.error(error);
+        //console.error(error);
         //alert("An error occurred while submitting your vote");
       });
   }
@@ -238,8 +238,8 @@ import '../Home/HomeCss/styles.css';
   handleEdit = () => {
     const selectedOption = document.querySelector('input[name="count"]:checked');
     if (!selectedOption) {
-      alert('Please select an option');
-      return;
+      const errorContainer = document.getElementById('error-container');
+          errorContainer.innerHTML = `<div class="alert alert-danger custom-alert" role = "alert" >Please select an option!</div>`;
     }
     const selectedOptionId = parseInt(selectedOption.value, 10);
     console.log(selectedOptionId);
@@ -416,7 +416,7 @@ render(){
   
  
 </form>
- 
+  
 
 <button class="pollbtn1" type="button" onClick={this.handleClosePoll}>Close</button>
 

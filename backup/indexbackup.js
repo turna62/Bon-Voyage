@@ -484,7 +484,7 @@ trip.destination = destination.address;
 
 
 
-//do
+//done
 app.post('/add-member', async (req, res) => {
   const { tripId, email } = req.body;
   console.log(tripId, email);
@@ -1005,7 +1005,7 @@ app.put('/closepoll', async (req, res) => {
       await poll.save();
 
     
-      return res.status(400).json({ error: 'Tie between top options. Please vote again.' });
+      return res.status(400).json({ error: 'Tie between top options. Please try to change your vote to decide!' });
     } else {
       // Single winner or clear majority
       const finalOption = sortedOptions[0];
@@ -1201,11 +1201,19 @@ app.put('/notifications/read', async (req, res) => {
   }
 });
 
-//do
+//done
 app.post('/dcreatepoll', async (req, res) => {
   const { options, tripId, userId, addedMembers, question } = req.body;
   console.log(options, tripId, userId, addedMembers, question);
 
+  if (options.length < 2) {
+    return res.json({ error: "Error! Poll must have at least two options!" });
+  }
+
+  // Check if the options array contains unique values
+  if (new Set(options).size !== options.length) {
+    return res.json({ error: "Error! Poll options must have unique values!" });
+  }
 
  
 
@@ -1214,11 +1222,7 @@ app.post('/dcreatepoll', async (req, res) => {
     const users = trip.addedMembers;
     const user = await User.findById(userId);
 
-    // const existingPoll = await DPollStart.findOne({ tripId });
-    // if (existingPoll) {
-    //   res.json({ status: "Poll already exists!" });
-    //   return;
-    // }
+ 
 
     const poll = new DPollStart({
       options: options.map((option, index) => ({ value: option, id: index, count: 0 })),
@@ -1244,7 +1248,7 @@ app.post('/dcreatepoll', async (req, res) => {
     res.json({ status: "OK!" });
   } catch (error) {
     console.error(error);
-    res.json({ status: "Error saving poll!" });
+    res.json({ error: "Error saving poll!" });
   }
 });
 
@@ -1282,7 +1286,7 @@ app.post('/dgetpollsbypollId', async (req, res) => {
 });
 
 /// destination voting part
-//do
+//done
 app.post('/dvote', async (req, res) => {
   const { pollId, optionId, userId , tripId} = req.body;
   console.log(tripId);
@@ -1300,7 +1304,7 @@ app.post('/dvote', async (req, res) => {
     // Check if user has already voted
     const hasVoted = poll.votes.some((v) => v.userId.toString() === userId.toString());
     if (hasVoted) {
-      return res.status(400).json({ error: 'User has already voted' });
+      return res.status(400).json({ error: 'User has already voted!' });
     }
 
     const option = poll.options.find((o) => o.id === optionId);
@@ -1333,7 +1337,56 @@ app.post('/dvote', async (req, res) => {
 });
 
 
-//do
+//done
+app.put('/dvote/change', async (req, res) => {
+  const { pollId, optionId, userId, tripId } = req.body;
+  
+  try {
+    const poll = await DPollStart.findById(pollId);
+    const trip = await TripStart.findById(tripId);
+    const user = await User.findById(userId);
+
+    if (!poll) {
+      return res.status(404).json({ error: 'Poll not found' });
+    }
+
+    const existingVoteIndex = poll.votes.findIndex((v) => v.userId.toString() === userId.toString());
+    if (existingVoteIndex === -1) {
+      return res.status(400).json({ error: "You have to vote first to change! Reminder: You can not change other's vote!" });
+    }
+
+    // if (poll.votes[existingVoteIndex].userId.toString() !== userId.toString()) {
+    //   return res.status(400).json({ error: "You can't change other's votes!" });
+    // }
+
+    const existingOptionId = poll.votes[existingVoteIndex].option;
+    const existingOption = poll.options.find((o) => o.id === existingOptionId);
+    if (existingOption) {
+      existingOption.count--; // Decrease the count for the existing option
+    }
+
+    
+   
+
+    const newOption = poll.options.find((o) => o.id === optionId);
+    if (!newOption) {
+      return res.status(400).json({ error: "Invalid option selected!" });
+    }
+
+    poll.votes.splice(existingVoteIndex, 1); // Remove the vote for the existing option
+
+    await poll.save();
+
+  
+    res.json({ message: 'Vote changed successfully!' }); 
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Server error' });
+  }
+});
+
+
+//done
 app.put('/dclosepoll', async (req, res) => {
   try {
     const pollId = req.body.pollId;
@@ -1345,7 +1398,7 @@ app.put('/dclosepoll', async (req, res) => {
     }
 
     if (poll.closed) {
-      return res.status(400).json({ error: 'Poll is already closed' });
+      return res.status(400).json({ error: 'Poll is already closed!' });
     }
 
     poll.closed = true;
@@ -1360,7 +1413,8 @@ app.put('/dclosepoll', async (req, res) => {
       poll.closed = false; // Open the poll for voting again
       await poll.save();
 
-      return res.json({ message: 'Tie between top options. Please vote again.' });
+    
+      return res.status(400).json({ error: 'Tie between top options. Please try to change your vote to decide!' });
     } else {
       // Single winner or clear majority
       const finalOption = sortedOptions[0];

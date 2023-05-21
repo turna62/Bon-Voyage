@@ -1851,6 +1851,14 @@ left: 30px;
   text-align: center;
 }
 
+.custom-alert1 {
+  top: 40px;
+  max-width: 400px;
+  
+left: 15px;
+  justify-content: center;
+  text-align: center;
+}
 .datefetch{
   width: 30%;
     margin: 3em auto;
