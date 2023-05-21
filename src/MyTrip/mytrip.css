@@ -705,6 +705,7 @@ top: 200px;
   left: 270px;
   top: 5px;
   overflow-x: hidden;
+  border: 3px solid rgb(14, 44, 44);
 }
 
 .btndate:hover {
@@ -1939,4 +1940,45 @@ left: 30px;
   .headerr .lets{
     font-size: 50px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  } 
+
+  .dateinput{
+    position: relative;
+    bottom: 190px;
   }
+  .pollaunchd{
+    color: rgb(14, 44, 44);
+              font-family: sans-serif;
+              position: relative;
+              bottom: 40px;
+              left: 780px;
+              height: 200px;
+  }
+  
+  .pollaunchd h3{
+    font-family: sans-serif;
+  }
+  
+  .btnopnvoted{
+    display: inline-block;
+    padding: 1.175rem 1.125rem 1.175rem 1.125rem;
+    border-radius: 0.25rem;
+    background-color: rgb(14, 44, 44);
+    color: #fff;
+    font: 700 0.75rem/0 "Montserrat", sans-serif;
+    text-decoration: none;
+    transition: all 0.2s;
+    font-size: 15px;
+    font-family: 'Times New Roman', Times, serif;
+    position: relative;
+    left: 840px;
+    bottom: 140px;
+    overflow-x: hidden;
+  }
+  
+  .btnopnvoted:hover {
+    background-color: rgb(22, 55, 55);
+    color: #fff;
+    text-decoration: none;
+  }
+  
