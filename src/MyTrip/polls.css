@@ -13,7 +13,7 @@
     border: solid 3px rgb(14, 44, 44);
     position: relative;
     left: 50px;
-    height: 73%;
+    height: 80%;
 }
 .rwrapperr {
     background: #fff;
@@ -347,6 +347,37 @@ input[type="checkbox"] {
   }
   
   
+
+  .changebtndes {
+    display: inline-block;
+    padding: 0.75rem 1.25rem;
+    border-radius: 0.25rem;
+    background-color: rgb(14, 44, 44);
+    color: #fff;
+    font: 700 0.75rem/0 "Montserrat", sans-serif;
+    text-decoration: none;
+    transition: all 0.2s;
+    font-size: 18px;
+    font-family: 'Times New Roman', Times, serif;
+    position: relative;
+    overflow-x: hidden;
+    margin-right: 0.5rem;
+    margin-bottom: 1.25rem;
+    width: 50%;
+    left: 340px;
+    bottom: 105px;
+    border: 3px solid rgb(14, 44, 44);
+} 
+
+
+  .changebtndes:hover {
+    background-color: rgb(14, 44, 44);
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  
+
 
 .uheadp1{
     left: 2px;
