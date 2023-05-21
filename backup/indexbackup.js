@@ -5,8 +5,8 @@ const mongoose = require('mongoose');
 const fs = require('fs');
 const bodyParser = require('body-parser');
 const bcrypt = require("bcryptjs");
-//const { v4: uuidv4 } = require("uuid");
-//const axios = require('axios');
+const { v4: uuidv4 } = require("uuid");
+const axios = require('axios');
 
 const crypto = require('crypto');
 const jwt = require("jsonwebtoken");
@@ -939,7 +939,7 @@ app.put('/vote/change', async (req, res) => {
 
     const existingVoteIndex = poll.votes.findIndex((v) => v.userId.toString() === userId.toString());
     if (existingVoteIndex === -1) {
-      return res.status(400).json({ error: "Please vote at first to change! Reminder: You can not change other's vote!" });
+      return res.status(400).json({ error: "Please vote at first to change!" });
     }
 
     // if (poll.votes[existingVoteIndex].userId.toString() !== userId.toString()) {
@@ -952,7 +952,10 @@ app.put('/vote/change', async (req, res) => {
       existingOption.count--; // Decrease the count for the existing option
     }
 
-    
+    if (existingOptionId !== optionId && existingOptionId !== undefined) {
+      // The user is attempting to change their vote to a different option
+      return res.status(400).json({ error: "You cannot change your vote for a different option!" });
+    }
    
 
     const newOption = poll.options.find((o) => o.id === optionId);
@@ -1005,7 +1008,7 @@ app.put('/closepoll', async (req, res) => {
       await poll.save();
 
     
-      return res.status(400).json({ error: 'Tie! Please try to change vote to decide!' });
+      return res.status(400).json({ error: 'Tie between top options. Please try to change your vote to decide!' });
     } else {
       // Single winner or clear majority
       const finalOption = sortedOptions[0];
@@ -1352,8 +1355,9 @@ app.put('/dvote/change', async (req, res) => {
 
     const existingVoteIndex = poll.votes.findIndex((v) => v.userId.toString() === userId.toString());
     if (existingVoteIndex === -1) {
-      return res.status(400).json({ error: "Please vote at first to change! Reminder: You can not change other's vote!" });
+      return res.status(400).json({ error: "You have to vote first to change!" });
     }
+
 
     // if (poll.votes[existingVoteIndex].userId.toString() !== userId.toString()) {
     //   return res.status(400).json({ error: "You can't change other's votes!" });
@@ -1365,6 +1369,11 @@ app.put('/dvote/change', async (req, res) => {
       existingOption.count--; // Decrease the count for the existing option
     }
 
+    if (existingOptionId !== optionId && existingOptionId !== undefined) {
+      // The user is attempting to change their vote to a different option
+      return res.status(400).json({ error: "You cannot change your vote for a different option!" });
+    }
+   
     
    
 

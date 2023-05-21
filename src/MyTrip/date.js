@@ -403,7 +403,7 @@ class Date extends React.Component{
      */}
    <div class="pollaunchd">
     <h3><a class="abc" href={`http://localhost:3000/createpolldate?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}`}>Or Open Voting</a></h3>
-    <p>Launch poll to decide dates through voting.</p>
+    <p>Launch poll to decide dates through voting & access them.</p>
 </div>
 
     
