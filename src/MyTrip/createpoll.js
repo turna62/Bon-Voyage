@@ -15,7 +15,8 @@ class CreatePoll extends React.Component{
             { id: 4, value: "" },
           ],
           tripId: props.tripId,
-          userId: props.userId
+          userId: props.userId,
+          userData: ""
         };
         this.handleSubmit = this.handleSubmit.bind(this); // to read properties of state
       }
@@ -38,6 +39,32 @@ class CreatePoll extends React.Component{
           script.onload = callback;
           document.body.appendChild(script);
         };
+
+
+        fetch("http://localhost:5000/userData",{
+          method: "POST",
+          crossDomain: true,
+          headers:{
+              "Content-Type":"application/json",
+              Accept: "application/json",
+              "Access-Control-Allow-Origin": "*",
+          },
+          body: JSON.stringify({
+              token: window.localStorage.getItem("token"),
+              userId: userId,
+          
+          }),
+      })
+      .then((res) => res.json()) // convert data into JSON
+      .then((data) => {
+          console.log(data, "userData");
+          this.setState({userData: data.data});
+          if(data.data == 'Token Expired!'){
+              alert("Token expired! Kindly login again."); 
+              window.localStorage.clear();
+              window.location.href = "./sign-in";
+          }
+      });
     
       }
       
