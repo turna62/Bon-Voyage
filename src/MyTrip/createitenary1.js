@@ -261,8 +261,8 @@ import usePlacesAutocomplete, {
         <ul class="ul">
         <li class="li"> <a href={`http://localhost:3000/overview?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}`}>Overview</a></li>
         <li class="li"> <a href={`http://localhost:3000/polls?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}`}>Polls</a></li>
-        <li class="li"> <a href={`http://localhost:3000/date?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}`}>Date</a></li>
         <li class="li"> <a href={`http://localhost:3000/destination?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}`}>Destination</a></li>
+        <li class="li"> <a href={`http://localhost:3000/date?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}`}>Date</a></li>
         <li class="li"> <a href={`http://localhost:3000/route?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}`}>Route</a></li>
         <li class="ovwli"> <a href={`http://localhost:3000/itinerary?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}`}>Itinerary</a></li>
      </ul>
@@ -275,14 +275,10 @@ import usePlacesAutocomplete, {
 
 <div class="pheadd">
 <h3>Itinerary</h3>
-<p>Add your preffered activities, location and build your suitable itinerary.</p> 
-
 </div>  
 <div class="pheadd1">
-<h3>Add Next</h3>
+<h3><i class="fa fa-lightbulb"></i>Note</h3>
 <p>Click on the 'Save' button to save the itinerary or click 'Next' button to add information of next days.</p> 
-
-<button class="pollbtn1" type="button" onClick={this.handleNext}>Next</button>
 
 </div> 
 
@@ -477,9 +473,11 @@ onInput={(e) => {
 </div>
 ))}
 
+<button class="savedesbtn1" type="button" onClick={this.handleNext}>Next</button>
+      
+      <input class="savedesbtn" type="submit" value="Save"/>
 
 
-<input class="savedesbtn" type="submit" value="Save"/>
 </form>
 </div>
 

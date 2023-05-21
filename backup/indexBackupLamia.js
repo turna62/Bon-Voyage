@@ -750,13 +750,28 @@ app.post('/joinedtrips', async (req, res) => {
   }
 });
 
-
-
-
 app.post('/createpoll', async (req, res) => {
   const { question, options, tripId, userId, addedMembers } = req.body;
   console.log(question, options, tripId, userId, addedMembers);
+ 
 
+  if (!question || question.trim() === '') {
+    return res.status(400).json({ error: "Please enter a question!" });
+  }
+  
+  const nonEmptyOptions = options.filter(option => option.value.trim() !== '');
+  if (nonEmptyOptions.length < 2) {
+    return res.status(400).json({ error: "Poll must have at least two options!" });
+  }
+  
+
+  // Check if all option values are unique
+  const optionValues = nonEmptyOptions.map(option => option.value);
+  const uniqueOptionValues = [...new Set(optionValues)];
+  if (optionValues.length !== uniqueOptionValues.length) {
+    return res.status(400).json({ error: "Poll options must have unique values!" });
+  }
+  
   const poll = new PollStart({
     question,
     //options: options.map((option) => ({ name: option, votes: 0 })), 
@@ -776,24 +791,19 @@ app.post('/createpoll', async (req, res) => {
     const savedPoll = await poll.save();
     console.log(savedPoll);
     const notification = new NotificationStart({
-      message: `${user.username} has created a poll titled "${savedPoll.question}"!`,
+      message: `${user.username} has created a poll titled: "${savedPoll.question}"!`,
         tripId: tripId,
         users: users,
         username: user.username,
         userId: userId
     });
     await notification.save();
-    res.json({ status: "OK!" });
+    res.json({ status: "OK!" , error: null});
   } catch (error) {
     console.error(error);
-    res.json({ status: "Error saving poll!" });
+    return res.status(500).json({ error: 'Server error' });
   }
 });
-
-
-
- 
-
 
 app.post('/getpolls', async (req, res) => {
   try {
@@ -1241,7 +1251,7 @@ app.post('/dvote', async (req, res) => {
 
     
     const notification = new NotificationStart({
-      message: `${user.username} has cast their vote on poll: "${poll.question}"!`,
+      message: `${user.username} has cast their vote on poll titled: "${poll.question}"!`,
         tripId: tripId,
         users: users,
         username: user.username,
@@ -1374,7 +1384,7 @@ console.log(destination, tripId);
       return res.status(404).json({ error: "Trip not found" });
     }
 
-trip.destination = destination;
+    trip.destination = destination.address; // Access the 'address' property to get the string value
 
     await trip.save(); 
 
@@ -1384,6 +1394,7 @@ trip.destination = destination;
     res.status(500).json({ status: "na!" });
   }
 });
+
 
 app.listen(port, () => {
 console.log(`Server is running on port: ${port}`);

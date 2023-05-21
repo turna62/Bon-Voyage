@@ -120,7 +120,9 @@
 
 .notifications-container ul {
   text-align: center;
+  position: relative;
 }
+
 .tmm-form-element-icon{
   color: rgb(14, 44, 44);
   font-size: 10px;
@@ -705,6 +707,7 @@ top: 200px;
   left: 270px;
   top: 5px;
   overflow-x: hidden;
+  border: 3px solid rgb(14, 44, 44);
 }
 
 .btndate:hover {
@@ -818,75 +821,6 @@ top: 200px;
   text-decoration: none;
 }
 
-.opollaunch{
-  color: rgb(14, 44, 44);
-            font-family: sans-serif;
-            position: relative;
-            bottom: 20px;
-            left: 800px;
-            height: 200px;
-            opacity: 0.5;
-}
-.obtnopnvote{
-  display: inline-block;
-  padding: 1.175rem 1.125rem 1.175rem 1.125rem;
-  border-radius: 0.25rem;
-  background-color: rgb(14, 44, 44);
-  color: #fff;
-  font: 700 0.75rem/0 "Montserrat", sans-serif;
-  text-decoration: none;
-  transition: all 0.2s;
-  font-size: 15px;
-  font-family: 'Times New Roman', Times, serif;
-  position: relative;
-  left: 800px;
-  bottom: 120px;
-  overflow-x: hidden;
-  opacity: 0.5;
-
-}
-
-.headerr .obtnopnvote {
-	margin-right: 0.5rem;
-	margin-bottom: 1.25rem;
-}
-
-.obtnopnvote:hover {
-  background-color: rgb(22, 55, 55);
-  color: #fff;
-  text-decoration: none;
-}
-.obtnclsvote{
-  display: inline-block;
-  padding: 1.175rem 1.125rem 1.175rem 1.125rem;
-  border-radius: 0.25rem;
-  background-color: rgb(14, 44, 44);
-  color: #fff;
-  font: 700 0.75rem/0 "Montserrat", sans-serif;
-  text-decoration: none;
-  transition: all 0.2s;
-  font-size: 15px;
-  font-family: 'Times New Roman', Times, serif;
-  position: relative;
-  left: 850px;
-  bottom: 120px;
-  overflow-x: hidden;
-  opacity: 0.5;
- 
-}
-
-.headerr .obtnclsvote {
-	margin-right: 0.5rem;
-	margin-bottom: 1.25rem;
-}
-
-.obtnclsvote:hover {
-  background-color: rgb(22, 55, 55);
-  color: #fff;
-  text-decoration: none;
-}
-
-/* hjbyu */
 .pollaunch{
   color: rgb(14, 44, 44);
             font-family: sans-serif;
@@ -904,7 +838,7 @@ top: 200px;
   color: rgb(14, 44, 44);
             font-family: sans-serif;
             position: relative;
-            bottom: 150px;
+            bottom: 130px;
             left: 780px;
             height: 200px;
 }
@@ -922,7 +856,7 @@ top: 200px;
   font-family: 'Times New Roman', Times, serif;
   position: relative;
   left: 840px;
-  bottom: 260px;
+  bottom: 270px;
   overflow-x: hidden;
 
 }
@@ -978,7 +912,7 @@ top: 200px;
   font-size: 15px;
   font-family: 'Times New Roman', Times, serif;
   position: relative;
-  left: 250px; 
+  left: 200px; 
   overflow-x: hidden;
   border: 3px solid rgb(14, 44, 44);
 }
@@ -989,6 +923,34 @@ top: 200px;
 }
 
 .savedesbtn:hover {
+  background-color: rgb(22, 55, 55);
+  color: #fff;
+  text-decoration: none;
+}
+.savedesbtn1{
+  display: inline-block;
+  padding: 1.175rem 1.125rem 1.175rem 1.125rem;
+  border-radius: 0.25rem;
+  background-color: rgb(14, 44, 44);
+  color: #fff;
+  font: 700 0.75rem/0 "Montserrat", sans-serif;
+  text-decoration: none;
+  transition: all 0.2s;
+  font-size: 15px;
+  font-family: 'Times New Roman', Times, serif;
+  position: relative;
+  overflow-x: hidden;
+  right: 190px;
+  border: 3px solid rgb(14, 44, 44);
+  width: 80px;
+}
+
+.headerr .savedesbtn1 {
+	margin-right: 0.5rem;
+	margin-bottom: 1.25rem;
+}
+
+.savedesbtn1:hover {
   background-color: rgb(22, 55, 55);
   color: #fff;
   text-decoration: none;
@@ -1268,10 +1230,9 @@ top: 200px;
 .icolumn {
   margin: 0 -5px;
   position: relative;
-  top: 180px;
-  right: 640px;
-  float: left;
-  width: 90%;
+  top: 90px;
+  right: 580px;
+  width: 70%;
   height: 20vh;
 }
 
@@ -1281,6 +1242,7 @@ top: 200px;
   background-color: #b4dde2;
   margin: 15px;
   border-radius: 6px;
+  border: 3px solid rgb(139, 188, 193);
 }
 
 .ibody{
@@ -1297,7 +1259,7 @@ top: 200px;
   color: rgb(14, 44, 44);
   font-family: sans-serif;
   position: relative;
-  left: 240px;
+  left: 490px;
   top: 50px;
 }
 .pheadd1 h3{
@@ -1322,8 +1284,8 @@ font-size: 19px;
   color: rgb(14, 44, 44);
   font-family: sans-serif;
   position: relative;
-  top: 40px;
-  left: 90px;
+  top: 45px;
+  left: 60px;
 }
 .combobox-iinput{
   position: relative;
@@ -1741,10 +1703,9 @@ left: 30px;
   position: relative;
   left: 120px; 
   overflow-x: hidden;
-  top: 0px;
   margin-right: 0.5rem;
   margin-bottom: 1.25rem;
-  top: 20px;
+  top: 15px;
   letter-spacing: 2px;
 } 
 
@@ -1865,7 +1826,7 @@ left: 30px;
 .quespoll1{
   position: relative;
   left: 785px;
-  bottom: 320px;
+  bottom: 300px;
   font-family: sans-serif;
   color: rgb(14, 44, 44);
   font-size: 20px;
@@ -2017,4 +1978,45 @@ left: 15px;
   .headerr .lets{
     font-size: 50px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  } 
+
+  .dateinput{
+    position: relative;
+    bottom: 190px;
   }
+  .pollaunchd{
+    color: rgb(14, 44, 44);
+              font-family: sans-serif;
+              position: relative;
+              bottom: 40px;
+              left: 780px;
+              height: 200px;
+  }
+  
+  .pollaunchd h3{
+    font-family: sans-serif;
+  }
+  
+  .btnopnvoted{
+    display: inline-block;
+    padding: 1.175rem 1.125rem 1.175rem 1.125rem;
+    border-radius: 0.25rem;
+    background-color: rgb(14, 44, 44);
+    color: #fff;
+    font: 700 0.75rem/0 "Montserrat", sans-serif;
+    text-decoration: none;
+    transition: all 0.2s;
+    font-size: 15px;
+    font-family: 'Times New Roman', Times, serif;
+    position: relative;
+    left: 840px;
+    bottom: 140px;
+    overflow-x: hidden;
+  }
+  
+  .btnopnvoted:hover {
+    background-color: rgb(22, 55, 55);
+    color: #fff;
+    text-decoration: none;
+  }
+  
