@@ -183,7 +183,7 @@ import usePlacesAutocomplete, {
               };
               this.setState({ tripData: updatedTripData });
            
-              this.form.reset();
+              //this.form.reset();
               
           } else {
             alert(`went wrong: ${data.status}`);
@@ -416,7 +416,7 @@ import usePlacesAutocomplete, {
      <div class="phead">  
          <h3>Let's fix destination</h3>
          <p>Search destinations and then select it by clicking on 'Select' button.</p> 
-         <form ref={form => this.form = form} onSubmit={(e) => this.handleSubmit(e)}>
+         <form onSubmit={(e) => this.handleSubmit(e)}>
         <Map destination={this.state.destination} setDestination={this.setDestination} />
         <input className="btndestination" type="submit" value="SELECT" />
       </form>

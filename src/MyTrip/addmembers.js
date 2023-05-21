@@ -51,14 +51,22 @@ class AddMembers extends React.Component{
           .then((res) => res.json())
           .then((data) => {
             console.log(data, "userSubmit");
-            if (data.status === "OK!") {
+            if (data.error) {
+           
+                const errorContainer = document.getElementById('error-container');
+                errorContainer.innerHTML = `<div class="alert alert-danger custom-alert" role = "alert" >${data.error}</div>`;
+                this.form.reset(); 
+              }
+            else if (data.status === "OK!") {
                 
-                alert('Invitation Successfully!');
+                const errorContainer = document.getElementById('error-container');
+                errorContainer.innerHTML = `<div class="alert alert-success custom-alert" role = "alert" >Invitation sent successfully!</div>`;
+                this.form.reset(); 
              
-                this.form.reset();
+                //this.form.reset();
 
             } else {
-              alert(`went wrong: ${data.status}`);
+              //alert(`went wrong: ${data.status}`);
             }
           })
           .catch((error) => {
@@ -100,6 +108,7 @@ class AddMembers extends React.Component{
     <div class="mainn-w3layouts wrapper">
 		<div class="mainn-agileinfo">
 			<div class="agileitss-top">
+            <div id="error-container"></div>
             <h3 class="cpoll">Share this Trip <i class="fas fa-share"></i></h3>
             <h5 class="ccpolll">Invite friends to suggest, create polls and vote on trip details.</h5> <hr></hr>
 				<form ref={form => this.form = form} onSubmit = {this.handleSubmit}>

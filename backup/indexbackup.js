@@ -5,9 +5,9 @@ const mongoose = require('mongoose');
 const fs = require('fs');
 const bodyParser = require('body-parser');
 const bcrypt = require("bcryptjs");
-//const { v4: uuidv4 } = require("uuid");
-//const axios = require('axios');
- 
+const { v4: uuidv4 } = require("uuid");
+const axios = require('axios');
+
 const crypto = require('crypto');
 const jwt = require("jsonwebtoken");
 const JWT_SECRET = "ndvbfrt6ipybmdrfpicdlrebvek@)(dd205683dnnc{mcdk]?";
@@ -198,6 +198,8 @@ app.get("/verify/:id/:token", async (req, res) => {
   }
 });
 
+
+//do
 app.post("/login_user", async(req, res) => {
     const{email, password} = req.body;
 
@@ -267,19 +269,8 @@ app.post("/tripData", async (req, res) =>{
   }
 });
 
-app.post('/tripData2', (req, res) => {
-  const { tripId } = req.body;
 
-  // Find the trip with the matching tripId
-  const trip = TripStart.find((trip) => trip.tripId === tripId);
 
-  if (!trip) {
-    return res.status(404).json({ message: 'Trip not found' });
-  }
-
-  const { startDate, endDate } = trip;
-  res.json({ startDate, endDate });
-});
 
 
 
@@ -469,13 +460,38 @@ app.post("/adddate", async (req, res) => {
 });
 
 
+app.post("/adddestination", async (req, res) => {
+  const { tripId, destination } = req.body;
+console.log(destination, tripId);
+  try {
+    
+    const trip = await TripStart.findById(tripId);
+
+    if (!trip) {
+      return res.status(404).json({ error: "Trip not found" });
+    }
+
+trip.destination = destination.address;
+
+    await trip.save();
+
+    res.status(200).json({ status: "OK!", updatedTrip: trip });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ status: "na!" });
+  }
+});
+
+
+
+//do
 app.post('/add-member', async (req, res) => {
   const { tripId, email } = req.body;
   console.log(tripId, email);
 
   // Check if the trip ID is valid
   if (!mongoose.Types.ObjectId.isValid(tripId)) {
-    return res.status(400).json({ message: 'Invalid trip ID' });
+    return res.status(400).json({error: 'Invalid trip ID' });
   }
 
   // Find the trip in the database
@@ -483,36 +499,55 @@ app.post('/add-member', async (req, res) => {
 
   // Check if the trip exists
   if (!trip) {
-    return res.status(404).json({ message: 'Trip not found' });
+    return res.status(404).json({ error: 'Trip not found' });
   }
 
  // Check if the email has already been added to the collaborators array
-  if (trip.collaborators.includes(email)) {
-    return res.status(400).json({ message: 'Email has already been invited to the trip' });
+  if (trip.pending.includes(email)) {
+    return res.status(400).json({ error: 'User has already been invited to the trip!' });
   }
+
+  if (trip.collaborators.length >= 10) {
+    return res.status(400).json({ error: 'Maximum number of invitations reached!' });
+  }
+
+  
+  if (trip.collaborators.includes(email)) {
+    return res.status(400).json({ error: 'User already added!' });
+  }
+
+  
 
   try {
 
     // Check if the user already exists in the database
     let user = await User.findOne({ email });
     let userId;
+    // if (user) {
+    //   return res.status(400).json({ error: 'You cannot invite yourself to the trip!' });
+    // }
+    
+ 
     if (!user) {
-      // Create a new user with the provided email
-      user = new User({ email });
-      await user.save();
-      userId = user._id;
+    
+      ///error message
+      return res.status(400).json({ error: 'Please enter the email addresses of verified accounts of our site!' });
     } else {
       userId = user._id;
     }
 
+    if (user._id.toString() === trip.userId.toString()) {
+      return res.status(400).json({ error: 'You cannot invite yourself to the trip!' });
+    }
+    
     // Add the trip ID to the user's trips array
     user.trips.push(tripId);
 
     // Add the user ID to the addedMembers array of the trip
-    trip.addedMembers.push(userId);
+    //trip.addedMembers.push(userId);
 
     // Add the email to the collaborators array of the trip
-    trip.collaborators.push(email);
+    trip.pending.push(email);
 
     // Add the trip ID and status to the pendingInvitations array of the user
     user.pendingInvitations.push({ tripId: tripId, status: 'pending' });
@@ -544,7 +579,7 @@ The BonVoyage! team`;
     res.status(200).json({ status: "OK!" });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ status: 'Server error' });
+    res.status(500).json({ error: 'Server error' });
   }
 });
 
@@ -605,6 +640,13 @@ app.post('/tripinvitation/accept', async (req, res) => {
     );
 
     trip.addedMembers.push(userId);
+    trip.collaborators.push(user.email);
+    const index = trip.pending.indexOf(user.email);
+if (index !== -1) {
+  trip.pending.splice(index, 1);
+}
+
+
     await trip.save();
 
     const existingNotification = await NotificationStart.findOne({ 
@@ -704,21 +746,6 @@ app.post('/tripinvitation/decline', async (req, res) => {
 
 
 
-app.get("/getDestination", async (req, res) => {
-  try {
-    // const lookDestination = await TripStart.find({});
-    const lookDestination = await TripStart.find({}).select('destination');
-    res.send({ status: "ok", data: lookDestination });
-  } catch (error) {
-    console.log(error);
-  }
-});
-
-
-
-
-
-
 app.post('/trips', async (req, res) => {
   try {
     const userId = req.body.userId;
@@ -749,13 +776,33 @@ app.post('/joinedtrips', async (req, res) => {
     res.status(500).json({ message: 'Internal server error' });
   }
 });
+ 
 
 
-
-
+//done
 app.post('/createpoll', async (req, res) => {
   const { question, options, tripId, userId, addedMembers } = req.body;
   console.log(question, options, tripId, userId, addedMembers);
+ 
+
+  if (!question || question.trim() === '') {
+    return res.status(400).json({ error: "Please enter a question!" });
+  }
+  
+  const nonEmptyOptions = options.filter(option => option.value.trim() !== '');
+  if (nonEmptyOptions.length < 2) {
+    return res.status(400).json({ error: "Poll must have at least two options!" });
+  }
+  
+
+  // Check if all option values are unique
+  const optionValues = nonEmptyOptions.map(option => option.value);
+  const uniqueOptionValues = [...new Set(optionValues)];
+  if (optionValues.length !== uniqueOptionValues.length) {
+    return res.status(400).json({ error: "Poll options must have unique values!" });
+  }
+  
+
 
   const poll = new PollStart({
     question,
@@ -776,23 +823,21 @@ app.post('/createpoll', async (req, res) => {
     const savedPoll = await poll.save();
     console.log(savedPoll);
     const notification = new NotificationStart({
-      message: `${user.username} has created a poll titled "${savedPoll.question}"!`,
+      message: `${user.username} has created a poll titled: "${savedPoll.question}"!`,
         tripId: tripId,
         users: users,
         username: user.username,
         userId: userId
     });
     await notification.save();
-    res.json({ status: "OK!" });
+    res.json({ status: "OK!" , error: null});
   } catch (error) {
     console.error(error);
-    res.json({ status: "Error saving poll!" });
+    return res.status(500).json({ error: 'Server error' });
   }
 });
 
 
-
- 
 
 
 app.post('/getpolls', async (req, res) => {
@@ -825,8 +870,8 @@ app.post('/getpollsbypollId', async (req, res) => {
   }
 });
 
- 
 
+//done
 app.post('/vote', async (req, res) => {
   const { pollId, optionId, userId , tripId} = req.body;
   console.log(tripId);
@@ -844,7 +889,7 @@ app.post('/vote', async (req, res) => {
     // Check if user has already voted
     const hasVoted = poll.votes.some((v) => v.userId.toString() === userId.toString());
     if (hasVoted) {
-      return res.status(400).json({ error: 'User has already voted' });
+      return res.status(400).json({ error: 'User has already voted!' });
     }
 
     const option = poll.options.find((o) => o.id === optionId);
@@ -852,6 +897,8 @@ app.post('/vote', async (req, res) => {
     if (!option) {
       return res.status(400).json({ error: 'Option not found' });
     }
+
+   
 
     const vote = { userId: userId, option: optionId, username: user.username };
     poll.votes.push(vote);
@@ -877,6 +924,7 @@ app.post('/vote', async (req, res) => {
 });
 
 
+//done
 app.put('/vote/change', async (req, res) => {
   const { pollId, optionId, userId, tripId } = req.body;
   
@@ -891,13 +939,25 @@ app.put('/vote/change', async (req, res) => {
 
     const existingVoteIndex = poll.votes.findIndex((v) => v.userId.toString() === userId.toString());
     if (existingVoteIndex === -1) {
-      return res.status(400).json({ error: 'User has not voted yet' });
+      return res.status(400).json({ error: "Please select an option! Reminder: You can not change other's vote!" });
     }
+
+    // if (poll.votes[existingVoteIndex].userId.toString() !== userId.toString()) {
+    //   return res.status(400).json({ error: "You can't change other's votes!" });
+    // }
 
     const existingOptionId = poll.votes[existingVoteIndex].option;
     const existingOption = poll.options.find((o) => o.id === existingOptionId);
     if (existingOption) {
       existingOption.count--; // Decrease the count for the existing option
+    }
+
+    
+   
+
+    const newOption = poll.options.find((o) => o.id === optionId);
+    if (!newOption) {
+      return res.status(400).json({ error: "Invalid option selected!" });
     }
 
     poll.votes.splice(existingVoteIndex, 1); // Remove the vote for the existing option
@@ -913,6 +973,11 @@ app.put('/vote/change', async (req, res) => {
 });
 
 
+
+
+
+
+//done
 app.put('/closepoll', async (req, res) => {
   try {
     const pollId = req.body.pollId;
@@ -939,7 +1004,8 @@ app.put('/closepoll', async (req, res) => {
       poll.closed = false; // Open the poll for voting again
       await poll.save();
 
-      return res.json({ message: 'Tie between top options. Please vote again.' });
+    
+      return res.status(400).json({ error: 'Tie between top options. Please vote again.' });
     } else {
       // Single winner or clear majority
       const finalOption = sortedOptions[0];
@@ -953,7 +1019,6 @@ app.put('/closepoll', async (req, res) => {
     return res.status(500).json({ error: 'Server error' });
   }
 });
-
 
 app.post('/getwinner', async (req, res) => {
   try {
@@ -981,7 +1046,6 @@ app.post('/getwinner', async (req, res) => {
     return res.status(500).json({ error: 'Server error' });
   }
 });
-
 
 
 app.post('/itinerary', async (req, res) => {
@@ -1019,7 +1083,7 @@ app.post('/newitinerary', async (req, res) => {
       return res.status(404).json({ message: 'Itinerary not found.' });
     }
   
-    // Append the new days to the existing days array
+    // append the new days to the existing days array
     itinerary.days = itinerary.days.concat(days.map((day) => ({
       description: day.description,
       activities: day.activities,
@@ -1137,16 +1201,24 @@ app.put('/notifications/read', async (req, res) => {
   }
 });
 
-/// destination poll //lamia
-
+//do
 app.post('/dcreatepoll', async (req, res) => {
-  const { question, options, tripId, userId, addedMembers } = req.body;
-  console.log(options, tripId, userId, addedMembers);
+  const { options, tripId, userId, addedMembers, question } = req.body;
+  console.log(options, tripId, userId, addedMembers, question);
+
+
+ 
 
   try {
     const trip = await TripStart.findById(tripId);
     const users = trip.addedMembers;
     const user = await User.findById(userId);
+
+    // const existingPoll = await DPollStart.findOne({ tripId });
+    // if (existingPoll) {
+    //   res.json({ status: "Poll already exists!" });
+    //   return;
+    // }
 
     const poll = new DPollStart({
       options: options.map((option, index) => ({ value: option, id: index, count: 0 })),
@@ -1157,6 +1229,7 @@ app.post('/dcreatepoll', async (req, res) => {
 
     const savedPoll = await poll.save();
     console.log(savedPoll);
+
 
     const notification = new NotificationStart({
       message: `${user.username} has created a poll titled: ${savedPoll.question} to select a destination!`,
@@ -1175,6 +1248,8 @@ app.post('/dcreatepoll', async (req, res) => {
   }
 });
 
+
+
 //getpoll destination
 
 app.post('/dgetpolls', async (req, res) => {
@@ -1183,6 +1258,7 @@ app.post('/dgetpolls', async (req, res) => {
     // Find all trips created by the specified user
     const polls = await DPollStart.find({ tripId: tripId });
 
+    console.log(polls);
     // Send the retrieved trips data as a response
     res.send({ status: "OK!", polls: polls });
   } catch (error) {
@@ -1206,7 +1282,7 @@ app.post('/dgetpollsbypollId', async (req, res) => {
 });
 
 /// destination voting part
-
+//do
 app.post('/dvote', async (req, res) => {
   const { pollId, optionId, userId , tripId} = req.body;
   console.log(tripId);
@@ -1256,6 +1332,8 @@ app.post('/dvote', async (req, res) => {
   }
 });
 
+
+//do
 app.put('/dclosepoll', async (req, res) => {
   try {
     const pollId = req.body.pollId;
@@ -1325,66 +1403,6 @@ app.post('/dgetwinner', async (req, res) => {
     return res.status(500).json({ error: 'Server error' });
   }
 });
-
-app.put('/vote/dchange', async (req, res) => {
-  const { pollId, optionId, userId, tripId } = req.body;
-  
-  try {
-    const poll = await DPollStart.findById(pollId);
-    const trip = await TripStart.findById(tripId);
-    const user = await User.findById(userId);
-
-    if (!poll) {
-      return res.status(404).json({ error: 'Poll not found' });
-    }
-
-    const existingVoteIndex = poll.votes.findIndex((v) => v.userId.toString() === userId.toString());
-    if (existingVoteIndex === -1) {
-      return res.status(400).json({ error: 'User has not voted yet' });
-    }
-
-    const existingOptionId = poll.votes[existingVoteIndex].option;
-    const existingOption = poll.options.find((o) => o.id === existingOptionId);
-    if (existingOption) {
-      existingOption.count--; // Decrease the count for the existing option
-    }
-
-    poll.votes.splice(existingVoteIndex, 1); // Remove the vote for the existing option
-
-    await poll.save();
-
-  
-    res.json({ message: 'Vote changed successfully!' }); 
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: 'Server error' });
-  }
-});
-
-///add destination
-
-app.post("/adddestination", async (req, res) => {
-  const { tripId, destination } = req.body;
-console.log(destination, tripId);
-  try {
-    
-    const trip = await TripStart.findById(tripId);
-
-    if (!trip) {
-      return res.status(404).json({ error: "Trip not found" });
-    }
-
-    trip.destination = destination.address; // Access the 'address' property to get the string value
-
-    await trip.save(); 
-
-    res.status(200).json({ status: "OK!", updatedTrip: trip });
-  } catch (error) {
-    console.log(error);
-    res.status(500).json({ status: "na!" });
-  }
-});
-
 
 app.listen(port, () => {
 console.log(`Server is running on port: ${port}`);

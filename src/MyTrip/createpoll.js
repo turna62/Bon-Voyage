@@ -138,7 +138,7 @@ class CreatePoll extends React.Component{
    
 			<div class="agileitss-top">
 
-      <div id="error-container"></div>
+     
             <h3 class="cpoll">Create Poll</h3><hr></hr>
             <h5 class="ccpoll">Write a custom question with up to 05 answers travelers can choose from.</h5>
 				<form ref={form => this.form = form} onSubmit={(e) => this.handleSubmit(e, this.props.isTripOwner)}>
@@ -228,10 +228,11 @@ class CreatePoll extends React.Component{
   }
 /> 
 
-
+<div id="error-container"></div>
 
                     <input class="inputsubmitt" type="submit" value="LAUNCH POLL"/>
 
+                   
 				</form>
 
 				<p class="back1"><a href="http://localhost:3000/polls?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}"><u>Back</u> </a></p>
