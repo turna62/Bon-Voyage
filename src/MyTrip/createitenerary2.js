@@ -275,14 +275,10 @@ import usePlacesAutocomplete, {
 
 <div class="pheadd">
 <h3>Itinerary</h3>
-<p>Add your preffered activities, location and build your suitable itinerary.</p> 
-
 </div>  
-<div class="pheadd1">
-<h3>Add Next</h3>
+<div class="pheadd1"><h3><i class="fa fa-lightbulb"></i>Note</h3>
 <p>Click on the 'Save' button to save the itinerary or click 'Next' button to add information of next days.</p> 
 
-<button class="pollbtn1" type="button" onClick={this.handleNext}>Next</button>
 
 </div> 
 
@@ -453,7 +449,7 @@ onChange={(e) => {
 
   this.setState({ days: updatedDays });
 }}
-/>
+/> 
 <span className="activitiespan">Wildlife Safari</span>
 </label>
 
@@ -477,9 +473,10 @@ onInput={(e) => {
 </div>
 ))}
 
+<button class="savedesbtn1" type="button" onClick={this.handleNext}>Next</button>
+      
+      <input class="savedesbtn" type="submit" value="Save"/>
 
-
-<input class="savedesbtn" type="submit" value="Save"/>
 </form>
 </div>
 

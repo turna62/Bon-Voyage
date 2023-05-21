@@ -259,7 +259,7 @@ import usePlacesAutocomplete, {
         <li class="ovwli"> <a href={`http://localhost:3000/itinerary?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}`}>Itinerary</a></li>
      </ul>
 
-     </div>
+     </div> 
 
      
 
@@ -267,14 +267,11 @@ import usePlacesAutocomplete, {
 
      <div class="pheadd">
     <h3>Itinerary</h3>
-<p>Add your preffered activities, location and build your suitable itinerary.</p> 
-
 </div>  
 <div class="pheadd1">
-    <h3>Note</h3> 
+<h3><i class="fa fa-lightbulb"></i>Note</h3>
 <p>Click on the 'Save' button to save the itinerary or click 'Next' button to add information of next days.</p> 
 
-<button class="pollbtn1" type="button" onClick={this.handleNext}>Next</button>
 
 </div> 
 
@@ -469,7 +466,7 @@ import usePlacesAutocomplete, {
   </div>
 ))}
 
-
+<button class="savedesbtn1" type="button" onClick={this.handleNext}>Next</button>
       
       <input class="savedesbtn" type="submit" value="Save"/>
       </form>
