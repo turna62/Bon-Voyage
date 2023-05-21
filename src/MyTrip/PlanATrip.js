@@ -102,10 +102,9 @@ import React from 'react';
                 <li class="nav-item">
                     <a class="nav-link page-scroll" href="http://localhost:3000"><i class="fa fa-home"></i> HOME <span class="sr-only">(current)</span></a>
                 </li>
-                
                 <li class="nav-item">
-                            <a class="nav-link page-scroll" href={`http://localhost:3000/myprofile?userId=${encodeURIComponent(this.state.userId)}`}><i class='fas fa-user-circle'></i> {this.state.userData.username}</a>
-                        </li>
+                            <a class="nav-link page-scroll" href={`http://localhost:3000/myprofile?userId=${encodeURIComponent(this.state.userId)}`}> <i class='fas fa-user-circle'></i> <span class="username">{this.state.userData.username}</span>
+</a> </li>
 
                         <li class="nav-item">
                     <a class="nav-link page-scroll" href="http://localhost:3000/sign-in"><i class="fa fa-sign-out"></i> LOG OUT <span class="sr-only">(current)</span></a>

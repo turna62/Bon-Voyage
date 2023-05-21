@@ -50,6 +50,10 @@
 
 }
 
+.username {
+  text-transform: uppercase;
+}
+
 
 .option-label input[type="radio"] {
   border: 2px solid rgb(14, 44, 44);

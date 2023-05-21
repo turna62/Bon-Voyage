@@ -219,8 +219,8 @@ import usePlacesAutocomplete, {
                         </li>
                         
                         <li class="nav-item">
-                            <a class="nav-link page-scroll" href={`http://localhost:3000/myprofile?userId=${encodeURIComponent(this.state.userId)}`}> <i class='fas fa-user-circle'></i>  {this.state.userData.username}</a>
-                        </li>
+                            <a class="nav-link page-scroll" href={`http://localhost:3000/myprofile?userId=${encodeURIComponent(this.state.userId)}`}> <i class='fas fa-user-circle'></i> <span class="username">{this.state.userData.username}</span>
+</a> </li>
                         <li class="nav-item">
                             <a class="nav-link page-scroll" href={`http://localhost:3000/planatrip?userId=${encodeURIComponent(this.state.userId)}`}> <i class="fas fa-umbrella-beach"></i> NEW TRIP</a>
                         </li>
