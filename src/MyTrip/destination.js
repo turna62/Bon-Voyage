@@ -284,6 +284,10 @@ import usePlacesAutocomplete, {
                         <li class="nav-item">
                             <a class="nav-link page-scroll" href={`http://localhost:3000/myprofile?userId=${encodeURIComponent(this.state.userId)}`}> <i class='fas fa-user-circle'></i> MY PROFILE</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link page-scroll" href={`http://localhost:3000/planatrip?userId=${encodeURIComponent(this.state.userId)}`}> <i class="fas fa-umbrella-beach"></i> NEW TRIP</a>
+                        </li>
+                        
 
                         <li class="nav-item">
                             <a class="nav-link page-scroll" href="#intro"><i class="fa fa-sign-out"></i> LOG OUT</a>
@@ -478,6 +482,10 @@ import usePlacesAutocomplete, {
                         <li class="nav-item">
                             <a class="nav-link page-scroll" href={`http://localhost:3000/myprofile?userId=${encodeURIComponent(this.state.userId)}`}> <i class='fas fa-user-circle'></i> MY PROFILE</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link page-scroll" href={`http://localhost:3000/planatrip?userId=${encodeURIComponent(this.state.userId)}`}> <i class="fas fa-umbrella-beach"></i> NEW TRIP</a>
+                        </li>
+                        
                         <li class="nav-item">
                             <a class="nav-link page-scroll" href="#intro"><i class="fa fa-sign-out"></i> LOG OUT</a>
                         </li>
