@@ -86,21 +86,28 @@ class CreatePollD extends Component {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data, "pollSubmit");
-        if (data.status === "OK!") {
-          alert("Poll created!");
-          console.log(tripId);
-          window.location.href = `http://localhost:3000/destination?userId=${encodeURIComponent(
-                this.state.userId
-              )}&tripId=${encodeURIComponent(this.state.tripId)}`;
-         
-        } else {
-          alert(`went wrong: ${data.status}`);
+       // console.log(data, "pollSubmit");
+        if (data.error) {
+           
+          const errorContainer = document.getElementById('error-container1');
+          errorContainer.innerHTML = `<div class="alert alert-danger custom-alert1" role = "alert" >${data.error}</div>`;
+          this.form.reset(); 
         }
-      })
+          
+          else if (data.status === "OK!") {
+            //alert("Poll created successfully!");
+            console.log(tripId);
+            window.location.href = `http://localhost:3000/destination?userId=${encodeURIComponent(
+              this.state.userId
+            )}&tripId=${encodeURIComponent(this.state.tripId)}`;
+          } else {
+            alert(`went wrong: ${data.status}`);
+            this.form.reset();
+          }
+        })
       .catch((error) => {
         console.error(error);
-        alert("Error! Something went wrong while calling the API.");
+        //alert("Error! Something went wrong while calling the API.");
       });
   }
  
@@ -132,10 +139,14 @@ class CreatePollD extends Component {
               <h5 className="ccpoll1">Add up to four places to create a poll and vote to finalize the destination.</h5>
               <form  onSubmit={(e) => this.handleSubmit(e, this.props.isTripOwner)}>
                 <h5 className="ccpll1">Add up to 04 places:</h5>
-                <Map options={this.state.options} setOptions={this.setOptions} />                
+                <Map options={this.state.options} setOptions={this.setOptions} />    
+                <div id="error-container1"></div>     
                 <input className="btncdestination" type="submit" value="LAUNCH POLL" />
+                
               </form>
+           
               <p className="back">
+             
                 <a href={`http://localhost:3000/destination?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}`}>
                   <u>Back</u>
                 </a>

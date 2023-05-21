@@ -142,13 +142,12 @@ import '../Home/HomeCss/styles.css';
         });
   }
 
- 
   handleSubmit(e) {
     e.preventDefault();
     const selectedOption = document.querySelector('input[name="count"]:checked');
     if (!selectedOption) {
-      alert('Please select an option');
-      return;
+      const errorContainer = document.getElementById('error-container');
+          errorContainer.innerHTML = `<div class="alert alert-danger custom-alert" role = "alert" >Please select an option!</div>`;
     }
     const selectedOptionId = parseInt(selectedOption.value, 10);
     console.log(selectedOptionId);
@@ -176,7 +175,13 @@ import '../Home/HomeCss/styles.css';
     })
       .then((res) => res.json())
       .then((data) => {
-        if (data._id === pollId) {
+        if (data.error) {
+       
+          const errorContainer = document.getElementById('error-container');
+          errorContainer.innerHTML = `<div class="alert alert-danger custom-alert" role = "alert" >${data.error}</div>`;
+          
+        }
+        else if (data._id === pollId) {
           if (data.finalResult) {
             this.setState({
               finalResult: data.finalResult,
@@ -190,80 +195,131 @@ import '../Home/HomeCss/styles.css';
         }
       })
       .catch((error) => {
-        console.error(error);
-        alert("An error occurred while submitting your vote");
+        //console.error(error);
+        //alert("An error occurred while submitting your vote");
       });
   }
 
   handleClosePoll() {
-    const confirmClose = window.confirm('Are you sure you want to close this poll? This action will close the poll for everyone on your trip & prevent further voting & set the result as final destination.');
-
+    const confirmClose = window.confirm('Are you sure you want to close this poll? This action will close the poll for everyone on your trip & prevent further voting & set the final result as destination.');
+  
     const { pollId } = this.state;
-    //const { finalResult } = this.state;
-  if (confirmClose){
-    fetch(`http://localhost:5000/dclosepoll`, {
-      method: 'PUT',
-      crossDomain: true,
-      headers: {
-        'Content-Type': 'application/json',
-        Accept: 'application/json',
-        'Access-Control-Allow-Origin': '*',
-      },
-      body: JSON.stringify({
-        pollId: pollId,
-      }),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        // Handle the response
-        console.log(data);
-        if (data.message === 'Final result') {
-          //this.setState({ winner: data.winner });
-          window.location.href = `http://localhost:3000/dpollresult?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}&pollId=${encodeURIComponent(this.state.pollId)}`;
-        }
+  
+    if (confirmClose) {
+      fetch(`http://localhost:5000/dclosepoll`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          pollId: pollId,
+        }),
       })
-    
-      
-      .catch((error) => {
-        console.error(error);
-        alert('An error occurred while closing the poll');
-      });
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.error) {
+            const errorContainer = document.getElementById('error-container');
+            errorContainer.innerHTML = `<div class="alert alert-danger custom-alert" role="alert">${data.error}</div>`;
+          } else if (data.message === 'Final result') {
+            // Handle final result, redirect or display messages as needed
+            //this.setState({ winner: data.winner });
+            window.location.href = `http://localhost:3000/dpollresult?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}&pollId=${encodeURIComponent(this.state.pollId)}`;
+          }
+        })
+        .catch((error) => {
+          console.error(error);
+          alert('An error occurred while closing the poll');
+        });
     }
   }
 
+ 
   handleEdit = () => {
     const selectedOption = document.querySelector('input[name="count"]:checked');
     if (!selectedOption) {
-      alert('Please select an option');
-      return;
+      const errorContainer = document.getElementById('error-container');
+          errorContainer.innerHTML = `<div class="alert alert-danger custom-alert" role = "alert" >Please select an option!</div>`;
     }
     const selectedOptionId = parseInt(selectedOption.value, 10);
     console.log(selectedOptionId);
-    const { pollId, userId, tripId } = this.state; // Assuming you have the required data in the component's state
-    
-    fetch(`http://localhost:5000/vote/dchange`, {
+    const { pollId, userId, tripId } = this.state; // 
+  
+    fetch(`http://localhost:5000/dvote/change`, {
       method: 'PUT',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify({
         pollId: pollId,
         optionId: selectedOptionId,
         userId: userId,
-        tripId: tripId
+        tripId: tripId,
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.error) {
+       
+          const errorContainer = document.getElementById('error-container');
+          errorContainer.innerHTML = `<div class="alert alert-danger custom-alert" role = "alert" >${data.error}</div>`;
+          
+        }
+        
+        // Handle the response message
+       // alert(data.message); // Display the response message to the user
+        
+    fetch(`http://localhost:5000/dgetpollsbypollId`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        pollId: pollId
       })
     })
-    .then((res) => res.json())
-    .then((data) => {
-      // Handle the response message
-      alert(data.message); // Display the response message to the user
-    })
+      .then((res) => res.json())
+      .then((data) => {
+        // Check if the response is successful
+        if (data.status === 'OK!') {
+          // Access the retrieved polls data
+          const polls = data.polls;
+
+          // Find the poll with the matching pollId
+          const poll = polls.find((p) => p._id === pollId);
+          if (poll) {
+            // Find the option with the matching optionId
+            const option = poll.options.find((o) => o.id === selectedOptionId);
+            if (option) {
+              // Update the count of the selected option
+       
+
+              // Update the state with the updated count
+              this.setState({ options: [...poll.options] });
+            } else {
+              console.error('Option not found');
+              alert('An error occurred while updating the vote count');
+            }
+          } else {
+            console.error('Poll not found');
+            alert('An error occurred while updating the vote count');
+          }
+        } else {
+          // Handle the error response
+          console.error(data.message);
+          alert('An error occurred while retrieving poll data');
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+        alert('An error occurred while fetching poll data');
+      });
+  
+      })
       .catch((error) => {
         console.error(error);
         alert('An error occurred while editing the vote');
       });
   };
-  
   
   
 
@@ -333,6 +389,7 @@ render(){
     <div className="pollbodyy">
     
       <div className="wrapperr">
+      <div id="error-container"></div>
         <header>{question}</header>
         <div className="poll-area">
           {/* <ul>{pollOptions}</ul> */}
