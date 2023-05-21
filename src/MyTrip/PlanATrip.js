@@ -1,6 +1,7 @@
 import React from 'react';
  import '../Home/HomeCss/styles.css';
  import'./css/tooplate-style.css';
+ import './mytrip.css';
  
  class TripPlan extends React.Component{
     constructor (props){
