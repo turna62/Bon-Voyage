@@ -63,7 +63,7 @@ constructor(props) {
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link page-scroll" href="#intro"><i class="fa fa-sign-out"></i> LOG OUT
+                  <a className="nav-link page-scroll" href="http://localhost:3000/sign-in"><i class="fa fa-sign-out"></i> LOG OUT
                   </a>
                 </li>
               </ul>
