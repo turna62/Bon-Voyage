@@ -31,7 +31,7 @@ function Search() {
                         </li>
         
                         <li class="nav-item">
-                            <a class="nav-link" href="http://localhost:3000/sign-up"><i class="fa fa-sign-up"></i> SIGN UP</a>
+                            <a class="nav-link" href="http://localhost:3000/sign-up"><i class="fa fa-sign-in"></i> SIGN UP</a>
                             
                         </li>
 
@@ -129,66 +129,6 @@ function Search() {
 
 
 
-
-                    <div class="mt-3">
-                        
-  <a data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" class="advanced">
-    Advance Search With Filters <i class="fa fa-angle-down"></i>
-  </a>
- 
-
-<div class="collapse" id="collapseExample">
-  <div class=" cardss card card-body">
-      
-     <div class="rown row">
-
-        <div class="col-md-4">
-                        <p class="filterhead">Location Type</p>
-                         <select class="inputs form-control" id="exampleFormControlSelect1" placeholder="Search by Type">
-                                        <option></option>
-                                        <option>Hills</option>
-                                        <option>Beach</option>
-                                        <option>Countryside</option>
-                         </select>            
-        </div>
-
-
-        <div class="col-md-4">
-        <p class="filterhead">Spots</p>
-
-        <select class="inputs form-control" id="exampleFormControlSelect1" placeholder="Search by Type">
-                                        <option></option>
-                                        <option>Inani</option>
-                                        <option>Shugondha</option>
-                                        <option>Kolatoli</option>
-                         </select>
-
-            {/* <input type="text" class="inputs form-control" placeholder="Search by Activities"/> */}
-            
-        </div>
-         
-
-         <div class="col-md-4">
-         <p class="filterhead">Activities</p>
-
-         <select class="inputs form-control" id="exampleFormControlSelect1" placeholder="Search by Type">
-                                        <option></option>
-                                        <option>Horse Riding</option>
-                                        <option>Paragliding</option>
-                                        <option>Bungee Jumping</option>
-                                        <option>Hiking</option>
-                         </select>
-
-            {/* <input type="text" class="inputs form-control" placeholder="Search by District"/> */}
-            
-        </div>
-         
-     </div>
-
-  </div>
-</div>
-
-                    </div>
 
             
                 </div>

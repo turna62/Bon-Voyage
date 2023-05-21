@@ -99,7 +99,7 @@ class TripSection extends React.Component {
            </div>
       </nav>
  
-      <h2 class="thead">My Trips  <h5 class="thead1">To see the details of the trips, click on the trip name.</h5> </h2>
+      <h2 class="thead">My Trips <i class="fas fa-globe-asia"></i>  <h5 class="thead1">To see the details of the trips, click on the trip name.</h5> </h2>
 
       <div class="trips">
 <div class="tcreated">
@@ -116,11 +116,7 @@ class TripSection extends React.Component {
     );
   })}
 </p>
-</div>
 
-
-   <div class="tjoined">    
-  
         <h4>Joined Trips: ({joinedTrips.filter(trip => !trip.deleted).length})</h4>
         <hr class="hr1"></hr>
         <p class="joinedtrip">

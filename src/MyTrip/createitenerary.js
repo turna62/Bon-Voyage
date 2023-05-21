@@ -285,13 +285,7 @@ import usePlacesAutocomplete, {
   <div class="irow">
     <div class="icard">
       <form  onSubmit = {this.handleSubmit}>
-    
-      {/* {/* 
-<div>
-    <label htmlFor="spots">Spots:</label>
-    <Map />
-  </div> */}
-      
+   
       {this.state.days.map((day, index) => (
   <div key={index}>
     <p htmlFor={`day${index}`}><b>Day:&nbsp; </b>
