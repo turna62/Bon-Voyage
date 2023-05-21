@@ -90,21 +90,13 @@ import usePlacesAutocomplete, {
         .then((res) => res.json()) // convert data into JSON
         .then((data) => {
             console.log(data, "tripData");
-        //     this.setState({tripData: data.data});
-        //     if(data.data == 'Token Expired!'){
-        //         alert("Token expired! Kindly login again."); 
-        //         window.localStorage.clear();
-        //         window.location.href = "./sign-in";
-        //     }
-        // });
-        if (data.data === 'Token Expired!') {
-          alert("Token expired! Kindly login again.");
-          window.localStorage.clear();
-          window.location.href = "./sign-in";
-        } else {
-          this.setState({ tripData: data.data });
-        }
-      });
+            this.setState({tripData: data.data});
+            if(data.data == 'Token Expired!'){
+                alert("Token expired! Kindly login again."); 
+                window.localStorage.clear();
+                window.location.href = "./sign-in";
+            }
+        });
 
         fetch("http://localhost:5000/userData",{
             method: "POST",
@@ -237,14 +229,15 @@ import usePlacesAutocomplete, {
           .catch((error) => console.error(error));
       };
 
-      render() {
-        const { tripData, myPolls } = this.state;
-        console.log('tripData:', tripData);
-        console.log('myPolls:', myPolls);
-       
-        if (tripData && tripData.destination) {
-          return (
-            <div class="deetailplan">
+    render(){
+    
+      const { myPolls } = this.state;
+  const { tripData } = this.state;
+  console.log('tripData:', tripData); 
+  if (tripData.destination) {
+    
+    return (
+      <div class="deetailplan">
 
          <nav class="navbar navbar-expand-md navbar-dark navbar-custom fixed-top">
                 <h3 class="logo"><i class="fa fa-anchor"></i> Bon VOYAGE!</h3>
@@ -333,105 +326,12 @@ import usePlacesAutocomplete, {
           </div>
      </div></div>
      </div>  
-          );
-        } else if (myPolls.length > 0 && myPolls[0].winner) {
-          return (
 
-            <div class="deetailplan">
+     
+    );
+  } else {
 
-         <nav class="navbar navbar-expand-md navbar-dark navbar-custom fixed-top">
-                <h3 class="logo"><i class="fa fa-anchor"></i> Bon VOYAGE!</h3>
-                <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-                    <ul class="navbar-nav ml-auto">
-
-                    <li class="nav-item">
-                        
-
-                        <a class="nav-link page-scroll">
-  <button onClick={this.updateAllIsRead}>
-    <span class="notif-icon">
-      <i class="fas fa-bell"></i>
-      {this.state.notifsData.filter(notif => !notif.isRead).length > 0 && (
-        <span class="notif-count">
-          {this.state.notifsData.filter(notif => !notif.isRead).length}
-        </span>
-      )}
-    </span>
-  </button>
-</a> 
-<div class="notifications-container">
-  <ul>
-    {this.state.notifsData.map((notif, index) => (
-      <li key={index}>
-        <p>{notif.message}</p>
-        <p>{notif.createdAt}</p>
-      </li>
-    ))}
-  </ul>
-</div>
-</li>
-                    <li class="nav-item">
-                            <a class="nav-link page-scroll" href="http://localhost:3000"><i class="fa fa-home"></i> HOME <span class="sr-only">(current)</span></a>
-                        </li>
-                      
-                        <li class="nav-item">
-                            <a class="nav-link page-scroll" href={`http://localhost:3000/myprofile?userId=${encodeURIComponent(this.state.userId)}`}> <i class='fas fa-user-circle'></i> MY PROFILE</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link page-scroll" href="#intro"><i class="fa fa-sign-out"></i> LOG OUT</a>
-                        </li>
-                       
-                        
-                  </ul>
-
-              </div>
-         </nav>
-
-         <header id="header" class="headerr">
-                <div class="header-content">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-12">
-                            <div class="text-container">
-                                    <h1 ><div class="lets">Let's Plan,</div><div class="js-rotating"> {this.state.userData.username}!</div></h1>
-                                </div>
-                            </div> 
-                        </div> 
-                    </div>
-                </div> 
-            </header> 
-
-
-     <div>
-
-        <h4 class="tripname">{this.state.tripData.tripName}</h4><hr></hr>
-        <a class="btnaddmembers" href={`http://localhost:3000/addmembers?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}`}>+ Add Members</a>
-
-        <ul class="ul">
-        <li class="li"> <a href={`http://localhost:3000/overview?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}`}>Overview</a></li>
-        <li class="li"> <a href={`http://localhost:3000/polls?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}`}>Polls</a></li>
-        <li class="li"> <a href={`http://localhost:3000/date?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}`}>Date</a></li>
-        <li class="ovwli"> <a href={`http://localhost:3000/destination?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}`}>Destination</a></li>
-        <li class="li"> <a href={`http://localhost:3000/route?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}`}>Route</a></li>
-        <li class="li"> <a href={`http://localhost:3000/itinerary?userId=${encodeURIComponent(this.state.userId)}&tripId=${encodeURIComponent(this.state.tripId)}`}>Itinerary</a></li>
-     </ul>
-
-     </div>  
-{/* 
-            <div className="detailplan">
-              Finalized destination: {myPolls[0].winner}
-            </div> */}
-            <div class="datebody">
-      <div class="datefetch">
-     <h4 class="desfinalhead"><i class="fas fa-map-marker-alt"></i> Final Destination:</h4>
-     <div class="fetchdes"><p><b>{myPolls[0].winner} </b></p>
-          </div>
-     </div></div>
-            </div>
-          );
-        } else {
-          return(
+        return(
             <div class="deetailplan">
 
          <nav class="navbar navbar-expand-md navbar-dark navbar-custom fixed-top">
@@ -618,9 +518,8 @@ import usePlacesAutocomplete, {
         );
 
     }
-        }
-      }
-    
+  }
+}
 
 function Map({ destination, setDestination, setSelected }) {
 

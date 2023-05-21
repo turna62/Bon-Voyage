@@ -25,7 +25,7 @@ export default function LogIn(props) {
       .then((data) => {
         console.log(data, 'userRegister');
         if (data.status === 'OK!') {
-          alert('Logged In Successfully!');
+         // alert('Logged In Successfully!');
           window.localStorage.setItem('token', data.data); // storing token in data
           window.localStorage.setItem('loggedIn', true);
           window.localStorage.setItem('userId', data.userId);
