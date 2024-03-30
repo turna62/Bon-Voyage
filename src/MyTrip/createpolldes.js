@@ -255,7 +255,7 @@ class CreatePollD extends Component {
 function Map({options, setOptions  }) {
 
   const { isLoaded } = useLoadScript({
-    googleMapsApiKey: "AIzaSyAz2_MkHBuMmmgsKwwVnp1tF-qOVm0B9Oo",
+    googleMapsApiKey: "",
     libraries: ["places"],
   });
 

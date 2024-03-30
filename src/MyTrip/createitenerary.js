@@ -491,7 +491,7 @@ import usePlacesAutocomplete, {
                 const [selectedSpots, setSelectedSpots] = useState([]);
               
                 const { isLoaded } = useLoadScript({
-                  googleMapsApiKey: "AIzaSyAz2_MkHBuMmmgsKwwVnp1tF-qOVm0B9Oo",
+                  googleMapsApiKey: "",
                   libraries: ["places"],
                 });
               

@@ -195,7 +195,7 @@ class Places extends React.Component {
             }
         });
          
-    const apiKey = "AIzaSyAz2_MkHBuMmmgsKwwVnp1tF-qOVm0B9Oo";
+    const apiKey = "";
     loadScript(
       `https://maps.googleapis.com/maps/api/js?key=${apiKey}&libraries=places&callback=initMap`,
       () => {

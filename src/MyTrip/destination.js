@@ -638,7 +638,7 @@ function Map({ destination, setDestination, setSelected }) {
 
 
   const { isLoaded } = useLoadScript({
-    googleMapsApiKey: "AIzaSyAz2_MkHBuMmmgsKwwVnp1tF-qOVm0B9Oo",
+    googleMapsApiKey: "",
     libraries: ["places"],
   });
 
