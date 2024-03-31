@@ -1,70 +1,45 @@
-# Getting Started with Create React App
+## Course Title: Design Project II (SPL-2)
+## Course Code: SWE4404
+## Project Title: Bon Voyage! 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Team Members:
+1. Shaira Sadia Karim, ID: 200042122
+2. Lamia Alam, ID: 200042162
+3. Tasnia Tasneem, ID: 200042154
+## Overview:
+Bon Voyage! is a MERN-based website centered around Bangladesh that will assist people to plan a trip according to their preferences.
 
-## Available Scripts
+## Motivation:
+- Clearing confusions regarding trip planning.
+- Lessening the hassle of managing a group trip.
+- Making a well-organized platform for trip-planning.
 
-In the project directory, you can run:
 
-### `npm start`
+## Key Features:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+1. Profile Creation: A user can sign up using email and password. Later, verification process will be carried out by sending a verification link via email.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+2. Collaboration: A user can collaborate with friends or travel companions by inviting them through invitation links sent via email to contribute ideas, suggest activities, and make changes to the trip itinerary in real-time.
 
-### `npm test`
+3. Polls & Voting: A user can create polls to gather opinions and preferences from group members regarding various aspects of the trip, such as destination choices, activity preferences. A user can vote on those poll options and see real-time results to help make collective decisions on trip planning.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+4. Showing Routes: Integration with Google Maps will display route information, distance and estimated travel times.
 
-### `npm run build`
+5. Search & Filter: A user can search for diffferent spots in Bangladesh by different keywords and filter using filters.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+6. Notification System: A notification system to keep users informed about important updates, such as new polls from collaborator, new collaborators, or changes to the itinerary.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+7. Making & Downloading An Itinerary: A user can create detailed trip itineraries by adding spots, activities, days, descriptionsfor each planned activity or event. 
+A user can download their completed itineraries in PDF format for offline access or sharing with travel companions.
+   
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Platforms & Technologies:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<a href="https://www.mongodb.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original-wordmark.svg" alt="mongodb" width="40" height="40"/> </a><a href="https://expressjs.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/express/express-original-wordmark.svg" alt="express" width="40" height="40"/> </a><a href="https://reactjs.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" alt="react" width="40" height="40"/> </a> <a href="https://nodejs.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original-wordmark.svg" alt="nodejs" width="40" height="40"/> </a>  <a href="https://www.w3.org/html/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="html5" width="40" height="40"/> </a> <a href="https://www.w3schools.com/css/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="css3" width="40" height="40"/> </a> <a href="https://git-scm.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="git" width="40" height="40"/> </a>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+ 
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
